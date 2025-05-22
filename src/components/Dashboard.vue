@@ -12,9 +12,8 @@
       {{ clubs[teamId]?.name || teamId }}
     </h1>
 
-    
     <h2 class="mt-5">Standings</h2>
-    <div v-for="leagueId in leaguesForTeam" :key="'standings-' + leagueId + teamId" class="mb-4">
+    <div v-for="leagueId in filteredLeaguesForTeam" :key="'standings-' + leagueId + teamId" class="mb-4">
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="standings[leagueId] && standings[leagueId][teamId]">
@@ -29,9 +28,8 @@
       </div>
     </div>
 
-
     <h2 class="mt-5">Upcoming Matches</h2>
-    <div v-for="leagueId in leaguesForTeam" :key="'schedule-' + leagueId" class="mb-4">
+    <div v-for="leagueId in filteredLeaguesForTeam" :key="'schedule-' + leagueId" class="mb-4">
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="scheduleByLeague[leagueId]?.length">
@@ -49,7 +47,7 @@
     </div>
 
     <h2 class="mt-5">Results</h2>
-    <div v-for="leagueId in leaguesForTeam" :key="'results-' + leagueId" class="mb-4">
+    <div v-for="leagueId in filteredLeaguesForTeam" :key="'results-' + leagueId" class="mb-4">
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="resultsByLeague[leagueId]?.length">
@@ -72,74 +70,71 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, onMounted } from 'vue';
 import StandingsTable from './StandingsTable.vue';
 import MatchCard from './MatchCard.vue';
 import ResultCard from './ResultCard.vue';
+import { useSavedLeagues } from '../utils/useSavedLeagues';
 
-export default {
-  props: {
-    clubs: Object,
-    standings: Object,
-    schedule: Array,
-    results: Array,
-    leagues: Object,  // <--- Add leagues prop here
-  },
-  components: { StandingsTable, MatchCard, ResultCard },
-  data() {
-    return {
-      teamId: null,
-    };
-  },
-  computed: {
-    leaguesForTeam() {
-      if (!this.teamId || !this.standings) return [];
-      return Object.entries(this.standings)
-        .filter(([leagueId, teams]) => teams.hasOwnProperty(this.teamId))
-        .map(([leagueId]) => leagueId);
-    },
+const props = defineProps({
+  standings: { type: Object, required: true },
+  results: { type: Array, required: true },
+  schedule: { type: Array, required: true },
+  clubs: { type: Object, required: true },
+  leagues: { type: Object, required: true },
+});
 
-    standingsByLeague() {
-      if (!this.teamId || !this.standings) return {};
-      const byLeague = {};
-      for (const leagueId of this.leaguesForTeam) {
-        byLeague[leagueId] = this.standings.filter(
-          (m) =>
-            m.league_id === leagueId && m.team_id === this.teamId
-        );
-      }
-      return byLeague;
-    },
+const teamId = ref(null);
+const { savedLeagues } = useSavedLeagues();
 
-    scheduleByLeague() {
-      if (!this.teamId || !this.schedule) return {};
-      const byLeague = {};
-      for (const leagueId of this.leaguesForTeam) {
-        byLeague[leagueId] = this.schedule.filter(
-          (m) =>
-            m.league_id === leagueId &&
-            (m.home_id === this.teamId || m.away_id === this.teamId)
-        );
-      }
-      return byLeague;
-    },
+// All leagues where the team has standings
+const leaguesForTeam = computed(() => {
+  if (!teamId.value || !props.standings) return [];
+  return Object.entries(props.standings)
+    .filter(([leagueId, teams]) => teams.hasOwnProperty(teamId.value))
+    .map(([leagueId]) => leagueId);
+});
 
-    resultsByLeague() {
-      if (!this.teamId || !this.results) return {};
-      const byLeague = {};
-      for (const leagueId of this.leaguesForTeam) {
-        byLeague[leagueId] = this.results.filter(
-          (m) =>
-            m.league_id === leagueId &&
-            (m.home_id === this.teamId || m.away_id === this.teamId)
-        );
-      }
-      return byLeague;
-    },
-  },
-  mounted() {
-    const params = new URLSearchParams(window.location.search);
-    this.teamId = params.get('id');
-  },
-};
+// Filter leagues based on savedLeagues
+const filteredLeaguesForTeam = computed(() => {
+  if (!savedLeagues.value.length) return [];
+  return leaguesForTeam.value.filter(leagueId =>
+    savedLeagues.value.includes(leagueId)
+  );
+});
+
+// Schedule filtered by team and league
+const scheduleByLeague = computed(() => {
+  if (!teamId.value || !props.schedule) return {};
+  const byLeague = {};
+  for (const leagueId of filteredLeaguesForTeam.value) {
+    byLeague[leagueId] = props.schedule.filter(
+      (m) =>
+        m.league_id === leagueId &&
+        (m.home_id === teamId.value || m.away_id === teamId.value)
+    );
+  }
+  return byLeague;
+});
+
+// Results filtered by team and league
+const resultsByLeague = computed(() => {
+  if (!teamId.value || !props.results) return {};
+  const byLeague = {};
+  for (const leagueId of filteredLeaguesForTeam.value) {
+    byLeague[leagueId] = props.results.filter(
+      (m) =>
+        m.league_id === leagueId &&
+        (m.home_id === teamId.value || m.away_id === teamId.value)
+    );
+  }
+  return byLeague;
+});
+
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search);
+  teamId.value = params.get('id');
+});
+
 </script>

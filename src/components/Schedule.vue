@@ -19,53 +19,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import MatchCard from './MatchCard.vue';
+import { useSavedLeagues } from '../utils/useSavedLeagues';
 
-export default {
-  name: 'Schedule',
-  props: {
-    schedule: { type: Array, required: true },
-    clubs: { type: Object, required: true },
-    leagues: { type: Object, required: true },
-  },
-  components: { MatchCard },
-  data() {
-    return {
-      savedLeagues: [], // leagues from localStorage
-    };
-  },
-  computed: {
-    leagueIds() {
-      const ids = new Set();
-      this.schedule.forEach(m => ids.add(m.league_id));
-      return Array.from(ids);
-    },
-    filteredLeagueIds() {
-      // If no saved leagues, show none (or you can default to all)
-      if (!this.savedLeagues.length) return [];
+const props = defineProps({
+  schedule: { type: Array, required: true },
+  clubs: { type: Object, required: true },
+  leagues: { type: Object, required: true },
+});
 
-      // Filter leagueIds based on savedLeagues
-      return this.leagueIds.filter(id => this.savedLeagues.includes(id));
-    },
-    scheduleByLeague() {
-      const byLeague = {};
-      for (const leagueId of this.filteredLeagueIds) {
-        byLeague[leagueId] = this.schedule.filter(m => m.league_id === leagueId);
-      }
-      return byLeague;
-    },
-  },
-  mounted() {
-    try {
-      const saved = localStorage.getItem('my_leagues');
-      if (saved) {
-        this.savedLeagues = JSON.parse(saved);
-      }
-    } catch (e) {
-      console.error('Failed to parse saved leagues from localStorage:', e);
-      this.savedLeagues = [];
-    }
-  },
-};
+const { savedLeagues } = useSavedLeagues();
+
+const leagueIds = computed(() => {
+  const ids = new Set();
+  props.schedule.forEach(m => ids.add(m.league_id));
+  return Array.from(ids);
+});
+
+const filteredLeagueIds = computed(() => {
+  if (!savedLeagues.value.length) return [];
+  return leagueIds.value.filter(id => savedLeagues.value.includes(id));
+});
+
+const scheduleByLeague = computed(() => {
+  const byLeague = {};
+  for (const leagueId of filteredLeagueIds.value) {
+    byLeague[leagueId] = props.schedule.filter(m => m.league_id === leagueId);
+  }
+  return byLeague;
+});
 </script>
