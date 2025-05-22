@@ -4,10 +4,7 @@ import Results from '../components/Results.vue';
 
 import { clubs, results, leagues } from '../consts.ts';
 ---
+
 <Layout>
-  <Results client:load
-    clubs={clubs}
-    results={results}
-    leagues={leagues}
-  />
+  <Results client:load clubs={clubs} results={results} leagues={leagues} />
 </Layout>

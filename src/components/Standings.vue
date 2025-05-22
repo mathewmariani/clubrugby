@@ -7,7 +7,9 @@
     >
       <h2>{{ leagues[leagueId] || leagueId }}</h2>
 
-      <div v-if="standings[leagueId] && Object.keys(standings[leagueId]).length">
+      <div
+        v-if="standings[leagueId] && Object.keys(standings[leagueId]).length"
+      >
         <StandingsTable
           :standings="standings[leagueId]"
           :clubs="clubs"
@@ -25,43 +27,43 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import StandingsTable from './StandingsTable.vue';
-import { useSavedLeagues } from '../utils/useSavedLeagues';
+  import { computed } from 'vue';
+  import StandingsTable from './StandingsTable.vue';
+  import { useSavedLeagues } from '../utils/useSavedLeagues';
 
-const props = defineProps({
-  standings: { type: Object, required: true },
-  clubs: { type: Object, required: true },
-  leagues: { type: Object, required: true },
-});
-
-const { savedLeagues } = useSavedLeagues();
-
-// Filter league IDs in standings by saved leagues, then sort alphabetically by league name
-const sortedFilteredLeagueIds = computed(() => {
-  const filtered = Object.keys(props.standings).filter((leagueId) =>
-    savedLeagues.value.includes(leagueId)
-  );
-
-  return filtered.sort((a, b) => {
-    const nameA = props.leagues[a] || a;
-    const nameB = props.leagues[b] || b;
-    return nameA.localeCompare(nameB);
+  const props = defineProps({
+    standings: { type: Object, required: true },
+    clubs: { type: Object, required: true },
+    leagues: { type: Object, required: true },
   });
-});
 
-function lastModified(leagueId) {
-  const leagueStandings = props.standings[leagueId];
-  if (!leagueStandings) return 'N/A';
+  const { savedLeagues } = useSavedLeagues();
 
-  const dates = Object.values(leagueStandings)
-    .map((team) => team.date_modified)
-    .filter(Boolean);
+  // Filter league IDs in standings by saved leagues, then sort alphabetically by league name
+  const sortedFilteredLeagueIds = computed(() => {
+    const filtered = Object.keys(props.standings).filter((leagueId) =>
+      savedLeagues.value.includes(leagueId)
+    );
 
-  if (!dates.length) return 'N/A';
+    return filtered.sort((a, b) => {
+      const nameA = props.leagues[a] || a;
+      const nameB = props.leagues[b] || b;
+      return nameA.localeCompare(nameB);
+    });
+  });
 
-  return dates.reduce((latest, date) =>
-    new Date(date) > new Date(latest) ? date : latest
-  );
-}
+  function lastModified(leagueId) {
+    const leagueStandings = props.standings[leagueId];
+    if (!leagueStandings) return 'N/A';
+
+    const dates = Object.values(leagueStandings)
+      .map((team) => team.date_modified)
+      .filter(Boolean);
+
+    if (!dates.length) return 'N/A';
+
+    return dates.reduce((latest, date) =>
+      new Date(date) > new Date(latest) ? date : latest
+    );
+  }
 </script>

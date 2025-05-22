@@ -4,10 +4,7 @@ import Schedule from '../components/Schedule.vue';
 
 import { clubs, schedule, leagues } from '../consts.ts';
 ---
+
 <Layout>
-  <Schedule client:load
-    clubs={clubs}
-    schedule={schedule}
-    leagues={leagues}
-  />
+  <Schedule client:load clubs={clubs} schedule={schedule} leagues={leagues} />
 </Layout>

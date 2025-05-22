@@ -4,8 +4,10 @@ import Standings from '../components/Standings.vue';
 
 import { clubs, standings, leagues } from '../consts.ts';
 ---
+
 <Layout>
-  <Standings client:load
+  <Standings
+    client:load
     clubs={clubs}
     standings={standings}
     leagues={leagues}

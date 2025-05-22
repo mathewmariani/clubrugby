@@ -1,42 +1,38 @@
 <template>
-    <div class="settings">
-      <h3>Choose leagues to display</h3>
-      <div v-if="availableLeagues.length === 0">Loading leagues...</div>
-      <ul v-else class="list-group">
-        <li
-          v-for="league in availableLeagues"
-          :key="league.id"
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <label>
-            <input
-              type="checkbox"
-              :value="league.id"
-              v-model="selectedLeagues"
-            />
-            {{ league.name }}
-          </label>
-        </li>
-      </ul>
-      <button @click="saveSettings" class="btn btn-primary mt-3">Save</button>
-    </div>
-  </template>
-  
-  <script>
-  import Papa from "papaparse";
-  
+  <div class="settings">
+    <h3>Choose leagues to display</h3>
+    <div v-if="availableLeagues.length === 0">Loading leagues...</div>
+    <ul v-else class="list-group">
+      <li
+        v-for="league in availableLeagues"
+        :key="league.id"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <label>
+          <input type="checkbox" :value="league.id" v-model="selectedLeagues" />
+          {{ league.name }}
+        </label>
+      </li>
+    </ul>
+    <button @click="saveSettings" class="btn btn-primary mt-3">Save</button>
+  </div>
+</template>
+
+<script>
+  import Papa from 'papaparse';
+
   export default {
-    name: "Settings",
+    name: 'Settings',
     data() {
       return {
         availableLeagues: [],
         selectedLeagues: [],
-        storageKey: "my_leagues",
+        storageKey: 'my_leagues',
       };
     },
     methods: {
       loadLeagues() {
-        fetch("/data/qc/2025/leagues.csv")
+        fetch('/data/qc/2025/leagues.csv')
           .then((res) => res.text())
           .then((text) => {
             Papa.parse(text, {
@@ -67,20 +63,19 @@
           this.storageKey,
           JSON.stringify(this.selectedLeagues)
         );
-        alert("Settings saved!");
+        alert('Settings saved!');
         // Optionally emit an event or call a method to notify parent about changes
-        this.$emit("update-leagues", this.selectedLeagues);
+        this.$emit('update-leagues', this.selectedLeagues);
       },
     },
     mounted() {
       this.loadLeagues();
     },
   };
-  </script>
-  
-  <style scoped>
+</script>
+
+<style scoped>
   .settings {
     max-width: 400px;
   }
-  </style>
-  
+</style>

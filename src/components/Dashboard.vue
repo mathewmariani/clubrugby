@@ -7,13 +7,17 @@
         alt="Team Logo"
         width="128"
         height="128"
-        style="object-fit: contain; border-radius: 6px;"
+        style="object-fit: contain; border-radius: 6px"
       />
       {{ clubs[teamId]?.name || teamId }}
     </h1>
 
     <h2 class="mt-5">Standings</h2>
-    <div v-for="leagueId in filteredLeaguesForTeam" :key="'standings-' + leagueId + teamId" class="mb-4">
+    <div
+      v-for="leagueId in filteredLeaguesForTeam"
+      :key="'standings-' + leagueId + teamId"
+      class="mb-4"
+    >
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="standings[leagueId] && standings[leagueId][teamId]">
@@ -29,7 +33,11 @@
     </div>
 
     <h2 class="mt-5">Upcoming Matches</h2>
-    <div v-for="leagueId in filteredLeaguesForTeam" :key="'schedule-' + leagueId" class="mb-4">
+    <div
+      v-for="leagueId in filteredLeaguesForTeam"
+      :key="'schedule-' + leagueId"
+      class="mb-4"
+    >
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="scheduleByLeague[leagueId]?.length">
@@ -47,7 +55,11 @@
     </div>
 
     <h2 class="mt-5">Results</h2>
-    <div v-for="leagueId in filteredLeaguesForTeam" :key="'results-' + leagueId" class="mb-4">
+    <div
+      v-for="leagueId in filteredLeaguesForTeam"
+      :key="'results-' + leagueId"
+      class="mb-4"
+    >
       <h3>{{ leagues[leagueId] || leagueId }}</h3>
 
       <div v-if="resultsByLeague[leagueId]?.length">
@@ -71,70 +83,69 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
-import StandingsTable from './StandingsTable.vue';
-import MatchCard from './MatchCard.vue';
-import ResultCard from './ResultCard.vue';
-import { useSavedLeagues } from '../utils/useSavedLeagues';
+  import { ref, computed, onMounted } from 'vue';
+  import StandingsTable from './StandingsTable.vue';
+  import MatchCard from './MatchCard.vue';
+  import ResultCard from './ResultCard.vue';
+  import { useSavedLeagues } from '../utils/useSavedLeagues';
 
-const props = defineProps({
-  standings: { type: Object, required: true },
-  results: { type: Array, required: true },
-  schedule: { type: Array, required: true },
-  clubs: { type: Object, required: true },
-  leagues: { type: Object, required: true },
-});
+  const props = defineProps({
+    standings: { type: Object, required: true },
+    results: { type: Array, required: true },
+    schedule: { type: Array, required: true },
+    clubs: { type: Object, required: true },
+    leagues: { type: Object, required: true },
+  });
 
-const teamId = ref(null);
-const { savedLeagues } = useSavedLeagues();
+  const teamId = ref(null);
+  const { savedLeagues } = useSavedLeagues();
 
-// All leagues where the team has standings
-const leaguesForTeam = computed(() => {
-  if (!teamId.value || !props.standings) return [];
-  return Object.entries(props.standings)
-    .filter(([leagueId, teams]) => teams.hasOwnProperty(teamId.value))
-    .map(([leagueId]) => leagueId);
-});
+  // All leagues where the team has standings
+  const leaguesForTeam = computed(() => {
+    if (!teamId.value || !props.standings) return [];
+    return Object.entries(props.standings)
+      .filter(([leagueId, teams]) => teams.hasOwnProperty(teamId.value))
+      .map(([leagueId]) => leagueId);
+  });
 
-// Filter leagues based on savedLeagues
-const filteredLeaguesForTeam = computed(() => {
-  if (!savedLeagues.value.length) return [];
-  return leaguesForTeam.value.filter(leagueId =>
-    savedLeagues.value.includes(leagueId)
-  );
-});
-
-// Schedule filtered by team and league
-const scheduleByLeague = computed(() => {
-  if (!teamId.value || !props.schedule) return {};
-  const byLeague = {};
-  for (const leagueId of filteredLeaguesForTeam.value) {
-    byLeague[leagueId] = props.schedule.filter(
-      (m) =>
-        m.league_id === leagueId &&
-        (m.home_id === teamId.value || m.away_id === teamId.value)
+  // Filter leagues based on savedLeagues
+  const filteredLeaguesForTeam = computed(() => {
+    if (!savedLeagues.value.length) return [];
+    return leaguesForTeam.value.filter((leagueId) =>
+      savedLeagues.value.includes(leagueId)
     );
-  }
-  return byLeague;
-});
+  });
 
-// Results filtered by team and league
-const resultsByLeague = computed(() => {
-  if (!teamId.value || !props.results) return {};
-  const byLeague = {};
-  for (const leagueId of filteredLeaguesForTeam.value) {
-    byLeague[leagueId] = props.results.filter(
-      (m) =>
-        m.league_id === leagueId &&
-        (m.home_id === teamId.value || m.away_id === teamId.value)
-    );
-  }
-  return byLeague;
-});
+  // Schedule filtered by team and league
+  const scheduleByLeague = computed(() => {
+    if (!teamId.value || !props.schedule) return {};
+    const byLeague = {};
+    for (const leagueId of filteredLeaguesForTeam.value) {
+      byLeague[leagueId] = props.schedule.filter(
+        (m) =>
+          m.league_id === leagueId &&
+          (m.home_id === teamId.value || m.away_id === teamId.value)
+      );
+    }
+    return byLeague;
+  });
 
-onMounted(() => {
-  const params = new URLSearchParams(window.location.search);
-  teamId.value = params.get('id');
-});
+  // Results filtered by team and league
+  const resultsByLeague = computed(() => {
+    if (!teamId.value || !props.results) return {};
+    const byLeague = {};
+    for (const leagueId of filteredLeaguesForTeam.value) {
+      byLeague[leagueId] = props.results.filter(
+        (m) =>
+          m.league_id === leagueId &&
+          (m.home_id === teamId.value || m.away_id === teamId.value)
+      );
+    }
+    return byLeague;
+  });
 
+  onMounted(() => {
+    const params = new URLSearchParams(window.location.search);
+    teamId.value = params.get('id');
+  });
 </script>

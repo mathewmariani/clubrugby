@@ -1,6 +1,11 @@
 <template>
   <table class="table table-striped table-bordered">
-    <caption>Last updated: {{ lastModified }}</caption>
+    <caption>
+      Last updated:
+      {{
+        lastModified
+      }}
+    </caption>
     <thead>
       <tr>
         <th>Team</th>
@@ -28,9 +33,13 @@
             width="32"
             height="32"
             class="me-2"
-            style="object-fit: contain;"
+            style="object-fit: contain"
           />
-          <span><strong>{{ clubs[team.team_id]?.name || team.team_id }}</strong></span>
+          <span
+            ><strong>{{
+              clubs[team.team_id]?.name || team.team_id
+            }}</strong></span
+          >
         </td>
         <td>{{ team.pld }}</td>
         <td>{{ team.w }}</td>
@@ -49,17 +58,17 @@
 </template>
 
 <script>
-export default {
-  name: 'StandingsTable',
-  props: {
-    standings: Object,
-    clubs: Object,
-    lastModified: String,
-  },
-  computed: {
-    teamStandingsArray() {
-      return Object.values(this.standings);
+  export default {
+    name: 'StandingsTable',
+    props: {
+      standings: Object,
+      clubs: Object,
+      lastModified: String,
     },
-  },
-};
+    computed: {
+      teamStandingsArray() {
+        return Object.values(this.standings);
+      },
+    },
+  };
 </script>

@@ -16,6 +16,8 @@
         "papaparse": "^5.5.3"
     },
     "devDependencies": {
-        "@types/papaparse": "^5.3.16"
+        "@types/papaparse": "^5.3.16",
+        "prettier": "^3.5.3",
+        "prettier-plugin-astro": "^0.14.1"
     }
 }

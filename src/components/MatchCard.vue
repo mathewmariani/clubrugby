@@ -22,7 +22,8 @@
             class="me-2"
           />
           <div>
-            <strong>{{ clubs[match.home_id]?.name || match.home_id }}</strong><br />
+            <strong>{{ clubs[match.home_id]?.name || match.home_id }}</strong
+            ><br />
             <small class="text-muted">{{ getRecord(match.home_id) }}</small>
           </div>
         </div>
@@ -39,7 +40,8 @@
             class="me-2"
           />
           <div>
-            <strong>{{ clubs[match.away_id]?.name || match.away_id }}</strong><br />
+            <strong>{{ clubs[match.away_id]?.name || match.away_id }}</strong
+            ><br />
             <small class="text-muted">{{ getRecord(match.away_id) }}</small>
           </div>
         </div>
@@ -49,25 +51,25 @@
 </template>
 
 <script>
-export default {
-  name: 'MatchCard',
-  props: {
-    match: { type: Object, required: true },
-    clubs: { type: Object, required: true },
-    standings: { type: Object, required: true },
-  },
-  methods: {
-    getRecord(teamId) {
-      const record = this.standings?.[teamId];
-      return record ? `${record.w}-${record.d}-${record.l}` : '0-0-0';
+  export default {
+    name: 'MatchCard',
+    props: {
+      match: { type: Object, required: true },
+      clubs: { type: Object, required: true },
+      standings: { type: Object, required: true },
     },
-  },
-};
+    methods: {
+      getRecord(teamId) {
+        const record = this.standings?.[teamId];
+        return record ? `${record.w}-${record.d}-${record.l}` : '0-0-0';
+      },
+    },
+  };
 </script>
 
 <style scoped>
-.card {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
 </style>
