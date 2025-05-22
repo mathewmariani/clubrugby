@@ -1,11 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Clubs from '../components/Clubs.vue';
 ---
 
 <Layout>
-	<h1 class="mb-4">Clubs</h1>
-    <div id="clubs-list" class="row row-cols-1 g-3"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js" defer></script>
-    <script src="/scripts/load-clubs.js" defer></script>
+  <Clubs client:load/>
 </Layout>
