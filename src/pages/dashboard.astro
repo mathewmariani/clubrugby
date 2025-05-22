@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Dashboard from '../components/Dashboard.vue';
----
 
+import { clubs, standings, results, schedule, leagues } from '../consts.ts';
+---
 <Layout>
-  <Dashboard client:load/>
+  <Dashboard client:load
+    clubs={clubs}
+    standings={standings}
+    results={results}
+    schedule={schedule}
+    leagues={leagues}
+  />
 </Layout>

@@ -1,132 +1,69 @@
 <template>
-    <div>
-      <p v-if="lastModified" class="text-muted">Last updated: {{ lastModified }}</p>
-  
-      <div
-        v-for="(teams, leagueName) in groupedStandings"
-        :key="leagueName"
-        class="mb-5"
-      >
-        <h3>{{ leagueName }}</h3>
-        <StandingsTable :standings="teams" :clubs="clubs" />
+  <div v-if="Object.keys(standings).length">
+    <div
+      v-for="leagueId in sortedLeagueIds"
+      :key="'standings-' + leagueId"
+      class="mb-5"
+    >
+      <h2>{{ leagues[leagueId] || leagueId }}</h2>
+
+      <div v-if="standings[leagueId] && Object.keys(standings[leagueId]).length">
+        <StandingsTable
+          :standings="standings[leagueId]"
+          :clubs="clubs"
+          :lastModified="lastModified(leagueId)"
+        />
+      </div>
+      <div v-else>
+        <p>No standings for this league.</p>
       </div>
     </div>
-  </template>
-  
-  <script>
-  import Papa from 'papaparse';
-  import StandingsTable from './StandingsTable.vue';
-  
-  export default {
-    components: { StandingsTable },
-  
-    data() {
-      return {
-        standings: [],
-        clubs: {},
-        leagues: {},
-        filteredLeagues: [],
-        lastModified: null,
-      };
+  </div>
+  <div v-else>
+    <p>Loading standings...</p>
+  </div>
+</template>
+
+<script>
+import StandingsTable from './StandingsTable.vue';
+
+export default {
+  components: { StandingsTable },
+
+  props: {
+    standings: { type: Object, required: true },
+    clubs: { type: Object, required: true },
+    leagues: { type: Object, required: true },
+  },
+
+  computed: {
+    sortedLeagueIds() {
+      // Sort league IDs alphabetically by league name (if available)
+      return Object.keys(this.standings).sort((a, b) => {
+        const nameA = this.leagues[a] || a;
+        const nameB = this.leagues[b] || b;
+        return nameA.localeCompare(nameB);
+      });
     },
-  
-    computed: {
-      groupedStandings() {
-        const grouped = {};
-        this.standings.forEach((team) => {
-          if (
-            this.filteredLeagues.length &&
-            !this.filteredLeagues.includes(team.league_id)
-          )
-            return;
-  
-          const leagueName = this.leagues[team.league_id] || team.league_id;
-          if (!grouped[leagueName]) grouped[leagueName] = [];
-          grouped[leagueName].push(team);
-        });
-  
-        return Object.fromEntries(
-          Object.entries(grouped).sort(([a], [b]) => a.localeCompare(b))
-        );
-      },
+  },
+
+  methods: {
+    lastModified(leagueId) {
+      // Attempt to get the last modified date from any team in the league standings
+      const leagueStandings = this.standings[leagueId];
+      if (!leagueStandings) return 'N/A';
+
+      const dates = Object.values(leagueStandings)
+        .map(team => team.date_modified)
+        .filter(Boolean);
+
+      if (!dates.length) return 'N/A';
+
+      // Return the most recent date string
+      return dates.reduce((latest, date) =>
+        new Date(date) > new Date(latest) ? date : latest
+      );
     },
-  
-    methods: {
-      loadSelectedLeagues() {
-        const saved = localStorage.getItem('my_leagues');
-        if (saved) {
-          try {
-            this.filteredLeagues = JSON.parse(saved);
-          } catch {
-            this.filteredLeagues = [];
-          }
-        } else {
-          this.filteredLeagues = Object.keys(this.leagues);
-        }
-      },
-  
-      async loadData() {
-        const [clubsText, standingsText, leaguesText] = await Promise.all([
-          fetch('/data/qc/2025/clubs.csv').then((res) => res.text()),
-          fetch('/data/qc/2025/standings.csv').then((res) => res.text()),
-          fetch('/data/qc/2025/leagues.csv').then((res) => res.text()),
-        ]);
-  
-        Papa.parse(clubsText, {
-          header: true,
-          skipEmptyLines: true,
-          complete: ({ data }) => {
-            const mapped = {};
-            data.forEach((club) => {
-              mapped[club.id] = {
-                name: club.name,
-                logo: club.logo_url,
-              };
-            });
-            this.clubs = mapped;
-          },
-        });
-  
-        Papa.parse(leaguesText, {
-          header: true,
-          skipEmptyLines: true,
-          complete: ({ data }) => {
-            const mapped = {};
-            data.forEach((league) => {
-              mapped[league.id] = league.name;
-            });
-            this.leagues = mapped;
-  
-            this.loadSelectedLeagues();
-  
-            this.loadStandings(standingsText);
-          },
-        });
-  
-        const headResponse = await fetch('/data/qc/2025/standings.csv', {
-          method: 'HEAD',
-        });
-        if (headResponse.ok) {
-          const lm = headResponse.headers.get('last-modified');
-          if (lm) this.lastModified = new Date(lm).toLocaleString();
-        }
-      },
-  
-      loadStandings(standingsText) {
-        Papa.parse(standingsText, {
-          header: true,
-          skipEmptyLines: true,
-          complete: ({ data }) => {
-            const cleaned = data.map(({ date_modified, ...rest }) => rest);
-            this.standings = cleaned.sort((a, b) => parseInt(a.pos) - parseInt(b.pos));
-          },
-        });
-      },
-    },
-  
-    mounted() {
-      this.loadData();
-    },
-  };
-  </script>
-  
+  },
+};
+</script>

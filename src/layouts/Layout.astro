@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+const buildTime = new Date().toLocaleString();
 ---
 
 <html lang="en">
@@ -75,6 +76,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         <slot />
       </article>
     </main>
+    <footer style="text-align: center; padding: 1rem; font-size: 0.9rem; color: #666;">
+      Last built: {buildTime}
+    </footer>
   </body>
 </html>
 

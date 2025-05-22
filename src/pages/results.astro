@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Results from '../components/Results.vue';
----
 
+import { clubs, results, leagues } from '../consts.ts';
+---
 <Layout>
-  <Results client:load/>
+  <Results client:load
+    clubs={clubs}
+    results={results}
+    leagues={leagues}
+  />
 </Layout>
