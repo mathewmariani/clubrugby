@@ -1,0 +1,22 @@
+---
+import Meta from "../components/Meta.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<Meta />
+	</head>
+
+	<body id="top">
+
+		<Nav />
+
+		<main class="container">
+			<article>
+				<slot />
+			</article>
+		</main>
+	</body>
+</html>
+<style></style>
