@@ -63,7 +63,7 @@
       const sortedDates = Object.keys(grouped[leagueId]).sort((a, b) => {
         const [da, ma, ya] = a.split('/').map(Number);
         const [db, mb, yb] = b.split('/').map(Number);
-        return new Date(ya, ma - 1, da) - new Date(yb, mb - 1, db);
+        return new Date(yb, mb - 1, db) - new Date(ya, ma - 1, da); // Reverse for most recent first
       });
 
       const sortedGroup = {};

@@ -20,10 +20,7 @@
 
   function scoreClass(score, opponentScore) {
     if (score == null || opponentScore == null) return '';
-    return score > opponentScore
-      ? 'text-success'
-      : score < opponentScore
-        ? 'text-danger'
-        : '';
+    if (score === opponentScore) return ''; // tie no color
+    return score > opponentScore ? 'text-success' : 'text-danger';
   }
 </script>

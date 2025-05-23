@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <span class="badge text-bg-light">{{ date }}</span>
-    <span class="badge text-bg-light">{{ time }}</span>
+  <div class="d-flex flex-column text-center">
+    <h4>
+      <span class="badge text-bg-light">{{ time }}</span>
+    </h4>
+    <h6>
+      <span class="badge text-bg-light mb-2">{{ date }}</span>
+    </h6>
   </div>
 </template>
 
