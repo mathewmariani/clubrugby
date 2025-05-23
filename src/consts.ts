@@ -7,12 +7,14 @@ import standingsCsv from './data/qc/2025/standings.csv?raw';
 import resultsCsv from './data/qc/2025/results.csv?raw';
 import scheduleCsv from './data/qc/2025/schedule.csv?raw';
 import leaguesCsv from './data/qc/2025/leagues.csv?raw';
+import newsCsv from './data/qc/2025/news.csv?raw';
 
 export const clubs = Papa.parse(clubsCsv, {
   header: true,
   skipEmptyLines: true,
 }).data.reduce((acc, club) => {
   acc[club.id] = {
+    id: club.id,
     name: club.name,
     logo: club.logo_url,
   };
@@ -31,6 +33,11 @@ export const standings = Papa.parse(standingsCsv, {
 }, {});
 
 export const results = Papa.parse(resultsCsv, {
+  header: true,
+  skipEmptyLines: true,
+}).data;
+
+export const news = Papa.parse(newsCsv, {
   header: true,
   skipEmptyLines: true,
 }).data;

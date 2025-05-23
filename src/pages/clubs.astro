@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Clubs from '../components/Clubs.vue';
+import ClubList from '../components/ClubList.vue';
+
+import { clubs } from '../consts.ts';
 ---
 
 <Layout>
-  <Clubs client:load />
+  <h1>All Clubs</h1>
+  <ClubList clubs={clubs} />
 </Layout>

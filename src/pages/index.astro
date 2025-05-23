@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import News from '../components/News.vue';
+
+import { leagues, news } from '../consts.ts';
 ---
 
 <Layout>
@@ -8,4 +11,6 @@ import Layout from '../layouts/Layout.astro';
   <a href="schedule">schedule</a>
   <a href="standings">standings</a>
   <a href="settings">settings</a>
+
+  <News client:load news={news} leagues={leagues} />
 </Layout>

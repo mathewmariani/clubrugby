@@ -9,7 +9,7 @@
 
       <div v-for="(matches, date) in dates" :key="date" class="mb-4">
         <h4>{{ formatDate(date) }}</h4>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="row g-4">
           <div
             v-for="match in matches"
             :key="match.id || match.date + match.home_id + match.away_id"
