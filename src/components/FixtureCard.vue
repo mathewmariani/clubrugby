@@ -3,15 +3,9 @@
     <div
       class="card-body d-flex flex-column align-items-center justify-content-between"
     >
-      <div class="d-flex flex-row align-items-center">
-        <MatchMetadata :date="match.date" :time="match.time" />
-      </div>
       <div class="my-auto d-flex align-items-center justify-content-between">
         <TeamBlock :club="clubs[match.home_id]" />
-        <MatchScore
-          :homeScore="match.home_score"
-          :awayScore="match.away_score"
-        />
+        <MatchMetadata :date="match.date" :time="match.time" />
         <TeamBlock :club="clubs[match.away_id]" />
       </div>
       <MatchVenue :venue="match.venue" />

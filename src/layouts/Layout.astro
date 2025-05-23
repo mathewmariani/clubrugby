@@ -73,15 +73,10 @@ const buildTime = new Date().toLocaleString();
         </div>
       </div>
     </nav>
-
     <main class="container">
-      <article>
-        <slot />
-      </article>
+      <slot />
     </main>
-    <footer
-      style="text-align: center; padding: 1rem; font-size: 0.9rem; color: #666;"
-    >
+    <footer class="text-center">
       Last built: {buildTime}
     </footer>
   </body>
