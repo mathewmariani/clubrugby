@@ -5,7 +5,7 @@ import Papa from 'papaparse';
 import clubsCsv from './data/qc/2025/clubs.csv?raw';
 import standingsCsv from './data/qc/2025/standings.csv?raw';
 import resultsCsv from './data/qc/2025/results.csv?raw';
-import scheduleCsv from './data/qc/2025/schedule.csv?raw';
+import scheduleCsv from './data/qc/2025/fixtures.csv?raw';
 import leaguesCsv from './data/qc/2025/leagues.csv?raw';
 import newsCsv from './data/qc/2025/news.csv?raw';
 

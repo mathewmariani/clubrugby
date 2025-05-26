@@ -44,7 +44,7 @@ for league_id in league_ids:
         print(f"✅ Match: {home_team} vs {away_team} on {date} at {time} in {venue}")
 
 save_rows_to_csv(
-    "data/matches.csv",
+    "data/fixtures.csv",
     ["league_id", "home_id", "away_id", "date", "time", "venue"],
     matches
 )

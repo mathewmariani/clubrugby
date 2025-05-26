@@ -1,6 +1,6 @@
 import subprocess
 
-scripts = ["clubs.py", "info.py", "leagues.py", "matches.py", "results.py", "standings.py"]
+scripts = ["clubs.py", "info.py", "leagues.py", "fixtures.py", "results.py", "standings.py"]
 
 print("🚀 Starting scraping process...\n")
 
