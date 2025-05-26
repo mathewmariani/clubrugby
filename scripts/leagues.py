@@ -1,7 +1,7 @@
 import re
 from scrape_utils import get_soup, save_rows_to_csv
 
-URL = "https://rugbyquebec.org/leagues/"
+URL = "https://rugbyquebec.org/competitions/"
 soup = get_soup(URL)
 
 leagues = []

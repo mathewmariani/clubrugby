@@ -1,5 +1,4 @@
 import csv
-from datetime import datetime
 from scrape_utils import get_soup, save_rows_to_csv
 
 # Load team name-to-ID mapping
@@ -38,8 +37,7 @@ for league_id in league_ids:
             standings_data.append([
                 league_id,
                 team_id,
-                cells[0].get_text(strip=True),  # pos
-                cells[2].get_text(strip=True),  # pld
+                cells[2].get_text(strip=True),  # gp
                 cells[3].get_text(strip=True),  # w
                 cells[4].get_text(strip=True),  # d
                 cells[5].get_text(strip=True),  # l
@@ -56,7 +54,7 @@ for league_id in league_ids:
 save_rows_to_csv(
     "data/standings.csv",
     [
-        "league_id", "team_id", "pos", "pld", "w", "d", "l",
+        "league_id", "team_id", "gp", "w", "d", "l",
         "pf", "pa", "diff", "tf", "ta", "td", "pts"
     ],
     standings_data

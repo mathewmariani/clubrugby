@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import os
 
 def get_soup(url, timeout=10):
     print(f"📥 Fetching: {url}")
@@ -11,7 +12,8 @@ def get_soup(url, timeout=10):
 
 def save_to_csv(filename, fieldnames, data, quoting=csv.QUOTE_ALL):
     print(f"📄 Saving data to {filename}...")
-    with open(filename, "w", newline='', encoding='utf-8') as f:
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w+", newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, quotechar='"', quoting=quoting)
         writer.writeheader()
         writer.writerows(data)
@@ -19,7 +21,8 @@ def save_to_csv(filename, fieldnames, data, quoting=csv.QUOTE_ALL):
 
 def save_rows_to_csv(filename, header, rows):
     print(f"📄 Writing {len(rows)} rows to {filename}...")
-    with open(filename, "w", newline='', encoding='utf-8') as f:
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    with open(filename, "w+", newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(header)
         writer.writerows(rows)
