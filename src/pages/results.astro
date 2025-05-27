@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Results from '../components/Results.vue';
-import ResultsCarousel from '../components/ResultsCarousel.vue';
+import ResultsSwiper from '../components/ResultsSwiper.vue';
 
 import { clubs, results, leagues } from '../consts.ts';
 ---
 
 <Layout>
-  <ResultsCarousel
+  <ResultsSwiper
     client:load
     clubs={clubs}
     results={results}
