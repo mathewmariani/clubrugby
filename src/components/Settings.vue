@@ -1,81 +1,76 @@
 <template>
   <div class="settings">
     <h3>Choose leagues to display</h3>
-    <div v-if="availableLeagues.length === 0">Loading leagues...</div>
-    <ul v-else class="list-group">
+
+    <div v-if="!leagues || leagues.length === 0">No leagues available.</div>
+
+    <ul class="list-group">
       <li
-        v-for="league in availableLeagues"
-        :key="league.id"
-        class="list-group-item d-flex justify-content-between align-items-center"
+        v-for="leagueId in Object.keys(leagues)"
+        :key="leagueId"
+        class="list-group-item"
       >
         <label>
-          <input type="checkbox" :value="league.id" v-model="selectedLeagues" />
-          {{ league.name }}
+          <input type="checkbox" :value="leagueId" v-model="selectedLeagues" />
+          {{ leagues[leagueId] }}
         </label>
       </li>
     </ul>
+
     <button @click="saveSettings" class="btn btn-primary mt-3">Save</button>
   </div>
 </template>
 
-<script>
-  import Papa from 'papaparse';
+<script setup>
+  import { ref, watch, onMounted } from 'vue';
 
-  export default {
-    name: 'Settings',
-    data() {
-      return {
-        availableLeagues: [],
-        selectedLeagues: [],
-        storageKey: 'my_leagues',
-      };
+  const props = defineProps({
+    leagues: {
+      type: Object,
+      required: true,
     },
-    methods: {
-      loadLeagues() {
-        fetch('/data/qc/2025/leagues.csv')
-          .then((res) => res.text())
-          .then((text) => {
-            Papa.parse(text, {
-              header: true,
-              skipEmptyLines: true,
-              complete: ({ data }) => {
-                this.availableLeagues = data;
-                this.loadSettings();
-              },
-            });
-          })
-          .catch(() => {
-            this.availableLeagues = [];
-          });
-      },
-      loadSettings() {
-        const saved = localStorage.getItem(this.storageKey);
-        if (saved) {
-          try {
-            this.selectedLeagues = JSON.parse(saved);
-          } catch {
-            this.selectedLeagues = [];
-          }
-        }
-      },
-      saveSettings() {
-        localStorage.setItem(
-          this.storageKey,
-          JSON.stringify(this.selectedLeagues)
-        );
-        alert('Settings saved!');
-        // Optionally emit an event or call a method to notify parent about changes
-        this.$emit('update-leagues', this.selectedLeagues);
-      },
-    },
-    mounted() {
-      this.loadLeagues();
-    },
+  });
+
+  const emit = defineEmits(['update-leagues']);
+
+  const selectedLeagues = ref([]);
+  const storageKey = 'my_leagues';
+
+  const loadSettings = () => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        selectedLeagues.value = JSON.parse(saved);
+      }
+    } catch {
+      selectedLeagues.value = [];
+    }
   };
+
+  const saveSettings = () => {
+    localStorage.setItem(storageKey, JSON.stringify(selectedLeagues.value));
+    alert('Settings saved!');
+    emit('update-leagues', selectedLeagues.value);
+  };
+
+  onMounted(() => {
+    loadSettings();
+  });
 </script>
 
 <style scoped>
   .settings {
     max-width: 400px;
+  }
+
+  .list-group {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .list-group-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
   }
 </style>

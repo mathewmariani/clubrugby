@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-  import { ref, computed, nextTick, onMounted } from 'vue';
+  import { ref, computed, nextTick, onMounted, watchEffect } from 'vue';
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import { Pagination } from 'swiper/modules';
   import 'swiper/css';
@@ -62,10 +62,21 @@
   });
 
   const dates = computed(() => Object.keys(groupedFixtures.value));
-  const selectedIndex = ref(Math.floor(dates.value.length / 2));
+  const selectedIndex = ref(0);
   const swiperInstance = ref(null);
   const scrollContainer = ref(null);
   const dateButtons = ref([]);
+
+  watchEffect(() => {
+    const today = new Date();
+    const index = dates.value.findIndex((dateStr) => {
+      const [year, month, day] = dateStr.split('-').map(Number);
+      const date = new Date(year, month - 1, day);
+      return date >= today;
+    });
+
+    selectedIndex.value = index !== -1 ? index : dates.value.length - 1;
+  });
 
   const setButtonRef = (el, index) => {
     if (el) dateButtons.value[index] = el;
@@ -75,11 +86,13 @@
     const match = dateStr.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
     if (!match) return null;
     const [_, day, month, year] = match;
-    return `${year}-${month}-${day}`;
+    const date = new Date(Number(year), Number(month) - 1, Number(day)); // local time
+    return date.toISOString().slice(0, 10); // safe normalized ISO format
   }
 
   const formatDate = (iso) => {
-    const date = new Date(iso);
+    const [year, month, day] = iso.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // local date again
     return date.toLocaleDateString('en-US', {
       weekday: 'short',
       month: 'short',

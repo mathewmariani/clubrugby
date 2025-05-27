@@ -1,16 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Schedule from '../components/Schedule.vue';
 import ScheduleSwiper from '../components/ScheduleSwiper.vue';
 
 import { clubs, schedule, leagues } from '../consts.ts';
 ---
 
 <Layout>
-  <!-- <Schedule client:load clubs={clubs} schedule={schedule} leagues={leagues} /> -->
-  <ScheduleSwiper
-    client:load
-    clubs={clubs}
-    schedule={schedule}
-  />
+  <ScheduleSwiper client:load clubs={clubs} schedule={schedule} />
 </Layout>
