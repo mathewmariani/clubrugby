@@ -39,7 +39,9 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
-              <h1><a class="nav-link" :href="link.href">{{ link.label }}</a></h1>
+              <h1>
+                <a class="nav-link" :href="link.href">{{ link.label }}</a>
+              </h1>
             </li>
           </ul>
         </div>
@@ -49,37 +51,37 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { Offcanvas } from 'bootstrap';
+  import { onMounted } from 'vue';
+  import { Offcanvas } from 'bootstrap';
 
-// Props
-defineProps({
-  siteTitle: {
-    type: String,
-    default: 'My Site',
-  },
-});
+  // Props
+  defineProps({
+    siteTitle: {
+      type: String,
+      default: 'My Site',
+    },
+  });
 
-// Navigation links
-const navLinks = [
-  { label: 'Clubs', href: '/clubs' },
-  { label: 'Fixtures', href: '/schedule' },
-  { label: 'Results', href: '/results' },
-  { label: 'Standings', href: '/standings' },
-  { label: 'Settings', href: '/settings' },
-];
+  // Navigation links
+  const navLinks = [
+    { label: 'Clubs', href: '/clubs' },
+    { label: 'Fixtures', href: '/schedule' },
+    { label: 'Results', href: '/results' },
+    { label: 'Standings', href: '/standings' },
+    { label: 'Settings', href: '/settings' },
+  ];
 
-// Manually initialize offcanvas to ensure it works after navigation
-onMounted(() => {
-  const offcanvasEl = document.getElementById('navbarNav');
-  if (offcanvasEl) {
-    new Offcanvas(offcanvasEl);
-  }
-});
+  // Manually initialize offcanvas to ensure it works after navigation
+  onMounted(() => {
+    const offcanvasEl = document.getElementById('navbarNav');
+    if (offcanvasEl) {
+      new Offcanvas(offcanvasEl);
+    }
+  });
 </script>
 
 <style scoped>
-.offcanvas {
-  max-width: 75%;
-}
+  .offcanvas {
+    max-width: 75%;
+  }
 </style>

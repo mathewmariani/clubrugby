@@ -1,16 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import News from '../components/News.vue';
-
 import { leagues, news } from '../consts.ts';
 ---
 
 <Layout>
-  <a href="clubs">clubs</a>
-  <a href="results">results</a>
-  <a href="schedule">schedule</a>
-  <a href="standings">standings</a>
-  <a href="settings">settings</a>
-
-  <News client:load news={news} leagues={leagues} />
+  <!-- <NestedSwipes  client:only="vue" /> -->
+   <News news={news} leagues={leagues} client:load />
 </Layout>
