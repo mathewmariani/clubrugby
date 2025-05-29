@@ -11,8 +11,6 @@
       {{ formatDate(date) }}
     </button>
   </div>
-
-  <!-- Swiper Slide Area -->
   <Swiper
     @swiper="onSwiper"
     :initial-slide="selectedIndex"
@@ -21,16 +19,10 @@
     class="day-swiper"
   >
     <SwiperSlide v-for="(date, index) in dates" :key="index">
-      <div class="day-content">
-        <div class="result-list">
-          <ResultCard
-            v-for="match in groupedResults[date]"
-            :key="match.id"
-            :match="match"
-            :clubs="clubs"
-          />
-        </div>
-      </div>
+      <ResultsCarousel
+        :clubs="clubs"
+        :results="groupedResults[date]" 
+        :leagues="leagues" />
     </SwiperSlide>
   </Swiper>
 </template>
@@ -40,7 +32,7 @@
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import { Pagination } from 'swiper/modules';
   import 'swiper/css';
-  import ResultCard from './ResultCard.vue';
+  import ResultsCarousel from './ResultsCarousel.vue';
 
   const props = defineProps({
     results: { type: Array, required: true },
@@ -178,13 +170,6 @@
 
   .day-swiper {
     height: auto;
-  }
-
-  .day-content {
-    background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
   .result-list {

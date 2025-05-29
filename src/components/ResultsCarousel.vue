@@ -1,15 +1,7 @@
 <template>
   <div v-if="Object.keys(filteredGroupedByLeague).length">
-    <div
-      v-for="(dates, leagueId) in filteredGroupedByLeague"
-      :key="leagueId"
-      class="mb-5"
-    >
-      <h2>{{ leagues[leagueId] || leagueId }}</h2>
-
-      <div v-for="(matches, date) in dates" :key="date" class="mb-4">
-        <h4>{{ formatDate(date) }}</h4>
-
+    <div v-for="(dates, leagueId) in filteredGroupedByLeague">
+      <div v-for="(matches, date) in dates" :key="date">
         <Swiper
           :modules="[Pagination]"
           :space-between="12"
@@ -17,9 +9,11 @@
             dynamicBullets: true,
           }"
           grab-cursor
+          nested
+          :touchStartPreventDefault="false"
         >
           <SwiperSlide v-for="match in matches">
-            <ResultCard :match="match" :clubs="clubs" />
+            <ResultCard :match="match" :clubs="clubs" :leagues="leagues" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -72,6 +66,8 @@
       });
       grouped[leagueId] = sortedGroup;
     });
+
+    console.log(grouped);
 
     return grouped;
   });
