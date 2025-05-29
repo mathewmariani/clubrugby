@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FixtureSwiper from '../components/FixtureSwiper.vue';
+
+import { clubs, schedule, leagues } from '../consts.ts';
+---
+
+<Layout>
+  <FixtureSwiper
+    client:load
+    clubs={clubs}
+    schedule={schedule}
+    leagues={leagues}
+  />
+</Layout>

@@ -65,7 +65,7 @@
   // Navigation links
   const navLinks = [
     { label: 'Clubs', href: '/clubs' },
-    { label: 'Fixtures', href: '/schedule' },
+    { label: 'Fixtures', href: '/fixtures' },
     { label: 'Results', href: '/results' },
     { label: 'Standings', href: '/standings' },
     { label: 'Settings', href: '/settings' },

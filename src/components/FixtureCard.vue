@@ -3,6 +3,9 @@
     <div
       class="card-body d-flex flex-column align-items-center justify-content-between"
     >
+      <span class="badge text-bg-primary">
+        {{ leagues[match.league_id] }}
+      </span>
       <div class="my-auto d-flex align-items-center justify-content-between">
         <TeamBlock :club="clubs[match.home_id]" />
         <MatchMetadata :date="match.date" :time="match.time" />
@@ -30,6 +33,7 @@
     props: {
       match: { type: Object, required: true },
       clubs: { type: Object, required: true },
+      leagues: { type: Object, required: true },
     },
   };
 </script>
@@ -37,5 +41,9 @@
 <style scoped>
   .fixture {
     height: 255px !important;
+  }
+
+  .badge {
+    align-self: flex-start;
   }
 </style>
