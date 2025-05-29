@@ -1,6 +1,6 @@
 <template>
   <div v-if="Object.keys(filteredGroupedByLeague).length">
-    <div v-for="(dates, leagueId) in filteredGroupedByLeague" >
+    <div v-for="(dates, leagueId) in filteredGroupedByLeague">
       <div v-for="(matches, date) in dates" :key="date">
         <Swiper
           :modules="[Pagination]"

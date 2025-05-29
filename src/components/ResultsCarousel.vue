@@ -34,9 +34,9 @@
   import { useSavedLeagues } from '../utils/useSavedLeagues';
 
   const props = defineProps({
-    results: { type: Array, required: true },
     clubs: { type: Object, required: true },
     leagues: { type: Object, required: true },
+    results: { type: Array, required: true },
   });
 
   const { savedLeagues } = useSavedLeagues();
