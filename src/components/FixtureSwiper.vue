@@ -18,18 +18,11 @@
     :modules="[Pagination]"
     class="day-swiper"
   >
-    <SwiperSlide v-for="(date, index) in dates" :key="index">
-      <div class="day-content">
-        <div class="fixture-list">
-          <FixtureCard
-            v-for="match in groupedFixtures[date]"
-            :key="match.id"
-            :match="match"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
-        </div>
-      </div>
+    <SwiperSlide v-for="(date, index) in dates">
+      <FixtureCarousel
+        :clubs="clubs"
+        :leagues="leagues"
+        :fixtures="groupedFixtures[date]" />
     </SwiperSlide>
   </Swiper>
 </template>
@@ -39,10 +32,10 @@
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import { Pagination } from 'swiper/modules';
   import 'swiper/css';
-  import FixtureCard from './FixtureCard.vue';
+  import FixtureCarousel from './FixtureCarousel.vue';
 
   const props = defineProps({
-    schedule: { type: Array, required: true },
+    fixtures: { type: Array, required: true },
     leagues: { type: Object, required: true },
     clubs: { type: Object, required: true },
   });
@@ -50,7 +43,7 @@
   // Group schedule by ISO date
   const groupedFixtures = computed(() => {
     const grouped = {};
-    props.schedule.forEach((match) => {
+    props.fixtures.forEach((match) => {
       const iso = normalizeDate(match.date);
       if (!grouped[iso]) grouped[iso] = [];
       grouped[iso].push(match);

@@ -1,15 +1,7 @@
 <template>
   <div v-if="Object.keys(filteredGroupedByLeague).length">
-    <div
-      v-for="(dates, leagueId) in filteredGroupedByLeague"
-      :key="leagueId"
-      class="mb-5"
-    >
-      <h2>{{ leagues[leagueId] || leagueId }}</h2>
-
-      <div v-for="(matches, date) in dates" :key="date" class="mb-4">
-        <h4>{{ formatDate(date) }}</h4>
-
+    <div v-for="(dates, leagueId) in filteredGroupedByLeague" >
+      <div v-for="(matches, date) in dates" :key="date">
         <Swiper
           :modules="[Pagination]"
           :space-between="12"
@@ -17,9 +9,11 @@
             dynamicBullets: true,
           }"
           grab-cursor
+          nested
+          :touchStartPreventDefault="false"
         >
           <SwiperSlide v-for="match in matches">
-            <FixtureCard :match="match" :clubs="clubs" />
+            <FixtureCard :match="match" :clubs="clubs" :leagues="leagues" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -40,16 +34,16 @@
   import { useSavedLeagues } from '../utils/useSavedLeagues';
 
   const props = defineProps({
-    schedule: { type: Array, required: true },
     clubs: { type: Object, required: true },
     leagues: { type: Object, required: true },
+    fixtures: { type: Array, required: true },
   });
 
   const { savedLeagues } = useSavedLeagues();
 
   const groupedByLeague = computed(() => {
     const grouped = {};
-    props.schedule.forEach((match) => {
+    props.fixtures.forEach((match) => {
       if (!match.league_id || !match.date) return;
 
       if (!grouped[match.league_id]) grouped[match.league_id] = {};
