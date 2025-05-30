@@ -1,23 +1,25 @@
 <template>
   <div v-if="Object.keys(filteredGroupedByLeague).length">
     <div v-for="(matches, leagueId) in filteredGroupedByLeague" :key="leagueId">
-      <Swiper
-        :modules="[Pagination]"
-        :space-between="12"
-        :pagination="{ dynamicBullets: true }"
-        grab-cursor
-        nested
-        :touchStartPreventDefault="false"
-      >
-        <SwiperSlide v-for="match in matches" :key="match.id">
-          <FixtureCard
-            :match="match"
-            :clubs="clubs"
-            :leagues="leagues"
-            :mode="cardMode"
-          />
-        </SwiperSlide>
-      </Swiper>
+      <div class="mb-2">
+        <Swiper
+          :modules="[Pagination]"
+          :space-between="12"
+          :pagination="{ dynamicBullets: true }"
+          grab-cursor
+          nested
+          :touchStartPreventDefault="false"
+        >
+          <SwiperSlide v-for="match in matches" :key="match.id">
+            <FixtureCard
+              :match="match"
+              :clubs="clubs"
+              :leagues="leagues"
+              :mode="cardMode"
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   </div>
 

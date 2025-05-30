@@ -3,6 +3,7 @@ export const SITE_DESCRIPTION = 'A centralized platform to view fixtures, scores
 
 import Papa from 'papaparse';
 import clubsCsv from './data/qc/2025/clubs.csv?raw';
+import infoCsv from './data/qc/2025/info.csv?raw';
 import standingsCsv from './data/qc/2025/standings.csv?raw';
 import resultsCsv from './data/qc/2025/results.csv?raw';
 import scheduleCsv from './data/qc/2025/fixtures.csv?raw';
@@ -17,6 +18,17 @@ export const clubs = Papa.parse(clubsCsv, {
     id: club.id,
     name: club.name,
     logo: club.logo_url,
+  };
+  return acc;
+}, {});
+
+export const info = Papa.parse(infoCsv, {
+  header: true,
+  skipEmptyLines: true,
+}).data.reduce((acc, club) => {
+  acc[club.id] = {
+    url: club.url,
+    email: club.email,
   };
   return acc;
 }, {});

@@ -20,7 +20,7 @@
 
 <script setup>
   import { computed } from 'vue';
-  import NewsCard from './NewsCard.vue';
+  import NewsCard from './vue/NewsCard.vue';
 
   const props = defineProps({
     news: { type: Array, required: true },

@@ -10,7 +10,8 @@
     :initial-slide="selectedIndex"
     @slideChange="onSlideChange"
     :modules="[Pagination]"
-    class="day-swiper"
+    grab-cursor
+    :space-between="12"
   >
     <SwiperSlide v-for="(date, index) in dates" :key="date">
       <CardCarousel
