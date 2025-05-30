@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-  import { ref, computed, watchEffect } from 'vue';
+  import { ref, computed, watch, watchEffect } from 'vue';
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import { Pagination } from 'swiper/modules';
   import 'swiper/css';
@@ -79,9 +79,19 @@
 
   // Set initial index to the next upcoming day
   watchEffect(() => {
-    const today = new Date();
-    const index = dates.value.findIndex((d) => new Date(d) >= today);
-    selectedIndex.value = index !== -1 ? index : 0;
+    if (props.cardMode === 'result') {
+      selectedIndex.value = dates.value.length - 1;
+    } else {
+      const today = new Date();
+      const index = dates.value.findIndex((d) => new Date(d) >= today);
+      selectedIndex.value = index !== -1 ? index : 0;
+    }
+  });
+
+  watch(selectedIndex, (newIndex) => {
+    if (swiperInstance.value && swiperInstance.value.activeIndex !== newIndex) {
+      swiperInstance.value.slideTo(newIndex);
+    }
   });
 
   function goToSlide(index) {
