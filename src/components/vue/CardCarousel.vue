@@ -1,5 +1,8 @@
 <template>
-  <div v-if="Object.keys(filteredGroupedByLeague).length">
+  <div
+    v-if="Object.keys(filteredGroupedByLeague).length"
+    class="vertical-scroll-wrapper"
+  >
     <div
       v-for="(matches, leagueId) in filteredGroupedByLeague"
       :key="leagueId"
@@ -100,3 +103,11 @@
     return new Date(yyyy, mm - 1, dd);
   }
 </script>
+
+<style scoped>
+  .vertical-scroll-wrapper {
+    max-height: 80vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+</style>
