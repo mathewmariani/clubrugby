@@ -1,15 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FixtureSwiper from '../components/FixtureSwiper.vue';
+import DateSwiper from '../components/vue/DateSwiper.vue';
 
 import { clubs, schedule, leagues } from '../consts.ts';
 ---
 
 <Layout>
-  <FixtureSwiper
+  <DateSwiper
     client:load
     clubs={clubs}
-    fixtures={schedule}
+    items={schedule}
     leagues={leagues}
+    cardMode="fixtures"
   />
 </Layout>

@@ -84,7 +84,7 @@
 
 <script setup>
   import { ref, computed, onMounted } from 'vue';
-  import StandingsTable from './StandingsTable.vue';
+  import StandingsTable from './vue/StandingsTable.vue';
   import MatchCard from './MatchCard.vue';
   import ResultCard from './ResultCard.vue';
   import { useSavedLeagues } from '../utils/useSavedLeagues';

@@ -2,37 +2,29 @@
   <div class="settings">
     <h3>Choose leagues to display</h3>
 
-    <div v-if="!leagues || leagues.length === 0">No leagues available.</div>
+    <div v-if="!Object.keys(leagues).length">No leagues available.</div>
 
-    <ul class="list-group">
-      <li
-        v-for="leagueId in Object.keys(leagues)"
-        :key="leagueId"
-        class="list-group-item"
-      >
+    <ul v-else class="list-group">
+      <li v-for="(name, id) in leagues" :key="id" class="list-group-item">
         <label>
-          <input type="checkbox" :value="leagueId" v-model="selectedLeagues" />
-          {{ leagues[leagueId] }}
+          <input type="checkbox" :value="id" v-model="selectedLeagues" />
+          {{ name }}
         </label>
       </li>
     </ul>
 
-    <button @click="saveSettings" class="btn btn-primary mt-3">Save</button>
+    <button @click="saveSettings" class="btn-save">Save</button>
   </div>
 </template>
 
 <script setup>
-  import { ref, watch, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
 
   const props = defineProps({
-    leagues: {
-      type: Object,
-      required: true,
-    },
+    leagues: { type: Object, required: true },
   });
 
   const emit = defineEmits(['update-leagues']);
-
   const selectedLeagues = ref([]);
   const storageKey = 'my_leagues';
 
@@ -49,28 +41,57 @@
 
   const saveSettings = () => {
     localStorage.setItem(storageKey, JSON.stringify(selectedLeagues.value));
-    alert('Settings saved!');
     emit('update-leagues', selectedLeagues.value);
+    alert('Settings saved!');
   };
 
-  onMounted(() => {
-    loadSettings();
-  });
+  onMounted(loadSettings);
 </script>
 
 <style scoped>
   .settings {
     max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-family: sans-serif;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
   }
 
   .list-group {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
   }
 
   .list-group-item {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 0.5rem;
+  }
+
+  .btn-save {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-save:hover {
+    background: #005ecb;
   }
 </style>

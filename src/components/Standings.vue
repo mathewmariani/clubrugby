@@ -28,7 +28,7 @@
 
 <script setup>
   import { computed } from 'vue';
-  import StandingsTable from './StandingsTable.vue';
+  import StandingsTable from './vue/StandingsTable.vue';
   import { useSavedLeagues } from '../utils/useSavedLeagues';
 
   const props = defineProps({

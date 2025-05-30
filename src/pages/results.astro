@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Results from '../components/Results.vue';
-import ResultsSwiper from '../components/ResultsSwiper.vue';
+import DateSwiper from '../components/vue/DateSwiper.vue';
 
 import { clubs, results, leagues } from '../consts.ts';
 ---
 
 <Layout>
-  <ResultsSwiper
+  <DateSwiper
     client:load
     clubs={clubs}
-    results={results}
+    items={results}
     leagues={leagues}
+    cardMode="result"
   />
 </Layout>

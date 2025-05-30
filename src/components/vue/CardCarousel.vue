@@ -1,29 +1,28 @@
 <template>
   <div v-if="Object.keys(filteredGroupedByLeague).length">
-    <div v-for="(dates, leagueId) in filteredGroupedByLeague" :key="leagueId">
-      <div v-for="(matches, date) in dates" :key="date">
-        <Swiper
-          :modules="[Pagination]"
-          :space-between="12"
-          :pagination="{ dynamicBullets: true }"
-          grab-cursor
-          nested
-          :touchStartPreventDefault="false"
-        >
-          <SwiperSlide v-for="match in matches" :key="match.id">
-            <component
-              :is="cardComponent"
-              :match="match"
-              :clubs="clubs"
-              :leagues="leagues"
-            />
-          </SwiperSlide>
-        </Swiper>
-      </div>
+    <div v-for="(matches, leagueId) in filteredGroupedByLeague" :key="leagueId">
+      <Swiper
+        :modules="[Pagination]"
+        :space-between="12"
+        :pagination="{ dynamicBullets: true }"
+        grab-cursor
+        nested
+        :touchStartPreventDefault="false"
+      >
+        <SwiperSlide v-for="match in matches" :key="match.id">
+          <FixtureCard
+            :match="match"
+            :clubs="clubs"
+            :leagues="leagues"
+            :mode="cardMode"
+          />
+        </SwiperSlide>
+      </Swiper>
     </div>
   </div>
+
   <div v-else>
-    <p>Loading results...</p>
+    <p>No matches for your selected leagues.</p>
   </div>
 </template>
 
@@ -33,58 +32,58 @@
   import { Pagination } from 'swiper/modules';
   import 'swiper/css';
   import 'swiper/css/pagination';
+
+  import FixtureCard from './FixtureCard.vue';
   import { useSavedLeagues } from '../../utils/useSavedLeagues';
 
   const props = defineProps({
     matches: { type: Array, required: true },
     clubs: { type: Object, required: true },
     leagues: { type: Object, required: true },
-    cardComponent: { type: [Object, String], required: true },
-    sortOrder: { type: String, default: 'asc' }, // 'asc' or 'desc'
+    sortOrder: { type: String, required: true }, // 'asc' or 'desc'
+    cardMode: { type: String, required: true }, // 'fixture' or 'result'
   });
 
   const { savedLeagues } = useSavedLeagues();
 
+  // Group matches by league
   const groupedByLeague = computed(() => {
     const grouped = {};
+
     props.matches.forEach((match) => {
-      if (!match.league_id || !match.date) return;
+      const leagueId = match.league_id;
+      if (!leagueId) return;
 
-      if (!grouped[match.league_id]) grouped[match.league_id] = {};
-      if (!grouped[match.league_id][match.date])
-        grouped[match.league_id][match.date] = [];
-
-      grouped[match.league_id][match.date].push(match);
+      if (!grouped[leagueId]) grouped[leagueId] = [];
+      grouped[leagueId].push(match);
     });
 
+    // Optional sorting
     for (const leagueId in grouped) {
-      const sortedDates = Object.keys(grouped[leagueId]).sort((a, b) => {
-        const [da, ma, ya] = a.split('/').map(Number);
-        const [db, mb, yb] = b.split('/').map(Number);
-        const d1 = new Date(ya, ma - 1, da);
-        const d2 = new Date(yb, mb - 1, db);
-        return props.sortOrder === 'desc' ? d2 - d1 : d1 - d2;
+      grouped[leagueId].sort((a, b) => {
+        const da = parseDate(a.date);
+        const db = parseDate(b.date);
+        return props.sortOrder === 'desc' ? db - da : da - db;
       });
-
-      const sortedGroup = {};
-      for (const date of sortedDates) {
-        sortedGroup[date] = grouped[leagueId][date];
-      }
-
-      grouped[leagueId] = sortedGroup;
     }
 
     return grouped;
   });
 
+  // Filter to only saved leagues
   const filteredGroupedByLeague = computed(() => {
-    if (!savedLeagues.value.length) return {};
-    const filtered = {};
+    const result = {};
     for (const leagueId of savedLeagues.value) {
-      if (groupedByLeague.value[leagueId]) {
-        filtered[leagueId] = groupedByLeague.value[leagueId];
+      if (groupedByLeague.value[leagueId]?.length) {
+        result[leagueId] = groupedByLeague.value[leagueId];
       }
     }
-    return filtered;
+    return result;
   });
+
+  // Helper to parse dd/mm/yyyy → Date
+  function parseDate(str) {
+    const [dd, mm, yyyy] = str.split('/').map(Number);
+    return new Date(yyyy, mm - 1, dd);
+  }
 </script>
