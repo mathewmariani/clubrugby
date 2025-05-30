@@ -38,7 +38,7 @@
     </div>
   </div>
 
-    <!-- <h2 class="mt-5">Upcoming Matches</h2>
+  <!-- <h2 class="mt-5">Upcoming Matches</h2>
     <div
       v-for="leagueId in filteredLeaguesForTeam"
       :key="'schedule-' + leagueId"

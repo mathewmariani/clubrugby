@@ -1,5 +1,6 @@
 export const SITE_TITLE = 'Club Rugby';
-export const SITE_DESCRIPTION = 'A centralized platform to view fixtures, scores, and schedules for club rugby teams in Canada.';
+export const SITE_DESCRIPTION =
+  'A centralized platform to view fixtures, scores, and schedules for club rugby teams in Canada.';
 
 import Papa from 'papaparse';
 import clubsCsv from './data/qc/2025/clubs.csv?raw';
