@@ -1,34 +1,21 @@
 <template>
-  <!-- Fixed top navbar -->
-  <nav class="navbar bg-light fixed-top shadow-sm">
+  <nav class="navbar bg-white fixed-top border-bottom">
     <div class="container-fluid">
-      <!-- Offcanvas toggle button -->
       <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
-        aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Brand -->
       <a class="navbar-brand" href="/">{{ siteTitle }}</a>
 
-      <!-- Offcanvas menu -->
-      <div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="navbarNav"
-        aria-labelledby="navbarNavLabel"
-      >
-        <div
-          class="offcanvas-header"
-          style="position: sticky; top: 0; background-color: white; z-index: 1"
-        >
-          <h5 class="offcanvas-title" id="navbarNavLabel">{{ siteTitle }}</h5>
+      <div class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1">
+        <div class="offcanvas-header border-bottom bg-white sticky-top">
+          <h5 class="offcanvas-title">{{ siteTitle }}</h5>
           <button
             type="button"
             class="btn-close"
@@ -37,11 +24,9 @@
           ></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
-              <h1>
-                <a class="nav-link" :href="link.href">{{ link.label }}</a>
-              </h1>
+          <ul class="navbar-nav">
+            <li class="nav-item" v-for="link in navLinks" :key="link.href">
+              <a class="nav-link" :href="link.href">{{ link.label }}</a>
             </li>
           </ul>
         </div>
@@ -50,38 +35,33 @@
   </nav>
 </template>
 
-<script setup>
-  import { onMounted } from 'vue';
-  import { Offcanvas } from 'bootstrap';
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { Offcanvas } from 'bootstrap'
+import { useFixedOffset } from '../composables/useFixedOffset'
 
-  // Props
-  defineProps({
-    siteTitle: {
-      type: String,
-      default: 'My Site',
-    },
-  });
+defineProps({
+  siteTitle: { type: String, default: 'My Site' },
+})
 
-  // Navigation links
-  const navLinks = [
-    { label: 'Clubs', href: '/clubs' },
-    { label: 'Fixtures', href: '/fixtures' },
-    { label: 'Results', href: '/results' },
-    { label: 'Standings', href: '/standings' },
-    { label: 'Settings', href: '/settings' },
-  ];
+const navLinks = [
+  { label: 'Clubs', href: '/clubs' },
+  { label: 'Fixtures', href: '/fixtures' },
+  { label: 'Results', href: '/results' },
+  { label: 'Standings', href: '/standings' },
+  { label: 'Settings', href: '/settings' },
+]
 
-  // Manually initialize offcanvas to ensure it works after navigation
-  onMounted(() => {
-    const offcanvasEl = document.getElementById('navbarNav');
-    if (offcanvasEl) {
-      new Offcanvas(offcanvasEl);
-    }
-  });
+useFixedOffset()
+
+onMounted(() => {
+  const el = document.getElementById('navbarNav')
+  if (el) new Offcanvas(el)
+})
 </script>
 
 <style scoped>
-  .offcanvas {
-    max-width: 75%;
-  }
+#navbarNav.offcanvas-start {
+  width: 65vw;
+}
 </style>

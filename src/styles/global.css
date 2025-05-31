@@ -1,0 +1,11 @@
+:root {
+  --navbar-height: 56px; /* fallback */
+}
+
+.pt-navbar {
+  padding-top: var(--navbar-height);
+}
+
+html {
+  scroll-padding-top: var(--navbar-height);
+}

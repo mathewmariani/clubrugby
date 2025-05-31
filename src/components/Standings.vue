@@ -1,5 +1,5 @@
 <template>
-  <div v-if="Object.keys(standings).length">
+  <div class="mt-3" v-if="Object.keys(standings).length">
     <StandingsTable
       :standings="filteredStandings"
       :clubs="clubs"

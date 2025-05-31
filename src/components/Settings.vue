@@ -1,10 +1,10 @@
 <template>
-  <div class="settings">
-    <h3>Choose leagues to display</h3>
-
+  <div class="mt-3">
     <div v-if="!Object.keys(leagues).length">No leagues available.</div>
-
     <ul v-else class="list-group">
+      <li class="list-group-item">
+        <strong>Choose leagues to display</strong>
+      </li>
       <li v-for="(name, id) in leagues" :key="id" class="list-group-item">
         <label>
           <input type="checkbox" :value="id" v-model="selectedLeagues" />
@@ -12,7 +12,6 @@
         </label>
       </li>
     </ul>
-
     <button @click="saveSettings" class="btn-save">Save</button>
   </div>
 </template>
@@ -49,14 +48,14 @@
 </script>
 
 <style scoped>
-  .settings {
+  /* .settings {
     max-width: 400px;
     margin: 2rem auto;
     padding: 1rem;
     background: #f9f9f9;
     border-radius: 8px;
     font-family: sans-serif;
-  }
+  } */
 
   h3 {
     margin-bottom: 1rem;

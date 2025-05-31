@@ -6,7 +6,7 @@
     <div
       v-for="(matches, leagueId) in filteredGroupedByLeague"
       :key="leagueId"
-      class="mb-3"
+      class="mt-3"
     >
       <Swiper
         :modules="[Pagination]"
@@ -106,7 +106,6 @@
 
 <style scoped>
   .vertical-scroll-wrapper {
-    max-height: 80vh;
     overflow-y: auto;
     scroll-behavior: smooth;
   }

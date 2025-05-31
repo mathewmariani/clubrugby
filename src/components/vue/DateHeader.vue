@@ -1,5 +1,8 @@
 <template>
-  <div ref="scrollContainer" class="date-header">
+  <div
+    ref="scrollContainer"
+    class="date-header full-width-breakout bg-white border-bottom"
+  >
     <button
       v-for="(date, index) in dates"
       :key="index"
@@ -60,12 +63,21 @@
 </script>
 
 <style scoped>
+  .full-width-breakout {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 1;
+  }
+
   .date-header {
     display: flex;
     overflow-x: auto;
     gap: 0.5rem;
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
+    padding: 0.5rem;
+    /* margin-bottom: 1rem; */
     scroll-behavior: smooth;
     white-space: nowrap;
     scrollbar-width: none;

@@ -11,6 +11,7 @@
     @slideChange="onSlideChange"
     :modules="[Pagination]"
     grab-cursor
+    :autoHeight="true"
     :space-between="12"
   >
     <SwiperSlide v-for="(date, index) in dates" :key="date">
@@ -107,3 +108,19 @@
     swiperInstance.value = swiper;
   }
 </script>
+
+<style scoped>
+  .swiper {
+    transition-duration: 0ms !important;
+  }
+  .swiper-slide {
+    transition: opacity 150ms ease;
+  }
+  .swiper-slide-active {
+    opacity: 1;
+  }
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+</style>

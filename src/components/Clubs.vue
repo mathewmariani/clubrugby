@@ -1,5 +1,5 @@
 <template>
-  <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="row row-cols-1 mt-3 gap-3">
     <div v-for="club in clubList" :key="club.id" class="col">
       <div class="card">
         <div class="card-body d-flex flex-row align-items-center p-2">
@@ -12,8 +12,8 @@
           <h5 class="card-title mb-0">{{ club.name }}</h5>
         </div>
         <div class="card-footer">
-          <a :href="info[teamId]?.url" class="card-link">Website</a>
-          <a :href="'mailto:' + info[teamId]?.email" class="card-link">Email</a>
+          <a :href="info[club.id]?.url" class="card-link">Website</a>
+          <a :href="'mailto:' + info[club.id]?.email" class="card-link">Email</a>
         </div>
       </div>
     </div>
