@@ -110,9 +110,6 @@
 </script>
 
 <style scoped>
-  .swiper {
-    transition-duration: 0ms !important;
-  }
   .swiper-slide {
     transition: opacity 150ms ease;
   }
