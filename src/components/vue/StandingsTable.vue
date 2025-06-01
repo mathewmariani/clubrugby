@@ -49,9 +49,7 @@
               <div class="d-flex align-items-center gap-2">
                 <span
                   :class="
-                    team.pos <= 4
-                      ? 'badge bg-primary'
-                      : 'badge bg-secondary'
+                    team.pos <= 4 ? 'badge bg-primary' : 'badge bg-secondary'
                   "
                 >
                   {{ team.pos }}

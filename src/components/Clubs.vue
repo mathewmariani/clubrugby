@@ -12,9 +12,24 @@
           <h5 class="card-title mb-0">{{ club.name }}</h5>
         </div>
         <div class="card-footer">
-          <a :href="info[club.id]?.url" class="btn btn-link" :class="{ disabled: !info[club.id]?.url }">Website</a>
-          <a :href="vendor[club.id]?.instagram" class="btn btn-link" :class="{ disabled: !vendor[club.id]?.instagram }">Instram</a>
-          <a :href="vendor[club.id]?.facebook" class="btn btn-link" :class="{ disabled: !vendor[club.id]?.facebook }">Facebook</a>
+          <a
+            :href="info[club.id]?.url"
+            class="btn btn-link"
+            :class="{ disabled: !info[club.id]?.url }"
+            >Website</a
+          >
+          <a
+            :href="vendor[club.id]?.instagram"
+            class="btn btn-link"
+            :class="{ disabled: !vendor[club.id]?.instagram }"
+            >Instram</a
+          >
+          <a
+            :href="vendor[club.id]?.facebook"
+            class="btn btn-link"
+            :class="{ disabled: !vendor[club.id]?.facebook }"
+            >Facebook</a
+          >
         </div>
       </div>
     </div>
