@@ -39,8 +39,8 @@
 
   const props = defineProps({
     items: { type: Array, required: true },
-    clubs: { type: Object, required: true },
-    leagues: { type: Object, required: true },
+    clubs: { type: Array, required: true },
+    leagues: { type: Array, required: true },
     cardMode: { type: String, required: true },
   });
 
@@ -53,10 +53,10 @@
 
   // Filter items by saved leagues
   const filteredItems = computed(() => {
-    return props.items.filter(
-      (match) => match.league_id && savedLeagues.value.includes(match.league_id)
-    );
-  });
+  return props.items.filter(
+    (match) => match.league_id && savedLeagues.value.includes(match.league_id)
+  );
+});
 
   // Group filtered items by date (ISO format)
   const groupedMatches = computed(() => {

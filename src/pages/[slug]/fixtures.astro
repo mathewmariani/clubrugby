@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DateSwiper from '../../components/vue/DateSwiper.vue';
+
+import { federations, loadFederationData } from '../../federations.ts';
+export async function getStaticPaths() {
+  return federations.map(federation => ({
+    params: { slug: federation.slug },
+    props: { federation }
+  }));
+}
+
+const { federation } = Astro.props;
+
+const data = loadFederationData(federation.slug);
+
+const { clubs, schedule, leagues } = data;
+---
+
+<Layout federation={federation}>
+  <DateSwiper
+    client:load
+    clubs={clubs}
+    items={schedule}
+    leagues={leagues}
+    cardMode="fixtures"
+  />
+</Layout>

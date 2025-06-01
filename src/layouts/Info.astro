@@ -25,9 +25,6 @@ const structuredData = {
   ],
   description: SITE_DESCRIPTION,
 };
-
-import { type Federation } from '../federations.ts';
-const { federation } = Astro.props as Federation;
 ---
 
 <html lang="en">
@@ -105,8 +102,7 @@ const { federation } = Astro.props as Federation;
   </script>
 
   <body class="text-bg-light">
-    <Navbar title={SITE_TITLE} federation={federation} client:only="vue" />
-    <main class="container-fluid pt-navbar">
+    <main class="container">
       <slot />
     </main>
     <footer class="text-center text-muted py-2">

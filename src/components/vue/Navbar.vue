@@ -11,11 +11,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="/">{{ siteTitle }} | QC</a>
+      <a class="navbar-brand" href="/">{{ title }} | {{ federation.slug.toUpperCase() }}</a>
 
       <div class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1">
         <div class="offcanvas-header bg-white sticky-top">
-          <a class="navbar-brand" href="/">{{ siteTitle }}</a>
+          <a class="navbar-brand" href="/">{{ title }}</a>
           <button
             type="button"
             class="btn-close"
@@ -39,20 +39,24 @@
   import { onMounted } from 'vue';
   import { Offcanvas } from 'bootstrap';
   import { useFixedOffset } from '../../composables/useFixedOffset';
+  import { type Federation } from '../../federations.ts';
 
-  defineProps({
-    siteTitle: { type: String, default: 'My Site' },
-  });
+  const props = defineProps<{
+    title: string;
+    federation: Federation;
+  }>();
 
-  const navLinks = [
-    { label: 'Clubs', href: '/clubs' },
-    { label: 'Fixtures', href: '/fixtures' },
-    { label: 'Results', href: '/results' },
-    { label: 'Standings', href: '/standings' },
-    // { label: 'Settings', href: '/settings' },
-    { label: 'Sources & Attributions', href: '/attributions' },
-    { label: 'Privacy Policy', href: '/privacypolicy' },
-  ];
+  const baseLinks = [
+  { label: 'Clubs', href: '/clubs' },
+  { label: 'Fixtures', href: '/fixtures' },
+  { label: 'Results', href: '/results' },
+  { label: 'Standings', href: '/standings' },
+];
+
+const navLinks = baseLinks.map(link => ({
+  ...link,
+  href: `/${props.federation.slug}${link.href}`,
+}));
 
   useFixedOffset();
 

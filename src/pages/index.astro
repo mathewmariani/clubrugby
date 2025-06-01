@@ -1,15 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import News from '../components/News.vue';
-import Settings from '../components/Settings.vue';
-import { leagues, news } from '../consts.ts';
+import Info from '../layouts/Info.astro';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../consts.ts';
+
+import { federations } from '../federations.ts';
+export async function getStaticPaths() {
+  return federations.map(federation => ({
+    params: { slug: federation.slug },
+    props: { federation }
+  }));
+}
 ---
 
-<Layout>
+<Info>
   <h1 class="display-1">Hey, 👋</h1>
-  <p class="lead">
-    Before you begin, please select all leagues you would like to follow.
-  </p>
+  <p class="lead">{SITE_TITLE} is a {SITE_DESCRIPTION}</p>
 
-  <Settings client:load leagues={leagues} />
-</Layout>
+  <ul class="list-group">
+    {federations.map(fed => (
+      <li class="list-group-item">
+        <a href={`/${fed.slug}`} class="text-decoration-none">
+          {fed.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</Info>

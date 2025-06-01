@@ -5,18 +5,18 @@
       <li class="list-group-item">
         <strong>Choose leagues to display</strong>
       </li>
-      <li v-for="(name, id) in leagues" :key="id" class="list-group-item">
+      <li v-for="(league, index) in leagues" :key="index" class="list-group-item">
         <div class="form-check">
           <input
             @change="saveSettings"
-            :value="id"
+            :value="league.id"
             v-model="selectedLeagues"
             class="form-check-input"
             type="checkbox"
-            :id="`league-${id}`"
+            :id="`league-${index}`"
           />
-          <label class="form-check-label" :for="`league-${id}`">
-            {{ name }}
+          <label class="form-check-label" :for="`league-${index}`">
+            {{ league.name }}
           </label>
         </div>
       </li>
@@ -49,6 +49,7 @@
   const saveSettings = () => {
     localStorage.setItem(storageKey, JSON.stringify(selectedLeagues.value));
     emit('update-leagues', selectedLeagues.value);
+    console.log(JSON.stringify(selectedLeagues.value))
   };
 
   onMounted(loadSettings);
