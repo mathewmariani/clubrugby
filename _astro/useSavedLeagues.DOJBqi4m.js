@@ -1,1 +1,0 @@
-import{d as s,o as r}from"./runtime-core.esm-bundler.B7rUZ6Lc.js";function u(o="my_leagues"){const a=s([]);return r(()=>{try{const e=localStorage.getItem(o);e&&(a.value=JSON.parse(e))}catch(e){console.error("Failed to parse saved leagues from localStorage:",e),a.value=[]}}),{savedLeagues:a}}export{u};
