@@ -12,8 +12,9 @@
           <h5 class="card-title mb-0">{{ club.name }}</h5>
         </div>
         <div class="card-footer">
-          <a :href="info[club.id]?.url" class="card-link">Website</a>
-          <a :href="'mailto:' + info[club.id]?.email" class="card-link">Email</a>
+          <a :href="info[club.id]?.url" class="btn btn-link" :class="{ disabled: !info[club.id]?.url }">Website</a>
+          <a :href="vendor[club.id]?.instagram" class="btn btn-link" :class="{ disabled: !vendor[club.id]?.instagram }">Instram</a>
+          <a :href="vendor[club.id]?.facebook" class="btn btn-link" :class="{ disabled: !vendor[club.id]?.facebook }">Facebook</a>
         </div>
       </div>
     </div>
@@ -25,6 +26,7 @@
   const props = defineProps({
     clubs: { type: Object, required: true },
     info: { type: Object, required: true },
+    vendor: { type: Object, required: true },
   });
 
   const clubList = computed(() => Object.values(props.clubs));

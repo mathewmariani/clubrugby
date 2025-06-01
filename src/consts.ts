@@ -3,13 +3,14 @@ export const SITE_DESCRIPTION =
   'A centralized platform to view fixtures, scores, and schedules for club rugby teams in Canada.';
 
 import Papa from 'papaparse';
-import clubsCsv from './data/qc/2025/clubs.csv?raw';
-import infoCsv from './data/qc/2025/info.csv?raw';
-import standingsCsv from './data/qc/2025/standings.csv?raw';
-import resultsCsv from './data/qc/2025/results.csv?raw';
-import scheduleCsv from './data/qc/2025/fixtures.csv?raw';
-import leaguesCsv from './data/qc/2025/leagues.csv?raw';
-import newsCsv from './data/qc/2025/news.csv?raw';
+import clubsCsv from '../data/qc/2025/clubs.csv?raw';
+import infoCsv from '../data/qc/2025/info.csv?raw';
+import standingsCsv from '../data/qc/2025/standings.csv?raw';
+import resultsCsv from '../data/qc/2025/results.csv?raw';
+import scheduleCsv from '../data/qc/2025/fixtures.csv?raw';
+import leaguesCsv from '../data/qc/2025/leagues.csv?raw';
+import newsCsv from '../data/qc/2025/news.csv?raw';
+import vendorCsv from '../data/qc/vendor.csv?raw';
 
 export const clubs = Papa.parse(clubsCsv, {
   header: true,
@@ -30,6 +31,18 @@ export const info = Papa.parse(infoCsv, {
   acc[club.id] = {
     url: club.url,
     email: club.email,
+  };
+  return acc;
+}, {});
+
+export const vendor = Papa.parse(vendorCsv, {
+  header: true,
+  skipEmptyLines: true,
+}).data.reduce((acc, club) => {
+  acc[club.team_id] = {
+    short: club.short_name,
+    instagram: club.instagram,
+    facebook: club.facebook,
   };
   return acc;
 }, {});

@@ -11,11 +11,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="/">{{ siteTitle }}</a>
+      <a class="navbar-brand" href="/">{{ siteTitle }} | QC</a>
 
       <div class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1">
-        <div class="offcanvas-header border-bottom bg-white sticky-top">
-          <h5 class="offcanvas-title">{{ siteTitle }}</h5>
+        <div class="offcanvas-header bg-white sticky-top">
+          <a class="navbar-brand" href="/">{{ siteTitle }}</a>
           <button
             type="button"
             class="btn-close"
@@ -36,32 +36,34 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { Offcanvas } from 'bootstrap'
-import { useFixedOffset } from '../composables/useFixedOffset'
+  import { onMounted } from 'vue';
+  import { Offcanvas } from 'bootstrap';
+  import { useFixedOffset } from '../../composables/useFixedOffset';
 
-defineProps({
-  siteTitle: { type: String, default: 'My Site' },
-})
+  defineProps({
+    siteTitle: { type: String, default: 'My Site' },
+  });
 
-const navLinks = [
-  { label: 'Clubs', href: '/clubs' },
-  { label: 'Fixtures', href: '/fixtures' },
-  { label: 'Results', href: '/results' },
-  { label: 'Standings', href: '/standings' },
-  { label: 'Settings', href: '/settings' },
-]
+  const navLinks = [
+    { label: 'Clubs', href: '/clubs' },
+    { label: 'Fixtures', href: '/fixtures' },
+    { label: 'Results', href: '/results' },
+    { label: 'Standings', href: '/standings' },
+    // { label: 'Settings', href: '/settings' },
+    { label: 'Sources & Attributions', href: '/attributions' },
+    { label: 'Privacy Policy', href: '/privacypolicy' },
+  ];
 
-useFixedOffset()
+  useFixedOffset();
 
-onMounted(() => {
-  const el = document.getElementById('navbarNav')
-  if (el) new Offcanvas(el)
-})
+  onMounted(() => {
+    const el = document.getElementById('navbarNav');
+    if (el) new Offcanvas(el);
+  });
 </script>
 
 <style scoped>
-#navbarNav.offcanvas-start {
-  width: 65vw;
-}
+  #navbarNav.offcanvas-start {
+    width: 65vw;
+  }
 </style>

@@ -43,7 +43,7 @@
 
   import { computed } from 'vue';
   import FixtureCard from './FixtureCard.vue';
-  import { useSavedLeagues } from '../../utils/useSavedLeagues';
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
 
   const props = defineProps({
     matches: { type: Array, required: true },

@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Clubs from '../components/Clubs.vue';
 
-import { clubs, info } from '../consts.ts';
+import { clubs, info, vendor } from '../consts.ts';
 ---
 
 <Layout>
-  <Clubs clubs={clubs} info={info} />
+  <Clubs clubs={clubs} info={info} vendor={vendor} />
 </Layout>

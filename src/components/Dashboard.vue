@@ -91,7 +91,7 @@
 <script setup>
   import { ref, computed, onMounted } from 'vue';
   import StandingsTable from './vue/StandingsTable.vue';
-  import { useSavedLeagues } from '../utils/useSavedLeagues';
+  import { useSavedLeagues } from '../composables/useSavedLeagues';
 
   const props = defineProps({
     standings: { type: Object, required: true },

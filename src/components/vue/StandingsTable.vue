@@ -49,12 +49,12 @@
               <div class="d-flex align-items-center gap-2">
                 <span
                   :class="
-                    team.pos + 1 <= 4
+                    team.pos <= 4
                       ? 'badge bg-primary'
                       : 'badge bg-secondary'
                   "
                 >
-                  {{ team.pos + 1 }}
+                  {{ team.pos }}
                 </span>
                 <img
                   v-if="clubs[team.team_id]?.logo"

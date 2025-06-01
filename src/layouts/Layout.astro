@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../components/vue/Navbar.vue';
 
 const buildTime = new Date().toLocaleString();
 const structuredData = {
@@ -90,7 +90,7 @@ const structuredData = {
 
   <body class="text-bg-light">
     <Navbar siteTitle={SITE_TITLE} client:only="vue" />
-    <main class="container pt-navbar">
+    <main class="container-fluid pt-navbar">
       <slot />
     </main>
     <footer class="text-center text-muted py-2">

@@ -1,10 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import News from '../components/News.vue';
+import Settings from '../components/Settings.vue';
 import { leagues, news } from '../consts.ts';
 ---
 
 <Layout>
-  <!-- <NestedSwipes  client:only="vue" /> -->
-  <News news={news} leagues={leagues} client:load />
+  <h1 class="display-1">Hey, 👋</h1>
+  <p class="lead">
+    Before you begin, please select all leagues you would like to follow.
+  </p>
+
+  <Settings client:load leagues={leagues} />
 </Layout>

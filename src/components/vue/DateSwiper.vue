@@ -35,7 +35,7 @@
 
   import DateHeader from './DateHeader.vue';
   import CardCarousel from './CardCarousel.vue';
-  import { useSavedLeagues } from '../../utils/useSavedLeagues';
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
 
   const props = defineProps({
     items: { type: Array, required: true },
