@@ -11,7 +11,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="/"
+      <a class="navbar-brand" :href="`/${federation.slug}`"
         >{{ title }} | {{ federation.slug.toUpperCase() }}</a
       >
 
