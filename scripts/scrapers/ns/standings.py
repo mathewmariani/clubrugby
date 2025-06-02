@@ -1,5 +1,5 @@
 import re
-from scrape_utils import parse_date, parse_time
+from .exclusions import excluded_leagues, excluded_teams
 
 def extract_club_id(a_tag):
     """Extract clubprofile ID from anchor tag href."""
@@ -10,23 +10,23 @@ def scrape(soups_by_league, team_id_map):
     standings_data = []
 
     for league_id, soup in soups_by_league.items():
+        if league_id in excluded_leagues:
+            continue
+
         position = 1
         for row in soup.find_all("tr"):
             cells = row.find_all("td")
             if len(cells) >= 13:
-                # team_name = cells[1].get_text(strip=True)
-                # team_id = team_id_map.get(team_name, "UNKNOWN")
-
-                # get team info
                 team_tag = cells[2].find("a")
                 team_id = extract_club_id(team_tag)
+
+                if not team_id or team_id in excluded_teams:
+                    continue
 
                 standings_data.append({
                     "league_id": league_id,
                     "team_id": team_id,
                     "pos": position,
-
-                    # taken from the table
                     "gp": cells[3].get_text(strip=True),
                     "w": cells[4].get_text(strip=True),
                     "d": cells[5].get_text(strip=True),
