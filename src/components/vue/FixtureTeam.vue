@@ -15,7 +15,7 @@
 
 <script setup>
   defineProps({
-    club: Object,
+    club: { type: Object, required: true },
   });
 </script>
 

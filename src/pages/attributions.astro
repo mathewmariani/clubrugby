@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Info from '../layouts/Info.astro';
+import { federations } from '../federations.ts';
 ---
 
-<Layout>
+<Info>
   <h1>Sources & Attribution</h1>
 
   <p>
@@ -13,13 +14,15 @@ import Layout from '../layouts/Layout.astro';
 
   <h2>Primary Data Sources</h2>
   <ul>
-    <li>
-      <a
-        href="https://rugbyquebec.org/"
-        target="_blank"
-        rel="noopener noreferrer">Rugby Quebec</a
-      >
-    </li>
+    {
+      federations.map((federation) => (
+        <li>
+          <a href={federation.url} target="_blank" rel="noopener noreferrer">
+            {federation.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 
   <h2>Data Usage & Permissions</h2>
@@ -40,4 +43,4 @@ import Layout from '../layouts/Layout.astro';
     If you notice any inaccuracies or have suggestions for additional data
     sources, please let us know via our <a href="/contact">contact page</a>.
   </p>
-</Layout>
+</Info>

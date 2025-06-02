@@ -46,11 +46,6 @@
 
   const { savedLeagues } = useSavedLeagues();
 
-  function normalizeDate(dateStr) {
-    const [day, month, year] = dateStr.split('/');
-    return new Date(year, month - 1, day).toISOString().slice(0, 10);
-  }
-
   // Filter items by saved leagues
   const filteredItems = computed(() => {
     return props.items.filter(
@@ -62,7 +57,7 @@
   const groupedMatches = computed(() => {
     const grouped = {};
     for (const match of filteredItems.value) {
-      const iso = normalizeDate(match.date);
+      const iso = match.date;
       if (!grouped[iso]) grouped[iso] = [];
       grouped[iso].push(match);
     }

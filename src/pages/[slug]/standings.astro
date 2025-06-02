@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Standings from '../../components/Standings.vue';
+
+import { federations, loadFederationData } from '../../federations.ts';
+export async function getStaticPaths() {
+  return federations.map((federation) => ({
+    params: { slug: federation.slug },
+    props: { federation },
+  }));
+}
+
+const { federation } = Astro.props;
+
+const data = loadFederationData(federation.slug);
+
+const { clubs, standings, leagues } = data;
+
+const combined = Object.fromEntries(
+  clubs.map((club) => {
+    const id = club.id;
+    return [
+      id,
+      {
+        id,
+        name: club.name || null,
+        logo: club.logo_url || null,
+      },
+    ];
+  })
+);
+
+const leaguesMap = Object.fromEntries(
+  leagues.map((league) => {
+    const id = league.id;
+    return [
+      id,
+      {
+        id,
+        name: league.name || null,
+      },
+    ];
+  })
+);
+---
+
+<Layout federation={federation}>
+  <Standings
+    client:load
+    clubs={combined}
+    standings={standings}
+    leagues={leaguesMap}
+  />
+</Layout>
