@@ -1,5 +1,6 @@
 import re
 from scrape_utils import parse_date, parse_time
+from .exclusions import excluded_leagues, excluded_teams
 
 def extract_club_id(a_tag):
     """Extract clubprofile ID from anchor tag href."""
@@ -10,6 +11,9 @@ def scrape(soups_by_league, team_id_map=None):
     fixtures = []
 
     for league_id, soup in soups_by_league.items():
+        if league_id in excluded_leagues:
+            continue
+
         for ul in soup.find_all("ul", class_="column-six table-body fixtures"):
             try:
                 # Extract raw fields from data attributes
@@ -19,6 +23,12 @@ def scrape(soups_by_league, team_id_map=None):
                 away_tag = ul.find("li", class_="fteam2").find("a")
                 home_id = extract_club_id(home_tag)
                 away_id = extract_club_id(away_tag)
+
+                if not home_id or not away_id:
+                    continue
+
+                if home_id in excluded_teams or away_id in excluded_teams:
+                    continue
 
                 # Build fixture
                 fixtures.append({
@@ -30,7 +40,7 @@ def scrape(soups_by_league, team_id_map=None):
                     "venue": ul.get("data-venue", "").strip(),
                 })
 
-                print(f"📅 Fixture: {home_id} vs {away_id} on {date} at {time}")
+                # print(f"📅 Fixture: {home_id} vs {away_id} on {date} at {time}")
 
             except Exception as e:
                 print(f"❌ Failed to parse fixture in league {league_id}: {e}")

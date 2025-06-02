@@ -27,7 +27,7 @@ export const federations: Federation[] = [
   // },
   // {
   //   slug: 'bc',
-  //   name: 'Rugby BC',
+  //   name: 'British Columbia Rugby',
   //   url: 'https://www.bcrugby.com',
   // },
   // {
@@ -37,12 +37,12 @@ export const federations: Federation[] = [
   // },
   // {
   //   slug: 'nb',
-  //   name: 'Rugby New Brunswick',
+  //   name: 'New Brunswick Rugby Union',
   //   url: 'https://www.rugbynb.ca',
   // },
   // {
   //   slug: 'nl',
-  //   name: 'Rugby Newfoundland and Labrador',
+  //   name: 'Newfoundland Rugby Union',
   //   url: 'https://sportnl.ca/member/rugby-nl/',
   // },
   {
@@ -55,14 +55,14 @@ export const federations: Federation[] = [
   //   name: 'Rugby North',
   //   url: 'https://rugbycanada.ca',
   // },
-  // {
-  //   slug: 'on',
-  //   name: 'Rugby Ontario',
-  //   url: 'https://rugbyontario.com',
-  // },
+  {
+    slug: 'on',
+    name: 'Rugby Ontario',
+    url: 'https://rugbyontario.com',
+  },
   // {
   //   slug: 'pe',
-  //   name: 'Rugby PEI',
+  //   name: 'PEI Rugby Union',
   //   url: 'https://rugtypei.com',
   // },
   {
@@ -72,7 +72,7 @@ export const federations: Federation[] = [
   },
   // {
   //   slug: 'sk',
-  //   name: 'Rugby Saskatchewan',
+  //   name: 'Saskatchewan Rugby',
   //   url: 'https://rugbysaskatchewan.com',
   // },
 ];

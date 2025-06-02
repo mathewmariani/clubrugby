@@ -1,4 +1,10 @@
 import re
+from .exclusions import excluded_leagues, excluded_teams
+
+def extract_club_id(a_tag):
+    """Extract clubprofile ID from anchor tag href."""
+    match = re.search(r"/clubprofile/(\d+)/", a_tag["href"])
+    return match.group(1) if match else ""
 
 def find_team_id_by_name(name, team_map):
     for canonical_name in team_map:
@@ -10,12 +16,19 @@ def scrape(soups_by_league, team_id_map):
     standings_data = []
 
     for league_id, soup in soups_by_league.items():
+        if league_id in excluded_leagues:
+            continue
+
         position = 1
         for row in soup.find_all("tr"):
             cells = row.find_all("td")
             if len(cells) >= 13:
                 team_name = cells[1].get_text(strip=True)
                 team_id = find_team_id_by_name(team_name, team_id_map)
+
+                if not team_id or team_id in excluded_teams:
+                    continue
+
                 standings_data.append({
                     "league_id": league_id,
                     "team_id": team_id,

@@ -1,4 +1,5 @@
 import re
+from .exclusions import excluded_leagues, excluded_teams
 from scrape_utils import parse_date, parse_time
 
 def extract_club_id(a_tag):
@@ -10,6 +11,9 @@ def scrape(soups_by_league, team_id_map=None):
     results = []
 
     for league_id, soup in soups_by_league.items():
+        if league_id in excluded_leagues:
+            continue
+
         for ul in soup.find_all("ul", class_="column-six table-body"):
             try:
                 date = ul.find("li", class_="ftime").get_text(strip=True)
@@ -24,6 +28,12 @@ def scrape(soups_by_league, team_id_map=None):
                 home_score = vs_result.find("span", class_="homeScore").get_text(strip=True)
                 away_score = vs_result.find("span", class_="awayScore").get_text(strip=True)
 
+                if not home_id or not away_id:
+                    continue
+
+                if home_id in excluded_teams or away_id in excluded_teams:
+                    continue
+
                 results.append({
                     "league_id": league_id,
                     "date": parse_date(date),
@@ -34,7 +44,7 @@ def scrape(soups_by_league, team_id_map=None):
                     "away_score": away_score,
                 })
 
-                print(f"✅ Result: {home_id} {home_score} - {away_score} {away_id} on {date} at {time}")
+                # print(f"✅ Result: {home_id} {home_score} - {away_score} {away_id} on {date} at {time}")
 
             except Exception as e:
                 print(f"❌ Failed to parse result in league {league_id}: {e}")

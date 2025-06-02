@@ -1,4 +1,5 @@
 import re
+from .exclusions import excluded_leagues
 
 def scrape(soup):
     """
@@ -16,8 +17,13 @@ def scrape(soup):
     for a_tag in soup.find_all("a", href=True, attrs={"data-name": True}):
         match = re.search(r'/league/(\d+)', a_tag["href"])
         if match:
+            id = match.group(1)
+
+            if id in excluded_leagues:
+                continue
+
             leagues.append({
-                "id": match.group(1),
+                "id": id,
                 "name": a_tag["data-name"].strip()
             })
 

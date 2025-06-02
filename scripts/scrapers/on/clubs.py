@@ -1,5 +1,6 @@
 import json
 import re
+from .exclusions import excluded_teams
 
 def scrape(soup):
     clubs = []
@@ -23,21 +24,17 @@ def scrape(soup):
     data = json.loads(json_text)
 
     for club in data:
-        club_id = (club.get("clubId") or "").strip()
+        id = (club.get("clubId") or "").strip()
         name = (club.get("clubName") or "").strip()
-        email = (club.get("email") or "").strip()
-        province = (club.get("countryProvince") or "").strip()
-        website = (club.get("webAddress") or "").strip()
+        logo = (club.get("clubImage") or "").strip()
+
+        if id in excluded_teams:
+            continue
 
         clubs.append({
-            "id": club_id,
+            "id": id,
             "name": name,
-            "email": email,
-            "province": province,
-            "website": website,
+            "logo_url": logo,
         })
-
-        print(f"✅ Scraped club: {name} ({club_id})")
-
 
     return clubs
