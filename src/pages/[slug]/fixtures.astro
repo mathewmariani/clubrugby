@@ -14,13 +14,36 @@ const { federation } = Astro.props;
 
 const data = loadFederationData(federation.slug);
 
-const { clubs, schedule, leagues } = data;
+const { clubs, schedule, leagues, info, vendor } = data;
+
+const infoMap = Object.fromEntries(info.map(t => [t.id, t]));
+const vendorMap = Object.fromEntries(vendor.map(v => [v.team_id, v]));
+
+const combined = Object.fromEntries(
+  clubs.map(club => {
+    const id = club.id;
+    const infoData = infoMap[id] || {};
+    const vendorData = vendorMap[id] || {};
+
+    console.log(club)
+
+    return [id, {
+      id,
+      name: club.name || null,
+      logo: club.logo_url || null,
+      email: infoData.email || null,
+      short_name: vendorData.short_name || null,
+      instagram: vendorData.instagram || null,
+      facebook: vendorData.facebook || null
+    }];
+  })
+);
 ---
 
 <Layout federation={federation}>
   <DateSwiper
     client:load
-    clubs={clubs}
+    clubs={combined}
     items={schedule}
     leagues={leagues}
     cardMode="fixtures"

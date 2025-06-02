@@ -53,15 +53,15 @@
                   {{ team.pos }}
                 </span>
                 <img
-                  v-if="clubMap[team.team_id]?.logo"
-                  :src="clubMap[team.team_id].logo"
-                  :alt="clubMap[team.team_id].name"
+                  v-if="clubs[team.team_id]?.logo"
+                  :src="clubs[team.team_id].logo"
+                  :alt="clubs[team.team_id].name"
                   width="32"
                   height="32"
                   style="object-fit: contain"
                 />
                 <div class="text-truncate">
-                  <b>{{ clubMap[team.team_id]?.name || team.team_id }}</b>
+                  <b>{{ clubs[team.team_id]?.name || team.team_id }}</b>
                 </div>
               </div>
             </td>
@@ -95,17 +95,9 @@ import { ref, computed } from 'vue';
 
 defineProps({
   standings: Object,
-  clubMap: Object,
+  clubs: Object,
   leagues: Object,
   lastModified: String,
-});
-
-const clubMap = computed(() => {
-  if (!Array.isArray(__props.clubMap)) return {};
-  return __props.clubMap.reduce((acc, club) => {
-    acc[club.team_id] = club;
-    return acc;
-  }, {});
 });
 
 const sortColumn = ref('pts');

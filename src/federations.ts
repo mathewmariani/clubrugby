@@ -109,6 +109,6 @@ export function loadFederationData(slug: string, year = '2025') {
     leagues: parseCsv(getCsv(slug, year, 'leagues')),
     // news: parseCsv(getCsv(slug, year, 'news')),
     info: parseCsv(getCsv(slug, year, 'info')),
-    // vendor: parseCsv(getCsv(slug, 'vendor')), // if outside year folder, handle separately
+    vendor: parseCsv(getCsv(slug, year, 'vendor')),
   };
 }
