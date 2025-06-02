@@ -40,7 +40,7 @@
   const props = defineProps({
     items: { type: Array, required: true },
     clubs: { type: Object, required: true },
-    leagues: { type: Array, required: true },
+    leagues: { type: Object, required: true },
     cardMode: { type: String, required: true },
   });
 

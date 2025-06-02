@@ -5,7 +5,7 @@
         <thead>
           <tr>
             <th class="text-start">
-              {{ leagues[leagueGroup.leagueId] || leagueGroup.leagueId }}
+              {{ leagues[leagueGroup.leagueId].name || leagueGroup.leagueId }}
             </th>
             <th
               v-for="col in sortableColumns"

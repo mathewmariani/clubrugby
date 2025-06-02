@@ -29,6 +29,19 @@ const combined = Object.fromEntries(
     ];
   })
 );
+
+const leaguesMap = Object.fromEntries(
+  leagues.map((league) => {
+    const id = league.id;
+    return [
+      id,
+      {
+        id,
+        name: league.name || null,
+      },
+    ];
+  })
+);
 ---
 
 <Layout federation={federation}>
@@ -36,6 +49,6 @@ const combined = Object.fromEntries(
     client:load
     clubs={combined}
     standings={standings}
-    leagues={leagues}
+    leagues={leaguesMap}
   />
 </Layout>

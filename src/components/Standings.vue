@@ -19,7 +19,7 @@
   const props = defineProps({
     standings: { type: Array, required: true },
     clubs: { type: Object, required: true },
-    leagues: { type: Array, required: true },
+    leagues: { type: Object, required: true },
   });
 
   const { savedLeagues } = useSavedLeagues();

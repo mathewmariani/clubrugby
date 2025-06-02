@@ -4,7 +4,7 @@
       class="card-body d-flex flex-column align-items-center justify-content-between"
     >
       <span class="badge text-bg-primary">
-        {{ leagues[match.league_id] }}
+        {{ leagues[match.league_id].name }}
       </span>
       <div class="my-auto d-flex align-items-center justify-content-between">
         <FixtureTeam :club="clubs[match.home_id]" />

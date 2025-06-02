@@ -40,16 +40,8 @@
   import { computed } from 'vue';
   const props = defineProps({
     clubs: { type: Object, required: true },
-    // info: { type: Object, required: true },
-    // vendor: { type: Object, required: true },
   });
 
   // can be composable
   const clubList = computed(() => Object.values(props.clubs));
-  const infoMap = computed(() => {
-    return Object.values(props.info).reduce((acc, item) => {
-      acc[item.id] = item;
-      return acc;
-    }, {});
-  });
 </script>
