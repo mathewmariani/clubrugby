@@ -1,27 +1,31 @@
 ---
 import Info from '../layouts/Info.astro';
-import {SITE_TITLE, SITE_DESCRIPTION} from '../consts.ts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts.ts';
 
 import { federations } from '../federations.ts';
 export async function getStaticPaths() {
-  return federations.map(federation => ({
+  return federations.map((federation) => ({
     params: { slug: federation.slug },
-    props: { federation }
+    props: { federation },
   }));
 }
 ---
 
 <Info>
-  <h1 class="display-1">Hey, 👋</h1>
-  <p class="lead">{SITE_TITLE} is a {SITE_DESCRIPTION}</p>
+  <h1 class="display-1">{SITE_TITLE}</h1>
+  <p class="lead">{SITE_DESCRIPTION}</p>
+
+  <p>Select a rugby federation:</p>
 
   <ul class="list-group">
-    {federations.map(fed => (
-      <li class="list-group-item">
-        <a href={`/${fed.slug}`} class="text-decoration-none">
-          {fed.name}
-        </a>
-      </li>
-    ))}
+    {
+      federations.map((fed) => (
+        <li class="list-group-item">
+          <a href={`/${fed.slug}`} class="text-decoration-none">
+            {fed.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </Info>

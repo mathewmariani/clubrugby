@@ -12,12 +12,12 @@
           <h5 class="card-title mb-0">{{ club.name }}</h5>
         </div>
         <div class="card-footer">
-          <a
+          <!-- <a
             :href="infoMap[club.id]?.url"
             class="btn btn-link"
             :class="{ disabled: !infoMap[club.id]?.url }"
             >Website</a
-          >
+          > -->
           <!-- <a
             :href="vendor[club.id]?.instagram"
             class="btn btn-link"
@@ -40,7 +40,7 @@
   import { computed } from 'vue';
   const props = defineProps({
     clubs: { type: Object, required: true },
-    info: { type: Object, required: true },
+    // info: { type: Object, required: true },
     // vendor: { type: Object, required: true },
   });
 
@@ -52,5 +52,4 @@
       return acc;
     }, {});
   });
-
 </script>

@@ -4,9 +4,9 @@ import DateSwiper from '../../components/vue/DateSwiper.vue';
 
 import { federations, loadFederationData } from '../../federations.ts';
 export async function getStaticPaths() {
-  return federations.map(federation => ({
+  return federations.map((federation) => ({
     params: { slug: federation.slug },
-    props: { federation }
+    props: { federation },
   }));
 }
 
@@ -14,28 +14,19 @@ const { federation } = Astro.props;
 
 const data = loadFederationData(federation.slug);
 
-const { clubs, schedule, leagues, info, vendor } = data;
-
-const infoMap = Object.fromEntries(info.map(t => [t.id, t]));
-const vendorMap = Object.fromEntries(vendor.map(v => [v.team_id, v]));
+const { clubs, schedule, leagues } = data;
 
 const combined = Object.fromEntries(
-  clubs.map(club => {
+  clubs.map((club) => {
     const id = club.id;
-    const infoData = infoMap[id] || {};
-    const vendorData = vendorMap[id] || {};
-
-    console.log(club)
-
-    return [id, {
+    return [
       id,
-      name: club.name || null,
-      logo: club.logo_url || null,
-      email: infoData.email || null,
-      short_name: vendorData.short_name || null,
-      instagram: vendorData.instagram || null,
-      facebook: vendorData.facebook || null
-    }];
+      {
+        id,
+        name: club.name || null,
+        logo: club.logo_url || null,
+      },
+    ];
   })
 );
 ---

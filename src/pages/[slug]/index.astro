@@ -5,9 +5,9 @@ import Settings from '../../components/Settings.vue';
 
 import { federations, loadFederationData } from '../../federations.ts';
 export async function getStaticPaths() {
-  return federations.map(federation => ({
+  return federations.map((federation) => ({
     params: { slug: federation.slug },
-    props: { federation }
+    props: { federation },
   }));
 }
 

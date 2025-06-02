@@ -4,9 +4,9 @@ import Clubs from '../../components/Clubs.vue';
 
 import { federations, loadFederationData } from '../../federations.ts';
 export async function getStaticPaths() {
-  return federations.map(federation => ({
+  return federations.map((federation) => ({
     params: { slug: federation.slug },
-    props: { federation }
+    props: { federation },
   }));
 }
 
@@ -14,9 +14,9 @@ const { federation } = Astro.props;
 
 const data = loadFederationData(federation.slug);
 
-const { clubs, info } = data;
+const { clubs } = data;
 ---
 
 <Layout federation={federation}>
-  <Clubs clubs={clubs} info={info} />
+  <Clubs clubs={clubs} />
 </Layout>

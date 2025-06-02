@@ -1,5 +1,6 @@
 ---
 import Info from '../layouts/Info.astro';
+import { federations } from '../federations.ts';
 ---
 
 <Info>
@@ -13,13 +14,15 @@ import Info from '../layouts/Info.astro';
 
   <h2>Primary Data Sources</h2>
   <ul>
-    <li>
-      <a
-        href="https://rugbyquebec.org/"
-        target="_blank"
-        rel="noopener noreferrer">Rugby Quebec</a
-      >
-    </li>
+    {
+      federations.map((federation) => (
+        <li>
+          <a href={federation.url} target="_blank" rel="noopener noreferrer">
+            {federation.name}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 
   <h2>Data Usage & Permissions</h2>

@@ -5,7 +5,11 @@
       <li class="list-group-item">
         <strong>Choose leagues to display</strong>
       </li>
-      <li v-for="(league, index) in leagues" :key="index" class="list-group-item">
+      <li
+        v-for="(league, index) in leagues"
+        :key="index"
+        class="list-group-item"
+      >
         <div class="form-check">
           <input
             @change="saveSettings"
@@ -49,7 +53,7 @@
   const saveSettings = () => {
     localStorage.setItem(storageKey, JSON.stringify(selectedLeagues.value));
     emit('update-leagues', selectedLeagues.value);
-    console.log(JSON.stringify(selectedLeagues.value))
+    console.log(JSON.stringify(selectedLeagues.value));
   };
 
   onMounted(loadSettings);

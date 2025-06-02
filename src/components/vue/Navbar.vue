@@ -11,7 +11,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a class="navbar-brand" href="/">{{ title }} | {{ federation.slug.toUpperCase() }}</a>
+      <a class="navbar-brand" href="/"
+        >{{ title }} | {{ federation.slug.toUpperCase() }}</a
+      >
 
       <div class="offcanvas offcanvas-start" id="navbarNav" tabindex="-1">
         <div class="offcanvas-header bg-white sticky-top">
@@ -47,16 +49,16 @@
   }>();
 
   const baseLinks = [
-  { label: 'Clubs', href: '/clubs' },
-  { label: 'Fixtures', href: '/fixtures' },
-  { label: 'Results', href: '/results' },
-  { label: 'Standings', href: '/standings' },
-];
+    { label: 'Clubs', href: '/clubs' },
+    { label: 'Fixtures', href: '/fixtures' },
+    { label: 'Results', href: '/results' },
+    { label: 'Standings', href: '/standings' },
+  ];
 
-const navLinks = baseLinks.map(link => ({
-  ...link,
-  href: `/${props.federation.slug}${link.href}`,
-}));
+  const navLinks = baseLinks.map((link) => ({
+    ...link,
+    href: `/${props.federation.slug}${link.href}`,
+  }));
 
   useFixedOffset();
 

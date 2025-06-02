@@ -48,7 +48,9 @@
             <td class="text-start">
               <div class="d-flex align-items-center gap-2">
                 <span
-                  :class="team.pos <= 4 ? 'badge bg-primary' : 'badge bg-secondary'"
+                  :class="
+                    team.pos <= 4 ? 'badge bg-primary' : 'badge bg-secondary'
+                  "
                 >
                   {{ team.pos }}
                 </span>
@@ -91,61 +93,61 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+  import { ref, computed } from 'vue';
 
-defineProps({
-  standings: Object,
-  clubs: Object,
-  leagues: Object,
-  lastModified: String,
-});
+  defineProps({
+    standings: Object,
+    clubs: Object,
+    leagues: Object,
+    lastModified: String,
+  });
 
-const sortColumn = ref('pts');
-const sortDirection = ref('desc');
+  const sortColumn = ref('pts');
+  const sortDirection = ref('desc');
 
-const sortableColumns = [
-  { key: 'gp', label: 'P' },
-  { key: 'w', label: 'W' },
-  { key: 'l', label: 'L' },
-  { key: 'd', label: 'D' },
-  { key: 'pts', label: 'PTS' },
-  { key: 'pf', label: 'PF' },
-  { key: 'pa', label: 'PA' },
-  { key: 'diff', label: 'PD' },
-];
+  const sortableColumns = [
+    { key: 'gp', label: 'P' },
+    { key: 'w', label: 'W' },
+    { key: 'l', label: 'L' },
+    { key: 'd', label: 'D' },
+    { key: 'pts', label: 'PTS' },
+    { key: 'pf', label: 'PF' },
+    { key: 'pa', label: 'PA' },
+    { key: 'diff', label: 'PD' },
+  ];
 
-function sortBy(column) {
-  if (sortColumn.value === column) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
-  } else {
-    sortColumn.value = column;
-    sortDirection.value = 'desc';
+  function sortBy(column) {
+    if (sortColumn.value === column) {
+      sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortColumn.value = column;
+      sortDirection.value = 'desc';
+    }
   }
-}
 
-const groupedStandings = computed(() => {
-  return Object.entries(__props.standings).map(([leagueId, teams]) => {
-    const sorted = Object.values(teams)
-      .slice()
-      .sort((a, b) => {
-        const valA = a[sortColumn.value];
-        const valB = b[sortColumn.value];
+  const groupedStandings = computed(() => {
+    return Object.entries(__props.standings).map(([leagueId, teams]) => {
+      const sorted = Object.values(teams)
+        .slice()
+        .sort((a, b) => {
+          const valA = a[sortColumn.value];
+          const valB = b[sortColumn.value];
 
-        if (valA === valB) {
-          if (sortColumn.value !== 'pts') {
-            const ptsDiff = b.pts - a.pts;
-            if (ptsDiff !== 0) return ptsDiff;
+          if (valA === valB) {
+            if (sortColumn.value !== 'pts') {
+              const ptsDiff = b.pts - a.pts;
+              if (ptsDiff !== 0) return ptsDiff;
+              return b.diff - a.diff;
+            }
             return b.diff - a.diff;
           }
-          return b.diff - a.diff;
-        }
 
-        return sortDirection.value === 'asc' ? valA - valB : valB - valA;
-      });
+          return sortDirection.value === 'asc' ? valA - valB : valB - valA;
+        });
 
-    return { leagueId, teams: sorted };
+      return { leagueId, teams: sorted };
+    });
   });
-});
 </script>
 
 <style scoped>
