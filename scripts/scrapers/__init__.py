@@ -1,1 +1,1 @@
-from . import quebec, ontario
+from . import qc, on, ns

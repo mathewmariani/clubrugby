@@ -1,8 +1,9 @@
 import re
+from scrape_utils import parse_date, parse_time
 
-def extract_team_id(a_tag):
-    """Extract team_id from anchor tag."""
-    match = re.search(r"team_id=(\d+)", a_tag["href"])
+def extract_club_id(a_tag):
+    """Extract clubprofile ID from anchor tag href."""
+    match = re.search(r"/clubprofile/(\d+)/", a_tag["href"])
     return match.group(1) if match else ""
 
 def scrape(soups_by_league, team_id_map=None):
@@ -16,8 +17,8 @@ def scrape(soups_by_league, team_id_map=None):
 
                 home_tag = ul.find("li", class_="fteam1").find("a")
                 away_tag = ul.find("li", class_="fteam2").find("a")
-                home_id = extract_team_id(home_tag)
-                away_id = extract_team_id(away_tag)
+                home_id = extract_club_id(home_tag)
+                away_id = extract_club_id(away_tag)
 
                 vs_result = ul.find("span", class_="vs-result")
                 home_score = vs_result.find("span", class_="homeScore").get_text(strip=True)
@@ -25,11 +26,11 @@ def scrape(soups_by_league, team_id_map=None):
 
                 results.append({
                     "league_id": league_id,
-                    "date": date,
-                    "time": time,
-                    "home_id": team_id_map.get(home_id, home_id) if team_id_map else home_id,
+                    "date": parse_date(date),
+                    "time": parse_time(time),
+                    "home_id": home_id,
                     "home_score": home_score,
-                    "away_id": team_id_map.get(away_id, away_id) if team_id_map else away_id,
+                    "away_id": away_id,
                     "away_score": away_score,
                 })
 

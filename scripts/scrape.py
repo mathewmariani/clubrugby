@@ -5,53 +5,71 @@ from scrape_utils import get_soup, save_to_csv
 from league_utils import load_team_id_map, load_league_ids, load_clubs
 
 SCRAPERS = {
-    # "qc": {
-    #     "clubs": {
-    #         "url": "https://rugbyquebec.org/clubs/",
-    #         "module": "scrapers.quebec.clubs",
-    #     },
-    #     "leagues": {
-    #         "url": "https://rugbyquebec.org/competitions/",
-    #         "module": "scrapers.quebec.leagues",
-    #     },
-    #     "fixtures": {
-    #         "url": "https://rugbyquebec.org/league/{}/",
-    #         "module": "scrapers.quebec.fixtures",
-    #     },
-    #     "results": {
-    #         "url": "https://rugbyquebec.org/league/{}/",
-    #         "module": "scrapers.quebec.results",            
-    #     },
-    #     "standings": {
-    #         "url": "https://rugbyquebec.org/league/{}/",
-    #         "module": "scrapers.quebec.standings",
-    #     },
-    #     "info": {
-    #         "url": "https://rugbyquebec.org/clubprofile/{}",
-    #         "module": "scrapers.quebec.info",
-    #     },
-    # },
+    "qc": {
+        # "clubs": {
+        #     "url": "https://rugbyquebec.org/clubs/",
+        #     "module": "scrapers.qc.clubs",
+        # },
+        # "leagues": {
+        #     "url": "https://rugbyquebec.org/competitions/",
+        #     "module": "scrapers.qc.leagues",
+        # },
+        # "fixtures": {
+        #     "url": "https://rugbyquebec.org/league/{}/",
+        #     "module": "scrapers.qc.fixtures",
+        # },
+        # "results": {
+        #     "url": "https://rugbyquebec.org/league/{}/",
+        #     "module": "scrapers.qc.results",
+        # },
+        # "standings": {
+        #     "url": "https://rugbyquebec.org/league/{}/",
+        #     "module": "scrapers.qc.standings",
+        # },
+    },
     "on": {
         # "clubs": {
         #     "url": "https://www.rugbyontario.com/club-info/",
-        #     "module": "scrapers.ontario.clubs",
+        #     "module": "scrapers.on.clubs",
         # },
         # "leagues": {
         #     "url": "https://www.rugbyontario.com/competitions/",
-        #     "module": "scrapers.ontario.leagues",
+        #     "module": "scrapers.on.leagues",
         # },
         # "fixtures": {
         #     "url": "https://rugbyontario.com/league/{}/",
-        #     "module": "scrapers.ontario.fixtures",
+        #     "module": "scrapers.on.fixtures",
         # },
         # "results": {
         #     "url": "https://rugbyontario.com/league/{}/",
-        #     "module": "scrapers.ontario.results",            
+        #     "module": "scrapers.on.results",
         # },
-        "standings": {
-           "url": "https://rugbyontario.com/league/{}/",
-            "module": "scrapers.ontario.standings",
-        },
+        # "standings": {
+        #    "url": "https://rugbyontario.com/league/{}/",
+        #     "module": "scrapers.on.standings",
+        # },
+    },
+    "ns": {
+        # "clubs": {
+        #     "url": "https://rugbyns.ns.ca/club-listing/",
+        #     "module": "scrapers.ns.clubs",
+        # },
+        # "leagues": {
+        #     "url": "https://rugbyns.ns.ca/competitions/",
+        #     "module": "scrapers.ns.leagues",
+        # },
+        # "fixtures": {
+        #     "url": "https://rugbyns.ns.ca/league/{}/",
+        #     "module": "scrapers.ns.fixtures",
+        # },
+        # "results": {
+        #     "url": "https://rugbyns.ns.ca/league/{}/",
+        #     "module": "scrapers.ns.results",
+        # },
+        # "standings": {
+        #    "url": "https://rugbyns.ns.ca/league/{}/",
+        #     "module": "scrapers.ns.standings",
+        # },
     },
 }
 

@@ -1,3 +1,5 @@
+from scrape_utils import parse_date, parse_time
+
 def scrape(soups_by_league_id, team_id_map):
     results = []
 
@@ -16,8 +18,8 @@ def scrape(soups_by_league_id, team_id_map):
 
             results.append({
                 "league_id": league_id,
-                "date": date,
-                "time": time,
+                "date": parse_date(date),
+                "time": parse_time(time),
                 "home_id": team_id_map.get(home_team, "UNKNOWN"),
                 "home_score": home_score,
                 "away_id": team_id_map.get(away_team, "UNKNOWN"),

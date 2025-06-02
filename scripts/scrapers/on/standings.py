@@ -1,4 +1,10 @@
-# scrapers/quebec/standings.py
+import re
+
+def find_team_id_by_name(name, team_map):
+    for canonical_name in team_map:
+        if name.startswith(canonical_name):
+            return team_map[canonical_name]
+    return None
 
 def scrape(soups_by_league, team_id_map):
     standings_data = []
@@ -9,7 +15,7 @@ def scrape(soups_by_league, team_id_map):
             cells = row.find_all("td")
             if len(cells) >= 13:
                 team_name = cells[1].get_text(strip=True)
-                team_id = team_id_map.get(team_name, "UNKNOWN")
+                team_id = find_team_id_by_name(team_name, team_id_map)
                 standings_data.append({
                     "league_id": league_id,
                     "team_id": team_id,
