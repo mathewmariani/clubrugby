@@ -25,11 +25,11 @@ export const federations: Federation[] = [
   //   name: 'Rugby Alberta',
   //   url: 'https://rugbyalberta.com',
   // },
-  // {
-  //   slug: 'bc',
-  //   name: 'British Columbia Rugby',
-  //   url: 'https://www.bcrugby.com',
-  // },
+  {
+    slug: 'bc',
+    name: 'British Columbia Rugby',
+    url: 'https://www.bcrugby.com',
+  },
   // {
   //   slug: 'mb',
   //   name: 'Rugby Manitoba',

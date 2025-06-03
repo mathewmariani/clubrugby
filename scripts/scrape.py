@@ -5,6 +5,28 @@ from scrape_utils import get_soup, save_to_csv
 from league_utils import load_team_id_map, load_league_ids, load_clubs
 
 SCRAPERS = {
+    "bc": {
+        # "clubs": {
+        #     "url": "https://bcrugby.com/bc-rugby-clubs/",
+        #     "module": "scrapers.bc.clubs",
+        # },
+        # "leagues": {
+        #     "url": "https://bcrugby.com/competitions-2/fixtures-results/",
+        #     "module": "scrapers.bc.leagues",
+        # },
+        # "fixtures": {
+        #     "url": "https://bcrugby.com/league/{}/",
+        #     "module": "scrapers.bc.fixtures",
+        # },
+        # "results": {
+        #     "url": "https://bcrugby.com/league/{}/",
+        #     "module": "scrapers.bc.results",
+        # },
+        # "standings": {
+        #     "url": "https://bcrugby.com/league/{}/",
+        #     "module": "scrapers.bc.standings",
+        # },
+    },
     "qc": {
         # "clubs": {
         #     "url": "https://rugbyquebec.org/clubs/",
