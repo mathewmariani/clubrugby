@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Meta from '../components/astro/Meta.astro';
+import Analytics from '../components/astro/Analytics.astro';
+---
+
+<html lang="en">
+  <head>
+    <Meta />
+  </head>
+  <Analytics />
+  <body class="text-bg-light">
+    <main class="container">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  /* Add your styles here if needed */
+</style>

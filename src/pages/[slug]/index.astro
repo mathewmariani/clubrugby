@@ -1,28 +1,64 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import News from '../../components/News.vue';
-import Settings from '../../components/Settings.vue';
+import TabSwiper from '../../components/vue/TabSwiper.vue';
 
-import { federations, loadFederationData } from '../../federations.ts';
+import {
+  groupStandingsByLeague,
+  groupFixturesByLeague,
+  groupResultsByLeague,
+} from '../../utils';
+
+const { federation } = Astro.props;
+
+import { unions, loadUnionData } from '../../unions.ts';
 export async function getStaticPaths() {
-  return federations.map((federation) => ({
+  return unions.map((federation) => ({
     params: { slug: federation.slug },
     props: { federation },
   }));
 }
 
-const { federation } = Astro.props;
+// only union specific data
+const data = loadUnionData(federation.slug);
+const { clubs, fixtures, leagues, results, standings } = data;
 
-const data = loadFederationData(federation.slug);
+// id: { id, name, logo }
+const clubsMap = Object.fromEntries(
+  clubs.map((club) => {
+    const id = club.id;
+    return [
+      id,
+      {
+        id,
+        name: club.name || null,
+        logo: club.logo_url || null,
+      },
+    ];
+  })
+);
 
-const { leagues } = data;
+// id: { id, name }
+const leaguesMap = Object.fromEntries(
+  leagues.map((league) => {
+    const id = league.id;
+    return [
+      id,
+      {
+        id,
+        name: league.name || null,
+      },
+    ];
+  })
+);
 ---
 
 <Layout federation={federation}>
-  <h1 class="display-1">{federation.name} 🏉</h1>
-  <p class="lead">
-    Before you begin, please select all leagues you would like to follow.
-  </p>
-
-  <Settings client:load leagues={leagues} />
+  <TabSwiper
+    client:load
+    clubs={clubsMap}
+    leagues={leaguesMap}
+    standings={groupStandingsByLeague(standings)}
+    fixtures={groupFixturesByLeague(fixtures)}
+    results={groupResultsByLeague(results)}
+  />
 </Layout>

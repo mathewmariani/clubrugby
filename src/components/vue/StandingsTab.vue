@@ -99,7 +99,6 @@
     standings: Object,
     clubs: Object,
     leagues: Object,
-    lastModified: String,
   });
 
   const sortColumn = ref('pts');

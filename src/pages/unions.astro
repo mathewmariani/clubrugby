@@ -1,0 +1,25 @@
+---
+import Page from '../layouts/Page.astro';
+
+import { unions } from '../unions.ts';
+export async function getStaticPaths() {
+  return unions.map((federation) => ({
+    params: { slug: federation.slug },
+    props: { federation },
+  }));
+}
+---
+
+<Page>
+  <ul class="list-group">
+    {
+      unions.map((unions) => (
+        <li class="list-group-item">
+          <a href={`/${unions.slug}`} class="text-decoration-none">
+            {unions.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Page>

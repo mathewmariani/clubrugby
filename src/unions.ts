@@ -1,4 +1,4 @@
-export type FederationSlug =
+export type UnionSlug =
   | 'ab' // Alberta
   | 'bc' // British Columbia
   | 'mb' // Manitoba
@@ -13,13 +13,13 @@ export type FederationSlug =
   | 'sk' // Saskatchewan
   | 'yt'; // Yukon
 
-export type Federation = {
-  slug: FederationSlug;
+export type Union = {
+  slug: UnionSlug;
   name: string;
   url: string;
 };
 
-export const federations: Federation[] = [
+export const unions: Union[] = [
   // {
   //   slug: 'ab',
   //   name: 'Rugby Alberta',
@@ -106,12 +106,12 @@ function parseCsv(raw: string) {
   return Papa.parse(raw, { header: true, skipEmptyLines: true }).data;
 }
 
-export function loadFederationData(slug: string, year = '2025') {
+export function loadUnionData(slug: string, year = '2025') {
   return {
     clubs: parseCsv(getCsv(slug, year, 'clubs')),
     results: parseCsv(getCsv(slug, year, 'results')),
     standings: parseCsv(getCsv(slug, year, 'standings')),
-    schedule: parseCsv(getCsv(slug, year, 'fixtures')),
+    fixtures: parseCsv(getCsv(slug, year, 'fixtures')),
     leagues: parseCsv(getCsv(slug, year, 'leagues')),
   };
 }

@@ -2,9 +2,9 @@
 import Info from '../layouts/Info.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts.ts';
 
-import { federations } from '../federations.ts';
+import { unions } from '../unions.ts';
 export async function getStaticPaths() {
-  return federations.map((federation) => ({
+  return unions.map((federation) => ({
     params: { slug: federation.slug },
     props: { federation },
   }));
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
   <ul class="list-group">
     {
-      federations.map((fed) => (
+      unions.map((fed) => (
         <li class="list-group-item">
           <a href={`/${fed.slug}`} class="text-decoration-none">
             {fed.name}

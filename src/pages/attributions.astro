@@ -1,6 +1,6 @@
 ---
 import Info from '../layouts/Info.astro';
-import { federations } from '../federations.ts';
+import { unions } from '../unions.ts';
 ---
 
 <Info>
@@ -15,7 +15,7 @@ import { federations } from '../federations.ts';
   <h2>Primary Data Sources</h2>
   <ul>
     {
-      federations.map((federation) => (
+      unions.map((federation) => (
         <li>
           <a href={federation.url} target="_blank" rel="noopener noreferrer">
             {federation.name}

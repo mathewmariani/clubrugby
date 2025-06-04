@@ -26,7 +26,7 @@ const structuredData = {
   description: SITE_DESCRIPTION,
 };
 
-import { type Federation } from '../federations.ts';
+import { type Federation } from '../unions.ts';
 const { federation } = Astro.props as Federation;
 ---
 
@@ -47,7 +47,7 @@ const { federation } = Astro.props as Federation;
     <meta name="title" content={SITE_TITLE} />
     <meta name="description" content={SITE_DESCRIPTION} />
 
-    <!-- Keywords for Canadian provincial rugby federations -->
+    <!-- Keywords for Canadian provincial rugby unions -->
     <meta
       name="keywords"
       content="Canadian rugby, club rugby Canada, rugby fixtures, rugby scores, rugby schedule"

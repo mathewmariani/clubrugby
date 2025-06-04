@@ -1,10 +1,6 @@
 ---
-import '../styles/global.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import Navbar from '../components/vue/Navbar.vue';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
-const buildTime = new Date().toLocaleString();
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'SportsOrganization',
@@ -87,30 +83,4 @@ const structuredData = {
       set:html={JSON.stringify(structuredData)}
     />
   </head>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8M75YTVFM"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-H8M75YTVFM');
-  </script>
-
-  <body class="text-bg-light">
-    <main class="container">
-      <slot />
-    </main>
-    <footer class="text-center text-muted py-2">
-      Last updated: {buildTime}
-    </footer>
-  </body>
 </html>
-
-<style>
-  /* Add your styles here if needed */
-</style>
