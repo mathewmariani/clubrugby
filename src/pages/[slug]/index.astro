@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Page from '../../layouts/Page.astro';
 import TabSwiper from '../../components/vue/TabSwiper.vue';
 
 import {
@@ -8,18 +8,18 @@ import {
   groupResultsByLeague,
 } from '../../utils';
 
-const { federation } = Astro.props;
+const { union } = Astro.props;
 
 import { unions, loadUnionData } from '../../unions.ts';
 export async function getStaticPaths() {
-  return unions.map((federation) => ({
-    params: { slug: federation.slug },
-    props: { federation },
+  return unions.map((union) => ({
+    params: { slug: union.slug },
+    props: { union },
   }));
 }
 
 // only union specific data
-const data = loadUnionData(federation.slug);
+const data = loadUnionData(union.slug);
 const { clubs, fixtures, leagues, results, standings } = data;
 
 // id: { id, name, logo }
@@ -52,13 +52,14 @@ const leaguesMap = Object.fromEntries(
 );
 ---
 
-<Layout federation={federation}>
+<Page union={union}>
   <TabSwiper
     client:load
+    union={union}
     clubs={clubsMap}
     leagues={leaguesMap}
     standings={groupStandingsByLeague(standings)}
     fixtures={groupFixturesByLeague(fixtures)}
     results={groupResultsByLeague(results)}
   />
-</Layout>
+</Page>
