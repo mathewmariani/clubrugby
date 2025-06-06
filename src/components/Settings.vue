@@ -29,32 +29,18 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { useSavedLeagues } from '../composables/useSavedLeagues';
 
   const props = defineProps({
     leagues: { type: Object, required: true },
   });
 
   const emit = defineEmits(['update-leagues']);
-  const selectedLeagues = ref([]);
-  const storageKey = 'my_leagues';
+  const { savedLeagues: selectedLeagues, setSavedLeagues } = useSavedLeagues();
 
-  const loadSettings = () => {
-    try {
-      const saved = localStorage.getItem(storageKey);
-      if (saved) {
-        selectedLeagues.value = JSON.parse(saved);
-      }
-    } catch {
-      selectedLeagues.value = [];
-    }
-  };
-
+  // Emit when user manually saves (if needed)
   const saveSettings = () => {
-    localStorage.setItem(storageKey, JSON.stringify(selectedLeagues.value));
     emit('update-leagues', selectedLeagues.value);
-    console.log(JSON.stringify(selectedLeagues.value));
+    console.log('Saved:', JSON.stringify(selectedLeagues.value));
   };
-
-  onMounted(loadSettings);
 </script>

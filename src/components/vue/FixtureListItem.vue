@@ -2,9 +2,7 @@
   <!-- make this an href to a stats page -->
   <a class="list-group-item">
     <div class="d-flex justify-content-between w-100 mb-2">
-      <span class="badge text-bg-primary">
-        {{ leagues[match.league_id].name }}
-      </span>
+      <small class="text-muted">{{ match.venue }}</small>
       <span class="badge text-bg-danger">
         {{ match.time }}
       </span>
@@ -33,7 +31,6 @@
       <small>{{ clubs[match.away_id].name || 'Unknown' }}</small>
       <!-- <small class="ms-auto">{{ getRecord(match.away_id) }}</small> -->
     </div>
-    <small class="text-muted">{{ match.venue }}</small>
   </a>
 </template>
 

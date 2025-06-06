@@ -1,23 +1,17 @@
-<!-- InfoSwiper.vue -->
 <template>
-  <!-- <TabHeaders
-    :titles="sections.map((s) => s.title)"
-    :selected-index="selectedIndex"
-    @select="goToSlide"
-  /> -->
-
   <StickyNavTabs
     :union="union"
     :titles="['Results', 'Fixtures', 'Standings']"
     :selectedIndex="selectedIndex"
-    @select="selectedIndex = $event"
+    @select="goToSlide"
   />
 
   <div style="margin-top: 104px">
     <Swiper
+      @swiper="onSwiper"
+      @slideChange="onSlideChange"
       ref="swiperRef"
       :slides-per-view="1"
-      @slideChange="onSlideChange"
       :autoHeight="true"
       :space-between="12"
     >
@@ -80,15 +74,19 @@
   ];
 
   const selectedIndex = ref(0);
-  const swiperRef = ref<any>(null);
+  const swiperInstance = ref(null);
 
-  function goToSlide(index: number) {
+  function goToSlide(index) {
     selectedIndex.value = index;
-    swiperRef.value?.swiper?.slideTo(index);
+    swiperInstance.value?.slideTo(index);
   }
 
-  function onSlideChange(swiper: any) {
+  function onSlideChange(swiper) {
     selectedIndex.value = swiper.activeIndex;
+  }
+
+  function onSwiper(swiper) {
+    swiperInstance.value = swiper;
   }
 </script>
 

@@ -1,13 +1,19 @@
 <template>
-  <div class="list-group">
+  <div class="list-group list-group-flush">
     <template v-for="(fixtures, day) in dailyFixtures" :key="day">
       <strong class="list-group-item">{{ formatDate(day) }}</strong>
-      <FixtureListItem
-        v-for="fixture in fixtures"
-        :match="fixture"
-        :clubs="clubs"
-        :leagues="leagues"
-      />
+      <template
+        v-for="(f, league) in groupFixturesByLeague(fixtures)"
+        :key="league"
+      >
+        <strong class="list-group-item">{{ leagues[league].name }}</strong>
+        <FixtureListItem
+          v-for="fixture in f"
+          :match="fixture"
+          :clubs="clubs"
+          :leagues="leagues"
+        />
+      </template>
     </template>
   </div>
 </template>
@@ -15,14 +21,31 @@
 <script setup>
   import { computed } from 'vue';
   import FixtureListItem from '../FixtureListItem.vue';
-  import { groupFixturesByDay, formatDate } from '../../../utils';
+  import {
+    groupFixturesByDay,
+    groupFixturesByLeague,
+    formatDate,
+  } from '../../../utils';
+  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
+
   const props = defineProps({
     clubs: Object,
     leagues: Object,
-    fixtures: Object,
+    fixtures: Object, // should be Fixture[] ideally
   });
 
-  const dailyFixtures = computed(() => groupFixturesByDay(props.fixtures));
+  const { savedLeagues } = useSavedLeagues();
+
+  const filteredFixtures = computed(() => {
+    if (!savedLeagues.value.length) return props.fixtures;
+    return props.fixtures.filter((f) =>
+      savedLeagues.value.includes(f.league_id)
+    );
+  });
+
+  const dailyFixtures = computed(() =>
+    groupFixturesByDay(filteredFixtures.value)
+  );
 </script>
 
 <style scoped>

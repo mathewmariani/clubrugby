@@ -1,4 +1,4 @@
-import { startOfWeek, format } from 'date-fns';
+import { startOfWeek, parseISO, format } from 'date-fns';
 
 export interface Standing {
   league_id: string;
@@ -19,8 +19,8 @@ export interface Standing {
 
 export interface Fixture {
   league_id: string;
-  date: Date;
-  time: Date;
+  date: string;
+  time: string;
   venue: string;
   home_id: string;
   away_id: string;
@@ -28,8 +28,8 @@ export interface Fixture {
 
 export interface Result {
   league_id: string;
-  date: Date;
-  time: Date;
+  date: string;
+  time: string;
   venue: string;
   home_id: string;
   home_score: string;
@@ -71,37 +71,12 @@ export function groupResultsByLeague(results: Result[]): ResultsMap {
   }, {});
 }
 
-export function groupFixturesByWeek(fixturesMap: FixturesMap): FixturesMap {
-  const allFixtures = Object.values(fixturesMap).flat();
-
-  const groupedByWeek: FixturesMap = {};
-
-  for (const fixture of allFixtures) {
-    const weekStart = startOfWeek(new Date(fixture.date), { weekStartsOn: 1 }); // Monday
-    const key = format(weekStart, 'yyyy-MM-dd');
-
-    if (!groupedByWeek[key]) {
-      groupedByWeek[key] = [];
-    }
-
-    groupedByWeek[key].push(fixture);
-  }
-
-  // Optional: Sort fixtures within each week by date/time
-  for (const week in groupedByWeek) {
-    groupedByWeek[week].sort((a, b) => +new Date(a.date) - +new Date(b.date));
-  }
-
-  return groupedByWeek;
-}
-
 export function groupFixturesByDay(fixturesMap: FixturesMap): FixturesMap {
   const allFixtures = Object.values(fixturesMap).flat();
-
   const groupedByDay: FixturesMap = {};
 
   for (const fixture of allFixtures) {
-    const dayKey = format(new Date(fixture.date), 'yyyy-MM-dd');
+    const dayKey = format(parseISO(fixture.date), 'yyyy-MM-dd');
 
     if (!groupedByDay[dayKey]) {
       groupedByDay[dayKey] = [];
@@ -122,20 +97,18 @@ export function groupFixturesByDay(fixturesMap: FixturesMap): FixturesMap {
 
 export function groupResultsByDay(resultsMap: ResultsMap): ResultsMap {
   const allResults = Object.values(resultsMap).flat();
-
   const groupedByDay: ResultsMap = {};
 
-  for (const result of allResults) {
-    const dayKey = format(new Date(result.date), 'yyyy-MM-dd');
+  for (const results of allResults) {
+    const dayKey = format(parseISO(results.date), 'yyyy-MM-dd');
 
     if (!groupedByDay[dayKey]) {
       groupedByDay[dayKey] = [];
     }
 
-    groupedByDay[dayKey].push(result);
+    groupedByDay[dayKey].push(results);
   }
 
-  // Sort fixtures within each day by time (if time field exists and is meaningful)
   for (const day in groupedByDay) {
     groupedByDay[day].sort((a, b) => +new Date(a.time) - +new Date(b.time));
   }
@@ -153,4 +126,42 @@ export function formatDate(iso: string): string {
     month: 'short',
     day: '2-digit',
   });
+}
+
+export function filterGroupedBySavedLeagues(
+  grouped: FixturesMap,
+  saved: string[]
+): FixturesMap {
+  const result: FixturesMap = {};
+  for (const leagueId of saved) {
+    if (grouped[leagueId]?.length) {
+      result[leagueId] = grouped[leagueId];
+    }
+  }
+  return result;
+}
+
+import { useSavedLeagues } from './composables/useSavedLeagues';
+import { computed } from 'vue';
+
+export function useFilteredFixtures(fixtures: Ref<Fixture[]>) {
+  const { savedLeagues } = useSavedLeagues();
+
+  const groupedFixtures = computed(() => groupFixturesByLeague(fixtures.value));
+
+  const filteredGroupedFixtures = computed<FixturesMap>(() => {
+    const result: FixturesMap = {};
+    for (const leagueId of savedLeagues.value) {
+      if (groupedFixtures.value[leagueId]?.length) {
+        result[leagueId] = groupedFixtures.value[leagueId];
+      }
+    }
+    return result;
+  });
+
+  return {
+    groupedFixtures,
+    filteredGroupedFixtures,
+    savedLeagues,
+  };
 }

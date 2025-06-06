@@ -6,6 +6,7 @@ import {
   groupStandingsByLeague,
   groupFixturesByLeague,
   groupResultsByLeague,
+  filterGroupedBySavedLeagues,
 } from '../../utils';
 
 const { union } = Astro.props;
@@ -59,7 +60,7 @@ const leaguesMap = Object.fromEntries(
     clubs={clubsMap}
     leagues={leaguesMap}
     standings={groupStandingsByLeague(standings)}
-    fixtures={groupFixturesByLeague(fixtures)}
-    results={groupResultsByLeague(results)}
+    fixtures={fixtures}
+    results={results}
   />
 </Page>

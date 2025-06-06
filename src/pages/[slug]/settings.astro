@@ -1,0 +1,25 @@
+---
+import Page from '../../layouts/Page.astro';
+import Settings from '../../components/Settings.vue';
+
+const { union } = Astro.props;
+
+import { unions, loadUnionData } from '../../unions.ts';
+export async function getStaticPaths() {
+  return unions.map((union) => ({
+    params: { slug: union.slug },
+    props: { union },
+  }));
+}
+
+// only union specific data
+const data = loadUnionData(union.slug);
+const { leagues } = data;
+---
+
+<Page>
+  <div class="container">
+    <h1>Preferences</h1>
+    <Settings client:load leagues={leagues} />
+  </div>
+</Page>

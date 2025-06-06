@@ -1,11 +1,5 @@
 <template>
   <a href="#" class="list-group-item">
-    <div class="d-flex justify-content-between w-100 mb-2">
-      <span class="badge text-bg-primary">
-        {{ leagues[match.league_id].name }}
-      </span>
-      <span class="badge text-bg-secondary"> FINAL </span>
-    </div>
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
         v-if="clubs[match.home_id]?.logo"

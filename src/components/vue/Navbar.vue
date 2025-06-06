@@ -9,15 +9,12 @@
 </template>
 
 <script setup lang="ts">
-  import { useFixedOffset } from '../../composables/useFixedOffset';
   import { type Union } from '../../unions.ts';
 
   const props = defineProps<{
     title: string;
     federation: Union;
   }>();
-
-  useFixedOffset();
 </script>
 
 <style scoped>

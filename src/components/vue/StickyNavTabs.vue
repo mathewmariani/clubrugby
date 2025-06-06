@@ -5,6 +5,9 @@
       <a class="navbar-brand" :href="`/${union.slug}`">
         {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}
       </a>
+      <a class="btn" role="button" :href="`/${union.slug}/settings`">
+        <span class="navbar-toggler-icon"></span>
+      </a>
     </div>
     <div ref="scrollContainer" class="info-tab-header">
       <button
