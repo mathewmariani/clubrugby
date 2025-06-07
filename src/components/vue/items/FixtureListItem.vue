@@ -9,8 +9,8 @@
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
-        v-if="clubs[match.home_id]?.logo"
-        :src="clubs[match.home_id].logo"
+        v-if="clubs[match.home_id]?.logo_url"
+        :src="clubs[match.home_id].logo_url"
         :alt="clubs[match.home_id].name"
         width="32"
         height="32"
@@ -20,8 +20,8 @@
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
-        v-if="clubs[match.away_id]?.logo"
-        :src="clubs[match.away_id].logo"
+        v-if="clubs[match.away_id]?.logo_url"
+        :src="clubs[match.away_id].logo_url"
         :alt="clubs[match.away_id].name"
         width="32"
         height="32"

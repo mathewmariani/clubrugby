@@ -55,8 +55,8 @@
                   {{ team.pos }}
                 </span>
                 <img
-                  v-if="clubs[team.team_id]?.logo"
-                  :src="clubs[team.team_id].logo"
+                  v-if="clubs[team.team_id]?.logo_url"
+                  :src="clubs[team.team_id].logo_url"
                   :alt="clubs[team.team_id].name"
                   width="32"
                   height="32"
