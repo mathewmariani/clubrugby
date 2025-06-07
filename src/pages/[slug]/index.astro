@@ -1,17 +1,10 @@
 ---
 import Page from '../../layouts/Page.astro';
-import TabSwiper from '../../components/vue/TabSwiper.vue';
-
-import {
-  groupStandingsByLeague,
-  groupFixturesByLeague,
-  groupResultsByLeague,
-  filterGroupedBySavedLeagues,
-} from '../../utils';
+import UnionDashboard from '../../components/vue/UnionDashboard.vue';
 
 const { union } = Astro.props;
 
-import { unions, loadUnionData } from '../../unions.ts';
+import { unions } from '../../utils/unions.ts';
 export async function getStaticPaths() {
   return unions.map((union) => ({
     params: { slug: union.slug },
@@ -19,48 +12,20 @@ export async function getStaticPaths() {
   }));
 }
 
-// only union specific data
-const data = loadUnionData(union.slug);
-const { clubs, fixtures, leagues, results, standings } = data;
+import { prepareUnionData } from '../../utils/data.ts';
 
-// id: { id, name, logo }
-const clubsMap = Object.fromEntries(
-  clubs.map((club) => {
-    const id = club.id;
-    return [
-      id,
-      {
-        id,
-        name: club.name || null,
-        logo: club.logo_url || null,
-      },
-    ];
-  })
-);
-
-// id: { id, name }
-const leaguesMap = Object.fromEntries(
-  leagues.map((league) => {
-    const id = league.id;
-    return [
-      id,
-      {
-        id,
-        name: league.name || null,
-      },
-    ];
-  })
-);
+const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
+  await prepareUnionData(union.slug);
 ---
 
 <Page union={union}>
-  <TabSwiper
-    client:load
+  <UnionDashboard
+    client:visible
     union={union}
-    clubs={clubsMap}
-    leagues={leaguesMap}
-    standings={groupStandingsByLeague(standings)}
-    fixtures={fixtures}
-    results={results}
+    clubs={clubs}
+    leagues={leagues}
+    standings={standingsByLeague}
+    fixtures={fixturesByLeague}
+    results={resultsByLeague}
   />
 </Page>

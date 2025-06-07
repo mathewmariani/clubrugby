@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-  import { type Union } from '../../unions.ts';
+  import { type Union } from '../../utils/unions.ts';
 
   const props = defineProps<{
     title: string;

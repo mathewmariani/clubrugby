@@ -1,7 +1,7 @@
 <template>
   <StickyNavTabs
     :union="union"
-    :titles="['Results', 'Fixtures', 'Standings']"
+    :titles="titles"
     :selectedIndex="selectedIndex"
     @select="goToSlide"
   />
@@ -23,27 +23,35 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import 'swiper/css';
 
-  import { type Union } from '../../unions';
+  import type { Union } from '../../utils/unions';
 
-  const props = defineProps({
-    union: Object,
-    clubs: Object,
-    leagues: Object,
-    standings: Object,
-    fixtures: Object,
-    results: Object,
-  });
-
-  import StickyNavTabs from './StickyNavTabs.vue';
+  import StickyNavTabs from './nav/StickyNavTabs.vue';
   import FixturesTab from './tabs/FixturesTab.vue';
   import ResultsTab from './tabs/ResultsTab.vue';
   import StandingsTab from './tabs/StandingsTab.vue';
+  import {
+    type Club,
+    type League,
+    type Fixture,
+    type Result,
+  } from '../../utils/types';
 
-  const sections = [
+  const props = defineProps<{
+    union: Union;
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    fixtures: Record<string, Record<string, Fixture[]>>;
+    results: Record<string, Record<string, Result[]>>;
+    standings: Record<string, any[]>;
+  }>();
+
+  const titles = ['Fixtures', 'Results', 'Standings'];
+
+  const sections = computed(() => [
     {
       title: 'Fixtures',
       component: FixturesTab,
@@ -71,21 +79,21 @@
         standings: props.standings,
       },
     },
-  ];
+  ]);
 
   const selectedIndex = ref(0);
-  const swiperInstance = ref(null);
+  const swiperInstance = ref<any>(null);
 
-  function goToSlide(index) {
+  function goToSlide(index: number) {
     selectedIndex.value = index;
     swiperInstance.value?.slideTo(index);
   }
 
-  function onSlideChange(swiper) {
+  function onSlideChange(swiper: any) {
     selectedIndex.value = swiper.activeIndex;
   }
 
-  function onSwiper(swiper) {
+  function onSwiper(swiper: any) {
     swiperInstance.value = swiper;
   }
 </script>

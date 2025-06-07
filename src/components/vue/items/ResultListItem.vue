@@ -9,7 +9,7 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.home_id].name || 'Unknown' }}</small>
+      <small>{{ clubs[match.home_id]?.name || 'Unknown' }}</small>
       <strong
         :class="scoreClass(match.home_score, match.away_score)"
         class="ms-auto"
@@ -25,7 +25,7 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.away_id].name || 'Unknown' }}</small>
+      <small>{{ clubs[match.away_id]?.name || 'Unknown' }}</small>
       <strong
         :class="scoreClass(match.away_score, match.home_score)"
         class="ms-auto"
@@ -35,12 +35,13 @@
   </a>
 </template>
 
-<script setup>
-  const props = defineProps({
-    match: { type: Object, required: true },
-    clubs: { type: Object, required: true },
-    leagues: { type: Object, required: true },
-  });
+<script setup lang="ts">
+  import { type Club, type League, type Result } from '../../../utils/types';
+  const props = defineProps<{
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    match: Record<string, Result>;
+  }>();
 
   function scoreClass(score, opponentScore) {
     if (score == null || opponentScore == null) return '';

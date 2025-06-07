@@ -1,15 +1,16 @@
 <template>
   <div class="list-group list-group-flush">
-    <template v-for="(fixtures, day) in dailyFixtures" :key="day">
+    <template v-for="(leaguesForDay, day) in fixtures" :key="day">
       <strong class="list-group-item">{{ formatDate(day) }}</strong>
-      <template
-        v-for="(f, league) in groupFixturesByLeague(fixtures)"
-        :key="league"
-      >
-        <strong class="list-group-item">{{ leagues[league].name }}</strong>
+
+      <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
+        <strong class="list-group-item">{{
+          leagues[leagueId]?.name || 'Unknown League'
+        }}</strong>
+
         <FixtureListItem
-          v-for="fixture in f"
-          :match="fixture"
+          v-for="match in matches"
+          :match="match"
           :clubs="clubs"
           :leagues="leagues"
         />
@@ -18,39 +19,20 @@
   </div>
 </template>
 
-<script setup>
-  import { computed } from 'vue';
-  import FixtureListItem from '../FixtureListItem.vue';
-  import {
-    groupFixturesByDay,
-    groupFixturesByLeague,
-    formatDate,
-  } from '../../../utils';
-  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
+<script setup lang="ts">
+  import FixtureListItem from '../items/FixtureListItem.vue';
+  import { type Club, type League, type Fixture } from '../../../utils/types';
+  import { formatDate } from '../../../utils/data';
 
-  const props = defineProps({
-    clubs: Object,
-    leagues: Object,
-    fixtures: Object, // should be Fixture[] ideally
-  });
-
-  const { savedLeagues } = useSavedLeagues();
-
-  const filteredFixtures = computed(() => {
-    if (!savedLeagues.value.length) return props.fixtures;
-    return props.fixtures.filter((f) =>
-      savedLeagues.value.includes(f.league_id)
-    );
-  });
-
-  const dailyFixtures = computed(() =>
-    groupFixturesByDay(filteredFixtures.value)
-  );
+  const props = defineProps<{
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    fixtures: Record<string, Record<string, Fixture[]>>;
+  }>();
 </script>
 
 <style scoped>
   .list-group {
-    border-radius: 0;
     border-radius: 0;
   }
 </style>

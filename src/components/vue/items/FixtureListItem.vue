@@ -16,8 +16,7 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.home_id].name || 'Unknown' }}</small>
-      <!-- <small class="ms-auto">{{ getRecord(match.home_id) }}</small> -->
+      <small>{{ clubs[match.home_id]?.name || 'Unknown' }}</small>
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
@@ -28,22 +27,18 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.away_id].name || 'Unknown' }}</small>
-      <!-- <small class="ms-auto">{{ getRecord(match.away_id) }}</small> -->
+      <small>{{ clubs[match.away_id]?.name || 'Unknown' }}</small>
     </div>
   </a>
 </template>
 
-<script setup>
-  const props = defineProps({
-    match: { type: Object, required: true },
-    clubs: { type: Object, required: true },
-    leagues: { type: Object, required: true },
-  });
-
-  function getRecord(club_id) {
-    return '0-0-0';
-  }
+<script setup lang="ts">
+  import { type Club, type League, type Fixture } from '../../../utils/types';
+  const props = defineProps<{
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    match: Record<string, Fixture>;
+  }>();
 </script>
 
 <style scoped></style>

@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 
-import { unions } from '../unions.ts';
+import { unions } from '../utils/unions.ts';
 export async function getStaticPaths() {
   return unions.map((federation) => ({
     params: { slug: federation.slug },

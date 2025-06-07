@@ -25,9 +25,9 @@
 
 <script setup lang="ts">
   import { ref, onMounted, nextTick, watch } from 'vue';
-  import { type Union } from '../../unions.ts';
+  import { type Union } from '../../../utils/unions.ts';
 
-  import { SITE_TITLE } from '../../consts.ts';
+  import { SITE_TITLE } from '../../../consts.ts';
 
   const props = defineProps<{
     union: Union;

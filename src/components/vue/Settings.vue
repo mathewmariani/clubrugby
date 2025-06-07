@@ -28,12 +28,12 @@
   </div>
 </template>
 
-<script setup>
-  import { useSavedLeagues } from '../composables/useSavedLeagues';
-
-  const props = defineProps({
-    leagues: { type: Object, required: true },
-  });
+<script setup lang="ts">
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { type League } from '../../utils/types';
+  const props = defineProps<{
+    leagues: Record<string, League>;
+  }>();
 
   const emit = defineEmits(['update-leagues']);
   const { savedLeagues: selectedLeagues, setSavedLeagues } = useSavedLeagues();
