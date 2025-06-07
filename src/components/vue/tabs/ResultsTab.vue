@@ -1,6 +1,6 @@
 <template>
   <div class="list-group list-group-flush">
-    <template v-for="(leaguesForDay, day) in results" :key="day">
+    <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
       <strong class="list-group-item">{{ formatDate(day) }}</strong>
 
       <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
@@ -29,6 +29,11 @@
     leagues: Record<string, League>;
     results: Record<string, Record<string, Result[]>>;
   }>();
+
+  import { toRef } from 'vue';
+  import { useFilteredResults } from '../../../composables/useFilteredResults';
+
+  const filteredResults = useFilteredResults(toRef(props, 'results'));
 </script>
 
 <style scoped>
