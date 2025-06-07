@@ -1,4 +1,4 @@
-export type FederationSlug =
+export type UnionSlug =
   | 'ab' // Alberta
   | 'bc' // British Columbia
   | 'mb' // Manitoba
@@ -13,13 +13,13 @@ export type FederationSlug =
   | 'sk' // Saskatchewan
   | 'yt'; // Yukon
 
-export type Federation = {
-  slug: FederationSlug;
+export type Union = {
+  slug: UnionSlug;
   name: string;
   url: string;
 };
 
-export const federations: Federation[] = [
+export const unions: Union[] = [
   // {
   //   slug: 'ab',
   //   name: 'Rugby Alberta',
@@ -76,42 +76,3 @@ export const federations: Federation[] = [
   //   url: 'https://rugbysaskatchewan.com',
   // },
 ];
-
-//
-// This can all be redone
-//
-
-import Papa from 'papaparse';
-
-// Glob all .csv files under federation/year folders relative to this file
-const csvModules = import.meta.glob('./*/*/*/*.csv', {
-  query: '?raw',
-  eager: true,
-}) as Record<string, string>;
-
-function getCsv(slug: string, year: string, name: string): string {
-  const key = `./data/${slug}/${year}/${name}.csv`;
-  const module = csvModules[key];
-  if (!module) throw new Error(`Missing CSV module: ${key}`);
-
-  // unwrap the default export if present
-  const csv = typeof module === 'string' ? module : module.default;
-
-  if (!csv) throw new Error(`CSV content is empty or invalid for ${key}`);
-
-  return csv;
-}
-
-function parseCsv(raw: string) {
-  return Papa.parse(raw, { header: true, skipEmptyLines: true }).data;
-}
-
-export function loadFederationData(slug: string, year = '2025') {
-  return {
-    clubs: parseCsv(getCsv(slug, year, 'clubs')),
-    results: parseCsv(getCsv(slug, year, 'results')),
-    standings: parseCsv(getCsv(slug, year, 'standings')),
-    schedule: parseCsv(getCsv(slug, year, 'fixtures')),
-    leagues: parseCsv(getCsv(slug, year, 'leagues')),
-  };
-}

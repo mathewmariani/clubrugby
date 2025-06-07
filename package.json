@@ -12,6 +12,7 @@
         "@astrojs/vue": "^5.0.13",
         "astro": "^5.7.14",
         "bootstrap": "^5.3.6",
+        "date-fns": "^4.1.0",
         "papaparse": "^5.5.3",
         "swiper": "^11.2.8"
     },

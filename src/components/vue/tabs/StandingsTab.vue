@@ -55,8 +55,8 @@
                   {{ team.pos }}
                 </span>
                 <img
-                  v-if="clubs[team.team_id]?.logo"
-                  :src="clubs[team.team_id].logo"
+                  v-if="clubs[team.team_id]?.logo_url"
+                  :src="clubs[team.team_id].logo_url"
                   :alt="clubs[team.team_id].name"
                   width="32"
                   height="32"
@@ -94,12 +94,13 @@
 
 <script setup>
   import { ref, computed } from 'vue';
+  import { useSavedLeagues } from '../../../composables/useSavedLeagues'; // adjust path as needed
+  const { savedLeagues } = useSavedLeagues();
 
   defineProps({
     standings: Object,
     clubs: Object,
     leagues: Object,
-    lastModified: String,
   });
 
   const sortColumn = ref('pts');
@@ -126,27 +127,33 @@
   }
 
   const groupedStandings = computed(() => {
-    return Object.entries(__props.standings).map(([leagueId, teams]) => {
-      const sorted = Object.values(teams)
-        .slice()
-        .sort((a, b) => {
-          const valA = a[sortColumn.value];
-          const valB = b[sortColumn.value];
+    return Object.entries(__props.standings)
+      .filter(
+        ([leagueId]) =>
+          savedLeagues.value.length === 0 ||
+          savedLeagues.value.includes(leagueId)
+      )
+      .map(([leagueId, teams]) => {
+        const sorted = Object.values(teams)
+          .slice()
+          .sort((a, b) => {
+            const valA = a[sortColumn.value];
+            const valB = b[sortColumn.value];
 
-          if (valA === valB) {
-            if (sortColumn.value !== 'pts') {
-              const ptsDiff = b.pts - a.pts;
-              if (ptsDiff !== 0) return ptsDiff;
+            if (valA === valB) {
+              if (sortColumn.value !== 'pts') {
+                const ptsDiff = b.pts - a.pts;
+                if (ptsDiff !== 0) return ptsDiff;
+                return b.diff - a.diff;
+              }
               return b.diff - a.diff;
             }
-            return b.diff - a.diff;
-          }
 
-          return sortDirection.value === 'asc' ? valA - valB : valB - valA;
-        });
+            return sortDirection.value === 'asc' ? valA - valB : valB - valA;
+          });
 
-      return { leagueId, teams: sorted };
-    });
+        return { leagueId, teams: sorted };
+      });
   });
 </script>
 
@@ -154,7 +161,7 @@
   .table-responsive-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
   }
 
   .table-responsive-wrapper > div:not(:last-of-type) > .table-fixed {
