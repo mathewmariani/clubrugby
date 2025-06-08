@@ -1,0 +1,44 @@
+<template>
+  <!-- make this an href to a stats page -->
+  <a class="list-group-item">
+    <div class="d-flex justify-content-between w-100 mb-2">
+      <small class="text-muted">{{ match.venue }}</small>
+      <span class="badge text-bg-danger">
+        {{ match.time }}
+      </span>
+    </div>
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <img
+        v-if="clubs[match.home_id]?.logo_url"
+        :src="clubs[match.home_id].logo_url"
+        :alt="clubs[match.home_id].name"
+        width="32"
+        height="32"
+        style="object-fit: contain"
+      />
+      <small>{{ clubs[match.home_id]?.name || 'Unknown' }}</small>
+    </div>
+    <div class="d-flex align-items-center gap-2 mb-1">
+      <img
+        v-if="clubs[match.away_id]?.logo_url"
+        :src="clubs[match.away_id].logo_url"
+        :alt="clubs[match.away_id].name"
+        width="32"
+        height="32"
+        style="object-fit: contain"
+      />
+      <small>{{ clubs[match.away_id]?.name || 'Unknown' }}</small>
+    </div>
+  </a>
+</template>
+
+<script setup lang="ts">
+  import { type Club, type League, type Fixture } from '../../../utils/types';
+  const props = defineProps<{
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    match: Record<string, Fixture>;
+  }>();
+</script>
+
+<style scoped></style>

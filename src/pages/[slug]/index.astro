@@ -1,28 +1,31 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import News from '../../components/News.vue';
-import Settings from '../../components/Settings.vue';
+import Page from '../../layouts/Page.astro';
+import UnionDashboard from '../../components/vue/UnionDashboard.vue';
 
-import { federations, loadFederationData } from '../../federations.ts';
+const { union } = Astro.props;
+
+import { unions } from '../../utils/unions.ts';
 export async function getStaticPaths() {
-  return federations.map((federation) => ({
-    params: { slug: federation.slug },
-    props: { federation },
+  return unions.map((union) => ({
+    params: { slug: union.slug },
+    props: { union },
   }));
 }
 
-const { federation } = Astro.props;
+import { prepareUnionData } from '../../utils/data.ts';
 
-const data = loadFederationData(federation.slug);
-
-const { leagues } = data;
+const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
+  await prepareUnionData(union.slug);
 ---
 
-<Layout federation={federation}>
-  <h1 class="display-1">{federation.name} 🏉</h1>
-  <p class="lead">
-    Before you begin, please select all leagues you would like to follow.
-  </p>
-
-  <Settings client:load leagues={leagues} />
-</Layout>
+<Page union={union}>
+  <UnionDashboard
+    client:only="vue"
+    union={union}
+    clubs={clubs}
+    leagues={leagues}
+    standings={standingsByLeague}
+    fixtures={fixturesByLeague}
+    results={resultsByLeague}
+  />
+</Page>

@@ -1,6 +1,5 @@
 ---
 import Page from '../layouts/Page.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts.ts';
 
 import { unions } from '../utils/unions.ts';
 export async function getStaticPaths() {
@@ -13,17 +12,12 @@ export async function getStaticPaths() {
 
 <Page>
   <div class="container">
-    <h1 class="display-1">{SITE_TITLE}</h1>
-    <p class="lead">{SITE_DESCRIPTION}</p>
-
-    <p>Select a rugby federation:</p>
-
     <ul class="list-group">
       {
-        unions.map((fed) => (
+        unions.map((unions) => (
           <li class="list-group-item">
-            <a href={`/${fed.slug}`} class="text-decoration-none">
-              {fed.name}
+            <a href={`/${unions.slug}`} class="text-decoration-none">
+              {unions.name}
             </a>
           </li>
         ))

@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Meta from '../components/astro/Meta.astro';
+import Analytics from '../components/astro/Analytics.astro';
+
+const buildTime = new Date().toLocaleString();
+---
+
+<html lang="en">
+  <head>
+    <Meta />
+  </head>
+  <Analytics />
+  <body>
+    <slot />
+    <footer class="text-center text-muted py-2">
+      Last updated: {buildTime}
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Add your styles here if needed */
+</style>
