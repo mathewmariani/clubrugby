@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar bg-white fixed-top border-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" :href="`/${union.slug}`">
+      <a class="navbar-brand">
         {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}
       </a>
       <button
