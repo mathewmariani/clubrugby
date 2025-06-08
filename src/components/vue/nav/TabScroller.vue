@@ -1,36 +1,21 @@
 <template>
-  <!-- Fixed Top Navbar -->
-  <nav class="navbar bg-white fixed-top border-bottom">
-    <div class="container-fluid">
-      <a class="navbar-brand" :href="`/${union.slug}`">
-        {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}
-      </a>
-      <a class="btn" role="button" :href="`/${union.slug}/settings`">
-        <span class="navbar-toggler-icon"></span>
-      </a>
-    </div>
-    <div ref="scrollContainer" class="info-tab-header">
-      <button
-        v-for="(title, index) in titles"
-        :key="index"
-        :class="['btn btn-sm', { 'btn-primary': selectedIndex === index }]"
-        @click="$emit('select', index)"
-        :ref="(el) => setButtonRef(el, index)"
-      >
-        {{ title }}
-      </button>
-    </div>
-  </nav>
+  <div ref="scrollContainer" class="info-tab-header">
+    <button
+      v-for="(title, index) in titles"
+      :key="index"
+      :class="['btn btn-sm', { 'btn-primary': selectedIndex === index }]"
+      @click="$emit('select', index)"
+      :ref="(el) => setButtonRef(el, index)"
+    >
+      {{ title }}
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted, nextTick, watch } from 'vue';
-  import { type Union } from '../../../utils/unions.ts';
-
-  import { SITE_TITLE } from '../../../consts.ts';
+  import { ref, watch, nextTick } from 'vue';
 
   const props = defineProps<{
-    union: Union;
     titles: string[];
     selectedIndex: number;
   }>();
@@ -74,7 +59,6 @@
     white-space: nowrap;
     scrollbar-width: none;
   }
-
   .info-tab-header::-webkit-scrollbar {
     display: none;
   }

@@ -1,6 +1,8 @@
 <template>
-  <StickyNavTabs
+  <Navbar
+    client:only="vue"
     :union="union"
+    :leagues="leagues"
     :titles="titles"
     :selectedIndex="selectedIndex"
     @select="goToSlide"
@@ -29,7 +31,7 @@
 
   import type { Union } from '../../utils/unions';
 
-  import StickyNavTabs from './nav/StickyNavTabs.vue';
+  import Navbar from './nav/Navbar.vue';
   import FixturesTab from './tabs/FixturesTab.vue';
   import ResultsTab from './tabs/ResultsTab.vue';
   import StandingsTab from './tabs/StandingsTab.vue';
