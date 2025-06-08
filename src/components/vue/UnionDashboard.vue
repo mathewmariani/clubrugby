@@ -16,6 +16,7 @@
       :slides-per-view="1"
       :autoHeight="true"
       :space-between="12"
+      :allowTouchMove="false"
     >
       <SwiperSlide v-for="(section, index) in sections" :key="section.title">
         <component :is="section.component" v-bind="section.props" />
