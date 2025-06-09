@@ -13,6 +13,7 @@
             :match="match"
             :clubs="props.clubs"
             :leagues="props.leagues"
+            @click="handleMatchClick"
           />
         </template>
       </template>
@@ -30,13 +31,17 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import FixtureListItem from '../items/FixtureListItem.vue';
-  import { type Club, type League, type Fixture } from '../../../utils/types';
+  import type { Club, League, Fixture } from '../../../utils/types';
   import { formatDate } from '../../../utils/data';
 
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     fixtures: Record<string, Record<string, Fixture[]>>;
+  }>();
+
+  const emit = defineEmits<{
+    (e: 'match-selected', match: Fixture): void;
   }>();
 
   import { toRef } from 'vue';
@@ -49,6 +54,12 @@
       (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
     );
   });
+
+  function handleMatchClick(match: Fixture) {
+    console.log('Match clicked:', match);
+    // Optionally emit to parent component:
+    emit('match-selected', match);
+  }
 </script>
 
 <style scoped>

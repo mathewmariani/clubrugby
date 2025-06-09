@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="list-group-item">
+  <a class="list-group-item">
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
         v-if="clubs[match.home_id]?.logo_url"

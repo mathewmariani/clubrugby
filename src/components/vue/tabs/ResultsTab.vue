@@ -29,7 +29,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import ResultListItem from '../items/ResultListItem.vue';
-  import { type Club, type League, type Result } from '../../../utils/types';
+  import type { Club, League, Result } from '../../../utils/types';
   import { formatDate } from '../../../utils/data';
 
   const props = defineProps<{
