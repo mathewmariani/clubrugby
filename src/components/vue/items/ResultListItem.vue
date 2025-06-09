@@ -46,7 +46,7 @@
   function scoreClass(score, opponentScore) {
     if (score == null || opponentScore == null) return '';
     if (score === opponentScore) return ''; // tie no color
-    return score > opponentScore ? 'text-success' : 'text-danger';
+    return Number(score) > Number(opponentScore) ? 'text-success' : 'text-danger';
   }
 </script>
 
