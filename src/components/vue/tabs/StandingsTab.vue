@@ -19,7 +19,7 @@
               >
                 <button
                   @click.prevent="sortBy(col.key)"
-                  class="w-100 bg-transparent border-0 text-dark p-0 m-0"
+                  class="w-100 bg-transparent border-0 p-0 m-0"
                   style="cursor: pointer"
                 >
                   <div>
