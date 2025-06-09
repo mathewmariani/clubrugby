@@ -1,6 +1,6 @@
 <template>
   <!-- make this an href to a stats page -->
-  <a class="list-group-item">
+  <a class="list-group-item" @click="emit('click', match)">
     <div class="d-flex justify-content-between w-100 mb-2">
       <small class="text-muted">{{ match.venue }}</small>
       <span class="badge text-bg-danger">
@@ -38,6 +38,10 @@
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     match: Record<string, Fixture>;
+  }>();
+
+  const emit = defineEmits<{
+    (e: 'click', match: Fixture): void;
   }>();
 </script>
 

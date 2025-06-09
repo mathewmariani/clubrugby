@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bg-white fixed-top border-bottom">
+  <nav class="navbar bg-body-tertiary fixed-top border-bottom">
     <div class="container-fluid">
       <a class="navbar-brand">
         {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}

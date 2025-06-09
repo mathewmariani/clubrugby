@@ -5,7 +5,7 @@
     tabindex="-1"
     ref="offcanvasRef"
   >
-    <div class="offcanvas-header bg-white">
+    <div class="offcanvas-header">
       <button
         type="button"
         class="btn-close"

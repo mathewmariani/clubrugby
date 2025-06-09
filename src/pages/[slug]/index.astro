@@ -1,6 +1,6 @@
 ---
 import Page from '../../layouts/Page.astro';
-import UnionDashboard from '../../components/vue/UnionDashboard.vue';
+import Dashboard from '../../components/vue/Dashboard.vue';
 
 const { union } = Astro.props;
 
@@ -19,7 +19,7 @@ const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
 ---
 
 <Page union={union}>
-  <UnionDashboard
+  <Dashboard
     client:only="vue"
     union={union}
     clubs={clubs}
