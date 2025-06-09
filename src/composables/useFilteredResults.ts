@@ -14,7 +14,7 @@ export function useFilteredResults(
       const filteredLeagues: Record<string, any[]> = {};
 
       for (const [leagueId, matches] of Object.entries(leaguesForDay)) {
-        if (savedLeagues.value.includes(leagueId)) {
+        if (!savedLeagues.value.includes(leagueId)) {
           const sortedMatches = [...matches].sort((a, b) => {
             const aDate = new Date(`${a.date}T${a.time}`);
             const bDate = new Date(`${b.date}T${b.time}`);

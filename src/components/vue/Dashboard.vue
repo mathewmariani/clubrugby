@@ -112,10 +112,11 @@
   const swiperInstance = ref<any>(null);
 
   function goToSlide(index: number) {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    if (!swiperInstance.value) return;
+    swiperInstance.value.slideTo(index, 0);
     selectedIndex.value = index;
-    swiperInstance.value?.slideTo(index);
   }
-
   function onSlideChange(swiper: any) {
     selectedIndex.value = swiper.activeIndex;
   }

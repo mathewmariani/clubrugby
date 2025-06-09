@@ -112,7 +112,7 @@
 
 <script setup>
   import { ref, computed } from 'vue';
-  import { useSavedLeagues } from '../../../composables/useSavedLeagues'; // adjust path as needed
+  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
   const { savedLeagues } = useSavedLeagues();
 
   defineProps({
@@ -149,7 +149,7 @@
       .filter(
         ([leagueId]) =>
           savedLeagues.value.length === 0 ||
-          savedLeagues.value.includes(leagueId)
+          !savedLeagues.value.includes(leagueId)
       )
       .map(([leagueId, teams]) => {
         const sorted = Object.values(teams)
@@ -183,7 +183,6 @@
   .table-responsive-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    /* border: 1px solid #dee2e6; */
   }
 
   .table-responsive-wrapper > div:not(:last-of-type) > .table-fixed {

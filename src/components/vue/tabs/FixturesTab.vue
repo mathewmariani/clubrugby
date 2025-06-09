@@ -56,8 +56,6 @@
   });
 
   function handleMatchClick(match: Fixture) {
-    console.log('Match clicked:', match);
-    // Optionally emit to parent component:
     emit('match-selected', match);
   }
 </script>
