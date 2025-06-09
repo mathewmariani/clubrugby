@@ -9,6 +9,12 @@ export async function getStaticPaths() {
     props: { federation },
   }));
 }
+
+const terms_and_policies = [
+  { title: 'Terms of Service', href: './terms_of_serice' },
+  { title: 'Privary Policy', href: './privary_policy' },
+  { title: 'Attributions', href: './attributions' },
+];
 ---
 
 <Page>
@@ -16,14 +22,26 @@ export async function getStaticPaths() {
     <h1 class="display-1">{SITE_TITLE}</h1>
     <p class="lead">{SITE_DESCRIPTION}</p>
 
-    <p>Select a rugby federation:</p>
-
+    <p><strong>Federations:</strong></p>
     <ul class="list-group">
       {
         unions.map((fed) => (
           <li class="list-group-item">
             <a href={`/${fed.slug}`} class="text-decoration-none">
               {fed.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p>Terms and Policies</p>
+    <ul class="list-group">
+      {
+        terms_and_policies.map((tab) => (
+          <li class="list-group-item">
+            <a href={`/${tab.href}`} class="text-decoration-none">
+              {tab.title}
             </a>
           </li>
         ))

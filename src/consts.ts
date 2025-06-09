@@ -4,3 +4,5 @@ export const SITE_DESCRIPTION =
 
 export const SYMLINK_SRC = 'data';
 export const SYMLINK_DST = 'src/data';
+
+export const CONTACT_EMAIL = 'clubrugbyca@gmail.com';

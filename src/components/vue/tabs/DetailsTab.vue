@@ -107,7 +107,7 @@
 
         <strong>Date:</strong>
         <p>{{ formatDate(match?.date) }} {{ formatTime(match?.time) }}</p>
-        
+
         <strong>Venue:</strong>
         <p>{{ match?.venue }}</p>
       </div>
