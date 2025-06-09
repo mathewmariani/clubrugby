@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-  import { type Club, type League, type Result } from '../../../utils/types';
+  import type { Club, League, Result } from '../../../utils/types';
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
@@ -46,7 +46,9 @@
   function scoreClass(score, opponentScore) {
     if (score == null || opponentScore == null) return '';
     if (score === opponentScore) return ''; // tie no color
-    return Number(score) > Number(opponentScore) ? 'text-success' : 'text-danger';
+    return Number(score) > Number(opponentScore)
+      ? 'text-success'
+      : 'text-danger';
   }
 </script>
 
