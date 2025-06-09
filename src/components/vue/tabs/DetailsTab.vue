@@ -4,7 +4,13 @@
       <div class="list-group-item">
         <!-- header home -->
         <div class="d-flex gap-3 mb-3 my-3">
-          <img :src="club1?.logo_url" alt="" width="64" height="64" />
+          <img
+            :src="club1?.logo_url"
+            alt=""
+            width="64"
+            height="64"
+            style="object-fit: contain"
+          />
           <div class="d-flex flex-column justify-content-center">
             <strong>{{ club1.name }}</strong>
             <p class="text-muted mb-0">{{ team1Record }}</p>
@@ -12,7 +18,13 @@
         </div>
         <!-- header away -->
         <div class="d-flex gap-3 mb-3 my-3">
-          <img :src="club2?.logo_url" alt="" width="64" height="64" />
+          <img
+            :src="club2?.logo_url"
+            alt=""
+            width="64"
+            height="64"
+            style="object-fit: contain"
+          />
           <div class="d-flex flex-column justify-content-center">
             <strong>{{ club2.name }}</strong>
             <p class="text-muted mb-0">{{ team2Record }}</p>
@@ -22,16 +34,28 @@
 
       <!-- stats -->
       <div class="list-group-item">
-        <div class="d-flex justify-content-between mb-3 my-3">
+        <div class="d-flex justify-content-between my-3">
           <div class="d-flex flex-column justify-content-center">
-            <img :src="club1?.logo_url" alt="" width="32" height="32" />
+            <img
+              :src="club1?.logo_url"
+              alt=""
+              width="32"
+              height="32"
+              style="object-fit: contain"
+            />
           </div>
           <div class="d-flex flex-column justify-content-center text-center">
             <strong>Record</strong>
             <p class="text-muted mb-0">TOTAL</p>
           </div>
           <div class="d-flex flex-column justify-content-center">
-            <img :src="club2?.logo_url" alt="" width="32" height="32" />
+            <img
+              :src="club2?.logo_url"
+              alt=""
+              width="32"
+              height="32"
+              style="object-fit: contain"
+            />
           </div>
         </div>
         <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
@@ -61,7 +85,7 @@
 
       <!-- stats -->
       <div class="list-group-item">
-        <div class="d-flex justify-content-between mb-3 my-3">
+        <div class="d-flex justify-content-between my-3">
           <div class="d-flex flex-column justify-content-center">
             <img :src="club1?.logo_url" alt="" width="32" height="32" />
           </div>
@@ -100,16 +124,18 @@
 
       <!-- details -->
       <div class="list-group-item">
-        <h6><strong>Game Details</strong></h6>
+        <div class="mt-3">
+          <h6><strong>Game Details</strong></h6>
 
-        <strong>League:</strong>
-        <p>{{ league_name }}</p>
+          <strong>League:</strong>
+          <p>{{ league_name }}</p>
 
-        <strong>Date:</strong>
-        <p>{{ formatDate(match?.date) }} {{ formatTime(match?.time) }}</p>
-        
-        <strong>Venue:</strong>
-        <p>{{ match?.venue }}</p>
+          <strong>Date:</strong>
+          <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
+
+          <strong>Venue:</strong>
+          <p>{{ match?.venue }}</p>
+        </div>
       </div>
     </div>
   </template>

@@ -1,11 +1,5 @@
 import Papa from 'papaparse';
-import {
-  type Fixture,
-  type Result,
-  type Standing,
-  type Club,
-  type League,
-} from './types';
+import type { Fixture, Result, Standing, Club, League } from './types';
 import { format, parseISO } from 'date-fns';
 
 export function formatDate(dateStr: string): string {

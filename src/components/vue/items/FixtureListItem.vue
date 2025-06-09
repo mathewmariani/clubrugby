@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-  import { type Club, type League, type Fixture } from '../../../utils/types';
+  import type { Club, League, Fixture } from '../../../utils/types';
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;

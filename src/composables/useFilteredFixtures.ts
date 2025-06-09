@@ -11,8 +11,8 @@ export function useFilteredFixtures(
 
     for (const [day, leaguesForDay] of Object.entries(fixtures.value)) {
       const filteredLeagues = Object.fromEntries(
-        Object.entries(leaguesForDay).filter(([leagueId]) =>
-          savedLeagues.value.includes(leagueId)
+        Object.entries(leaguesForDay).filter(
+          ([leagueId]) => !savedLeagues.value.includes(leagueId)
         )
       );
 
