@@ -101,7 +101,6 @@
       </template>
     </div>
   </template>
-  <!-- No results fallback -->
   <template v-else>
     <div class="container mt-3 text-center text-muted">
       <p>No standings available.</p>
@@ -110,19 +109,38 @@
   </template>
 </template>
 
-<script setup>
-  import { ref, computed } from 'vue';
+<script setup lang="ts">
+  import { ref, toRef } from 'vue';
+  import type { Club, League, Standing } from '../../../utils/types';
   import { useSavedLeagues } from '../../../composables/useSavedLeagues';
+  import { useFilteredStandings } from '../../../composables/useFilteredStandings';
+
+  const props = defineProps<{
+    standings: Record<string, Standing[]>;
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+  }>();
+
+  const sortColumn = ref<keyof Standing>('pts');
+  const sortDirection = ref<'asc' | 'desc'>('desc');
+
   const { savedLeagues } = useSavedLeagues();
 
-  defineProps({
-    standings: Object,
-    clubs: Object,
-    leagues: Object,
-  });
+  const { groupedStandings, hasStandings } = useFilteredStandings(
+    toRef(props, 'standings'),
+    savedLeagues,
+    sortColumn,
+    sortDirection
+  );
 
-  const sortColumn = ref('pts');
-  const sortDirection = ref('desc');
+  function sortBy(column: keyof Standing) {
+    if (sortColumn.value === column) {
+      sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortColumn.value = column;
+      sortDirection.value = 'desc';
+    }
+  }
 
   const sortableColumns = [
     { key: 'gp', label: 'P' },
@@ -134,49 +152,6 @@
     { key: 'pa', label: 'PA' },
     { key: 'diff', label: 'PD' },
   ];
-
-  function sortBy(column) {
-    if (sortColumn.value === column) {
-      sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
-    } else {
-      sortColumn.value = column;
-      sortDirection.value = 'desc';
-    }
-  }
-
-  const groupedStandings = computed(() => {
-    return Object.entries(__props.standings)
-      .filter(
-        ([leagueId]) =>
-          savedLeagues.value.length === 0 ||
-          !savedLeagues.value.includes(leagueId)
-      )
-      .map(([leagueId, teams]) => {
-        const sorted = Object.values(teams)
-          .slice()
-          .sort((a, b) => {
-            const valA = a[sortColumn.value];
-            const valB = b[sortColumn.value];
-
-            if (valA === valB) {
-              if (sortColumn.value !== 'pts') {
-                const ptsDiff = b.pts - a.pts;
-                if (ptsDiff !== 0) return ptsDiff;
-                return b.diff - a.diff;
-              }
-              return b.diff - a.diff;
-            }
-
-            return sortDirection.value === 'asc' ? valA - valB : valB - valA;
-          });
-
-        return { leagueId, teams: sorted };
-      });
-  });
-
-  const hasStandings = computed(() => {
-    return groupedStandings.value.some((group) => group.teams.length > 0);
-  });
 </script>
 
 <style scoped>
@@ -196,7 +171,6 @@
     margin-bottom: 0;
   }
 
-  /* Remove default borders and set base style */
   .table-fixed th,
   .table-fixed td {
     vertical-align: middle;
@@ -206,7 +180,6 @@
     border: none;
   }
 
-  /* First column: fixed width and right border */
   .table-fixed th:first-child,
   .table-fixed td:first-child {
     width: 45%;
@@ -214,26 +187,22 @@
     border-right: 1px solid #dee2e6;
   }
 
-  /* Other columns: equal width */
   .table-fixed th:nth-child(n + 2),
   .table-fixed td:nth-child(n + 2) {
     width: 8.75%;
     text-align: center;
   }
 
-  /* Sorted column border rules */
   .table-fixed th.has-border,
   .table-fixed td.has-border {
     border-right: 1px solid #dee2e6;
   }
 
-  /* Sorted column: left border unless it's the second column */
   .table-fixed th.has-border:not(:nth-child(2)),
   .table-fixed td.has-border:not(:nth-child(2)) {
     border-left: 1px solid #dee2e6;
   }
 
-  /* Caret style */
   th .caret {
     font-size: 0.6rem;
     line-height: 1;

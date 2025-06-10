@@ -1,10 +1,13 @@
-import { ref, onMounted, watch } from 'vue';
+import { ref, watch } from 'vue';
+
+const savedLeagues = ref<string[]>([]);
+
+let initialized = false;
 
 export function useSavedLeagues(key = 'my_leagues') {
-  const savedLeagues = ref<string[]>([]);
+  if (!initialized) {
+    initialized = true;
 
-  // Load from localStorage on mount
-  onMounted(() => {
     try {
       const saved = localStorage.getItem(key);
       if (saved) {
@@ -14,16 +17,16 @@ export function useSavedLeagues(key = 'my_leagues') {
       console.error('Failed to parse saved leagues from localStorage:', e);
       savedLeagues.value = [];
     }
-  });
 
-  // Watch and save automatically whenever updated
-  watch(
-    savedLeagues,
-    (newVal) => {
-      localStorage.setItem(key, JSON.stringify(newVal));
-    },
-    { deep: true }
-  );
+    // Watch once globally
+    watch(
+      savedLeagues,
+      (newVal) => {
+        localStorage.setItem(key, JSON.stringify(newVal));
+      },
+      { deep: true }
+    );
+  }
 
   return {
     savedLeagues,

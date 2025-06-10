@@ -1,15 +1,13 @@
 import { computed, type Ref } from 'vue';
-import { useSavedLeagues } from './useSavedLeagues';
 
 export function useFilteredResults(
-  results: Ref<Record<string, Record<string, any[]>>>
+  results: Ref<Record<string, Record<string, any[]>>>,
+  savedLeagues: Ref<string[]>
 ) {
-  const { savedLeagues } = useSavedLeagues();
-
   const filteredResults = computed(() => {
     const filtered: Record<string, Record<string, any[]>> = {};
 
-    // First: filter and sort matches within each league
+    // Filter and sort matches within each league
     for (const [day, leaguesForDay] of Object.entries(results.value)) {
       const filteredLeagues: Record<string, any[]> = {};
 
@@ -30,7 +28,7 @@ export function useFilteredResults(
       }
     }
 
-    // Then: sort outer keys (dates) in descending order
+    // Sort outer keys (dates) in descending order
     const sorted: Record<string, Record<string, any[]>> = {};
     const sortedDays = Object.keys(filtered).sort(
       (a, b) => new Date(b).getTime() - new Date(a).getTime()
