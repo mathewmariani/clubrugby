@@ -39,9 +39,14 @@
   }>();
 
   import { toRef } from 'vue';
+  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
   import { useFilteredResults } from '../../../composables/useFilteredResults';
 
-  const filteredResults = useFilteredResults(toRef(props, 'results'));
+  const { savedLeagues } = useSavedLeagues();
+  const filteredResults = useFilteredResults(
+    toRef(props, 'results'),
+    savedLeagues
+  );
 
   const hasResults = computed(() => {
     return Object.values(filteredResults.value).some(

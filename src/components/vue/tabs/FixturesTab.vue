@@ -45,9 +45,14 @@
   }>();
 
   import { toRef } from 'vue';
+  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
   import { useFilteredFixtures } from '../../../composables/useFilteredFixtures';
 
-  const filteredFixtures = useFilteredFixtures(toRef(props, 'fixtures'));
+  const { savedLeagues } = useSavedLeagues();
+  const filteredFixtures = useFilteredFixtures(
+    toRef(props, 'fixtures'),
+    savedLeagues
+  );
 
   const hasFixtures = computed(() => {
     return Object.values(filteredFixtures.value).some(
