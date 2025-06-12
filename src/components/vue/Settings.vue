@@ -20,7 +20,7 @@
 
   <template v-if="!Object.keys(leagues).length"> </template>
   <template v-else>
-    <h6 class="mt-3">Choose leagues to display</h6>
+    <h6 class="mt-3">Leagues</h6>
     <ul class="list-group">
       <li
         v-for="(league, index) in leagues"
@@ -79,8 +79,6 @@
       applyDarkMode(true);
     }
   });
-
-  const emit = defineEmits(['update-leagues']);
   const { savedLeagues: selectedLeagues, setSavedLeagues } = useSavedLeagues();
 
   const isLeagueSelected = (id: string) => selectedLeagues.value.includes(id);
@@ -92,6 +90,5 @@
       selectedLeagues.value.push(id);
     }
     setSavedLeagues(selectedLeagues.value);
-    emit('update-leagues', selectedLeagues.value);
   };
 </script>
