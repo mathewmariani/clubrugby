@@ -27,7 +27,7 @@ def scrape(soups_by_league, team_id_map):
                     "league_id": league_id,
                     "team_id": team_id,
                     "pos": position,
-                    "gp": cells[3].get_text(strip=True),
+                    "pld": cells[3].get_text(strip=True),
                     "w": cells[4].get_text(strip=True),
                     "d": cells[5].get_text(strip=True),
                     "l": cells[6].get_text(strip=True),
