@@ -5,7 +5,7 @@
         <strong class="list-group-item">{{ formatDate(day) }}</strong>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
           <strong class="list-group-item">{{
-            leagues[leagueId]?.name || 'Unknown League'
+            getLeagueName(leagueId, leagues)
           }}</strong>
           <ResultListItem
             v-for="match in matches"
@@ -41,6 +41,7 @@
   import { toRef } from 'vue';
   import { useSavedLeagues } from '../../../composables/useSavedLeagues';
   import { useFilteredResults } from '../../../composables/useFilteredResults';
+  import { getLeagueName } from '../../../composables/utils';
 
   const { savedLeagues } = useSavedLeagues();
   const filteredResults = useFilteredResults(

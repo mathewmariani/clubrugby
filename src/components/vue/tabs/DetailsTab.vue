@@ -155,7 +155,9 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
+  import { computed, toRef } from 'vue';
+  import { getOrdinalSuffix, getLeagueName } from '../../../composables/utils';
+  import { useMatchClubs } from '../../../composables/utils';
   import { formatDate, formatTime } from '../../../utils/data';
   import type { Fixture, Standing, Club, League } from '../../../utils/types';
 
@@ -167,30 +169,23 @@
   }>();
 
   const leagueId = computed(() => props.match?.league_id);
-  const homeId = computed(() => props.match?.home_id);
-  const awayId = computed(() => props.match?.away_id);
+  const { home, away } = useMatchClubs(toRef(props, 'match'), props.clubs);
 
-  const home = computed(() =>
-    homeId.value ? props.clubs[homeId.value] : undefined
-  );
-  const away = computed(() =>
-    awayId.value ? props.clubs[awayId.value] : undefined
-  );
   const league_name = computed(() =>
-    leagueId.value ? (props.leagues[leagueId.value]?.name ?? '') : ''
+    getLeagueName(leagueId.value, props.leagues)
   );
 
   const team1 = computed(() => {
-    if (!leagueId.value || !homeId.value) return undefined;
+    if (!leagueId.value || !home.value) return undefined;
     return props.standings[leagueId.value]?.find(
-      (s) => s.team_id === homeId.value
+      (s) => s.team_id === home.value?.id
     );
   });
 
   const team2 = computed(() => {
-    if (!leagueId.value || !awayId.value) return undefined;
+    if (!leagueId.value || !away.value) return undefined;
     return props.standings[leagueId.value]?.find(
-      (s) => s.team_id === awayId.value
+      (s) => s.team_id === away.value?.id
     );
   });
 
@@ -201,24 +196,6 @@
     { key: 'l', label: 'Losses' },
     { key: 'pts', label: 'Points' },
   ];
-
-  function getOrdinalSuffix(n: number): string {
-    const j = n % 10,
-      k = n % 100;
-    if (k >= 11 && k <= 13) {
-      return n + 'th';
-    }
-    switch (j) {
-      case 1:
-        return n + 'st';
-      case 2:
-        return n + 'nd';
-      case 3:
-        return n + 'rd';
-      default:
-        return n + 'th';
-    }
-  }
 
   function getRecordString(team?: Standing): string {
     const w = Number(team?.w ?? 0);
