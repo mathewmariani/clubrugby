@@ -21,7 +21,6 @@
       @select="(index) => emit('select', index)"
     />
 
-    <!-- Extracted Offcanvas -->
     <SettingsOffcanvas :leagues="leagues" />
   </nav>
 </template>
