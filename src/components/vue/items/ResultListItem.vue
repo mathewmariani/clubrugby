@@ -2,14 +2,14 @@
   <a class="list-group-item">
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
-        v-if="clubs[match.home_id]?.logo_url"
-        :src="clubs[match.home_id].logo_url"
-        :alt="clubs[match.home_id].name"
+        v-if="home?.logo_url"
+        :src="home.logo_url"
+        :alt="home.name"
         width="32"
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.home_id]?.name || 'Unknown' }}</small>
+      <small>{{ home?.name || 'Unknown' }}</small>
       <strong
         :class="scoreClass(match.home_score, match.away_score)"
         class="ms-auto"
@@ -18,14 +18,14 @@
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
-        v-if="clubs[match.away_id]?.logo_url"
-        :src="clubs[match.away_id].logo_url"
-        :alt="clubs[match.away_id].name"
+        v-if="away?.logo_url"
+        :src="away.logo_url"
+        :alt="away.name"
         width="32"
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ clubs[match.away_id]?.name || 'Unknown' }}</small>
+      <small>{{ away?.name || 'Unknown' }}</small>
       <strong
         :class="scoreClass(match.away_score, match.home_score)"
         class="ms-auto"
@@ -36,14 +36,19 @@
 </template>
 
 <script setup lang="ts">
+  import { toRef } from 'vue';
   import type { Club, League, Result } from '../../../utils/types';
+  import { useMatchClubs } from '../../../composables/utils';
+
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
-    match: Record<string, Result>;
+    match: Result;
   }>();
 
-  function scoreClass(score, opponentScore) {
+  const { home, away } = useMatchClubs(toRef(props, 'match'), props.clubs);
+
+  function scoreClass(score: string, opponentScore: string) {
     if (score == null || opponentScore == null) return '';
     if (score === opponentScore) return ''; // tie no color
     return Number(score) > Number(opponentScore)
