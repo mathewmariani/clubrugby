@@ -17,6 +17,7 @@
         "swiper": "^11.2.8"
     },
     "devDependencies": {
+        "@types/bootstrap": "^5.2.10",
         "@types/papaparse": "^5.3.16",
         "prettier": "^3.5.3",
         "prettier-plugin-astro": "^0.14.1"

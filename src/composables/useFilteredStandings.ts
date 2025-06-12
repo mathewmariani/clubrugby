@@ -1,4 +1,3 @@
-// composables/useFilteredStandings.ts
 import { computed, type Ref } from 'vue';
 import type { Standing } from '../utils/types';
 

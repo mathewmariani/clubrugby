@@ -4,12 +4,11 @@
       <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
         <strong class="list-group-item">{{ formatDate(day) }}</strong>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <strong class="list-group-item">
-            {{ props.leagues[leagueId]?.name || 'Unknown League' }}
-          </strong>
+          <strong class="list-group-item">{{
+            getLeagueName(leagueId, leagues)
+          }}</strong>
           <FixtureListItem
             v-for="match in matches"
-            :key="match.id"
             :match="match"
             :clubs="props.clubs"
             :leagues="props.leagues"
@@ -33,6 +32,7 @@
   import FixtureListItem from '../items/FixtureListItem.vue';
   import type { Club, League, Fixture } from '../../../utils/types';
   import { formatDate } from '../../../utils/data';
+  import { getLeagueName } from '../../../composables/utils';
 
   const props = defineProps<{
     clubs: Record<string, Club>;

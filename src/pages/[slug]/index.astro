@@ -20,7 +20,7 @@ const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
 
 <Page union={union}>
   <Dashboard
-    client:only="vue"
+    client:load
     union={union}
     clubs={clubs}
     leagues={leagues}
