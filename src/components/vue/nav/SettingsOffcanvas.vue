@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import { Offcanvas } from 'bootstrap';
   import SettingsComponent from '../Settings.vue';
   import { type League } from '../../../utils/types.ts';
 
@@ -31,8 +30,11 @@
 
   const offcanvasRef = ref<HTMLElement | null>(null);
 
-  onMounted(() => {
-    if (offcanvasRef.value) new Offcanvas(offcanvasRef.value);
+  onMounted(async () => {
+    const { Offcanvas } = await import('bootstrap');
+    if (offcanvasRef.value) {
+      new Offcanvas(offcanvasRef.value);
+    }
   });
 </script>
 

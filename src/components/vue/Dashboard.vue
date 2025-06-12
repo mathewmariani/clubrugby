@@ -1,36 +1,58 @@
 <template>
-  <Navbar
-    client:only="vue"
-    :union="union"
-    :leagues="leagues"
-    :titles="titles"
-    :selectedIndex="selectedIndex"
-    @select="goToSlide"
-  />
-
-  <div style="margin-top: 104px">
-    <Swiper
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-      ref="swiperRef"
-      :slides-per-view="1"
-      :autoHeight="true"
-      :space-between="12"
-      :allowTouchMove="false"
-    >
-      <SwiperSlide v-for="(section, index) in sections" :key="section.title">
-        <component
-          :is="section.component"
-          v-bind="section.props"
-          v-on="section.on"
-        />
-      </SwiperSlide>
-    </Swiper>
+  <!-- Loading Spinner -->
+  <div
+    v-if="loading"
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
+  >
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
+
+  <template v-else>
+    <Navbar
+      :union="union"
+      :leagues="leagues"
+      :titles="titles"
+      :selectedIndex="selectedIndex"
+      @select="goToSlide"
+    />
+
+    <div
+      v-if="loading"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 50vh"
+    >
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div v-else style="margin-top: 104px">
+      <Swiper
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        ref="swiperRef"
+        :slides-per-view="1"
+        :autoHeight="true"
+        :space-between="12"
+        :allowTouchMove="false"
+      >
+        <SwiperSlide v-for="(section, index) in sections" :key="section.title">
+          <component
+            :is="section.component"
+            v-bind="section.props"
+            v-on="section.on"
+          />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue';
+  import { ref, computed, onMounted } from 'vue';
   import { Swiper, SwiperSlide } from 'swiper/vue';
   import 'swiper/css';
 
@@ -48,6 +70,12 @@
     Result,
     Standing,
   } from '../../utils/types';
+
+  const loading = ref(true);
+
+  onMounted(() => {
+    loading.value = false;
+  });
 
   const props = defineProps<{
     union: Union;
