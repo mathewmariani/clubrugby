@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import { type Fixture } from '../utils/types'
+import { type Fixture } from '../utils/types';
 
 export function useFilteredFixtures(
   fixtures: Ref<Record<string, Record<string, Fixture[]>>>,

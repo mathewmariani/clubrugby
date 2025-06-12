@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import { type Result } from '../utils/types'
+import { type Result } from '../utils/types';
 
 export function useFilteredResults(
   results: Ref<Record<string, Record<string, Result[]>>>,
@@ -18,7 +18,7 @@ export function useFilteredResults(
           const sortedMatches = [...matches].sort((a, b) => {
             const aDate = new Date(`${a.date}T${a.time}`);
             const bDate = new Date(`${b.date}T${b.time}`);
-            return bDate.getTime() - aDate.getTime(); 
+            return bDate.getTime() - aDate.getTime();
           });
 
           filteredLeagues[leagueId] = sortedMatches;
