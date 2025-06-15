@@ -11,6 +11,9 @@ def scrape(soups_by_league_id, team_id_map):
             time = match.get("data-time", "").strip()
             venue = match.get("data-venue", "").strip()
 
+            if date == "TBC" or time == "TBC":
+                continue
+
             matches.append({
                 "league_id": league_id,
                 "home_id": team_id_map.get(home_team, "UNKNOWN"),
@@ -20,7 +23,4 @@ def scrape(soups_by_league_id, team_id_map):
                 "venue": venue,
             })
 
-            print(f"✅ Match: {home_team} vs {away_team} on {date} at {time} in {venue}")
-
     return matches
-

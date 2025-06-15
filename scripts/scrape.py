@@ -6,14 +6,14 @@ from league_utils import load_team_id_map, load_league_ids, load_clubs
 
 SCRAPERS = {
     "bc": {
-        # "clubs": {
-        #     "url": "https://bcrugby.com/bc-rugby-clubs/",
-        #     "module": "scrapers.bc.clubs",
-        # },
-        # "leagues": {
-        #     "url": "https://bcrugby.com/competitions-2/fixtures-results/",
-        #     "module": "scrapers.bc.leagues",
-        # },
+        "clubs": {
+            "url": "https://bcrugby.com/bc-rugby-clubs/",
+            "module": "scrapers.bc.clubs",
+        },
+        "leagues": {
+            "url": "https://bcrugby.com/competitions-2/fixtures-results/",
+            "module": "scrapers.bc.leagues",
+        },
         "fixtures": {
             "url": "https://bcrugby.com/league/{}/",
             "module": "scrapers.bc.fixtures",
@@ -28,14 +28,14 @@ SCRAPERS = {
         },
     },
     "qc": {
-        # "clubs": {
-        #     "url": "https://rugbyquebec.org/clubs/",
-        #     "module": "scrapers.qc.clubs",
-        # },
-        # "leagues": {
-        #     "url": "https://rugbyquebec.org/competitions/",
-        #     "module": "scrapers.qc.leagues",
-        # },
+        "clubs": {
+            "url": "https://rugbyquebec.org/clubs/",
+            "module": "scrapers.qc.clubs",
+        },
+        "leagues": {
+            "url": "https://rugbyquebec.org/competitions/",
+            "module": "scrapers.qc.leagues",
+        },
         "fixtures": {
             "url": "https://rugbyquebec.org/league/{}/",
             "module": "scrapers.qc.fixtures",
@@ -50,14 +50,14 @@ SCRAPERS = {
         },
     },
     "on": {
-        # "clubs": {
-        #     "url": "https://www.rugbyontario.com/club-info/",
-        #     "module": "scrapers.on.clubs",
-        # },
-        # "leagues": {
-        #     "url": "https://www.rugbyontario.com/competitions/",
-        #     "module": "scrapers.on.leagues",
-        # },
+        "clubs": {
+            "url": "https://www.rugbyontario.com/club-info/",
+            "module": "scrapers.on.clubs",
+        },
+        "leagues": {
+            "url": "https://www.rugbyontario.com/competitions/",
+            "module": "scrapers.on.leagues",
+        },
         "fixtures": {
             "url": "https://rugbyontario.com/league/{}/",
             "module": "scrapers.on.fixtures",
@@ -72,14 +72,14 @@ SCRAPERS = {
         },
     },
     "ns": {
-        # "clubs": {
-        #     "url": "https://rugbyns.ns.ca/club-listing/",
-        #     "module": "scrapers.ns.clubs",
-        # },
-        # "leagues": {
-        #     "url": "https://rugbyns.ns.ca/competitions/",
-        #     "module": "scrapers.ns.leagues",
-        # },
+        "clubs": {
+            "url": "https://rugbyns.ns.ca/club-listing/",
+            "module": "scrapers.ns.clubs",
+        },
+        "leagues": {
+            "url": "https://rugbyns.ns.ca/competitions/",
+            "module": "scrapers.ns.leagues",
+        },
         "fixtures": {
             "url": "https://rugbyns.ns.ca/league/{}/",
             "module": "scrapers.ns.fixtures",
@@ -160,7 +160,37 @@ def scrape(federation, datatype, save_path="data", save=True):
         print(f"✅ Saved to {csv_file}")
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run scraper in either full or weekly mode.")
+    parser.add_argument(
+        "--mode",
+        choices=["full", "weekly"],
+        default="weekly",
+        help="Choose scrape mode: 'full' for all types or 'weekly' for fixtures/results/standings",
+    )
+    parser.add_argument(
+        "--federation",
+        help="Optional: specify a federation slug (e.g. 'qc', 'on', 'bc', 'ns')",
+    )
+    parser.add_argument(
+        "--datatype",
+        help="Optional: specify a datatype to scrape (e.g. 'fixtures', 'results', 'standings')",
+    )
+    args = parser.parse_args()
+
+    WEEKLY_TYPES = {"fixtures", "results", "standings"}
+
     for federation, datatypes in SCRAPERS.items():
+        if args.federation and federation != args.federation:
+            continue
+
+        print(f"\n🏷️ Federation: {federation}")
         for datatype in datatypes:
+            if args.mode == "weekly" and datatype not in WEEKLY_TYPES:
+                continue
+            if args.datatype and datatype != args.datatype:
+                continue
+
             print(f"\n🔄 Starting scrape for {federation} - {datatype}")
             scrape(federation, datatype)

@@ -71,8 +71,8 @@
                   </div>
                 </div>
               </td>
-              <td :class="{ 'has-border': sortColumn === 'gp' }">
-                {{ team.gp }}
+              <td :class="{ 'has-border': sortColumn === 'pld' }">
+                {{ team.pld }}
               </td>
               <td :class="{ 'has-border': sortColumn === 'w' }">
                 {{ team.w }}
@@ -143,7 +143,7 @@
   }
 
   const sortableColumns = [
-    { key: 'gp', label: 'P' },
+    { key: 'pld', label: 'PLD' },
     { key: 'w', label: 'W' },
     { key: 'l', label: 'L' },
     { key: 'd', label: 'D' },
