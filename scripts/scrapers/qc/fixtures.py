@@ -20,7 +20,4 @@ def scrape(soups_by_league_id, team_id_map):
                 "venue": venue,
             })
 
-            print(f"✅ Match: {home_team} vs {away_team} on {date} at {time} in {venue}")
-
     return matches
-

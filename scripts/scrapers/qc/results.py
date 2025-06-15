@@ -26,6 +26,4 @@ def scrape(soups_by_league_id, team_id_map):
                 "away_score": away_score,
             })
 
-            print(f"✅ Result: {home_team} {home_score} - {away_score} {away_team} on {date} at {time}")
-
     return results
