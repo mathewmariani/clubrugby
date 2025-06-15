@@ -3,10 +3,15 @@
   <a class="list-group-item" @click="emit('click', match)">
     <div class="d-flex justify-content-between w-100 mb-2">
       <small class="text-muted">{{ match.venue }}</small>
-      <span class="badge text-bg-danger">
-        {{ match.time }}
-      </span>
+
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge text-bg-danger">
+          {{ match.time }}
+        </span>
+        <span class="text-muted">❯</span>
+      </div>
     </div>
+
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
         v-if="home?.logo_url"
