@@ -8,8 +8,6 @@ import re
 
 def parse_date(raw_date: str) -> str:
     """Convert various date formats to YYYY-MM-DD."""
-    if raw_date.upper() in {"TBC", "TBA", ""}:
-        return "TBC"
     raw_date = raw_date.strip()
     formats = [
         "%d/%m/%Y",     # 24/05/2025

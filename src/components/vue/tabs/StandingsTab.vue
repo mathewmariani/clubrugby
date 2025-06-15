@@ -143,7 +143,7 @@
   }
 
   const sortableColumns = [
-    { key: 'pld', label: 'P' },
+    { key: 'pld', label: 'PLD' },
     { key: 'w', label: 'W' },
     { key: 'l', label: 'L' },
     { key: 'd', label: 'D' },
