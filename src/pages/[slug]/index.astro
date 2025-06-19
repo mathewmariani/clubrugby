@@ -19,7 +19,13 @@ const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
 ---
 
 <Page>
-  <div id="app">
-    <App client:load union={union} />
-  </div>
+  <App
+    client:only="vue"
+    union={union}
+    clubs={clubs}
+    leagues={leagues}
+    standings={standingsByLeague}
+    fixtures={fixturesByLeague}
+    results={resultsByLeague}
+  />
 </Page>

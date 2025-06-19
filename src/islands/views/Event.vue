@@ -156,10 +156,10 @@
 
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
-  import { getOrdinalSuffix, getLeagueName } from '../../../composables/utils';
-  import { useMatchClubs } from '../../../composables/utils';
-  import { formatDate, formatTime } from '../../../utils/data';
-  import type { Fixture, Standing, Club, League } from '../../../utils/types';
+  import { getOrdinalSuffix, getLeagueName } from '../../composables/utils';
+  import { useMatchClubs } from '../../composables/utils';
+  import { formatDate, formatTime } from '../../utils/data';
+  import type { Fixture, Standing, Club, League } from '../../utils/types';
 
   const props = defineProps<{
     clubs: Record<string, Club>;

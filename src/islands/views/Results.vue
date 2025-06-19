@@ -1,21 +1,64 @@
 <template>
-  <div class="container py-4">
-    <h1 class="mb-3">Results: {{ union.slug.toUpperCase() }}</h1>
-    <p>
-      This is the Results view for the <strong>{{ union.name }}</strong> union.
-    </p>
-  </div>
-
-  <nav class="btn-group mb-4" role="group">
-    <router-link to="/fixtures" class="btn btn-outline-primary">Fixtures</router-link>
-    <router-link to="/results" class="btn btn-outline-primary">Results</router-link>
-    <router-link to="/standings" class="btn btn-outline-primary">Standings</router-link>
-  </nav>
+  <template v-if="hasResults">
+    <div class="list-group list-group-flush">
+      <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
+        <strong class="list-group-item">{{ formatDate(day) }}</strong>
+        <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
+          <strong class="list-group-item">
+            {{ getLeagueName(leagueId, leagues) }}
+          </strong>
+          <ResultListItem
+            v-for="match in matches"
+            :key="match.id"
+            :match="match"
+            :clubs="clubs"
+            :leagues="leagues"
+          />
+        </template>
+      </template>
+    </div>
+  </template>
+  <template v-else>
+    <div class="container mt-3 text-center text-muted">
+      <p>No results available.</p>
+      <p>Ensure your preferences are set.</p>
+    </div>
+  </template>
 </template>
 
-<script lang="ts" setup>
-  import { type Union } from '../../utils/unions';
-  defineProps<{
+<script setup lang="ts">
+  import { computed, toRef } from 'vue';
+  import type { Club, League, Result } from '../../../utils/types';
+  import ResultListItem from '../../components/vue/items/ResultListItem.vue';
+  import { formatDate } from '../../utils/data';
+  import { getLeagueName } from '../../composables/utils';
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { useFilteredResults } from '../../composables/useFilteredResults';
+
+  const props = defineProps<{
     union: Union;
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    results: Record<string, Record<string, Result[]>>;
   }>();
+
+  const clubs = toRef(props, 'clubs');
+  const leagues = toRef(props, 'leagues');
+  const results = toRef(props, 'results');
+
+  const { savedLeagues } = useSavedLeagues();
+
+  const filteredResults = useFilteredResults(results, savedLeagues);
+
+  const hasResults = computed(() =>
+    Object.values(filteredResults.value).some(
+      (resultsForDay) => Object.values(resultsForDay).flat().length > 0
+    )
+  );
 </script>
+
+<style scoped>
+  .list-group {
+    border-radius: 0;
+  }
+</style>
