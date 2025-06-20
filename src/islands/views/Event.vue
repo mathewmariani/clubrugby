@@ -4,13 +4,15 @@
       <!-- Home team header -->
       <div class="list-group-item">
         <div class="d-flex gap-3 mb-3 my-3">
-          <img
-            :src="home?.logo_url"
-            alt=""
-            width="64"
-            height="64"
-            style="object-fit: contain"
-          />
+          <router-link :to="`/team/${home?.id}`" v-if="home">
+            <img
+              :src="home.logo_url"
+              alt=""
+              width="64"
+              height="64"
+              style="object-fit: contain"
+            />
+          </router-link>
           <div class="d-flex flex-column justify-content-center">
             <strong>{{ home?.name }}</strong>
             <p class="text-muted mb-0">{{ team1Record }}</p>
@@ -19,13 +21,15 @@
 
         <!-- Away team header -->
         <div class="d-flex gap-3 mb-3 my-3">
-          <img
-            :src="away?.logo_url"
-            alt=""
-            width="64"
-            height="64"
-            style="object-fit: contain"
-          />
+          <router-link :to="`/team/${away?.id}`" v-if="away">
+            <img
+              :src="away.logo_url"
+              alt=""
+              width="64"
+              height="64"
+              style="object-fit: contain"
+            />
+          </router-link>
           <div class="d-flex flex-column justify-content-center">
             <strong>{{ away?.name }}</strong>
             <p class="text-muted mb-0">{{ team2Record }}</p>
