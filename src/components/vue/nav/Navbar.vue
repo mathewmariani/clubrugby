@@ -6,7 +6,7 @@
         <!-- Back caret -->
         <template v-if="isTeamView">
           <button class="btn" type="button" @click="goBack">
-            <span style="cursor: pointer; font-size: 1.0rem">❮</span>
+            <span style="cursor: pointer; font-size: 1rem">❮</span>
           </button>
           <a class="navbar-brand">{{ team.name }}</a>
         </template>

@@ -1,7 +1,6 @@
 <template>
-    <div class="list-group list-group-flush">
-
-<template v-if="hasFixtures">
+  <div class="list-group list-group-flush">
+    <template v-if="hasFixtures">
       <template
         v-for="(daysForMonth, month) in teamFixturesByMonthDay"
         :key="month"
@@ -17,37 +16,41 @@
           />
         </template>
       </template>
-  </template>
-  <p v-else class="text-muted">No upcoming fixtures.</p>
+    </template>
+    <p v-else class="text-muted">No upcoming fixtures.</p>
 
-  <template v-if="hasResults">
-    <div class="list-group list-group-flush">
-      <template
-        v-for="(daysForMonth, month) in teamResultsByMonthDay"
-        :key="month"
-      >
-        <h6 class="list-group-item">
-          {{ formatMonth(month) }}
-        </h6>
-        <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
-          <ScheduleListItem
-            :matches="matchesForDay"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
+    <template v-if="hasResults">
+      <div class="list-group list-group-flush">
+        <template
+          v-for="(daysForMonth, month) in teamResultsByMonthDay"
+          :key="month"
+        >
+          <h6 class="list-group-item">
+            {{ formatMonth(month) }}
+          </h6>
+          <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
+            <ScheduleListItem
+              :matches="matchesForDay"
+              :clubs="clubs"
+              :leagues="leagues"
+            />
+          </template>
         </template>
-      </template>
-    </div>
-  </template>
-  <p v-else class="text-muted">No upcoming fixtures.</p>
-</div>
+      </div>
+    </template>
+    <p v-else class="text-muted">No upcoming fixtures.</p>
+  </div>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, League, Fixture, Result } from '../../../utils/types';
+  import type { Club, League, Fixture, Result } from '../../utils/types';
   import { formatDate, formatMonth } from '../../utils/data';
   import ScheduleListItem from '../../components/vue/items/ScheduleListItem.vue';
+  import { parseISO, format } from 'date-fns';
+
+  // Import your saved leagues composable
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
 
   const props = defineProps<{
     club_id: string;
@@ -57,86 +60,118 @@
     leagues: Record<string, League>;
   }>();
 
-  import { parseISO, format } from 'date-fns';
+  const { savedLeagues } = useSavedLeagues();
+
+  function leagueIsIncluded(leagueId: string) {
+    // Adjust logic to either include or exclude saved leagues
+    // Here, show only leagues that are saved
+    return !savedLeagues.value.includes(leagueId);
+  }
 
   const hasFixtures = computed(() =>
-    Object.values(props.fixtures).some(
-      (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
-    )
+    Object.entries(props.fixtures).some(([leagueId, leaguesForDay]) => {
+      if (!leagueIsIncluded(leagueId)) return false;
+      return Object.values(leaguesForDay).flat().length > 0;
+    })
   );
 
   const hasResults = computed(() =>
-    Object.values(props.results).some(
-      (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
-    )
+    Object.entries(props.results).some(([leagueId, leaguesForDay]) => {
+      if (!leagueIsIncluded(leagueId)) return false;
+      return Object.values(leaguesForDay).flat().length > 0;
+    })
   );
 
   const teamFixturesByMonthDay = computed(() => {
-    const filtered = Object.values(props.fixtures)
-      .flatMap((byLeague) => Object.values(byLeague).flat())
-      .filter((f) => f.home_id === props.club_id || f.away_id === props.club_id)
-      .sort(
-        (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
+    // Go through days
+    const filteredByDay: Record<string, Fixture[]> = {};
+
+    for (const [day, leaguesForDay] of Object.entries(props.fixtures)) {
+      // Filter leagues inside this day by hide list
+      const filteredLeagues = Object.fromEntries(
+        Object.entries(leaguesForDay).filter(([leagueId]) =>
+          leagueIsIncluded(leagueId)
+        )
       );
 
-    const grouped: Record<
-      string,
-      Record<string, (typeof filtered)[number][]>
-    > = {};
+      // Flatten filtered matches from included leagues
+      const matches = Object.values(filteredLeagues).flat();
 
-    for (const item of filtered) {
-      const date = parseISO(item.date);
+      // Keep only matches involving the club
+      const filteredMatches = matches.filter(
+        (f) => f.home_id === props.club_id || f.away_id === props.club_id
+      );
+
+      if (filteredMatches.length > 0) {
+        filteredByDay[day] = filteredMatches;
+      }
+    }
+
+    // Flatten all matches from all days to a list for grouping by month/day
+    const allMatches = Object.values(filteredByDay).flat();
+
+    // Sort matches by date/time
+    allMatches.sort(
+      (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
+    );
+
+    // Group matches by month/day
+    const grouped: Record<string, Record<string, Fixture[]>> = {};
+
+    for (const match of allMatches) {
+      const date = parseISO(match.date);
       const monthKey = format(date, 'yyyy-MM');
       const dayKey = format(date, 'yyyy-MM-dd');
 
       if (!grouped[monthKey]) grouped[monthKey] = {};
       if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
 
-      grouped[monthKey][dayKey].push(item);
+      grouped[monthKey][dayKey].push(match);
     }
 
     return grouped;
   });
 
   const teamResultsByMonthDay = computed(() => {
-    const filtered = Object.values(props.results)
-      .flatMap((byLeague) => Object.values(byLeague).flat())
-      .filter((f) => f.home_id === props.club_id || f.away_id === props.club_id)
-      .sort(
-        (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
+    const filteredByDay: Record<string, Result[]> = {};
+
+    for (const [day, leaguesForDay] of Object.entries(props.results)) {
+      const filteredLeagues = Object.fromEntries(
+        Object.entries(leaguesForDay).filter(([leagueId]) =>
+          leagueIsIncluded(leagueId)
+        )
       );
 
-    const grouped: Record<
-      string,
-      Record<string, (typeof filtered)[number][]>
-    > = {};
+      const matches = Object.values(filteredLeagues).flat();
 
-    for (const item of filtered) {
-      const date = parseISO(item.date);
+      const filteredMatches = matches.filter(
+        (f) => f.home_id === props.club_id || f.away_id === props.club_id
+      );
+
+      if (filteredMatches.length > 0) {
+        filteredByDay[day] = filteredMatches;
+      }
+    }
+
+    const allMatches = Object.values(filteredByDay).flat();
+
+    allMatches.sort(
+      (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
+    );
+
+    const grouped: Record<string, Record<string, Result[]>> = {};
+
+    for (const match of allMatches) {
+      const date = parseISO(match.date);
       const monthKey = format(date, 'yyyy-MM');
       const dayKey = format(date, 'yyyy-MM-dd');
 
       if (!grouped[monthKey]) grouped[monthKey] = {};
       if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
 
-      grouped[monthKey][dayKey].push(item);
+      grouped[monthKey][dayKey].push(match);
     }
 
     return grouped;
   });
-
-  // Flatten and filter results
-  const teamResults = computed(() =>
-    Object.values(props.results)
-      .flatMap((byLeague) => Object.values(byLeague).flat())
-      .filter((r) => r.home_id === props.club_id || r.away_id === props.club_id)
-      .sort(
-        (a, b) => b.date.localeCompare(a.date) || b.time.localeCompare(b.time)
-      )
-  );
-
-  // Unique match key (can be customized)
-  function matchKey(match: Fixture | Result) {
-    return `${match.league_id}-${match.home_id}-${match.away_id}-${match.date}`;
-  }
 </script>
