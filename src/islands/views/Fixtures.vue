@@ -13,7 +13,6 @@
             :match="match"
             :clubs="clubs"
             :leagues="leagues"
-            @click="selectMatch(match)"
           />
         </template>
       </template>
@@ -30,7 +29,7 @@
 
 <script lang="ts" setup>
   import { ref, computed, toRef, onMounted } from 'vue';
-  import type { Club, League, Fixture } from '../../../utils/types';
+  import type { Club, League, Fixture } from '../../utils/types';
 
   import { formatDate } from '../../utils/data';
   import { getLeagueName } from '../../composables/utils';
@@ -58,10 +57,4 @@
       (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
     )
   );
-
-  function selectMatch(match: Fixture) {
-    // You can push to `/game/:id` if you want to navigate
-    // or emit an event if wrapped higher
-    console.log('Selected match:', match);
-  }
 </script>

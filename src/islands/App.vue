@@ -5,12 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  import {
-    createRouter,
-    createWebHashHistory,
-    RouterView,
-    RouterLink,
-  } from 'vue-router';
+  import { createRouter, createWebHashHistory, RouterView } from 'vue-router';
   import { onBeforeMount, getCurrentInstance } from 'vue';
 
   import Navbar from '../components/vue/nav/Navbar.vue';
@@ -19,9 +14,12 @@
   import Standings from './views/Standings.vue';
   import EventView from './views/Event.vue';
   import TeamView from './views/Team.vue';
-  import TeamLayout from '../components/vue/layouts/TeamLayout.vue';
+
   import TeamScheduleView from './views/TeamSchedule.vue';
   import TeamStatsView from './views/TeamStats.vue';
+
+  import EventLayout from '../components/vue/layouts/EventLayout.vue';
+  import TeamLayout from '../components/vue/layouts/TeamLayout.vue';
 
   import type {
     Club,
@@ -77,16 +75,16 @@
         },
       },
       {
-        path: '/event',
+        path: '/event/:event_id',
         component: EventView,
-        props: {
-          union: props.union,
-          standings: props.standings,
+        props: (route) => ({
+          event_id: route.params.event_id,
           fixtures: props.fixtures,
           results: props.results,
           clubs: props.clubs,
           leagues: props.leagues,
-        },
+          standings: props.standings,
+        }),
       },
       {
         path: '/team/:club_id',

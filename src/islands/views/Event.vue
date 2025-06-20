@@ -1,8 +1,8 @@
 <template>
   <template v-if="match">
     <div class="list-group list-group-flush">
+      <!-- Home team header -->
       <div class="list-group-item">
-        <!-- header home -->
         <div class="d-flex gap-3 mb-3 my-3">
           <img
             :src="home?.logo_url"
@@ -16,7 +16,8 @@
             <p class="text-muted mb-0">{{ team1Record }}</p>
           </div>
         </div>
-        <!-- header away -->
+
+        <!-- Away team header -->
         <div class="d-flex gap-3 mb-3 my-3">
           <img
             :src="away?.logo_url"
@@ -32,32 +33,17 @@
         </div>
       </div>
 
-      <!-- stats -->
+      <!-- Aggregate Stats -->
       <div class="list-group-item">
         <div class="d-flex justify-content-between my-3">
-          <div class="d-flex flex-column justify-content-center">
-            <img
-              :src="home?.logo_url"
-              alt=""
-              width="32"
-              height="32"
-              style="object-fit: contain"
-            />
-          </div>
-          <div class="d-flex flex-column justify-content-center text-center">
+          <img :src="home?.logo_url" width="32" height="32" />
+          <div class="text-center">
             <strong>Record</strong>
             <p class="text-muted mb-0">TOTAL</p>
           </div>
-          <div class="d-flex flex-column justify-content-center">
-            <img
-              :src="away?.logo_url"
-              alt=""
-              width="32"
-              height="32"
-              style="object-fit: contain"
-            />
-          </div>
+          <img :src="away?.logo_url" width="32" height="32" />
         </div>
+
         <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
           <div class="d-flex justify-content-between mb-1">
             <small>{{ getStatValue(team1, stat.key) }}</small>
@@ -65,65 +51,52 @@
             <small>{{ getStatValue(team2, stat.key) }}</small>
           </div>
           <div class="progress-stacked">
-            <div
-              class="progress"
-              role="progressbar"
-              :style="{ width: leftWidth(stat) + '%' }"
-            >
+            <div class="progress" :style="{ width: leftWidth(stat) + '%' }">
               <div class="progress-bar bg-primary"></div>
             </div>
-            <div
-              class="progress"
-              role="progressbar"
-              :style="{ width: rightWidth(stat) + '%' }"
-            >
+            <div class="progress" :style="{ width: rightWidth(stat) + '%' }">
               <div class="progress-bar bg-warning"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- stats -->
+      <!-- Per Game Stats -->
       <div class="list-group-item">
         <div class="d-flex justify-content-between my-3">
-          <div class="d-flex flex-column justify-content-center">
-            <img :src="home?.logo_url" alt="" width="32" height="32" />
-          </div>
-          <div class="d-flex flex-column justify-content-center text-center">
+          <img :src="home?.logo_url" width="32" height="32" />
+          <div class="text-center">
             <strong>Stats</strong>
             <p class="text-muted mb-0">PER GAME</p>
           </div>
-          <div class="d-flex flex-column justify-content-center">
-            <img :src="away?.logo_url" alt="" width="32" height="32" />
-          </div>
+          <img :src="away?.logo_url" width="32" height="32" />
         </div>
+
         <div v-for="stat in perGameStats" :key="stat.key" class="mb-3">
           <div class="d-flex justify-content-between mb-1">
-            <small
-              >{{ stat.team1.toFixed(1) }}
+            <small>
+              {{ stat.team1.toFixed(1) }}
               <small class="text-muted"
                 >({{ getOrdinalSuffix(stat.team1Rank) }})</small
-              ></small
-            >
+              >
+            </small>
             <small>{{ stat.label }}</small>
-            <small
-              ><small class="text-muted"
+            <small>
+              <small class="text-muted"
                 >({{ getOrdinalSuffix(stat.team2Rank) }})</small
               >
-              {{ stat.team2.toFixed(1) }}</small
-            >
+              {{ stat.team2.toFixed(1) }}
+            </small>
           </div>
           <div class="progress-stacked">
             <div
               class="progress"
-              role="progressbar"
               :style="{ width: perGameLeftWidth(stat) + '%' }"
             >
               <div class="progress-bar bg-primary"></div>
             </div>
             <div
               class="progress"
-              role="progressbar"
               :style="{ width: perGameRightWidth(stat) + '%' }"
             >
               <div class="progress-bar bg-warning"></div>
@@ -132,11 +105,10 @@
         </div>
       </div>
 
-      <!-- details -->
+      <!-- Game Details -->
       <div class="list-group-item">
         <div class="mt-3">
           <h6><strong>Game Details</strong></h6>
-
           <strong>League:</strong>
           <p>{{ league_name }}</p>
 
@@ -149,53 +121,129 @@
       </div>
     </div>
   </template>
-  <template v-else class="text-center text-muted">
-    <p>Please select a match from the Fixtures tab to compare teams.</p>
+  <template v-else>
+    <p class="text-center text-muted">No match found for this event ID.</p>
   </template>
 </template>
 
 <script setup lang="ts">
+  import { useRoute } from 'vue-router';
   import { computed, toRef } from 'vue';
-  import { getOrdinalSuffix, getLeagueName } from '../../composables/utils';
-  import { useMatchClubs } from '../../composables/utils';
   import { formatDate, formatTime } from '../../utils/data';
-  import type { Fixture, Standing, Club, League } from '../../utils/types';
+  import {
+    getOrdinalSuffix,
+    getLeagueName,
+    useMatchClubs,
+  } from '../../composables/utils';
+  import type {
+    Fixture,
+    Result,
+    Standing,
+    Club,
+    League,
+  } from '../../utils/types';
+
+  const route = useRoute();
 
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     standings: Record<string, Standing[]>;
-    match: Fixture | null;
+    fixtures: Record<string, Record<string, Fixture[]>>;
+    results: Record<string, Record<string, Result[]>>;
   }>();
 
-  const leagueId = computed(() => props.match?.league_id);
-  const { home, away } = useMatchClubs(toRef(props, 'match'), props.clubs);
+  // Parse event_id into leagueId, homeId, awayId, date
+  const eventParts = computed(
+    () => (route.params.event_id as string)?.split('-') || []
+  );
+
+  const leagueId = computed(() => eventParts.value[0]);
+  const homeId = computed(() => eventParts.value[1]);
+  const awayId = computed(() => eventParts.value[2]);
+  const date = computed(() => eventParts.value.slice(3).join('-')); // captures full date
+
+  // Find match from fixtures or results
+  const match = computed(() => {
+    if (!leagueId.value || !homeId.value || !awayId.value || !date.value) {
+      console.log('Missing event parts, cannot find match');
+      return null;
+    }
+
+    const fixturesOnDate = props.fixtures[date.value];
+    if (fixturesOnDate) {
+      const dayFixtures = fixturesOnDate[leagueId.value];
+      if (dayFixtures) {
+        const found = dayFixtures.find(
+          (f) =>
+            f.home_id.toString() === homeId.value &&
+            f.away_id.toString() === awayId.value
+        );
+        if (found) {
+          console.log('Found fixture match:', found);
+          return found;
+        }
+      } else {
+        console.log(
+          'No fixtures for league',
+          leagueId.value,
+          'on date',
+          date.value
+        );
+      }
+    } else {
+      console.log('No fixtures on date', date.value);
+    }
+
+    const resultsOnDate = props.results[date.value];
+    if (resultsOnDate) {
+      const dayResults = resultsOnDate[leagueId.value];
+      if (dayResults) {
+        const found = dayResults.find(
+          (r) =>
+            r.home_id.toString() === homeId.value &&
+            r.away_id.toString() === awayId.value
+        );
+        if (found) {
+          console.log('Found result match:', found);
+          return found;
+        }
+      } else {
+        console.log(
+          'No results for league',
+          leagueId.value,
+          'on date',
+          date.value
+        );
+      }
+    } else {
+      console.log('No results on date', date.value);
+    }
+
+    console.log('No match found for:', {
+      leagueId: leagueId.value,
+      homeId: homeId.value,
+      awayId: awayId.value,
+      eventDate: date.value,
+    });
+    return null;
+  });
 
   const league_name = computed(() =>
     getLeagueName(leagueId.value, props.leagues)
   );
 
-  const team1 = computed(() => {
-    if (!leagueId.value || !home.value) return undefined;
-    return props.standings[leagueId.value]?.find(
-      (s) => s.team_id === home.value?.id
-    );
-  });
+  const { home, away } = useMatchClubs(match, props.clubs);
 
-  const team2 = computed(() => {
-    if (!leagueId.value || !away.value) return undefined;
-    return props.standings[leagueId.value]?.find(
-      (s) => s.team_id === away.value?.id
-    );
-  });
+  const team1 = computed(() =>
+    props.standings[leagueId.value]?.find((s) => s.team_id === home.value?.id)
+  );
+  const team2 = computed(() =>
+    props.standings[leagueId.value]?.find((s) => s.team_id === away.value?.id)
+  );
 
-  const regular_stats: { key: keyof Standing; label: string }[] = [
-    { key: 'pld', label: 'Played' },
-    { key: 'w', label: 'Wins' },
-    { key: 'd', label: 'Draws' },
-    { key: 'l', label: 'Losses' },
-    { key: 'pts', label: 'Points' },
-  ];
+  const team1Record = computed(() => getRecordString(team1.value));
+  const team2Record = computed(() => getRecordString(team2.value));
 
   function getRecordString(team?: Standing): string {
     const w = Number(team?.w ?? 0);
@@ -204,8 +252,13 @@
     return `${w}-${d}-${l}`;
   }
 
-  const team1Record = computed(() => getRecordString(team1.value));
-  const team2Record = computed(() => getRecordString(team2.value));
+  const regular_stats = [
+    { key: 'pld', label: 'Played' },
+    { key: 'w', label: 'Wins' },
+    { key: 'd', label: 'Draws' },
+    { key: 'l', label: 'Losses' },
+    { key: 'pts', label: 'Points' },
+  ] as const;
 
   function getStatValue(
     team: Standing | undefined,
@@ -213,11 +266,12 @@
   ): number {
     return Number(team?.[key]);
   }
+
   function leftWidth(stat: { key: keyof Standing }): number {
     const t1 = getStatValue(team1.value, stat.key);
     const t2 = getStatValue(team2.value, stat.key);
     const total = t1 + t2;
-    return total ? Math.round((t1 / total) * 100) : 50;
+    return total ? (t1 / total) * 100 : 50;
   }
 
   function rightWidth(stat: { key: keyof Standing }): number {
@@ -231,24 +285,18 @@
   }
 
   function getPerGameRank(
-    leagueStandings: Standing[] | undefined,
+    standings: Standing[] | undefined,
     teamId: string | undefined,
     key: keyof Standing
   ): number | null {
-    if (!leagueStandings || !teamId) return null;
-
-    // Calculate per game for each team
-    const teamsWithStats = leagueStandings.map((team) => ({
-      team_id: team.team_id,
-      value: team.pld > 0 ? Number(team[key]) / Number(team.pld) : 0,
+    if (!standings || !teamId) return null;
+    const list = standings.map((t) => ({
+      id: t.team_id,
+      value: perGame(t, key),
     }));
-
-    // Sort descending (higher is better)
-    teamsWithStats.sort((a, b) => b.value - a.value);
-
-    // Find rank (1-based)
-    const rank = teamsWithStats.findIndex((t) => t.team_id === teamId);
-    return rank === -1 ? null : rank + 1;
+    list.sort((a, b) => b.value - a.value);
+    const index = list.findIndex((t) => t.id === teamId);
+    return index >= 0 ? index + 1 : null;
   }
 
   const perGameStats = computed(() => {
@@ -259,28 +307,19 @@
       { key: 'ta', label: 'Tries Against' },
     ] as const;
 
-    const leagueStandings = leagueId.value
-      ? props.standings[leagueId.value]
-      : undefined;
+    const standings = props.standings[leagueId];
 
     return keys.map(({ key, label }) => {
-      const team1Value = team1.value ? perGame(team1.value, key) : 0;
-      const team2Value = team2.value ? perGame(team2.value, key) : 0;
-
-      const team1Rank = team1.value
-        ? getPerGameRank(leagueStandings, team1.value.team_id, key)
-        : null;
-      const team2Rank = team2.value
-        ? getPerGameRank(leagueStandings, team2.value.team_id, key)
-        : null;
+      const team1Val = team1.value ? perGame(team1.value, key) : 0;
+      const team2Val = team2.value ? perGame(team2.value, key) : 0;
 
       return {
         key,
         label,
-        team1: team1Value,
-        team2: team2Value,
-        team1Rank,
-        team2Rank,
+        team1: team1Val,
+        team2: team2Val,
+        team1Rank: getPerGameRank(standings, team1.value?.team_id, key),
+        team2Rank: getPerGameRank(standings, team2.value?.team_id, key),
       };
     });
   });

@@ -2,11 +2,11 @@
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
-  const clubId = route.params.club_id;
+  const eventId = route.params.event_id;
 </script>
 
 <template>
-  <router-view :club-id="clubId" />
+  <router-view :event-id="eventId" />
 </template>
 
 <style scoped></style>
