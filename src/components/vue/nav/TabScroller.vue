@@ -33,15 +33,12 @@
     () => route.path,
     (path) => {
       if (!props.routes || !Array.isArray(props.routes)) {
-        // fallback if routes isn't provided: default to index 1 (fixtures)
-        selectedIndex.value = 1;
+        selectedIndex.value = -1;
         return;
       }
 
       const idx = props.routes.findIndex((r) => r === path);
-
-      // If no match found, default to /fixtures index (assuming it's at 1)
-      selectedIndex.value = idx !== -1 ? idx : 1;
+      selectedIndex.value = idx; // -1 means no match
     },
     { immediate: true }
   );

@@ -19,8 +19,9 @@
     </div>
   </template>
   <template v-else>
-    <div class="container mt-3 text-center text-muted">
+    <div class="container-fluid text-center text-muted pt-3">
       <p>No results available.</p>
+      <hr />
       <p>Ensure your preferences are set.</p>
     </div>
   </template>

@@ -18,10 +18,10 @@
       </template>
     </div>
   </template>
-
   <template v-else>
-    <div class="text-center text-muted mt-4">
+    <div class="container-fluid text-center text-muted pt-3">
       <p>No fixtures available.</p>
+      <hr />
       <p>Ensure your preferences are set.</p>
     </div>
   </template>

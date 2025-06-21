@@ -1,38 +1,43 @@
 <template>
-  <div v-if="entries.length" class="list-group list-group-flush">
-    <template v-for="entry in entries" :key="entry.league.id">
-      <div class="list-group-item">
-        <strong>{{ entry.league.name }}</strong>
-      </div>
-      <div class="list-group-item">
-        <div v-for="stat in entry.perGameStats" :key="stat.key" class="mb-3">
-          <div class="d-flex justify-content-between mb-1">
-            <small>{{ stat.label }}</small>
-            <small>
-              {{ stat.team.toFixed(1) }}
-              <small class="text-muted"
-                >({{ getOrdinalSuffix(stat.rank) }})</small
+  <template v-if="entries.length">
+    <div class="list-group list-group-flush">
+      <template v-for="entry in entries" :key="entry.league.id">
+        <div class="list-group-item">
+          <strong>{{ entry.league.name }}</strong>
+        </div>
+        <div class="list-group-item">
+          <div v-for="stat in entry.perGameStats" :key="stat.key" class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <small>{{ stat.label }}</small>
+              <small>
+                {{ stat.team.toFixed(1) }}
+                <small class="text-muted"
+                  >({{ getOrdinalSuffix(stat.rank) }})</small
+                >
+              </small>
+            </div>
+            <div class="progress-stacked">
+              <div
+                class="progress"
+                :style="{
+                  width: getPerGameRelativeWidth(stat, entry.standings) + '%',
+                }"
               >
-            </small>
-          </div>
-          <div class="progress-stacked">
-            <div
-              class="progress"
-              :style="{
-                width: getPerGameRelativeWidth(stat, entry.standings) + '%',
-              }"
-            >
-              <div class="progress-bar bg-primary"></div>
+                <div class="progress-bar bg-primary"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </template>
-  </div>
-
-  <p v-else class="text-center text-muted">
-    No league data available for this club.
-  </p>
+      </template>
+    </div>
+  </template>
+  <template v-else>
+    <div class="container-fluid text-center text-muted pt-3">
+      <p>No statistics available for this team.</p>
+      <hr />
+      <p>Ensure your preferences are set.</p>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">

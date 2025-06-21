@@ -18,16 +18,12 @@
         <a
           v-for="match in matches"
           :key="match.id"
-          @click="emit('click', match)"
+          @click.prevent="goToEvent(match)"
         >
           <div class="d-flex justify-content-between align-items-center">
+            <!-- Left: opponent info -->
             <div class="d-flex align-items-center gap-2">
-              <template v-if="isHome(match)">
-                <small>vs</small>
-              </template>
-              <template v-else>
-                <small>at</small>
-              </template>
+              <small>{{ isHome(match) ? 'vs' : 'at' }}</small>
 
               <img
                 v-if="getOpponent(match)?.logo_url"
@@ -40,20 +36,27 @@
               <small>{{ getOpponent(match)?.name || 'Unknown' }}</small>
             </div>
 
-            <template v-if="isResult(match)">
-              <span
-                class="badge"
-                :class="{
-                  'text-bg-success': didWin(match),
-                  'text-bg-danger': !didWin(match),
-                }"
-              >
-                {{ didWin(match) ? 'W' : 'L' }} {{ scoreDisplay(match) }}
-              </span>
-            </template>
-            <template v-else>
-              <span class="badge text-bg-danger">{{ match.time }}</span>
-            </template>
+            <!-- Right: badge and caret -->
+            <div class="d-flex align-items-center gap-2">
+              <template v-if="isResult(match)">
+                <span
+                  class="badge text-center"
+                  :class="{
+                    'text-bg-success': didWin(match),
+                    'text-bg-danger': !didWin(match),
+                  }"
+                >
+                  {{ didWin(match) ? 'W' : 'L' }}
+                </span>
+              </template>
+              <template v-else>
+                <span class="badge text-bg-danger text-center">
+                  {{ match.time }}
+                </span>
+              </template>
+
+              <span class="text-muted">❯</span>
+            </div>
           </div>
         </a>
       </div>
@@ -63,23 +66,20 @@
 
 <script setup lang="ts">
   import { toRef, computed } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
 
   import type { Club, League, Fixture, Result } from '../../../utils/types';
   import { useMatchClubs } from '../../../composables/utils';
   import { parseISO, format } from 'date-fns';
 
   const route = useRoute();
+  const router = useRouter();
   const clubId = route.params.club_id as string;
 
   const props = defineProps<{
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     matches?: (Fixture | Result)[];
-  }>();
-
-  const emit = defineEmits<{
-    (e: 'click', match: Fixture | Result): void;
   }>();
 
   // Defensive fallback so matches is always an array
@@ -128,6 +128,11 @@
   function scoreDisplay(match: Result): string {
     if (!isResult(match)) return '';
     return `${match.home_score} - ${match.away_score}`;
+  }
+
+  function goToEvent(match: Result) {
+    const id = `${match.league_id}-${match.home_id}-${match.away_id}-${match.date}`;
+    router.push({ path: `/event/${id}` });
   }
 </script>
 

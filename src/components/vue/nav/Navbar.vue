@@ -2,13 +2,17 @@
   <nav class="navbar bg-body-tertiary fixed-top border-bottom">
     <div class="container-fluid">
       <!-- Top row: Caret back (team view only) + settings -->
-      <div class="w-100 d-flex justify-content-between align-items-center">
+      <div
+        class="d-flex flex-grow-1 justify-content-between align-items-center"
+      >
         <!-- Back caret -->
         <template v-if="isTeamView">
-          <button class="btn" type="button" @click="goBack">
-            <span style="cursor: pointer; font-size: 1rem">❮</span>
-          </button>
-          <a class="navbar-brand">{{ team.name }}</a>
+          <div class="d-flex">
+            <button class="btn" type="button" @click="goBack">
+              <span style="cursor: pointer; font-size: 1rem">❮</span>
+            </button>
+            <a class="navbar-brand">{{ team.name }}</a>
+          </div>
         </template>
         <template v-else>
           <a class="navbar-brand">
@@ -74,10 +78,6 @@
     clubs?: Record<string, Club>;
   }>();
 
-  const emit = defineEmits<{
-    (e: 'select', index: number): void;
-  }>();
-
   const route = useRoute();
   const router = useRouter();
 
@@ -88,7 +88,7 @@
   );
 
   function goBack() {
-    router.back();
+    router.push({ path: `/fixtures` });
   }
 </script>
 

@@ -41,8 +41,11 @@
 
   const router = createRouter({
     history: createWebHashHistory(),
+    scrollBehavior(to, from, savedPosition) {
+      return { top: 0 };
+    },
     routes: [
-      { path: '/', redirect: '/standings' },
+      { path: '/', redirect: '/fixtures' },
 
       {
         path: '/fixtures',

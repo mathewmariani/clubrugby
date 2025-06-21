@@ -1,8 +1,8 @@
 <template>
   <template v-if="match">
     <div class="list-group list-group-flush">
-      <!-- Home team header -->
       <div class="list-group-item">
+        <!-- Home team header -->
         <div class="d-flex gap-3 mb-3 my-3">
           <router-link :to="`/team/${home?.id}`" v-if="home">
             <img
@@ -34,6 +34,16 @@
             <strong>{{ away?.name }}</strong>
             <p class="text-muted mb-0">{{ team2Record }}</p>
           </div>
+        </div>
+
+        <!-- match details -->
+        <div class="d-flex flex-grow-1 justify-content-between mb-2">
+          <span class="badge text-bg-primary">
+            {{ league_name }}
+          </span>
+          <template v-if="isResult()">
+            <span class="badge text-bg-secondary"> FINAL </span>
+          </template>
         </div>
       </div>
 
@@ -170,7 +180,6 @@
   // Find match from fixtures or results
   const match = computed(() => {
     if (!leagueId.value || !homeId.value || !awayId.value || !date.value) {
-      console.log('Missing event parts, cannot find match');
       return null;
     }
 
@@ -184,19 +193,9 @@
             f.away_id.toString() === awayId.value
         );
         if (found) {
-          console.log('Found fixture match:', found);
           return found;
         }
-      } else {
-        console.log(
-          'No fixtures for league',
-          leagueId.value,
-          'on date',
-          date.value
-        );
       }
-    } else {
-      console.log('No fixtures on date', date.value);
     }
 
     const resultsOnDate = props.results[date.value];
@@ -209,29 +208,18 @@
             r.away_id.toString() === awayId.value
         );
         if (found) {
-          console.log('Found result match:', found);
           return found;
         }
-      } else {
-        console.log(
-          'No results for league',
-          leagueId.value,
-          'on date',
-          date.value
-        );
       }
-    } else {
-      console.log('No results on date', date.value);
     }
 
-    console.log('No match found for:', {
-      leagueId: leagueId.value,
-      homeId: homeId.value,
-      awayId: awayId.value,
-      eventDate: date.value,
-    });
     return null;
   });
+
+  function isResult(): match is Result {
+    const m = match.value;
+    return !!m && 'home_score' in m && 'away_score' in m;
+  }
 
   const league_name = computed(() =>
     getLeagueName(leagueId.value, props.leagues)
@@ -298,6 +286,7 @@
       id: t.team_id,
       value: perGame(t, key),
     }));
+
     list.sort((a, b) => b.value - a.value);
     const index = list.findIndex((t) => t.id === teamId);
     return index >= 0 ? index + 1 : null;
@@ -311,7 +300,7 @@
       { key: 'ta', label: 'Tries Against' },
     ] as const;
 
-    const standings = props.standings[leagueId];
+    const standings = props.standings[leagueId.value];
 
     return keys.map(({ key, label }) => {
       const team1Val = team1.value ? perGame(team1.value, key) : 0;

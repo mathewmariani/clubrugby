@@ -1,13 +1,23 @@
 <template>
-  <div class="list-group list-group-flush">
+  <!-- Empty state -->
+  <div
+    v-if="!hasFixtures && !hasResults"
+    class="container-fluid text-center text-muted pt-3"
+  >
+    <p>No fixtures or results available.</p>
+    <hr />
+    <p>Ensure your preferences are set.</p>
+  </div>
+
+  <!-- Fixtures and Results -->
+  <div v-else class="list-group list-group-flush">
+    <!-- Fixtures -->
     <template v-if="hasFixtures">
       <template
         v-for="(daysForMonth, month) in teamFixturesByMonthDay"
         :key="month"
       >
-        <h6 class="list-group-item">
-          {{ formatMonth(month) }}
-        </h6>
+        <h6 class="list-group-item">{{ formatMonth(month) }}</h6>
         <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
           <ScheduleListItem
             :matches="matchesForDay"
@@ -17,28 +27,24 @@
         </template>
       </template>
     </template>
-    <p v-else class="text-muted">No upcoming fixtures.</p>
+    <p v-else class="list-group-item text-muted">No upcoming fixtures.</p>
 
+    <!-- Results -->
     <template v-if="hasResults">
-      <div class="list-group list-group-flush">
-        <template
-          v-for="(daysForMonth, month) in teamResultsByMonthDay"
-          :key="month"
-        >
-          <h6 class="list-group-item">
-            {{ formatMonth(month) }}
-          </h6>
-          <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
-            <ScheduleListItem
-              :matches="matchesForDay"
-              :clubs="clubs"
-              :leagues="leagues"
-            />
-          </template>
+      <template
+        v-for="(daysForMonth, month) in teamResultsByMonthDay"
+        :key="month"
+      >
+        <h6 class="list-group-item">{{ formatMonth(month) }}</h6>
+        <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
+          <ScheduleListItem
+            :matches="matchesForDay"
+            :clubs="clubs"
+            :leagues="leagues"
+          />
         </template>
-      </div>
+      </template>
     </template>
-    <p v-else class="text-muted">No upcoming fixtures.</p>
   </div>
 </template>
 
@@ -69,16 +75,26 @@
   }
 
   const hasFixtures = computed(() =>
-    Object.entries(props.fixtures).some(([leagueId, leaguesForDay]) => {
-      if (!leagueIsIncluded(leagueId)) return false;
-      return Object.values(leaguesForDay).flat().length > 0;
+    Object.entries(props.fixtures).some(([day, leaguesForDay]) => {
+      return Object.entries(leaguesForDay).some(([leagueId, matches]) => {
+        if (!leagueIsIncluded(leagueId)) return false;
+        return matches.some(
+          (match) =>
+            match.home_id === props.club_id || match.away_id === props.club_id
+        );
+      });
     })
   );
 
   const hasResults = computed(() =>
-    Object.entries(props.results).some(([leagueId, leaguesForDay]) => {
-      if (!leagueIsIncluded(leagueId)) return false;
-      return Object.values(leaguesForDay).flat().length > 0;
+    Object.entries(props.results).some(([day, leaguesForDay]) => {
+      return Object.entries(leaguesForDay).some(([leagueId, matches]) => {
+        if (!leagueIsIncluded(leagueId)) return false;
+        return matches.some(
+          (match) =>
+            match.home_id === props.club_id || match.away_id === props.club_id
+        );
+      });
     })
   );
 
