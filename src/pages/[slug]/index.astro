@@ -1,10 +1,10 @@
 ---
 import Page from '../../layouts/Page.astro';
-import Dashboard from '../../components/vue/Dashboard.vue';
+import App from '../../islands/App.vue';
 
 const { union } = Astro.props;
 
-import { unions } from '../../utils/unions.ts';
+import { unions } from '../../utils/unions';
 export async function getStaticPaths() {
   return unions.map((union) => ({
     params: { slug: union.slug },
@@ -18,9 +18,9 @@ const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
   await prepareUnionData(union.slug);
 ---
 
-<Page union={union}>
-  <Dashboard
-    client:load
+<Page>
+  <App
+    client:only="vue"
     union={union}
     clubs={clubs}
     leagues={leagues}

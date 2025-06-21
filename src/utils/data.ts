@@ -6,6 +6,10 @@ export function formatDate(dateStr: string): string {
   return format(parseISO(dateStr), 'EEE MMM d');
 }
 
+export function formatMonth(monthStr: string): string {
+  return format(parseISO(monthStr + '-01'), 'MMMM yyyy'); // e.g. "June 2025"
+}
+
 export function formatTime(timeStr: string): string {
   const [hours, minutes] = timeStr.split(':').map(Number);
   const date = new Date();
@@ -117,4 +121,29 @@ export async function prepareUnionData(slug: string, year = '2025') {
     resultsByLeague: groupByDayThenLeague(raw.results),
     standingsByLeague: groupByLeague(raw.standings),
   };
+}
+
+export function groupByMonthThenDay<T extends { date: string }>(
+  items: T[]
+): Record<string, Record<string, T[]>> {
+  const sorted = [...items].sort((a, b) => {
+    const aTime = new Date(`${a.date}T${(a as any).time || '00:00'}`);
+    const bTime = new Date(`${b.date}T${(b as any).time || '00:00'}`);
+    return aTime.getTime() - bTime.getTime();
+  });
+
+  const grouped: Record<string, Record<string, T[]>> = {};
+
+  for (const item of sorted) {
+    const date = parseISO(item.date);
+    const monthKey = format(date, 'yyyy-MM'); // e.g. "2025-06"
+    const dayKey = format(date, 'yyyy-MM-dd'); // e.g. "2025-06-18"
+
+    if (!grouped[monthKey]) grouped[monthKey] = {};
+    if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
+
+    grouped[monthKey][dayKey].push(item);
+  }
+
+  return grouped;
 }
