@@ -9,7 +9,9 @@
           <thead>
             <tr>
               <th class="text-start">
-                {{ leagues[leagueGroup.leagueId].name || leagueGroup.leagueId }}
+                {{
+                  leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId
+                }}
               </th>
               <th
                 v-for="col in sortableColumns"
@@ -45,10 +47,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="team in leagueGroup.teams"
-              :key="leagueGroup.leagueId + '-' + team.team_id"
-            >
+            <tr v-for="team in leagueGroup.teams" :key="team.team_id">
               <td class="text-start">
                 <div class="d-flex align-items-center gap-2">
                   <span
@@ -101,9 +100,11 @@
       </template>
     </div>
   </template>
+
   <template v-else>
-    <div class="container mt-3 text-center text-muted">
+    <div class="container-fluid text-center text-muted pt-3">
       <p>No standings available.</p>
+      <hr />
       <p>Ensure your preferences are set.</p>
     </div>
   </template>
@@ -111,9 +112,10 @@
 
 <script setup lang="ts">
   import { ref, toRef } from 'vue';
-  import type { Club, League, Standing } from '../../../utils/types';
-  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
-  import { useFilteredStandings } from '../../../composables/useFilteredStandings';
+  import type { Club, League, Standing } from '../../utils/types';
+
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { useFilteredStandings } from '../../composables/useFilteredStandings';
 
   const props = defineProps<{
     standings: Record<string, Standing[]>;
@@ -159,18 +161,12 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-
-  .table-responsive-wrapper > div:not(:last-of-type) > .table-fixed {
-    border-bottom: 1px solid #dee2e6;
-  }
-
   .table-fixed {
     table-layout: fixed;
     width: 100%;
     min-width: 700px;
     margin-bottom: 0;
   }
-
   .table-fixed th,
   .table-fixed td {
     vertical-align: middle;
@@ -179,33 +175,27 @@
     white-space: nowrap;
     border: none;
   }
-
   .table-fixed th:first-child,
   .table-fixed td:first-child {
     width: 45%;
     text-align: left;
     border-right: 1px solid #dee2e6;
   }
-
   .table-fixed th:nth-child(n + 2),
   .table-fixed td:nth-child(n + 2) {
     width: 8.75%;
     text-align: center;
   }
-
   .table-fixed th.has-border,
   .table-fixed td.has-border {
     border-right: 1px solid #dee2e6;
   }
-
   .table-fixed th.has-border:not(:nth-child(2)),
   .table-fixed td.has-border:not(:nth-child(2)) {
     border-left: 1px solid #dee2e6;
   }
-
   th .caret {
     font-size: 0.6rem;
     line-height: 1;
-    margin-top: 0px;
   }
 </style>

@@ -1,9 +1,8 @@
 <template>
-  <!-- make this an href to a stats page -->
-  <a class="list-group-item" @click="emit('click', match)">
+  <!-- clickable event card -->
+  <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex justify-content-between w-100 mb-2">
       <small class="text-muted">{{ match.venue }}</small>
-
       <div class="d-flex align-items-center gap-2">
         <span class="badge text-bg-danger">
           {{ match.time }}
@@ -23,6 +22,7 @@
       />
       <small>{{ home?.name || 'Unknown' }}</small>
     </div>
+
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
         v-if="away?.logo_url"
@@ -39,6 +39,7 @@
 
 <script setup lang="ts">
   import { toRef } from 'vue';
+  import { useRouter } from 'vue-router';
   import type { Club, League, Fixture } from '../../../utils/types';
   import { useMatchClubs } from '../../../composables/utils';
 
@@ -48,11 +49,12 @@
     match: Fixture;
   }>();
 
-  const emit = defineEmits<{
-    (e: 'click', match: Fixture): void;
-  }>();
-
   const { home, away } = useMatchClubs(toRef(props, 'match'), props.clubs);
-</script>
 
-<style scoped></style>
+  const router = useRouter();
+
+  function goToEvent() {
+    const id = `${props.match.league_id}-${props.match.home_id}-${props.match.away_id}-${props.match.date}`;
+    router.push({ path: `/event/${id}` });
+  }
+</script>

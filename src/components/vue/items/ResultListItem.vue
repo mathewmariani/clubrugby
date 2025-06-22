@@ -1,5 +1,5 @@
 <template>
-  <a class="list-group-item">
+  <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex align-items-center gap-2 mb-1">
       <img
         v-if="home?.logo_url"
@@ -37,6 +37,7 @@
 
 <script setup lang="ts">
   import { toRef } from 'vue';
+  import { useRouter } from 'vue-router';
   import type { Club, League, Result } from '../../../utils/types';
   import { useMatchClubs } from '../../../composables/utils';
 
@@ -54,6 +55,13 @@
     return Number(score) > Number(opponentScore)
       ? 'text-success'
       : 'text-danger';
+  }
+
+  const router = useRouter();
+
+  function goToEvent() {
+    const id = `${props.match.league_id}-${props.match.home_id}-${props.match.away_id}-${props.match.date}`;
+    router.push({ path: `/event/${id}` });
   }
 </script>
 

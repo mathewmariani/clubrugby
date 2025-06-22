@@ -4,11 +4,12 @@
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
         <strong class="list-group-item">{{ formatDate(day) }}</strong>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <strong class="list-group-item">{{
-            getLeagueName(leagueId, leagues)
-          }}</strong>
+          <strong class="list-group-item">
+            {{ getLeagueName(leagueId, leagues) }}
+          </strong>
           <ResultListItem
             v-for="match in matches"
+            :key="match.id"
             :match="match"
             :clubs="clubs"
             :leagues="leagues"
@@ -17,43 +18,44 @@
       </template>
     </div>
   </template>
-  <!-- No results fallback -->
   <template v-else>
-    <div class="container mt-3 text-center text-muted">
+    <div class="container-fluid text-center text-muted pt-3">
       <p>No results available.</p>
+      <hr />
       <p>Ensure your preferences are set.</p>
     </div>
   </template>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import ResultListItem from '../items/ResultListItem.vue';
+  import { computed, toRef } from 'vue';
   import type { Club, League, Result } from '../../../utils/types';
-  import { formatDate } from '../../../utils/data';
+  import ResultListItem from '../../components/vue/items/ResultListItem.vue';
+  import { formatDate } from '../../utils/data';
+  import { getLeagueName } from '../../composables/utils';
+  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { useFilteredResults } from '../../composables/useFilteredResults';
 
   const props = defineProps<{
+    union: Union;
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     results: Record<string, Record<string, Result[]>>;
   }>();
 
-  import { toRef } from 'vue';
-  import { useSavedLeagues } from '../../../composables/useSavedLeagues';
-  import { useFilteredResults } from '../../../composables/useFilteredResults';
-  import { getLeagueName } from '../../../composables/utils';
+  const clubs = toRef(props, 'clubs');
+  const leagues = toRef(props, 'leagues');
+  const results = toRef(props, 'results');
 
   const { savedLeagues } = useSavedLeagues();
-  const filteredResults = useFilteredResults(
-    toRef(props, 'results'),
-    savedLeagues
-  );
 
-  const hasResults = computed(() => {
-    return Object.values(filteredResults.value).some(
+  const filteredResults = useFilteredResults(results, savedLeagues);
+
+  const hasResults = computed(() =>
+    Object.values(filteredResults.value).some(
       (resultsForDay) => Object.values(resultsForDay).flat().length > 0
-    );
-  });
+    )
+  );
 </script>
 
 <style scoped>
