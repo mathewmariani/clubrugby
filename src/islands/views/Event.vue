@@ -2,141 +2,180 @@
   <template v-if="match">
     <div class="list-group list-group-flush">
       <div class="list-group-item">
-        <!-- Home team header -->
-        <div class="d-flex gap-3 mb-3 my-3">
-          <router-link :to="`/team/${home?.id}`" v-if="home">
-            <img
-              :src="home.logo_url"
-              alt=""
-              width="64"
-              height="64"
-              style="object-fit: contain"
-            />
-          </router-link>
-          <div class="d-flex flex-column justify-content-center">
-            <strong>{{ home?.name }}</strong>
-            <p class="text-muted mb-0">{{ team1Record }}</p>
-          </div>
-        </div>
-
-        <!-- Away team header -->
-        <div class="d-flex gap-3 mb-3 my-3">
-          <router-link :to="`/team/${away?.id}`" v-if="away">
-            <img
-              :src="away.logo_url"
-              alt=""
-              width="64"
-              height="64"
-              style="object-fit: contain"
-            />
-          </router-link>
-          <div class="d-flex flex-column justify-content-center">
-            <strong>{{ away?.name }}</strong>
-            <p class="text-muted mb-0">{{ team2Record }}</p>
-          </div>
-        </div>
-
         <!-- match details -->
-        <div class="d-flex flex-grow-1 justify-content-between mb-2">
+        <div class="d-flex flex-grow-1 justify-content-between mt-2">
           <span class="badge text-bg-primary">
             {{ league_name }}
           </span>
           <template v-if="isResult()">
-            <span class="badge text-bg-secondary"> FINAL </span>
+            <span class="badge text-bg-secondary">FINAL</span>
+          </template>
+          <template v-else>
+            <span class="badge text-bg-danger">{{ match?.time }}</span>
           </template>
         </div>
+
+        <!-- team headers -->
+        <template v-if="isResult()">
+          <div class="d-flex align-items-center justify-content-between my-3">
+            <router-link :to="`/team/${home?.id}`" v-if="home">
+              <img
+                :src="home.logo_url"
+                alt=""
+                width="64"
+                height="64"
+                style="object-fit: contain"
+              />
+            </router-link>
+            <EventScore
+              :homeScore="Number(match?.home_score)"
+              :awayScore="Number(match?.away_score)"
+            />
+            <router-link :to="`/team/${away?.id}`" v-if="away">
+              <img
+                :src="away.logo_url"
+                alt=""
+                width="64"
+                height="64"
+                style="object-fit: contain"
+              />
+            </router-link>
+          </div>
+        </template>
+        <template v-else>
+          <!-- Home team header -->
+          <div class="d-flex gap-3 my-3">
+            <router-link :to="`/team/${home?.id}`" v-if="home">
+              <img
+                :src="home.logo_url"
+                alt=""
+                width="64"
+                height="64"
+                style="object-fit: contain"
+              />
+            </router-link>
+            <div class="d-flex flex-column justify-content-center">
+              <strong>{{ home?.name }}</strong>
+              <p class="text-muted mb-0">{{ team1Record }}</p>
+            </div>
+          </div>
+
+          <!-- Away team header -->
+          <div class="d-flex gap-3 mb-3 my-3">
+            <router-link :to="`/team/${away?.id}`" v-if="away">
+              <img
+                :src="away.logo_url"
+                alt=""
+                width="64"
+                height="64"
+                style="object-fit: contain"
+              />
+            </router-link>
+            <div class="d-flex flex-column justify-content-center">
+              <strong>{{ away?.name }}</strong>
+              <p class="text-muted mb-0">{{ team2Record }}</p>
+            </div>
+          </div>
+        </template>
       </div>
 
-      <!-- Aggregate Stats -->
-      <div class="list-group-item">
-        <div class="d-flex justify-content-between my-3">
-          <img :src="home?.logo_url" width="32" height="32" />
-          <div class="text-center">
-            <strong>Record</strong>
-            <p class="text-muted mb-0">TOTAL</p>
-          </div>
-          <img :src="away?.logo_url" width="32" height="32" />
-        </div>
-
-        <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
-          <div class="d-flex justify-content-between mb-1">
-            <small>{{ getStatValue(team1, stat.key) }}</small>
-            <small>{{ stat.label }}</small>
-            <small>{{ getStatValue(team2, stat.key) }}</small>
-          </div>
-          <div class="progress-stacked">
-            <div class="progress" :style="{ width: leftWidth(stat) + '%' }">
-              <div class="progress-bar bg-primary"></div>
+      <template v-if="isResult()"> </template>
+      <template v-else>
+        <!-- Aggregate Stats -->
+        <div class="list-group-item">
+          <div class="d-flex justify-content-between my-3">
+            <img :src="home?.logo_url" width="32" height="32" />
+            <div class="text-center">
+              <strong>Record</strong>
+              <p class="text-muted mb-0">TOTAL</p>
             </div>
-            <div class="progress" :style="{ width: rightWidth(stat) + '%' }">
-              <div class="progress-bar bg-warning"></div>
+            <img :src="away?.logo_url" width="32" height="32" />
+          </div>
+
+          <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <small>{{ getStatValue(team1, stat.key) }}</small>
+              <small>{{ stat.label }}</small>
+              <small>{{ getStatValue(team2, stat.key) }}</small>
+            </div>
+            <div class="progress-stacked">
+              <div class="progress" :style="{ width: leftWidth(stat) + '%' }">
+                <div class="progress-bar bg-primary"></div>
+              </div>
+              <div class="progress" :style="{ width: rightWidth(stat) + '%' }">
+                <div class="progress-bar bg-warning"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Per Game Stats -->
-      <div class="list-group-item">
-        <div class="d-flex justify-content-between my-3">
-          <img :src="home?.logo_url" width="32" height="32" />
-          <div class="text-center">
-            <strong>Stats</strong>
-            <p class="text-muted mb-0">PER GAME</p>
+        <!-- Per Game Stats -->
+        <div class="list-group-item">
+          <div class="d-flex justify-content-between my-3">
+            <img :src="home?.logo_url" width="32" height="32" />
+            <div class="text-center">
+              <strong>Stats</strong>
+              <p class="text-muted mb-0">PER GAME</p>
+            </div>
+            <img :src="away?.logo_url" width="32" height="32" />
           </div>
-          <img :src="away?.logo_url" width="32" height="32" />
-        </div>
 
-        <div v-for="stat in perGameStats" :key="stat.key" class="mb-3">
-          <div class="d-flex justify-content-between mb-1">
-            <small>
-              {{ stat.team1.toFixed(1) }}
-              <small class="text-muted"
-                >({{ getOrdinalSuffix(stat.team1Rank) }})</small
+          <div v-for="stat in perGameStats" :key="stat.key" class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <small>
+                {{ stat.team1.toFixed(1) }}
+                <small class="text-muted"
+                  >({{ getOrdinalSuffix(stat.team1Rank) }})</small
+                >
+              </small>
+              <small>{{ stat.label }}</small>
+              <small>
+                <small class="text-muted"
+                  >({{ getOrdinalSuffix(stat.team2Rank) }})</small
+                >
+                {{ stat.team2.toFixed(1) }}
+              </small>
+            </div>
+            <div class="progress-stacked">
+              <div
+                class="progress"
+                :style="{ width: perGameLeftWidth(stat) + '%' }"
               >
-            </small>
-            <small>{{ stat.label }}</small>
-            <small>
-              <small class="text-muted"
-                >({{ getOrdinalSuffix(stat.team2Rank) }})</small
+                <div class="progress-bar bg-primary"></div>
+              </div>
+              <div
+                class="progress"
+                :style="{ width: perGameRightWidth(stat) + '%' }"
               >
-              {{ stat.team2.toFixed(1) }}
-            </small>
-          </div>
-          <div class="progress-stacked">
-            <div
-              class="progress"
-              :style="{ width: perGameLeftWidth(stat) + '%' }"
-            >
-              <div class="progress-bar bg-primary"></div>
-            </div>
-            <div
-              class="progress"
-              :style="{ width: perGameRightWidth(stat) + '%' }"
-            >
-              <div class="progress-bar bg-warning"></div>
+                <div class="progress-bar bg-warning"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </template>
 
       <!-- Game Details -->
       <div class="list-group-item">
         <div class="mt-3">
           <h6><strong>Game Details</strong></h6>
-          <strong>League:</strong>
-          <p>{{ league_name }}</p>
 
-          <strong>Date:</strong>
+          <strong class="text-muted">Date</strong>
           <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
 
-          <strong>Venue:</strong>
-          <p>{{ match?.venue }}</p>
+          <template v-if="!isResult()">
+            <strong class="text-muted">Venue</strong>
+            <p>{{ match?.venue }}</p>
+          </template>
         </div>
       </div>
     </div>
   </template>
   <template v-else>
-    <p class="text-center text-muted">No match found for this event ID.</p>
+    <div class="container-fluid text-center text-muted pt-3">
+      <p>No event was found.</p>
+      <hr />
+      <p>Ensure your preferences are set.</p>
+    </div>
   </template>
 </template>
 
@@ -156,6 +195,7 @@
     Club,
     League,
   } from '../../utils/types';
+  import EventScore from '../../components/vue/event/EventScore.vue';
 
   const route = useRoute();
 
