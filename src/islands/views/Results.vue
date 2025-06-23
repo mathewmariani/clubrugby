@@ -2,9 +2,9 @@
   <template v-if="hasResults">
     <div class="list-group list-group-flush">
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
-        <strong class="list-group-item">{{ formatDate(day) }}</strong>
+        <strong class="list-group-item bg-body-tertiary">{{ formatDate(day) }}</strong>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <strong class="list-group-item">
+          <strong class="list-group-item bg-body-tertiary">
             {{ getLeagueName(leagueId, leagues) }}
           </strong>
           <ResultListItem

@@ -3,7 +3,7 @@
     <div class="list-group list-group-flush">
       <div class="list-group-item">
         <!-- match details -->
-        <div class="d-flex flex-grow-1 justify-content-between mt-2">
+        <div class="d-flex justify-content-between align-items-center">
           <span class="badge text-bg-primary">
             {{ league_name }}
           </span>
@@ -159,8 +159,8 @@
         <div class="mt-3">
           <h6><strong>Game Details</strong></h6>
 
-          <strong class="text-muted">Date</strong>
-          <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
+          <span class="text-muted">Date</span>
+          <span>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</span>
 
           <template v-if="!isResult()">
             <strong class="text-muted">Venue</strong>

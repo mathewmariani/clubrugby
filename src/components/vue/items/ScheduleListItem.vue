@@ -2,15 +2,12 @@
   <div class="list-group-item">
     <div class="d-flex gap-2">
       <div
-        :class="[
-          'date-circle d-flex flex-column align-items-center justify-content-center text-white',
-          matches.length === 1 ? 'circle-shape' : 'capsule-shape',
-        ]"
+        class="capsule-shape capsule-date d-flex flex-column align-items-center justify-content-center bg-body-tertiary"
       >
-        <small class="fw-bold lh-1">{{ dayNumber }}</small>
-        <small class="text-uppercase lh-1 text-muted fw-light">{{
-          dayName
-        }}</small>
+        <span class="fw-bold text-body-emphasis lh-1">{{ dayNumber }}</span>
+        <small class="text-uppercase text-body-secondary lh-1">
+          {{ dayName }}
+        </small>
       </div>
 
       <!-- Matches list -->
@@ -18,26 +15,43 @@
         <a
           v-for="match in matches"
           :key="match.id"
+          class="list-group-item-action text-decoration-none"
+          role="button"
           @click.prevent="goToEvent(match)"
         >
           <div class="d-flex justify-content-between align-items-center">
-            <!-- Left: opponent info -->
-            <div class="d-flex align-items-center gap-2">
-              <small>{{ isHome(match) ? 'vs' : 'at' }}</small>
+            <!-- Opponent info -->
+            <div
+              class="d-flex align-items-center gap-2 flex-grow-1 min-width-0"
+            >
+              <span class="fw-normal text-muted flex-shrink-0">
+                {{ isHome(match) ? 'vs' : 'at' }}
+              </span>
 
               <img
                 v-if="getOpponent(match)?.logo_url"
                 :src="getOpponent(match)?.logo_url"
-                :alt="getOpponent(match)?.name"
+                :alt="getOpponent(match)?.name || ''"
                 width="24"
                 height="24"
-                style="object-fit: contain"
+                class="logo-img flex-shrink-0"
               />
-              <small>{{ getOpponent(match)?.name || 'Unknown' }}</small>
+
+              <!-- Opponent name container with truncate -->
+              <div class="flex-grow-1 min-width-0">
+                <span class="text-body-emphasis fw-normal">
+                  {{ getOpponent(match)?.name || 'Unknown' }}
+                </span>
+                <small class="text-body-secondary d-block">
+                  {{ getLeagueName(match?.league_id, leagues) || 'Unknown' }}
+                </small>
+              </div>
             </div>
 
-            <!-- Right: badge and caret -->
-            <div class="d-flex align-items-center gap-2">
+            <!-- Right: badge/time -->
+            <div
+              class="d-flex align-items-center gap-1 flex-shrink-0 text-muted"
+            >
               <template v-if="isResult(match)">
                 <span
                   class="badge text-center"
@@ -50,12 +64,10 @@
                 </span>
               </template>
               <template v-else>
-                <span class="badge text-bg-danger text-center">
-                  {{ match.time }}
-                </span>
+                <div class="d-flex align-items-center gap-1 ">
+                  <span class="text-body-secondary">{{ match.time }}</span>
+                </div>
               </template>
-
-              <span class="text-muted">❯</span>
             </div>
           </div>
         </a>
@@ -69,7 +81,7 @@
   import { useRoute, useRouter } from 'vue-router';
 
   import type { Club, League, Fixture, Result } from '../../../utils/types';
-  import { useMatchClubs } from '../../../composables/utils';
+  import { useMatchClubs, getLeagueName } from '../../../composables/utils';
   import { parseISO, format } from 'date-fns';
 
   const route = useRoute();
@@ -137,12 +149,12 @@
 </script>
 
 <style scoped>
-  .date-circle {
-    width: 42px;
+  .capsule-date {
+    width: 32px;
     user-select: none;
     cursor: default;
     padding: 8px 0;
-    min-width: 42px;
+    min-width: 32px;
     flex-shrink: 0;
     background-color: var(--bs-secondary);
     color: white;
@@ -154,19 +166,20 @@
     justify-content: center;
   }
 
-  /* circle shape for single match */
-  .circle-shape {
-    height: 42px;
-    border-radius: 50%;
-  }
-
-  /* capsule shape for multiple matches */
   .capsule-shape {
-    border-radius: 21px; /* half width for pill shape */
+    border-radius: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
     height: auto;
-    /* stretch vertically to fill parent's height */
     align-self: stretch;
+  }
+
+  small {
+    font-size: 0.75em;
+  }
+
+  .logo-img {
+    object-fit: contain;
+    display: block;
   }
 </style>
