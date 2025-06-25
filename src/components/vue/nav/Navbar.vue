@@ -2,9 +2,7 @@
   <nav class="navbar bg-body-tertiary fixed-top border-bottom">
     <div class="container-fluid">
       <!-- Top row: Caret back (team view only) + settings -->
-      <div
-        class="d-flex flex-grow-1 justify-content-between align-items-center"
-      >
+      <div class="d-flex w-100 justify-content-between align-items-center">
         <!-- Back caret -->
         <template v-if="isTeamView">
           <div class="d-flex">

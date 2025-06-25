@@ -9,7 +9,10 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ home?.name || 'Unknown' }}</small>
+      <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
+      <span class="text-body-emphasis fw-normal">{{
+        home?.name || 'Unknown'
+      }}</span>
       <strong
         :class="scoreClass(match.home_score, match.away_score)"
         class="ms-auto"
@@ -25,7 +28,9 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ away?.name || 'Unknown' }}</small>
+      <span class="text-body-emphasis fw-normal">{{
+        away?.name || 'Unknown'
+      }}</span>
       <strong
         :class="scoreClass(match.away_score, match.home_score)"
         class="ms-auto"

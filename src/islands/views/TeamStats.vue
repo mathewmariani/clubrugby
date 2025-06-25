@@ -7,13 +7,13 @@
         </div>
         <div class="list-group-item">
           <div v-for="stat in entry.perGameStats" :key="stat.key" class="mb-3">
-            <div class="d-flex justify-content-between mb-1">
+            <div class="d-flex mb-1">
               <small>{{ stat.label }}</small>
-              <small>
+              <small class="ms-auto">
                 {{ stat.team.toFixed(1) }}
-                <small class="text-muted"
-                  >({{ getOrdinalSuffix(stat.rank) }})</small
-                >
+                <small class="text-body-secondary fw-light">
+                  ({{ getOrdinalSuffix(stat.rank) }})
+                </small>
               </small>
             </div>
             <div class="progress-stacked">

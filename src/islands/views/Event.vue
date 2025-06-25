@@ -3,7 +3,7 @@
     <div class="list-group list-group-flush">
       <div class="list-group-item">
         <!-- match details -->
-        <div class="d-flex flex-grow-1 justify-content-between mt-2">
+        <div class="d-flex justify-content-between align-items-center">
           <span class="badge text-bg-primary">
             {{ league_name }}
           </span>
@@ -55,8 +55,8 @@
               />
             </router-link>
             <div class="d-flex flex-column justify-content-center">
-              <strong>{{ home?.name }}</strong>
-              <p class="text-muted mb-0">{{ team1Record }}</p>
+              <h6>{{ home?.name }}</h6>
+              <span class="text-muted">{{ team1Record }}</span>
             </div>
           </div>
 
@@ -72,8 +72,8 @@
               />
             </router-link>
             <div class="d-flex flex-column justify-content-center">
-              <strong>{{ away?.name }}</strong>
-              <p class="text-muted mb-0">{{ team2Record }}</p>
+              <h6>{{ away?.name }}</h6>
+              <span class="text-muted">{{ team2Record }}</span>
             </div>
           </div>
         </template>
@@ -83,20 +83,24 @@
       <template v-else>
         <!-- Aggregate Stats -->
         <div class="list-group-item">
-          <div class="d-flex justify-content-between my-3">
+          <div class="d-flex justify-content-between align-items-center my-3">
             <img :src="home?.logo_url" width="32" height="32" />
-            <div class="text-center">
+            <div class="d-flex flex-column text-center">
               <strong>Record</strong>
-              <p class="text-muted mb-0">TOTAL</p>
+              <span class="text-muted">TOTAL</span>
             </div>
             <img :src="away?.logo_url" width="32" height="32" />
           </div>
 
           <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
             <div class="d-flex justify-content-between mb-1">
-              <small>{{ getStatValue(team1, stat.key) }}</small>
-              <small>{{ stat.label }}</small>
-              <small>{{ getStatValue(team2, stat.key) }}</small>
+              <small class="text-body-primary">{{
+                getStatValue(team1, stat.key)
+              }}</small>
+              <small class="text-body-secondary">{{ stat.label }}</small>
+              <small class="text-body-primary">{{
+                getStatValue(team2, stat.key)
+              }}</small>
             </div>
             <div class="progress-stacked">
               <div class="progress" :style="{ width: leftWidth(stat) + '%' }">
@@ -111,26 +115,26 @@
 
         <!-- Per Game Stats -->
         <div class="list-group-item">
-          <div class="d-flex justify-content-between my-3">
+          <div class="d-flex justify-content-between align-items-center my-3">
             <img :src="home?.logo_url" width="32" height="32" />
-            <div class="text-center">
+            <div class="d-flex flex-column text-center">
               <strong>Stats</strong>
-              <p class="text-muted mb-0">PER GAME</p>
+              <span class="text-muted">PER GAME</span>
             </div>
             <img :src="away?.logo_url" width="32" height="32" />
           </div>
 
           <div v-for="stat in perGameStats" :key="stat.key" class="mb-3">
             <div class="d-flex justify-content-between mb-1">
-              <small>
+              <small class="text-body-primary">
                 {{ stat.team1.toFixed(1) }}
-                <small class="text-muted"
+                <small class="text-body-secondary fw-light"
                   >({{ getOrdinalSuffix(stat.team1Rank) }})</small
                 >
               </small>
-              <small>{{ stat.label }}</small>
-              <small>
-                <small class="text-muted"
+              <small class="text-body-secondary">{{ stat.label }}</small>
+              <small class="text-body-primary">
+                <small class="text-body-secondary fw-light"
                   >({{ getOrdinalSuffix(stat.team2Rank) }})</small
                 >
                 {{ stat.team2.toFixed(1) }}
@@ -156,14 +160,14 @@
 
       <!-- Game Details -->
       <div class="list-group-item">
-        <div class="mt-3">
-          <h6><strong>Game Details</strong></h6>
+        <div class="d-flex flex-column mt-3">
+          <h6>Game Details</h6>
 
-          <strong class="text-muted">Date</strong>
+          <span class="text-muted">Date</span>
           <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
 
           <template v-if="!isResult()">
-            <strong class="text-muted">Venue</strong>
+            <span class="text-muted">Venue</span>
             <p>{{ match?.venue }}</p>
           </template>
         </div>

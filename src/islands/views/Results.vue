@@ -2,11 +2,13 @@
   <template v-if="hasResults">
     <div class="list-group list-group-flush">
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
-        <strong class="list-group-item">{{ formatDate(day) }}</strong>
+        <div class="list-group-item bg-body-tertiary">
+          <strong>{{ formatDate(day) }}</strong>
+        </div>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <strong class="list-group-item">
-            {{ getLeagueName(leagueId, leagues) }}
-          </strong>
+          <div class="list-group-item bg-body-tertiary">
+            <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+          </div>
           <ResultListItem
             v-for="match in matches"
             :key="match.id"

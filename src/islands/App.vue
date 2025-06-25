@@ -13,22 +13,14 @@
   import Results from './views/Results.vue';
   import Standings from './views/Standings.vue';
   import EventView from './views/Event.vue';
-  import TeamView from './views/Team.vue';
 
   import TeamScheduleView from './views/TeamSchedule.vue';
   import TeamStatsView from './views/TeamStats.vue';
 
-  import EventLayout from '../components/vue/layouts/EventLayout.vue';
   import TeamLayout from '../components/vue/layouts/TeamLayout.vue';
 
-  import type {
-    Club,
-    League,
-    Fixture,
-    Result,
-    Standing,
-    Union,
-  } from '../../utils/types';
+  import { type Union } from '../utils/unions';
+  import type { Club, League, Fixture, Result, Standing } from '../utils/types';
 
   const props = defineProps<{
     union: Union;

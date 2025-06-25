@@ -2,12 +2,12 @@
   <!-- clickable event card -->
   <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex justify-content-between w-100 mb-2">
-      <small class="text-muted">{{ match.venue }}</small>
+      <small class="text-body-secondary">{{ match.venue }}</small>
       <div class="d-flex align-items-center gap-2">
-        <span class="badge text-bg-danger">
+        <small class="text-body-secondary">
           {{ match.time }}
-        </span>
-        <span class="text-muted">❯</span>
+          <span>❯</span>
+        </small>
       </div>
     </div>
 
@@ -20,7 +20,9 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ home?.name || 'Unknown' }}</small>
+      <span class="text-body-emphasis fw-normal">{{
+        home?.name || 'Unknown'
+      }}</span>
     </div>
 
     <div class="d-flex align-items-center gap-2 mb-1">
@@ -32,7 +34,9 @@
         height="32"
         style="object-fit: contain"
       />
-      <small>{{ away?.name || 'Unknown' }}</small>
+      <span class="text-body-emphasis fw-normal">{{
+        away?.name || 'Unknown'
+      }}</span>
     </div>
   </a>
 </template>
