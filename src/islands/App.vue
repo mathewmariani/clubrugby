@@ -19,14 +19,8 @@
 
   import TeamLayout from '../components/vue/layouts/TeamLayout.vue';
 
-  import type {
-    Club,
-    League,
-    Fixture,
-    Result,
-    Standing,
-    Union,
-  } from '../../utils/types';
+  import { type Union } from '../utils/unions';
+  import type { Club, League, Fixture, Result, Standing } from '../utils/types';
 
   const props = defineProps<{
     union: Union;

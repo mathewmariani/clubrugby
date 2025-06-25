@@ -94,9 +94,13 @@
 
           <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
             <div class="d-flex justify-content-between mb-1">
-              <small class="text-body-primary">{{ getStatValue(team1, stat.key) }}</small>
+              <small class="text-body-primary">{{
+                getStatValue(team1, stat.key)
+              }}</small>
               <small class="text-body-secondary">{{ stat.label }}</small>
-              <small class="text-body-primary">{{ getStatValue(team2, stat.key) }}</small>
+              <small class="text-body-primary">{{
+                getStatValue(team2, stat.key)
+              }}</small>
             </div>
             <div class="progress-stacked">
               <div class="progress" :style="{ width: leftWidth(stat) + '%' }">

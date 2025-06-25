@@ -20,7 +20,9 @@
         height="32"
         style="object-fit: contain"
       />
-      <span class="text-body-emphasis fw-normal">{{ home?.name || 'Unknown' }}</span>
+      <span class="text-body-emphasis fw-normal">{{
+        home?.name || 'Unknown'
+      }}</span>
     </div>
 
     <div class="d-flex align-items-center gap-2 mb-1">
@@ -32,7 +34,9 @@
         height="32"
         style="object-fit: contain"
       />
-      <span class="text-body-emphasis fw-normal">{{ away?.name || 'Unknown' }}</span>
+      <span class="text-body-emphasis fw-normal">{{
+        away?.name || 'Unknown'
+      }}</span>
     </div>
   </a>
 </template>

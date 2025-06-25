@@ -64,7 +64,7 @@
                 </span>
               </template>
               <template v-else>
-                <div class="d-flex align-items-center gap-1 ">
+                <div class="d-flex align-items-center gap-1">
                   <span class="text-body-secondary">{{ match.time }}</span>
                 </div>
               </template>
