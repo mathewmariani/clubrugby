@@ -6,8 +6,8 @@
       <div class="d-flex align-items-center gap-2">
         <small class="text-body-secondary">
           {{ match.time }}
+          <span>❯</span>
         </small>
-        <span class="text-muted">❯</span>
       </div>
     </div>
 

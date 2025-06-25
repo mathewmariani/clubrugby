@@ -17,9 +17,9 @@
         v-for="(daysForMonth, month) in teamFixturesByMonthDay"
         :key="month"
       >
-        <strong class="list-group-item bg-body-tertiary">{{
-          formatMonth(month)
-        }}</strong>
+        <div class="list-group-item bg-body-tertiary">
+          <strong>{{ formatMonth(month) }}</strong>
+        </div>
         <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
           <ScheduleListItem
             :matches="matchesForDay"
@@ -37,9 +37,9 @@
         v-for="(daysForMonth, month) in teamResultsByMonthDay"
         :key="month"
       >
-        <strong class="list-group-item bg-body-tertiary">{{
-          formatMonth(month)
-        }}</strong>
+        <div class="list-group-item bg-body-tertiary">
+          <strong>{{ formatMonth(month) }}</strong>
+        </div>
         <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
           <ScheduleListItem
             :matches="matchesForDay"

@@ -2,11 +2,13 @@
   <template v-if="hasFixtures">
     <div class="list-group list-group-flush">
       <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
-        <strong class="list-group-item bg-body-tertiary">{{ formatDate(day) }}</strong>
+        <div class="list-group-item bg-body-tertiary">
+          <strong>{{ formatDate(day) }}</strong>
+        </div>
         <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <strong class="list-group-item bg-body-tertiary">
-            {{ getLeagueName(leagueId, leagues) }}
-          </strong>
+          <div class="list-group-item bg-body-tertiary">
+            <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+          </div>
           <FixtureListItem
             v-for="match in matches"
             :key="match.id"
