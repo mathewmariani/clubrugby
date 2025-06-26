@@ -1,13 +1,15 @@
 <template>
   <template v-if="entries.length">
-    <div style="max-height: 80vh; overflow-y: auto">
+    <div>
       <template v-for="entry in entries" :key="entry.league.id">
+        <!-- League wrapper to enable sticky league header to push -->
         <div class="list-group list-group-flush">
           <!-- Sticky league header -->
           <div class="list-group-item bg-body-tertiary sticky-league-name">
             <strong>{{ entry.league.name }}</strong>
           </div>
 
+          <!-- Stats section -->
           <div class="list-group-item">
             <div
               v-for="stat in entry.perGameStats"
@@ -37,13 +39,6 @@
           </div>
         </div>
       </template>
-    </div>
-  </template>
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No statistics available for this team.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
     </div>
   </template>
 </template>
@@ -153,7 +148,7 @@
 
   .sticky-league-name {
     position: sticky;
-    top: 0;
+    top: 88px;
     z-index: 10;
     background-color: var(--bs-body-bg);
   }

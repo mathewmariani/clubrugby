@@ -1,6 +1,6 @@
 <template>
   <template v-if="hasResults">
-    <div style="max-height: 80vh; overflow-y: auto">
+    <div>
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
         <!-- Day wrapper -->
         <div class="list-group list-group-flush">
@@ -76,21 +76,15 @@
 </script>
 
 <style scoped>
-  .list-group {
-    border-radius: 0;
-  }
-
   .sticky-date {
     position: sticky;
-    top: 0;
+    top: 88px; /* navbar height */
     z-index: 10;
-    background-color: var(--bs-body-bg);
   }
 
   .sticky-league {
     position: sticky;
-    top: 2.5rem; /* Adjust if date header height changes */
+    top: calc(88px + 2.5rem); /* navbar height + date header height */
     z-index: 9;
-    background-color: var(--bs-body-bg);
   }
 </style>

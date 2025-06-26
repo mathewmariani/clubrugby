@@ -1,6 +1,6 @@
 <template>
   <template v-if="hasFixtures">
-    <div style="max-height: 80vh; overflow-y: auto">
+    <div>
       <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
         <!-- Day wrapper -->
         <div class="list-group list-group-flush">
@@ -80,13 +80,13 @@
 <style scoped>
   .sticky-date {
     position: sticky;
-    top: 0;
+    top: 88px; /* navbar height */
     z-index: 10;
   }
 
   .sticky-league {
     position: sticky;
-    top: 2.5rem; /* Adjust depending on .sticky-date height */
+    top: calc(88px + 2.5rem); /* navbar height + date header height */
     z-index: 9;
   }
 </style>

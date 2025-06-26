@@ -10,7 +10,7 @@
   </div>
 
   <!-- Fixtures and Results -->
-  <div v-else style="max-height: 80vh; overflow-y: auto">
+  <div v-else>
     <!-- Fixtures -->
     <template v-if="hasFixtures">
       <template
@@ -204,8 +204,7 @@
 <style scoped>
   .sticky-month {
     position: sticky;
-    top: 0;
+    top: 88px; /* navbar height */
     z-index: 10;
-    background-color: var(--bs-body-bg);
   }
 </style>
