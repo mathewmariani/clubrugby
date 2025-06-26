@@ -20,11 +20,11 @@ export type Union = {
 };
 
 export const unions: Union[] = [
-  {
-    slug: 'ab',
-    name: 'Rugby Alberta',
-    url: 'https://rugbyalberta.com',
-  },
+  // {
+  //   slug: 'ab',
+  //   name: 'Rugby Alberta',
+  //   url: 'https://rugbyalberta.com',
+  // },
   {
     slug: 'bc',
     name: 'British Columbia Rugby',
