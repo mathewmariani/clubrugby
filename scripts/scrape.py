@@ -49,6 +49,28 @@ SCRAPERS = {
             "module": "scrapers.bc.standings",
         },
     },
+    "mb": {
+        "clubs": {
+            "url": "https://rugbymb.ca/clubs/",
+            "module": "scrapers.mb.clubs",
+        },
+        "leagues": {
+            "url": "https://rugbymb.ca/competitions",
+            "module": "scrapers.mb.leagues",
+        },
+        "fixtures": {
+            "url": "https://rugbymb.ca/league/{}/",
+            "module": "scrapers.mb.fixtures",
+        },
+        "results": {
+            "url": "https://rugbymb.ca/league/{}/",
+            "module": "scrapers.mb.results",
+        },
+        "standings": {
+            "url": "https://rugbymb.ca/league/{}/",
+            "module": "scrapers.mb.standings",
+        },
+    },
     "qc": {
         "clubs": {
             "url": "https://rugbyquebec.org/clubs/",
@@ -230,8 +252,10 @@ if __name__ == "__main__":
             # Scrape individually by datatype or full mode
             for datatype in datatypes:
                 if args.datatype and datatype != args.datatype:
+                    print("out 1")
                     continue
-                if args.mode == "weekly" and datatype not in WEEKLY_TYPES:
+                if args.mode == "weekly" and not args.datatype and datatype not in WEEKLY_TYPES:
+                    print("out 2")
                     continue
 
                 print(f"\n🔄 Starting scrape for {federation} - {datatype}")
