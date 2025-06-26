@@ -1,41 +1,44 @@
 <template>
   <template v-if="entries.length">
-    <div class="list-group list-group-flush">
+    <div>
       <template v-for="entry in entries" :key="entry.league.id">
-        <div class="list-group-item">
-          <strong>{{ entry.league.name }}</strong>
-        </div>
-        <div class="list-group-item">
-          <div v-for="stat in entry.perGameStats" :key="stat.key" class="mb-3">
-            <div class="d-flex mb-1">
-              <small>{{ stat.label }}</small>
-              <small class="ms-auto">
-                {{ stat.team.toFixed(1) }}
-                <small class="text-body-secondary fw-light">
-                  ({{ getOrdinalSuffix(stat.rank) }})
+        <!-- League wrapper to enable sticky league header to push -->
+        <div class="list-group list-group-flush">
+          <!-- Sticky league header -->
+          <div class="list-group-item bg-body-tertiary sticky-league-name">
+            <strong>{{ entry.league.name }}</strong>
+          </div>
+
+          <!-- Stats section -->
+          <div class="list-group-item">
+            <div
+              v-for="stat in entry.perGameStats"
+              :key="stat.key"
+              class="mb-3"
+            >
+              <div class="d-flex mb-1">
+                <small>{{ stat.label }}</small>
+                <small class="ms-auto">
+                  {{ stat.team.toFixed(1) }}
+                  <small class="text-body-secondary fw-light">
+                    ({{ getOrdinalSuffix(stat.rank) }})
+                  </small>
                 </small>
-              </small>
-            </div>
-            <div class="progress-stacked">
-              <div
-                class="progress"
-                :style="{
-                  width: getPerGameRelativeWidth(stat, entry.standings) + '%',
-                }"
-              >
-                <div class="progress-bar bg-primary"></div>
+              </div>
+              <div class="progress-stacked">
+                <div
+                  class="progress"
+                  :style="{
+                    width: getPerGameRelativeWidth(stat, entry.standings) + '%',
+                  }"
+                >
+                  <div class="progress-bar bg-primary"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </template>
-    </div>
-  </template>
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No statistics available for this team.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
     </div>
   </template>
 </template>
@@ -141,5 +144,12 @@
 <style scoped>
   .progress-stacked {
     height: 8px;
+  }
+
+  .sticky-league-name {
+    position: sticky;
+    top: 88px;
+    z-index: 10;
+    background-color: var(--bs-body-bg);
   }
 </style>

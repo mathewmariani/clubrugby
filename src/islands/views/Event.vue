@@ -1,12 +1,10 @@
 <template>
   <template v-if="match">
     <div class="list-group list-group-flush">
-      <div class="list-group-item">
-        <!-- match details -->
+      <!-- Sticky match header -->
+      <div class="list-group-item bg-body-tertiary sticky-match-header">
         <div class="d-flex justify-content-between align-items-center">
-          <span class="badge text-bg-primary">
-            {{ league_name }}
-          </span>
+          <strong>{{ league_name }}</strong>
           <template v-if="isResult()">
             <span class="badge text-bg-secondary">FINAL</span>
           </template>
@@ -14,8 +12,10 @@
             <span class="badge text-bg-danger">{{ match?.time }}</span>
           </template>
         </div>
+      </div>
 
-        <!-- team headers -->
+      <!-- Team headers -->
+      <div class="list-group-item">
         <template v-if="isResult()">
           <div class="d-flex align-items-center justify-content-between my-3">
             <router-link :to="`/team/${home?.id}`" v-if="home">
@@ -43,7 +43,6 @@
           </div>
         </template>
         <template v-else>
-          <!-- Home team header -->
           <div class="d-flex gap-3 my-3">
             <router-link :to="`/team/${home?.id}`" v-if="home">
               <img
@@ -60,7 +59,6 @@
             </div>
           </div>
 
-          <!-- Away team header -->
           <div class="d-flex gap-3 mb-3 my-3">
             <router-link :to="`/team/${away?.id}`" v-if="away">
               <img
@@ -79,9 +77,8 @@
         </template>
       </div>
 
-      <template v-if="isResult()"> </template>
-      <template v-else>
-        <!-- Aggregate Stats -->
+      <!-- Regular stats (only for fixtures) -->
+      <template v-if="!isResult()">
         <div class="list-group-item">
           <div class="d-flex justify-content-between align-items-center my-3">
             <img :src="home?.logo_url" width="32" height="32" />
@@ -162,7 +159,6 @@
       <div class="list-group-item">
         <div class="d-flex flex-column mt-3">
           <h6>Game Details</h6>
-
           <span class="text-muted">Date</span>
           <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
 
@@ -174,6 +170,7 @@
       </div>
     </div>
   </template>
+
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">
       <p>No event was found.</p>
@@ -374,5 +371,11 @@
 <style scoped>
   .progress-stacked {
     height: 8px;
+  }
+
+  .sticky-match-header {
+    position: sticky;
+    top: 88px; /* adjust based on your navbar height */
+    z-index: 10;
   }
 </style>

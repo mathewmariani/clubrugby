@@ -1,25 +1,40 @@
 <template>
   <template v-if="hasResults">
-    <div class="list-group list-group-flush">
+    <div>
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
-        <div class="list-group-item bg-body-tertiary">
-          <strong>{{ formatDate(day) }}</strong>
-        </div>
-        <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <div class="list-group-item bg-body-tertiary">
-            <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+        <!-- Day wrapper -->
+        <div class="list-group list-group-flush">
+          <!-- Sticky Date Header -->
+          <div class="list-group-item bg-body-tertiary sticky-date">
+            <strong>{{ formatDate(day) }}</strong>
           </div>
-          <ResultListItem
-            v-for="match in matches"
-            :key="match.id"
-            :match="match"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
-        </template>
+
+          <!-- League blocks inside day -->
+          <template
+            v-for="(matches, leagueId) in leaguesForDay"
+            :key="leagueId"
+          >
+            <div class="list-group list-group-flush">
+              <!-- Sticky League Header -->
+              <div class="list-group-item bg-body-tertiary sticky-league">
+                <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+              </div>
+
+              <!-- Results -->
+              <ResultListItem
+                v-for="match in matches"
+                :key="match.id"
+                :match="match"
+                :clubs="clubs"
+                :leagues="leagues"
+              />
+            </div>
+          </template>
+        </div>
       </template>
     </div>
   </template>
+
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">
       <p>No results available.</p>
@@ -61,7 +76,15 @@
 </script>
 
 <style scoped>
-  .list-group {
-    border-radius: 0;
+  .sticky-date {
+    position: sticky;
+    top: 88px; /* navbar height */
+    z-index: 10;
+  }
+
+  .sticky-league {
+    position: sticky;
+    top: calc(88px + 2.5rem); /* navbar height + date header height */
+    z-index: 9;
   }
 </style>
