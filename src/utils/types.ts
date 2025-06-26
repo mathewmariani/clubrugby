@@ -24,6 +24,7 @@ export interface Standing {
   ta: number;
   td: number;
   pts: number;
+  division: string;
 }
 
 export interface Fixture {

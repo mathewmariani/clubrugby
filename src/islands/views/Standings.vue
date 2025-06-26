@@ -5,98 +5,219 @@
         v-for="leagueGroup in groupedStandings"
         :key="leagueGroup.leagueId"
       >
-        <table class="table table-fixed table-striped align-middle text-center">
-          <thead>
-            <tr>
-              <th class="text-start">
-                {{
-                  leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId
-                }}
-              </th>
-              <th
-                v-for="col in sortableColumns"
-                :key="col.key"
-                :class="['sortable', { 'has-border': sortColumn === col.key }]"
-                style="white-space: nowrap"
-              >
-                <button
-                  @click.prevent="sortBy(col.key)"
-                  class="w-100 bg-transparent border-0 p-0 m-0"
-                  style="cursor: pointer"
-                >
-                  <div>
-                    <strong>{{ col.label }}</strong>
-                  </div>
-                  <div
-                    class="caret"
-                    :class="{
-                      'text-primary': sortColumn === col.key,
-                      'text-light': sortColumn !== col.key,
-                    }"
-                  >
+        <!-- League with divisions -->
+        <template v-if="leagueGroup.divisions">
+          <div
+            v-for="division in leagueGroup.divisions"
+            :key="division.division"
+            class="mb-5"
+          >
+            <table
+              class="table table-fixed table-striped align-middle text-center"
+            >
+              <thead>
+                <tr>
+                  <th class="text-start">
                     {{
-                      sortColumn === col.key
-                        ? sortDirection === 'asc'
-                          ? '▲'
-                          : '▼'
-                        : '▼'
+                      leagues[leagueGroup.leagueId]?.name ||
+                      leagueGroup.leagueId
                     }}
-                  </div>
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="team in leagueGroup.teams" :key="team.team_id">
-              <td class="text-start">
-                <div class="d-flex align-items-center gap-2">
-                  <span
-                    :class="
-                      team.pos <= 4 ? 'badge bg-primary' : 'badge bg-secondary'
-                    "
+                    – {{ division.division }}
+                  </th>
+                  <th
+                    v-for="col in sortableColumns"
+                    :key="col.key"
+                    :class="[
+                      'sortable',
+                      { 'has-border': sortColumn === col.key },
+                    ]"
+                    style="white-space: nowrap"
                   >
-                    {{ team.pos }}
-                  </span>
-                  <img
-                    v-if="clubs[team.team_id]?.logo_url"
-                    :src="clubs[team.team_id].logo_url"
-                    :alt="clubs[team.team_id].name"
-                    width="32"
-                    height="32"
-                    style="object-fit: contain"
-                  />
-                  <div class="text-truncate">
-                    <b>{{ clubs[team.team_id]?.name || team.team_id }}</b>
+                    <button
+                      @click.prevent="sortBy(col.key)"
+                      class="w-100 bg-transparent border-0 p-0 m-0"
+                      style="cursor: pointer"
+                    >
+                      <div>
+                        <strong>{{ col.label }}</strong>
+                      </div>
+                      <div
+                        class="caret"
+                        :class="{
+                          'text-primary': sortColumn === col.key,
+                          'text-light': sortColumn !== col.key,
+                        }"
+                      >
+                        {{
+                          sortColumn === col.key
+                            ? sortDirection === 'asc'
+                              ? '▲'
+                              : '▼'
+                            : '▼'
+                        }}
+                      </div>
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="team in division.teams" :key="team.team_id">
+                  <td class="text-start">
+                    <div class="d-flex align-items-center gap-2">
+                      <span
+                        :class="
+                          team.pos <= 4
+                            ? 'badge bg-primary'
+                            : 'badge bg-secondary'
+                        "
+                      >
+                        {{ team.pos }}
+                      </span>
+                      <img
+                        v-if="clubs[team.team_id]?.logo_url"
+                        :src="clubs[team.team_id].logo_url"
+                        :alt="clubs[team.team_id].name"
+                        width="32"
+                        height="32"
+                        style="object-fit: contain"
+                      />
+                      <div class="text-truncate">
+                        <b>{{ clubs[team.team_id]?.name || team.team_id }}</b>
+                      </div>
+                    </div>
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'pld' }">
+                    {{ team.pld }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'w' }">
+                    {{ team.w }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'l' }">
+                    {{ team.l }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'd' }">
+                    {{ team.d }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'pts' }">
+                    <strong>{{ team.pts }}</strong>
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'pf' }">
+                    {{ team.pf }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'pa' }">
+                    {{ team.pa }}
+                  </td>
+                  <td :class="{ 'has-border': sortColumn === 'diff' }">
+                    {{ team.diff }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </template>
+
+        <!-- League without divisions -->
+        <template v-else>
+          <table
+            class="table table-fixed table-striped align-middle text-center mb-5"
+          >
+            <thead>
+              <tr>
+                <th class="text-start">
+                  {{
+                    leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId
+                  }}
+                </th>
+                <th
+                  v-for="col in sortableColumns"
+                  :key="col.key"
+                  :class="[
+                    'sortable',
+                    { 'has-border': sortColumn === col.key },
+                  ]"
+                  style="white-space: nowrap"
+                >
+                  <button
+                    @click.prevent="sortBy(col.key)"
+                    class="w-100 bg-transparent border-0 p-0 m-0"
+                    style="cursor: pointer"
+                  >
+                    <div>
+                      <strong>{{ col.label }}</strong>
+                    </div>
+                    <div
+                      class="caret"
+                      :class="{
+                        'text-primary': sortColumn === col.key,
+                        'text-light': sortColumn !== col.key,
+                      }"
+                    >
+                      {{
+                        sortColumn === col.key
+                          ? sortDirection === 'asc'
+                            ? '▲'
+                            : '▼'
+                          : '▼'
+                      }}
+                    </div>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="team in leagueGroup.teams" :key="team.team_id">
+                <td class="text-start">
+                  <div class="d-flex align-items-center gap-2">
+                    <span
+                      :class="
+                        team.pos <= 4
+                          ? 'badge bg-primary'
+                          : 'badge bg-secondary'
+                      "
+                    >
+                      {{ team.pos }}
+                    </span>
+                    <img
+                      v-if="clubs[team.team_id]?.logo_url"
+                      :src="clubs[team.team_id].logo_url"
+                      :alt="clubs[team.team_id].name"
+                      width="32"
+                      height="32"
+                      style="object-fit: contain"
+                    />
+                    <div class="text-truncate">
+                      <b>{{ clubs[team.team_id]?.name || team.team_id }}</b>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'pld' }">
-                {{ team.pld }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'w' }">
-                {{ team.w }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'l' }">
-                {{ team.l }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'd' }">
-                {{ team.d }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'pts' }">
-                <strong>{{ team.pts }}</strong>
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'pf' }">
-                {{ team.pf }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'pa' }">
-                {{ team.pa }}
-              </td>
-              <td :class="{ 'has-border': sortColumn === 'diff' }">
-                {{ team.diff }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'pld' }">
+                  {{ team.pld }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'w' }">
+                  {{ team.w }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'l' }">
+                  {{ team.l }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'd' }">
+                  {{ team.d }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'pts' }">
+                  <strong>{{ team.pts }}</strong>
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'pf' }">
+                  {{ team.pf }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'pa' }">
+                  {{ team.pa }}
+                </td>
+                <td :class="{ 'has-border': sortColumn === 'diff' }">
+                  {{ team.diff }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </template>
       </template>
     </div>
   </template>
@@ -113,7 +234,6 @@
 <script setup lang="ts">
   import { ref, toRef } from 'vue';
   import type { Club, League, Standing } from '../../utils/types';
-
   import { useSavedLeagues } from '../../composables/useSavedLeagues';
   import { useFilteredStandings } from '../../composables/useFilteredStandings';
 
