@@ -1,25 +1,41 @@
 <template>
   <template v-if="hasFixtures">
-    <div class="list-group list-group-flush">
+    <div style="max-height: 80vh; overflow-y: auto">
       <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
-        <div class="list-group-item bg-body-tertiary">
-          <strong>{{ formatDate(day) }}</strong>
-        </div>
-        <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
-          <div class="list-group-item bg-body-tertiary">
-            <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+        <!-- Day wrapper -->
+        <div class="list-group list-group-flush">
+          <!-- Sticky Date Header -->
+          <div class="list-group-item bg-body-tertiary sticky-date">
+            <strong>{{ formatDate(day) }}</strong>
           </div>
-          <FixtureListItem
-            v-for="match in matches"
-            :key="match.id"
-            :match="match"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
-        </template>
+
+          <!-- League sections inside the day group -->
+          <template
+            v-for="(matches, leagueId) in leaguesForDay"
+            :key="leagueId"
+          >
+            <!-- League wrapper to enable sticky league header to push -->
+            <div class="list-group list-group-flush">
+              <!-- Sticky League Header -->
+              <div class="list-group-item bg-body-tertiary sticky-league">
+                <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+              </div>
+
+              <!-- Matches -->
+              <FixtureListItem
+                v-for="match in matches"
+                :key="match.id"
+                :match="match"
+                :clubs="clubs"
+                :leagues="leagues"
+              />
+            </div>
+          </template>
+        </div>
       </template>
     </div>
   </template>
+
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">
       <p>No fixtures available.</p>
@@ -29,8 +45,8 @@
   </template>
 </template>
 
-<script lang="ts" setup>
-  import { ref, computed, toRef, onMounted } from 'vue';
+<script setup lang="ts">
+  import { computed, toRef } from 'vue';
   import type { Club, League, Fixture } from '../../utils/types';
 
   import { formatDate } from '../../utils/data';
@@ -60,3 +76,17 @@
     )
   );
 </script>
+
+<style scoped>
+  .sticky-date {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .sticky-league {
+    position: sticky;
+    top: 2.5rem; /* Adjust depending on .sticky-date height */
+    z-index: 9;
+  }
+</style>

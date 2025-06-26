@@ -10,25 +10,28 @@
   </div>
 
   <!-- Fixtures and Results -->
-  <div v-else class="list-group list-group-flush">
+  <div v-else style="max-height: 80vh; overflow-y: auto">
     <!-- Fixtures -->
     <template v-if="hasFixtures">
       <template
         v-for="(daysForMonth, month) in teamFixturesByMonthDay"
         :key="month"
       >
-        <div class="list-group-item bg-body-tertiary">
-          <strong>{{ formatMonth(month) }}</strong>
+        <div class="list-group list-group-flush">
+          <div class="list-group-item bg-body-tertiary sticky-month">
+            <strong>{{ formatMonth(month) }}</strong>
+          </div>
+          <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
+            <ScheduleListItem
+              :matches="matchesForDay"
+              :clubs="clubs"
+              :leagues="leagues"
+            />
+          </template>
         </div>
-        <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
-          <ScheduleListItem
-            :matches="matchesForDay"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
-        </template>
       </template>
     </template>
+
     <p v-else class="list-group-item text-muted">No upcoming fixtures.</p>
 
     <!-- Results -->
@@ -37,16 +40,18 @@
         v-for="(daysForMonth, month) in teamResultsByMonthDay"
         :key="month"
       >
-        <div class="list-group-item bg-body-tertiary">
-          <strong>{{ formatMonth(month) }}</strong>
+        <div class="list-group list-group-flush">
+          <div class="list-group-item bg-body-tertiary sticky-month">
+            <strong>{{ formatMonth(month) }}</strong>
+          </div>
+          <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
+            <ScheduleListItem
+              :matches="matchesForDay"
+              :clubs="clubs"
+              :leagues="leagues"
+            />
+          </template>
         </div>
-        <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
-          <ScheduleListItem
-            :matches="matchesForDay"
-            :clubs="clubs"
-            :leagues="leagues"
-          />
-        </template>
       </template>
     </template>
   </div>
@@ -195,3 +200,12 @@
     return grouped;
   });
 </script>
+
+<style scoped>
+  .sticky-month {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--bs-body-bg);
+  }
+</style>
