@@ -1,5 +1,5 @@
 import re
-from .exclusions import excluded_leagues, excluded_teams
+from .exclusions import excluded_leagues, excluded_teams, club_refs
 
 def extract_club_id(a_tag):
     """Extract clubprofile ID from anchor tag href."""
@@ -25,6 +25,8 @@ def scrape(soups_by_league, team_id_map):
             if len(cells) >= 13:
                 team_name = cells[1].get_text(strip=True)
                 team_id = find_team_id_by_name(team_name, team_id_map)
+
+                team_id = club_refs.get(team_id, team_id)
 
                 if not team_id or team_id in excluded_teams:
                     continue

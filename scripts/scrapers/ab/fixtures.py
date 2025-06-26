@@ -1,6 +1,6 @@
 import re
 from scrape_utils import parse_date, parse_time
-from .exclusions import excluded_leagues, excluded_teams
+from .exclusions import excluded_leagues, excluded_teams, club_refs
 
 def extract_club_id(a_tag):
     """Extract clubprofile ID from anchor tag href."""
@@ -23,6 +23,10 @@ def scrape(soups_by_league, team_id_map=None):
                 away_tag = ul.find("li", class_="fteam2").find("a")
                 home_id = extract_club_id(home_tag)
                 away_id = extract_club_id(away_tag)
+
+                # Normalize using club_refs
+                home_id = club_refs.get(home_id, home_id)
+                away_id = club_refs.get(away_id, away_id)
 
                 if not home_id or not away_id:
                     continue
