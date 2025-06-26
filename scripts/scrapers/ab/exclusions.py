@@ -1,12 +1,15 @@
 excluded_leagues = [
-    "203518",   # Exhibition - OCAA/OUA Men
-    "202809",   # Exhibition - OCAA/OUA Women
-    "204606",   # Ontario Blues - Senior Men
-    "203224",   # Ontario Blues - Senior Women
+    "204503",   # Metro SR Boys
+    "205248",   # ERU MEN PRESEASON
+    "202747",   # ARC 15s Boys U17
+    "202779",   # ARC 15s Girls U17
+    "202780",   # ARC 15s Boys U19
+    "203685",   # ARC 15s Girls U19
+    "201578",   # Alberta Regional Championship Sevens Girls 2025
+    "201163",   # Alberta Regional Championship Sevens Boys
 ]
 excluded_teams = [
-    "57325",   # Ontario Blues Men
-    "57326",   # Ontario Blues Women
-    "63989",   # Rugby Quebec
-    "92669",   # Atlantic Privateers
 ]
+club_refs = {
+    "63932": "61601",
+}

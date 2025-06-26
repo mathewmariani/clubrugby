@@ -1,11 +1,14 @@
 import re
-from .exclusions import excluded_leagues, excluded_teams
+from .exclusions import excluded_leagues, excluded_teams, club_refs
 from scrape_utils import parse_date, parse_time
 
 def extract_club_id(a_tag):
     """Extract clubprofile ID from anchor tag href."""
     match = re.search(r"/clubprofile/(\d+)/", a_tag["href"])
     return match.group(1) if match else ""
+
+def clean_score(score_str):
+    return re.sub(r"\s*\(\s*\d*\s*\)", "", score_str)
 
 def scrape(soups_by_league, team_id_map=None):
     results = []
@@ -25,8 +28,16 @@ def scrape(soups_by_league, team_id_map=None):
                 away_id = extract_club_id(away_tag)
 
                 vs_result = ul.find("span", class_="vs-result")
-                home_score = vs_result.find("span", class_="homeScore").get_text(strip=True)
-                away_score = vs_result.find("span", class_="awayScore").get_text(strip=True)
+                home_score_raw = vs_result.find("span", class_="homeScore").get_text(strip=True)
+                away_score_raw = vs_result.find("span", class_="awayScore").get_text(strip=True)
+
+                # Clean scores by removing " (digit)"
+                home_score = clean_score(home_score_raw)
+                away_score = clean_score(away_score_raw)
+
+                # Normalize using club_refs
+                home_id = club_refs.get(home_id, home_id)
+                away_id = club_refs.get(away_id, away_id)
 
                 if not home_id or not away_id:
                     continue
@@ -43,8 +54,6 @@ def scrape(soups_by_league, team_id_map=None):
                     "away_id": away_id,
                     "away_score": away_score,
                 })
-
-                # print(f"✅ Result: {home_id} {home_score} - {away_score} {away_id} on {date} at {time}")
 
             except Exception as e:
                 print(f"❌ Failed to parse result in league {league_id}: {e}")
