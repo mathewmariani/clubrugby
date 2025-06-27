@@ -1,28 +1,21 @@
 <template>
   <template v-if="hasStandings">
-    <div class="table-responsive-wrapper">
+    <div>
       <template
         v-for="leagueGroup in groupedStandings"
         :key="leagueGroup.leagueId"
       >
         <!-- League with divisions -->
         <template v-if="leagueGroup.divisions">
-          <div
+          <template
             v-for="division in leagueGroup.divisions"
             :key="division.division"
-            class="mb-5"
           >
-            <table
-              class="table table-fixed table-striped align-middle text-center"
-            >
-              <thead>
+            <table class="table table-fixed align-middle text-center">
+              <thead class="sticky-thead">
                 <tr>
                   <th class="text-start">
-                    {{
-                      leagues[leagueGroup.leagueId]?.name ||
-                      leagueGroup.leagueId
-                    }}
-                    – {{ division.division }}
+                    {{ division.division }}
                   </th>
                   <th
                     v-for="col in sortableColumns"
@@ -31,7 +24,6 @@
                       'sortable',
                       { 'has-border': sortColumn === col.key },
                     ]"
-                    style="white-space: nowrap"
                   >
                     <button
                       @click.prevent="sortBy(col.key)"
@@ -113,15 +105,13 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </template>
         </template>
 
         <!-- League without divisions -->
         <template v-else>
-          <table
-            class="table table-fixed table-striped align-middle text-center mb-5"
-          >
-            <thead>
+          <table class="table table-fixed align-middle text-center">
+            <thead class="sticky-thead">
               <tr>
                 <th class="text-start">
                   {{
@@ -135,7 +125,6 @@
                     'sortable',
                     { 'has-border': sortColumn === col.key },
                   ]"
-                  style="white-space: nowrap"
                 >
                   <button
                     @click.prevent="sortBy(col.key)"
@@ -247,7 +236,6 @@
   const sortDirection = ref<'asc' | 'desc'>('desc');
 
   const { savedLeagues } = useSavedLeagues();
-
   const { groupedStandings, hasStandings } = useFilteredStandings(
     toRef(props, 'standings'),
     savedLeagues,
@@ -277,10 +265,6 @@
 </script>
 
 <style scoped>
-  .table-responsive-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
   .table-fixed {
     table-layout: fixed;
     width: 100%;
@@ -293,13 +277,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    border: none;
   }
   .table-fixed th:first-child,
   .table-fixed td:first-child {
     width: 45%;
     text-align: left;
-    border-right: 1px solid #dee2e6;
+    border-right: var(--bs-border-width) solid var(--bs-border-color);
   }
   .table-fixed th:nth-child(n + 2),
   .table-fixed td:nth-child(n + 2) {
@@ -308,14 +291,20 @@
   }
   .table-fixed th.has-border,
   .table-fixed td.has-border {
-    border-right: 1px solid #dee2e6;
+    border-right: var(--bs-border-width) solid var(--bs-border-color);
   }
   .table-fixed th.has-border:not(:nth-child(2)),
   .table-fixed td.has-border:not(:nth-child(2)) {
-    border-left: 1px solid #dee2e6;
+    border-left: var(--bs-border-width) solid var(--bs-border-color);
   }
   th .caret {
     font-size: 0.6rem;
     line-height: 1;
+  }
+  .sticky-thead th {
+    position: sticky;
+    top: 88px; /* Adjust to navbar height */
+    z-index: 5;
+    background-color: var(--bs-tertiary-bg) !important;
   }
 </style>
