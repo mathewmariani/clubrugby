@@ -19,9 +19,9 @@ def scrape(soups_by_league, team_id_map):
         if league_id in excluded_leagues:
             continue
 
-        for table in soup.find_all("table", class_="sportlomo-table"):
-            heading = table.find_previous('h3') if table else None
-            heading_text = heading.text.strip() if heading else None
+        for table in soup.find_all("table"):
+            heading = table.find_previous('h3') if table else ""
+            heading_text = heading.text.strip() if heading else ""
 
             position = 1
 
