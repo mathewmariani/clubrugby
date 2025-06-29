@@ -1,0 +1,6 @@
+- [x] Add divisions (Specifically with Ontario).
+- [ ] Add Referees to Game Details.
+- [ ] Handle `UNKNOWN` for scheduled playoff fixtures.
+- [ ] Handle `TBC` for fixture dates and times.
+- [ ] Check for `Unknown` teams in ab, bc, mb, ns, on, qc.
+- [ ] Handle postponed fixtures (fixtures that have passed without results).
