@@ -8,7 +8,7 @@
   import { createRouter, createWebHashHistory, RouterView } from 'vue-router';
   import { onBeforeMount, getCurrentInstance } from 'vue';
 
-  import Navbar from '../components/vue/nav/Navbar.vue';
+  import Navbar from '@/components/vue/nav/Navbar.vue';
   import Fixtures from './views/Fixtures.vue';
   import Results from './views/Results.vue';
   import Standings from './views/Standings.vue';
@@ -17,9 +17,9 @@
   import TeamScheduleView from './views/TeamSchedule.vue';
   import TeamStatsView from './views/TeamStats.vue';
 
-  import TeamLayout from '../components/vue/layouts/TeamLayout.vue';
+  import TeamLayout from '@/components/vue/layouts/TeamLayout.vue';
 
-  import { type Union } from '../utils/unions';
+  import { type Union } from '@/utils/unions';
   import type { Club, League, Fixture, Result, Standing } from '../utils/types';
 
   const props = defineProps<{

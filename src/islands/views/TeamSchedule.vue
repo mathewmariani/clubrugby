@@ -63,13 +63,13 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, League, Fixture, Result } from '../../utils/types';
-  import { formatDate, formatMonth } from '../../utils/data';
-  import ScheduleListItem from '../../components/vue/items/ScheduleListItem.vue';
+  import type { Club, League, Fixture, Result } from '@/utils/types';
+  import { formatDate, formatMonth } from '@/utils/data';
+  import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
   import { parseISO, format } from 'date-fns';
 
   // Import your saved leagues composable
-  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
 
   const props = defineProps<{
     club_id: string;

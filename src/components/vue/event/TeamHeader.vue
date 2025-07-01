@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Club } from '../../../utils/types';
+  import type { Club } from '@/utils/types';
   import EventScore from './EventScore.vue';
   defineProps<{
     home?: Club;

@@ -65,9 +65,9 @@
   import TabScroller from './TabScroller.vue';
   import SettingsOffcanvas from './SettingsOffcanvas.vue';
 
-  import { SITE_TITLE } from '../../../consts.ts';
-  import type { League, Club } from '../../../utils/types.ts';
-  import type { Union } from '../../../utils/unions.ts';
+  import { SITE_TITLE } from '@/consts.ts';
+  import type { League, Club } from '@/utils/types.ts';
+  import type { Union } from '@/utils/unions.ts';
 
   const props = defineProps<{
     union: Union;

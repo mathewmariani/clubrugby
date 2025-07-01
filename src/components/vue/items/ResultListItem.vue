@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
-  import type { Club, Result } from '../../../utils/types';
+  import type { Club, Result } from '@/utils/types';
 
   const props = defineProps<{
     home: Club;

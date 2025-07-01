@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import type { Fixture, Result } from '../utils/types';
+import type { Fixture, Result } from '@/utils/types';
 
 export function useFilteredMatches<T extends Fixture | Result>(
   matches: Ref<Record<string, Record<string, T[]>>>,

@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
-  import type { Club, Fixture } from '../../../utils/types';
+  import type { Club, Fixture } from '@/utils/types';
 
   const props = defineProps<{
     home: Club;

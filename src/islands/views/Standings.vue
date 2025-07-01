@@ -136,9 +136,9 @@
 
 <script setup lang="ts">
   import { ref, toRef } from 'vue';
-  import type { Club, League, Standing } from '../../utils/types';
-  import { useSavedLeagues } from '../../composables/useSavedLeagues';
-  import { useFilteredStandings } from '../../composables/useFilteredStandings';
+  import type { Club, League, Standing } from '@/utils/types';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
+  import { useFilteredStandings } from '@/composables/useFilteredStandings';
 
   const props = defineProps<{
     standings: Record<string, Standing[]>;

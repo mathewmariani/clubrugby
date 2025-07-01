@@ -21,12 +21,12 @@
 
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
-  import DayMatchGroup from '../../components/vue/DayMatchGroup.vue';
-  import ResultListItem from '../../components/vue/items/ResultListItem.vue';
-  import { useSavedLeagues } from '../../composables/useSavedLeagues';
-  import { useFilteredMatches } from '../../composables/useFilteredMatches';
-  import type { Club, League, Result } from '../../utils/types';
-  import type { Union } from '../../utils/unions';
+  import DayMatchGroup from '@/components/vue/DayMatchGroup.vue';
+  import ResultListItem from '@/components/vue/items/ResultListItem.vue';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
+  import { useFilteredMatches } from '@/composables/useFilteredMatches';
+  import type { Club, League, Result } from '@/utils/types';
+  import type { Union } from '@/utils/unions';
 
   const props = defineProps<{
     union: Union;

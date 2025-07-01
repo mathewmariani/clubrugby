@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import type { Standing } from '../utils/types';
+import type { Standing } from '@/utils/types';
 
 export function useFilteredStandings(
   standings: Ref<Record<string, Standing[]>>,
