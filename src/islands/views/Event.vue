@@ -1,60 +1,23 @@
 <template>
   <template v-if="match">
     <div class="list-group list-group-flush">
-      <!-- Sticky match header -->
-      <div class="list-group-item bg-body-tertiary sticky-match-header">
-        <div class="d-flex justify-content-between align-items-center">
-          <strong>{{ league_name }}</strong>
-          <template v-if="isResult()">
-            <span class="badge text-bg-secondary">FINAL</span>
-          </template>
-          <template v-else>
-            <span class="badge text-bg-danger">{{ match?.time }}</span>
-          </template>
-        </div>
-      </div>
+      <MatchHeader
+        :leagueName="leagueName"
+        :isResult="isResult"
+        :time="match.time"
+      />
 
-      <!-- Team headers -->
-      <div class="list-group-item">
-        <template v-if="isResult()">
-          <div class="d-flex align-items-center justify-content-between my-3">
-            <router-link :to="`/team/${home?.id}`" v-if="home">
-              <img :src="home.logo_url" alt="" />
-            </router-link>
-            <EventScore
-              :homeScore="Number(match?.home_score)"
-              :awayScore="Number(match?.away_score)"
-            />
-            <router-link :to="`/team/${away?.id}`" v-if="away">
-              <img :src="away.logo_url" alt="" />
-            </router-link>
-          </div>
-        </template>
-        <template v-else>
-          <div class="d-flex gap-3 my-3">
-            <router-link :to="`/team/${home?.id}`" v-if="home">
-              <img :src="home.logo_url" alt="" />
-            </router-link>
-            <div class="d-flex flex-column justify-content-center">
-              <h6>{{ home?.name }}</h6>
-              <span class="text-muted">{{ team1Record }}</span>
-            </div>
-          </div>
+      <TeamHeader
+        :home="home"
+        :away="away"
+        :homeScore="Number(match.home_score)"
+        :awayScore="Number(match.away_score)"
+        :homeRecord="team1Record"
+        :awayRecord="team2Record"
+        :isResult="isResult"
+      />
 
-          <div class="d-flex gap-3 mb-3 my-3">
-            <router-link :to="`/team/${away?.id}`" v-if="away">
-              <img :src="away.logo_url" alt="" />
-            </router-link>
-            <div class="d-flex flex-column justify-content-center">
-              <h6>{{ away?.name }}</h6>
-              <span class="text-muted">{{ team2Record }}</span>
-            </div>
-          </div>
-        </template>
-      </div>
-
-      <!-- Regular stats (only for fixtures) -->
-      <template v-if="!isResult()">
+      <template v-if="!isResult">
         <div class="list-group-item">
           <div class="d-flex justify-content-between align-items-center my-3">
             <img :src="home?.logo_url" width="32" height="32" />
@@ -65,28 +28,15 @@
             <img :src="away?.logo_url" width="32" height="32" />
           </div>
 
-          <div v-for="stat in regular_stats" :key="stat.key" class="mb-3">
-            <div class="d-flex justify-content-between mb-1">
-              <small class="text-body-primary">{{
-                getStatValue(team1, stat.key)
-              }}</small>
-              <small class="text-body-secondary">{{ stat.label }}</small>
-              <small class="text-body-primary">{{
-                getStatValue(team2, stat.key)
-              }}</small>
-            </div>
-            <div class="progress-stacked">
-              <div class="progress" :style="{ width: leftWidth(stat) + '%' }">
-                <div class="progress-bar bg-primary"></div>
-              </div>
-              <div class="progress" :style="{ width: rightWidth(stat) + '%' }">
-                <div class="progress-bar bg-warning"></div>
-              </div>
-            </div>
-          </div>
+          <MatchStatComparison
+            v-for="stat in regularStats"
+            :key="stat.key"
+            :label="stat.label"
+            :leftValue="getStatValue(team1, stat.key)"
+            :rightValue="getStatValue(team2, stat.key)"
+          />
         </div>
 
-        <!-- Per Game Stats -->
         <div class="list-group-item">
           <div class="d-flex justify-content-between align-items-center my-3">
             <img :src="home?.logo_url" width="32" height="32" />
@@ -97,53 +47,24 @@
             <img :src="away?.logo_url" width="32" height="32" />
           </div>
 
-          <div v-for="stat in perGameStats" :key="stat.key" class="mb-3">
-            <div class="d-flex justify-content-between mb-1">
-              <small class="text-body-primary">
-                {{ stat.team1.toFixed(1) }}
-                <small class="text-body-secondary fw-light"
-                  >({{ getOrdinalSuffix(stat.team1Rank) }})</small
-                >
-              </small>
-              <small class="text-body-secondary">{{ stat.label }}</small>
-              <small class="text-body-primary">
-                <small class="text-body-secondary fw-light"
-                  >({{ getOrdinalSuffix(stat.team2Rank) }})</small
-                >
-                {{ stat.team2.toFixed(1) }}
-              </small>
-            </div>
-            <div class="progress-stacked">
-              <div
-                class="progress"
-                :style="{ width: perGameLeftWidth(stat) + '%' }"
-              >
-                <div class="progress-bar bg-primary"></div>
-              </div>
-              <div
-                class="progress"
-                :style="{ width: perGameRightWidth(stat) + '%' }"
-              >
-                <div class="progress-bar bg-warning"></div>
-              </div>
-            </div>
-          </div>
+          <MatchStatComparison
+            v-for="stat in perGameStats"
+            :key="stat.key"
+            :label="stat.label"
+            :leftValue="stat.team1"
+            :rightValue="stat.team2"
+            :leftRank="stat.team1Rank"
+            :rightRank="stat.team2Rank"
+          />
         </div>
       </template>
 
-      <!-- Game Details -->
-      <div class="list-group-item">
-        <div class="d-flex flex-column mt-3">
-          <h6>Game Details</h6>
-          <span class="text-muted">Date</span>
-          <p>{{ formatDate(match?.date) }}, {{ formatTime(match?.time) }}</p>
-
-          <template v-if="!isResult()">
-            <span class="text-muted">Venue</span>
-            <p>{{ match?.venue }}</p>
-          </template>
-        </div>
-      </div>
+      <GameDetails
+        :date="formatDate(match.date)"
+        :time="formatTime(match.time)"
+        :venue="match.venue"
+        :isResult="isResult"
+      />
     </div>
   </template>
 
@@ -158,21 +79,14 @@
 
 <script setup lang="ts">
   import { useRoute } from 'vue-router';
-  import { computed, toRef } from 'vue';
+  import { computed } from 'vue';
   import { formatDate, formatTime } from '../../utils/data';
-  import {
-    getOrdinalSuffix,
-    getLeagueName,
-    useMatchClubs,
-  } from '../../composables/utils';
-  import type {
-    Fixture,
-    Result,
-    Standing,
-    Club,
-    League,
-  } from '../../utils/types';
-  import EventScore from '../../components/vue/event/EventScore.vue';
+  import { getLeagueName, useMatchClubs } from '../../composables/utils';
+  import MatchHeader from '../../components/vue/event/MatchHeader.vue';
+  import TeamHeader from '../../components/vue/event/TeamHeader.vue';
+  import GameDetails from '../../components/vue/event/GameDetails.vue';
+  import MatchStatComparison from '../../components/vue/event/MatchStatComparison.vue';
+  import type { Fixture, Result, Standing, Club, League } from '@/utils/types';
 
   const route = useRoute();
 
@@ -184,64 +98,33 @@
     results: Record<string, Record<string, Result[]>>;
   }>();
 
-  // Parse event_id into leagueId, homeId, awayId, date
   const eventParts = computed(
     () => (route.params.event_id as string)?.split('-') || []
   );
-
   const leagueId = computed(() => eventParts.value[0]);
   const homeId = computed(() => eventParts.value[1]);
   const awayId = computed(() => eventParts.value[2]);
-  const date = computed(() => eventParts.value.slice(3).join('-')); // captures full date
+  const date = computed(() => eventParts.value.slice(3).join('-'));
 
-  // Find match from fixtures or results
   const match = computed(() => {
-    if (!leagueId.value || !homeId.value || !awayId.value || !date.value) {
-      return null;
-    }
-
-    const fixturesOnDate = props.fixtures[date.value];
-    if (fixturesOnDate) {
-      const dayFixtures = fixturesOnDate[leagueId.value];
-      if (dayFixtures) {
-        const found = dayFixtures.find(
-          (f) =>
-            f.home_id.toString() === homeId.value &&
-            f.away_id.toString() === awayId.value
-        );
-        if (found) {
-          return found;
-        }
-      }
-    }
-
-    const resultsOnDate = props.results[date.value];
-    if (resultsOnDate) {
-      const dayResults = resultsOnDate[leagueId.value];
-      if (dayResults) {
-        const found = dayResults.find(
-          (r) =>
-            r.home_id.toString() === homeId.value &&
-            r.away_id.toString() === awayId.value
-        );
-        if (found) {
-          return found;
-        }
-      }
-    }
-
-    return null;
+    const f = props.fixtures[date.value]?.[leagueId.value]?.find(
+      (f) =>
+        f.home_id.toString() === homeId.value &&
+        f.away_id.toString() === awayId.value
+    );
+    if (f) return f;
+    const r = props.results[date.value]?.[leagueId.value]?.find(
+      (r) =>
+        r.home_id.toString() === homeId.value &&
+        r.away_id.toString() === awayId.value
+    );
+    return r ?? null;
   });
 
-  function isResult(): match is Result {
-    const m = match.value;
-    return !!m && 'home_score' in m && 'away_score' in m;
-  }
-
-  const league_name = computed(() =>
+  const isResult = computed(() => match.value && 'home_score' in match.value);
+  const leagueName = computed(() =>
     getLeagueName(leagueId.value, props.leagues)
   );
-
   const { home, away } = useMatchClubs(match, props.clubs);
 
   const team1 = computed(() =>
@@ -251,17 +134,13 @@
     props.standings[leagueId.value]?.find((s) => s.team_id === away.value?.id)
   );
 
+  function getRecordString(team?: Standing): string {
+    return `${Number(team?.w ?? 0)}-${Number(team?.d ?? 0)}-${Number(team?.l ?? 0)}`;
+  }
   const team1Record = computed(() => getRecordString(team1.value));
   const team2Record = computed(() => getRecordString(team2.value));
 
-  function getRecordString(team?: Standing): string {
-    const w = Number(team?.w ?? 0);
-    const d = Number(team?.d ?? 0);
-    const l = Number(team?.l ?? 0);
-    return `${w}-${d}-${l}`;
-  }
-
-  const regular_stats = [
+  const regularStats = [
     { key: 'pld', label: 'Played' },
     { key: 'w', label: 'Wins' },
     { key: 'd', label: 'Draws' },
@@ -273,18 +152,7 @@
     team: Standing | undefined,
     key: keyof Standing
   ): number {
-    return Number(team?.[key]);
-  }
-
-  function leftWidth(stat: { key: keyof Standing }): number {
-    const t1 = getStatValue(team1.value, stat.key);
-    const t2 = getStatValue(team2.value, stat.key);
-    const total = t1 + t2;
-    return total ? (t1 / total) * 100 : 50;
-  }
-
-  function rightWidth(stat: { key: keyof Standing }): number {
-    return 100 - leftWidth(stat);
+    return Number(team?.[key] ?? 0);
   }
 
   function perGame(team: Standing | undefined, key: keyof Standing): number {
@@ -303,7 +171,6 @@
       id: t.team_id,
       value: perGame(t, key),
     }));
-
     list.sort((a, b) => b.value - a.value);
     const index = list.findIndex((t) => t.id === teamId);
     return index >= 0 ? index + 1 : null;
@@ -322,7 +189,6 @@
     return keys.map(({ key, label }) => {
       const team1Val = team1.value ? perGame(team1.value, key) : 0;
       const team2Val = team2.value ? perGame(team2.value, key) : 0;
-
       return {
         key,
         label,
@@ -333,28 +199,17 @@
       };
     });
   });
-
-  function perGameLeftWidth(stat: { team1: number; team2: number }): number {
-    const total = stat.team1 + stat.team2;
-    return total ? (stat.team1 / total) * 100 : 50;
-  }
-
-  function perGameRightWidth(stat: { team1: number; team2: number }): number {
-    return 100 - perGameLeftWidth(stat);
-  }
 </script>
 
 <style scoped>
   .progress-stacked {
     height: 8px;
   }
-
   .sticky-match-header {
     position: sticky;
-    top: 88px; /* adjust based on your navbar height */
+    top: 88px;
     z-index: 10;
   }
-
   img {
     width: 64px;
     height: 64px;
