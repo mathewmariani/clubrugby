@@ -62,6 +62,7 @@
       <GameDetails
         :date="formatDate(match.date)"
         :time="formatTime(match.time)"
+        :league="leagueName"
         :venue="match.venue"
         :isResult="isResult"
       />

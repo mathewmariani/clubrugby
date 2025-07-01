@@ -5,8 +5,10 @@
         <!-- League wrapper to enable sticky league header to push -->
         <div class="list-group list-group-flush">
           <!-- Sticky league header -->
-          <div class="list-group-item bg-body-tertiary sticky-league-name">
-            <strong>{{ entry.league.name }}</strong>
+          <div class="sticky-league-name" :style="{ top: navbarHeight + 'px' }">
+            <div class="list-group-header list-group-item bg-body-tertiary">
+              {{ entry.league.name }}
+            </div>
           </div>
 
           <!-- Stats section -->
@@ -48,6 +50,9 @@
   import { getOrdinalSuffix } from '@/composables/utils';
   import { useSavedLeagues } from '@/composables/useSavedLeagues'; // adjust path as needed
   import type { Club, League, Standing } from '@/utils/types';
+  import { useLayout } from '@/composables/useLayout';
+  
+  const { navbarHeight } = useLayout();
 
   const props = defineProps<{
     club_id: string;
@@ -142,10 +147,6 @@
 </script>
 
 <style scoped>
-  .progress-stacked {
-    height: 8px;
-  }
-
   .sticky-league-name {
     position: sticky;
     top: 88px;

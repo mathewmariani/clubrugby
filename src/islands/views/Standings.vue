@@ -111,7 +111,7 @@
                   class="text-nowrap"
                 >
                   <template v-if="col.key === 'w'">
-                    {{ team.w }}-{{ team.l }}-{{ team.d }}
+                    {{ team.w }}-{{ team.d }}-{{ team.l }}
                   </template>
                   <template v-else>
                     {{ team[col.key] }}
@@ -159,7 +159,7 @@
 
   const sortableColumns = [
     { key: 'pld', label: 'PLD' },
-    { key: 'w', label: 'W-L-D' },
+    { key: 'w', label: 'W-D-L' },
     { key: 'pts', label: 'PTS' },
     { key: 'pf', label: 'PF' },
     { key: 'pa', label: 'PA' },
