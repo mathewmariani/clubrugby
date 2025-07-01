@@ -1,13 +1,17 @@
 <template>
   <div class="list-group list-group-flush">
-    <div class="list-group-item bg-body-tertiary sticky-date">
-      <strong>{{ formatDate(day) }}</strong>
+    <div class="sticky-date" :style="{ top: navbarHeight + 'px' }">
+      <div class="list-group-header list-group-item bg-body-tertiary">
+        {{ formatDate(day) }}
+      </div>
     </div>
 
     <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
       <div class="list-group list-group-flush">
-        <div class="list-group-item bg-body-tertiary sticky-league">
-          <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+        <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
+          <div class="list-group-header list-group-item bg-body-tertiary">
+            <small>{{ getLeagueName(leagueId, leagues) }}</small>
+          </div>
         </div>
 
         <component
@@ -24,6 +28,7 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue';
   import FixtureListItem from '@/components/vue/items/FixtureListItem.vue';
   import ResultListItem from '@/components/vue/items/ResultListItem.vue';
   import { formatDate } from '@/utils/data';
@@ -41,6 +46,13 @@
     {}
   );
 
+  import { useLayout } from '@/composables/useLayout';
+
+  const { navbarHeight } = useLayout();
+  const dateHeaderHeight = 32;
+
+  const leagueTopOffset = computed(() => navbarHeight.value + dateHeaderHeight);
+
   const components = {
     FixtureListItem,
     ResultListItem,
@@ -50,12 +62,10 @@
 <style scoped>
   .sticky-date {
     position: sticky;
-    top: 88px;
     z-index: 10;
   }
   .sticky-league {
     position: sticky;
-    top: calc(88px + 2.5rem);
     z-index: 9;
   }
 </style>

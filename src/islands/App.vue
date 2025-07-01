@@ -1,7 +1,7 @@
 <template>
   <Navbar :union="union" :clubs="props.clubs" :leagues="leagues" />
 
-  <RouterView style="margin-top: 88px" />
+  <RouterView />
 </template>
 
 <script setup lang="ts">

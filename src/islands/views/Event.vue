@@ -207,7 +207,6 @@
   }
   .sticky-match-header {
     position: sticky;
-    top: 88px;
     z-index: 10;
   }
   img {

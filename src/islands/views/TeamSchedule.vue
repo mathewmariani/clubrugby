@@ -18,8 +18,10 @@
         :key="month"
       >
         <div class="list-group list-group-flush">
-          <div class="list-group-item bg-body-tertiary sticky-month">
-            <strong>{{ formatMonth(month) }}</strong>
+          <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="list-group-header list-group-item bg-body-tertiary">
+              {{ formatMonth(month) }}
+            </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
@@ -41,8 +43,10 @@
         :key="month"
       >
         <div class="list-group list-group-flush">
-          <div class="list-group-item bg-body-tertiary sticky-month">
-            <strong>{{ formatMonth(month) }}</strong>
+          <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="list-group-header list-group-item bg-body-tertiary">
+              {{ formatMonth(month) }}
+            </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
@@ -74,6 +78,9 @@
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
   }>();
+
+  import { useLayout } from '@/composables/useLayout';
+  const { navbarHeight } = useLayout();
 
   const { savedLeagues } = useSavedLeagues();
 
@@ -204,7 +211,6 @@
 <style scoped>
   .sticky-month {
     position: sticky;
-    top: 88px; /* navbar height */
     z-index: 10;
   }
 </style>
