@@ -24,10 +24,9 @@
               <!-- Matches -->
               <FixtureListItem
                 v-for="match in matches"
-                :key="match.id"
                 :match="match"
-                :clubs="clubs"
-                :leagues="leagues"
+                :home="clubs[match.home_id]"
+                :away="clubs[match.away_id]"
               />
             </div>
           </template>
@@ -48,12 +47,12 @@
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
   import type { Club, League, Fixture } from '../../utils/types';
+  import type { Union } from '../../utils/unions';
 
   import { formatDate } from '../../utils/data';
   import { getLeagueName } from '../../composables/utils';
   import { useSavedLeagues } from '../../composables/useSavedLeagues';
   import { useFilteredFixtures } from '../../composables/useFilteredFixtures';
-
   import FixtureListItem from '../../components/vue/items/FixtureListItem.vue';
 
   const props = defineProps<{
