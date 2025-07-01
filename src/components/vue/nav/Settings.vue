@@ -46,8 +46,8 @@
 </template>
 
 <script setup lang="ts">
-  import { useSavedLeagues } from '../../composables/useSavedLeagues';
-  import { type League } from '../../utils/types';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
+  import { type League } from '@/utils/types';
 
   import { ref, watch, onMounted } from 'vue';
 

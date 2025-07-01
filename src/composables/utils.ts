@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import type { Club, League, Fixture, Result } from '../utils/types';
+import type { Club, League, Fixture, Result } from '@/utils/types';
 
 export function useMatchClubs(
   match: Ref<Fixture | Result | null>,

@@ -80,8 +80,8 @@
   import { toRef, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
 
-  import type { Club, League, Fixture, Result } from '../../../utils/types';
-  import { useMatchClubs, getLeagueName } from '../../../composables/utils';
+  import type { Club, League, Fixture, Result } from '@/utils/types';
+  import { useMatchClubs, getLeagueName } from '@/composables/utils';
   import { parseISO, format } from 'date-fns';
 
   const route = useRoute();

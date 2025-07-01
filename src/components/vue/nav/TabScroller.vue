@@ -1,5 +1,5 @@
 <template>
-  <div ref="scrollContainer" class="info-tab-header">
+  <div>
     <router-link
       v-for="(title, index) in titles"
       :key="index"
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch, nextTick } from 'vue';
+  import { ref, watch } from 'vue';
   import { useRoute } from 'vue-router';
 
   const props = defineProps<{
@@ -22,7 +22,6 @@
     routes: string[];
   }>();
 
-  const scrollContainer = ref<HTMLElement | null>(null);
   const tabButtons = ref<HTMLElement[]>([]);
   const route = useRoute();
 

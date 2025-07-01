@@ -1,15 +1,13 @@
 <template>
-  <div
-    class="score d-flex align-items-center justify-content-center fs-4 fw-bold"
-  >
-    <span :class="scoreClass(homeScore, awayScore)" class="score-number">
+  <h1 class="mb-0">
+    <span :class="scoreClass(homeScore, awayScore)">
       {{ homeScore ?? '-' }}
     </span>
-    <span class="score-dash mx-2">-</span>
-    <span :class="scoreClass(awayScore, homeScore)" class="score-number">
+    <span> - </span>
+    <span :class="scoreClass(awayScore, homeScore)">
       {{ awayScore ?? '-' }}
     </span>
-  </div>
+  </h1>
 </template>
 
 <script setup>

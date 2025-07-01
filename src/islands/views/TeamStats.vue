@@ -45,9 +45,9 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { getOrdinalSuffix } from '../../composables/utils';
-  import { useSavedLeagues } from '../../composables/useSavedLeagues'; // adjust path as needed
-  import type { Club, League, Standing } from '../../utils/types';
+  import { getOrdinalSuffix } from '@/composables/utils';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues'; // adjust path as needed
+  import type { Club, League, Standing } from '@/utils/types';
 
   const props = defineProps<{
     club_id: string;

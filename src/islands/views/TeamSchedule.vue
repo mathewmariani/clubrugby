@@ -18,8 +18,10 @@
         :key="month"
       >
         <div class="list-group list-group-flush">
-          <div class="list-group-item bg-body-tertiary sticky-month">
-            <strong>{{ formatMonth(month) }}</strong>
+          <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="list-group-header list-group-item bg-body-tertiary">
+              {{ formatMonth(month) }}
+            </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
@@ -41,8 +43,10 @@
         :key="month"
       >
         <div class="list-group list-group-flush">
-          <div class="list-group-item bg-body-tertiary sticky-month">
-            <strong>{{ formatMonth(month) }}</strong>
+          <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="list-group-header list-group-item bg-body-tertiary">
+              {{ formatMonth(month) }}
+            </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
@@ -59,13 +63,13 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, League, Fixture, Result } from '../../utils/types';
-  import { formatDate, formatMonth } from '../../utils/data';
-  import ScheduleListItem from '../../components/vue/items/ScheduleListItem.vue';
+  import type { Club, League, Fixture, Result } from '@/utils/types';
+  import { formatDate, formatMonth } from '@/utils/data';
+  import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
   import { parseISO, format } from 'date-fns';
 
   // Import your saved leagues composable
-  import { useSavedLeagues } from '../../composables/useSavedLeagues';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
 
   const props = defineProps<{
     club_id: string;
@@ -74,6 +78,9 @@
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
   }>();
+
+  import { useLayout } from '@/composables/useLayout';
+  const { navbarHeight } = useLayout();
 
   const { savedLeagues } = useSavedLeagues();
 
@@ -204,7 +211,6 @@
 <style scoped>
   .sticky-month {
     position: sticky;
-    top: 88px; /* navbar height */
     z-index: 10;
   }
 </style>
