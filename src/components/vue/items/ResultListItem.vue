@@ -5,9 +5,6 @@
         v-if="home?.logo_url"
         :src="home.logo_url"
         :alt="home.name"
-        width="32"
-        height="32"
-        style="object-fit: contain"
       />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
       <span class="text-body-emphasis fw-normal">{{
@@ -24,9 +21,6 @@
         v-if="away?.logo_url"
         :src="away.logo_url"
         :alt="away.name"
-        width="32"
-        height="32"
-        style="object-fit: contain"
       />
       <span class="text-body-emphasis fw-normal">{{
         away?.name || 'Unknown'
@@ -41,18 +35,14 @@
 </template>
 
 <script setup lang="ts">
-  import { toRef } from 'vue';
   import { useRouter } from 'vue-router';
-  import type { Club, League, Result } from '../../../utils/types';
-  import { useMatchClubs } from '../../../composables/utils';
+  import type { Club, Result } from '../../../utils/types';
 
   const props = defineProps<{
-    clubs: Record<string, Club>;
-    leagues: Record<string, League>;
+    home: Club;
+    away: Club;
     match: Result;
   }>();
-
-  const { home, away } = useMatchClubs(toRef(props, 'match'), props.clubs);
 
   function scoreClass(score: string, opponentScore: string) {
     if (score == null || opponentScore == null) return '';
@@ -63,11 +53,16 @@
   }
 
   const router = useRouter();
-
   function goToEvent() {
     const id = `${props.match.league_id}-${props.match.home_id}-${props.match.away_id}-${props.match.date}`;
     router.push({ path: `/event/${id}` });
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+</style>

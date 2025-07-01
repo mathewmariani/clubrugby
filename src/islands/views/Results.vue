@@ -1,6 +1,5 @@
 <template>
   <template v-if="hasResults">
-    <div>
       <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
         <!-- Day wrapper -->
         <div class="list-group list-group-flush">
@@ -23,16 +22,14 @@
               <!-- Results -->
               <ResultListItem
                 v-for="match in matches"
-                :key="match.id"
                 :match="match"
-                :clubs="clubs"
-                :leagues="leagues"
+                :home="clubs[match.home_id]"
+                :away="clubs[match.away_id]"
               />
             </div>
           </template>
         </div>
       </template>
-    </div>
   </template>
 
   <template v-else>
@@ -46,7 +43,9 @@
 
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
-  import type { Club, League, Result } from '../../../utils/types';
+  import type { Club, League, Result } from '../../utils/types';
+  import type { Union } from '../../utils/unions';
+
   import ResultListItem from '../../components/vue/items/ResultListItem.vue';
   import { formatDate } from '../../utils/data';
   import { getLeagueName } from '../../composables/utils';
@@ -65,7 +64,6 @@
   const results = toRef(props, 'results');
 
   const { savedLeagues } = useSavedLeagues();
-
   const filteredResults = useFilteredResults(results, savedLeagues);
 
   const hasResults = computed(() =>
