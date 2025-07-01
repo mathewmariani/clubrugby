@@ -1,11 +1,7 @@
 <template>
   <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img
-        v-if="home?.logo_url"
-        :src="home.logo_url"
-        :alt="home.name"
-      />
+      <img v-if="home?.logo_url" :src="home.logo_url" :alt="home.name" />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
       <span class="text-body-emphasis fw-normal">{{
         home?.name || 'Unknown'
@@ -17,11 +13,7 @@
       >
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img
-        v-if="away?.logo_url"
-        :src="away.logo_url"
-        :alt="away.name"
-      />
+      <img v-if="away?.logo_url" :src="away.logo_url" :alt="away.name" />
       <span class="text-body-emphasis fw-normal">{{
         away?.name || 'Unknown'
       }}</span>

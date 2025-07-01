@@ -1,36 +1,33 @@
 <template>
-  <template v-if="hasResults">
-      <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
-        <!-- Day wrapper -->
-        <div class="list-group list-group-flush">
-          <!-- Sticky Date Header -->
-          <div class="list-group-item bg-body-tertiary sticky-date">
-            <strong>{{ formatDate(day) }}</strong>
-          </div>
-
-          <!-- League blocks inside day -->
-          <template
-            v-for="(matches, leagueId) in leaguesForDay"
-            :key="leagueId"
-          >
-            <div class="list-group list-group-flush">
-              <!-- Sticky League Header -->
-              <div class="list-group-item bg-body-tertiary sticky-league">
-                <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
-              </div>
-
-              <!-- Results -->
-              <ResultListItem
-                v-for="match in matches"
-                :match="match"
-                :home="clubs[match.home_id]"
-                :away="clubs[match.away_id]"
-              />
-            </div>
-          </template>
+  <div v-if="hasResults">
+    <template v-for="(leaguesForDay, day) in filteredResults" :key="day">
+      <!-- Day wrapper -->
+      <div class="list-group list-group-flush">
+        <!-- Sticky Date Header -->
+        <div class="list-group-item bg-body-tertiary sticky-date">
+          <strong>{{ formatDate(day) }}</strong>
         </div>
-      </template>
-  </template>
+
+        <!-- League blocks inside day -->
+        <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
+          <div class="list-group list-group-flush">
+            <!-- Sticky League Header -->
+            <div class="list-group-item bg-body-tertiary sticky-league">
+              <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+            </div>
+
+            <!-- Results -->
+            <ResultListItem
+              v-for="match in matches"
+              :match="match"
+              :home="clubs[match.home_id]"
+              :away="clubs[match.away_id]"
+            />
+          </div>
+        </template>
+      </div>
+    </template>
+  </div>
 
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">

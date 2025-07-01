@@ -1,39 +1,34 @@
 <template>
-  <template v-if="hasFixtures">
-    <div>
-      <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
-        <!-- Day wrapper -->
-        <div class="list-group list-group-flush">
-          <!-- Sticky Date Header -->
-          <div class="list-group-item bg-body-tertiary sticky-date">
-            <strong>{{ formatDate(day) }}</strong>
-          </div>
-
-          <!-- League sections inside the day group -->
-          <template
-            v-for="(matches, leagueId) in leaguesForDay"
-            :key="leagueId"
-          >
-            <!-- League wrapper to enable sticky league header to push -->
-            <div class="list-group list-group-flush">
-              <!-- Sticky League Header -->
-              <div class="list-group-item bg-body-tertiary sticky-league">
-                <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
-              </div>
-
-              <!-- Matches -->
-              <FixtureListItem
-                v-for="match in matches"
-                :match="match"
-                :home="clubs[match.home_id]"
-                :away="clubs[match.away_id]"
-              />
-            </div>
-          </template>
+  <div v-if="hasFixtures">
+    <template v-for="(leaguesForDay, day) in filteredFixtures" :key="day">
+      <!-- Day wrapper -->
+      <div class="list-group list-group-flush">
+        <!-- Sticky Date Header -->
+        <div class="list-group-item bg-body-tertiary sticky-date">
+          <strong>{{ formatDate(day) }}</strong>
         </div>
-      </template>
-    </div>
-  </template>
+
+        <!-- League sections inside the day group -->
+        <template v-for="(matches, leagueId) in leaguesForDay" :key="leagueId">
+          <!-- League wrapper to enable sticky league header to push -->
+          <div class="list-group list-group-flush">
+            <!-- Sticky League Header -->
+            <div class="list-group-item bg-body-tertiary sticky-league">
+              <strong>{{ getLeagueName(leagueId, leagues) }}</strong>
+            </div>
+
+            <!-- Matches -->
+            <FixtureListItem
+              v-for="match in matches"
+              :match="match"
+              :home="clubs[match.home_id]"
+              :away="clubs[match.away_id]"
+            />
+          </div>
+        </template>
+      </div>
+    </template>
+  </div>
 
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">

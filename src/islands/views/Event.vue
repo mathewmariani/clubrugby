@@ -19,39 +19,21 @@
         <template v-if="isResult()">
           <div class="d-flex align-items-center justify-content-between my-3">
             <router-link :to="`/team/${home?.id}`" v-if="home">
-              <img
-                :src="home.logo_url"
-                alt=""
-                width="64"
-                height="64"
-                style="object-fit: contain"
-              />
+              <img :src="home.logo_url" alt="" />
             </router-link>
             <EventScore
               :homeScore="Number(match?.home_score)"
               :awayScore="Number(match?.away_score)"
             />
             <router-link :to="`/team/${away?.id}`" v-if="away">
-              <img
-                :src="away.logo_url"
-                alt=""
-                width="64"
-                height="64"
-                style="object-fit: contain"
-              />
+              <img :src="away.logo_url" alt="" />
             </router-link>
           </div>
         </template>
         <template v-else>
           <div class="d-flex gap-3 my-3">
             <router-link :to="`/team/${home?.id}`" v-if="home">
-              <img
-                :src="home.logo_url"
-                alt=""
-                width="64"
-                height="64"
-                style="object-fit: contain"
-              />
+              <img :src="home.logo_url" alt="" />
             </router-link>
             <div class="d-flex flex-column justify-content-center">
               <h6>{{ home?.name }}</h6>
@@ -61,13 +43,7 @@
 
           <div class="d-flex gap-3 mb-3 my-3">
             <router-link :to="`/team/${away?.id}`" v-if="away">
-              <img
-                :src="away.logo_url"
-                alt=""
-                width="64"
-                height="64"
-                style="object-fit: contain"
-              />
+              <img :src="away.logo_url" alt="" />
             </router-link>
             <div class="d-flex flex-column justify-content-center">
               <h6>{{ away?.name }}</h6>
@@ -377,5 +353,11 @@
     position: sticky;
     top: 88px; /* adjust based on your navbar height */
     z-index: 10;
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
   }
 </style>
