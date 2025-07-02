@@ -51,7 +51,7 @@
   import { useSavedLeagues } from '@/composables/useSavedLeagues'; // adjust path as needed
   import type { Club, League, Standing } from '@/utils/types';
   import { useLayout } from '@/composables/useLayout';
-  
+
   const { navbarHeight } = useLayout();
 
   const props = defineProps<{
