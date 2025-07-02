@@ -18,7 +18,7 @@
   defineProps<{
     date: string;
     time: string;
-    league: string
+    league: string;
     venue?: string;
     isResult: boolean;
   }>();
