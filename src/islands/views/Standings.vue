@@ -1,40 +1,42 @@
 <template>
-  <template v-if="hasStandings">
-    <template
-      v-for="leagueGroup in groupedStandings"
-      :key="leagueGroup.leagueId"
-    >
-      <template v-if="leagueGroup.divisions">
-        <template
-          v-for="division in leagueGroup.divisions"
-          :key="division.division"
-        >
+  <div>
+    <template v-if="hasStandings">
+      <template
+        v-for="leagueGroup in groupedStandings"
+        :key="leagueGroup.leagueId"
+      >
+        <template v-if="leagueGroup.divisions">
+          <template
+            v-for="division in leagueGroup.divisions"
+            :key="division.division"
+          >
+            <StandingsTable
+              :title="division.division"
+              :teams="division.teams"
+              :clubs="clubs"
+              :columns="sortableColumns"
+            />
+          </template>
+        </template>
+        <template v-else>
           <StandingsTable
-            :title="division.division"
-            :teams="division.teams"
+            :title="leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId"
+            :teams="leagueGroup.teams"
             :clubs="clubs"
             :columns="sortableColumns"
           />
         </template>
       </template>
-      <template v-else>
-        <StandingsTable
-          :title="leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId"
-          :teams="leagueGroup.teams"
-          :clubs="clubs"
-          :columns="sortableColumns"
-        />
-      </template>
     </template>
-  </template>
 
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No standings available.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
-    </div>
-  </template>
+    <template v-else>
+      <div class="container-fluid text-center text-muted pt-3">
+        <p>No standings available.</p>
+        <hr />
+        <p>Ensure your preferences are set.</p>
+      </div>
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">

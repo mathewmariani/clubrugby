@@ -81,12 +81,12 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router';
   import { computed } from 'vue';
-  import { formatDate, formatTime } from '../../utils/data';
-  import { getLeagueName, useMatchClubs } from '../../composables/utils';
-  import MatchHeader from '../../components/vue/event/MatchHeader.vue';
-  import TeamHeader from '../../components/vue/event/TeamHeader.vue';
-  import GameDetails from '../../components/vue/event/GameDetails.vue';
-  import MatchStatComparison from '../../components/vue/event/MatchStatComparison.vue';
+  import { formatDate, formatTime } from '@/utils/data';
+  import { getLeagueName, useMatchClubs } from '@/composables/utils';
+  import MatchHeader from '@/components/vue/event/MatchHeader.vue';
+  import TeamHeader from '@/components/vue/event/TeamHeader.vue';
+  import GameDetails from '@/components/vue/event/GameDetails.vue';
+  import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
   import type { Fixture, Result, Standing, Club, League } from '@/utils/types';
 
   const route = useRoute();

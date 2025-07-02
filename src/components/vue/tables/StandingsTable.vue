@@ -1,42 +1,44 @@
 <template>
-  <table class="table table-borderless table-fixed">
-    <thead class="sticky-thead">
-      <tr>
-        <th>{{ title }}</th>
-        <th v-for="col in columns" :key="col.key">
-          <span class="fw-normal">{{ col.label }}</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="team in teams" :key="team.team_id">
-        <td>
-          <div class="d-flex align-items-center gap-2">
-            <span class="text-body-secondary fw-light">{{ team.pos }}</span>
-            <img
-              v-if="clubs[team.team_id]?.logo_url"
-              :src="clubs[team.team_id].logo_url"
-              :alt="clubs[team.team_id].name"
-              width="32"
-              height="32"
-              style="object-fit: contain"
-            />
-            <span class="text-body-emphasis text-truncate">
-              {{ clubs[team.team_id]?.name || team.team_id }}
-            </span>
-          </div>
-        </td>
-        <td v-for="col in columns" :key="col.key" class="text-nowrap">
-          <template v-if="col.key === 'w'">
-            {{ team.w }}-{{ team.d }}-{{ team.l }}
-          </template>
-          <template v-else>
-            {{ team[col.key] }}
-          </template>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <table class="table table-borderless table-fixed">
+      <thead class="sticky-thead">
+        <tr>
+          <th>{{ title }}</th>
+          <th v-for="col in columns" :key="col.key">
+            <span class="fw-normal">{{ col.label }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="team in teams" :key="team.team_id">
+          <td>
+            <div class="d-flex align-items-center gap-2">
+              <span class="text-body-secondary fw-light">{{ team.pos }}</span>
+              <img
+                v-if="clubs[team.team_id]?.logo_url"
+                :src="clubs[team.team_id].logo_url"
+                :alt="clubs[team.team_id].name"
+                width="32"
+                height="32"
+                style="object-fit: contain"
+              />
+              <span class="text-body-emphasis text-truncate">
+                {{ clubs[team.team_id]?.name || team.team_id }}
+              </span>
+            </div>
+          </td>
+          <td v-for="col in columns" :key="col.key" class="text-nowrap">
+            <template v-if="col.key === 'w'">
+              {{ team.w }}-{{ team.d }}-{{ team.l }}
+            </template>
+            <template v-else>
+              {{ team[col.key] }}
+            </template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script setup lang="ts">
