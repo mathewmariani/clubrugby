@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, toRef } from 'vue';
+  import { toRef } from 'vue';
   import DayMatchGroup from '@/components/vue/DayMatchGroup.vue';
   import ResultListItem from '@/components/vue/items/ResultListItem.vue';
   import { useSavedLeagues } from '@/composables/useSavedLeagues';
@@ -39,11 +39,8 @@
   const leagues = toRef(props, 'leagues');
   const results = toRef(props, 'results');
   const { savedLeagues } = useSavedLeagues();
-  const filteredResults = useFilteredMatches(results, savedLeagues);
-
-  const hasResults = computed(() =>
-    Object.values(filteredResults.value).some(
-      (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
-    )
-  );
+  const { 
+  filtered: filteredResults, 
+  has: hasResults 
+} = useFilteredMatches(results, savedLeagues);
 </script>

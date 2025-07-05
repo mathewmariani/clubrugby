@@ -5,8 +5,8 @@ export function useFilteredMatches<T extends Fixture | Result>(
   matches: Ref<Record<string, Record<string, T[]>>>,
   savedLeagues: Ref<string[]>
 ) {
-  return computed(() => {
-    const filtered: Record<string, Record<string, T[]>> = {};
+  const filtered = computed(() => {
+    const result: Record<string, Record<string, T[]>> = {};
 
     for (const [day, leaguesForDay] of Object.entries(matches.value)) {
       const filteredLeagues = Object.fromEntries(
@@ -15,10 +15,18 @@ export function useFilteredMatches<T extends Fixture | Result>(
         )
       );
       if (Object.keys(filteredLeagues).length > 0) {
-        filtered[day] = filteredLeagues;
+        result[day] = filteredLeagues;
       }
     }
 
-    return filtered;
+    return result;
   });
+
+  const has = computed(() =>
+    Object.values(filtered.value).some(
+      (leaguesForDay) => Object.values(leaguesForDay).flat().length > 0
+    )
+  );
+
+  return { filtered, has };
 }
