@@ -49,7 +49,7 @@
   import { useSavedLeagues } from '@/composables/useSavedLeagues';
   import { type League } from '@/utils/types';
 
-  import { ref, watch, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
 
   const props = defineProps<{
     leagues: Record<string, League>;

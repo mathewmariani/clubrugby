@@ -78,8 +78,6 @@
   const route = useRoute();
   const router = useRouter();
 
-  const currentHash = computed(() => route.hash.replace(/^#/, ''));
-
   const isLeagueView = computed(() =>
     ['/fixtures', '/results', '/standings'].some((v) =>
       route.path.startsWith(v)

@@ -39,8 +39,8 @@
   const leagues = toRef(props, 'leagues');
   const results = toRef(props, 'results');
   const { savedLeagues } = useSavedLeagues();
-  const { 
-  filtered: filteredResults, 
-  has: hasResults 
-} = useFilteredMatches(results, savedLeagues);
+  const { filtered: filteredResults, has: hasResults } = useFilteredMatches(
+    results,
+    savedLeagues
+  );
 </script>

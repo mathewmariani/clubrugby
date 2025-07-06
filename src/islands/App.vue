@@ -25,15 +25,16 @@
   import TeamStatsView from './views/TeamStats.vue';
 
   import TeamLayout from '@/layouts/vue/TeamLayout.vue';
+  import type { Fixture, Result, Standing, Club, League } from '@/utils/types';
 
-  const props = defineProps({
-    union: Object,
-    clubs: Object,
-    leagues: Object,
-    fixtures: Object,
-    results: Object,
-    standings: Object,
-  });
+  const props = defineProps<{
+    union: Object;
+    clubs: Record<string, Club>;
+    leagues: Record<string, League>;
+    standings: Record<string, Standing[]>;
+    fixtures: Record<string, Record<string, Fixture[]>>;
+    results: Record<string, Record<string, Result[]>>;
+  }>();
 
   // Setup router
   const router = createRouter({
