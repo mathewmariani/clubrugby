@@ -3,6 +3,7 @@
     "type": "module",
     "version": "0.0.1",
     "scripts": {
+        "scrape": "python scripts/scrape.py --mode weekly",
         "dev": "astro dev --host 0.0.0.0",
         "build": "astro build",
         "preview": "astro preview",
