@@ -11,7 +11,8 @@ export type UnionSlug =
   | 'pe' // Prince Edward Island
   | 'qc' // Quebec
   | 'sk' // Saskatchewan
-  | 'yt'; // Yukon
+  | 'yt' // Yukon
+  | 'rseq'; // RSEQ
 
 export type Union = {
   slug: UnionSlug;
@@ -75,4 +76,9 @@ export const unions: Union[] = [
   //   name: 'Saskatchewan Rugby',
   //   url: 'https://rugbysaskatchewan.com',
   // },
+    {
+    slug: 'rseq',
+    name: 'RSEQ',
+    url: 'https://rugbysaskatchewan.com',
+  },
 ];

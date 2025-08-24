@@ -83,6 +83,7 @@
   import { computed } from 'vue';
   import { formatDate, formatTime } from '@/utils/data';
   import { getLeagueName, useMatchClubs } from '@/composables/utils';
+  import { useEncodedRoute } from "@/composables/useEncodedRoute";
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
   import GameDetails from '@/components/vue/event/GameDetails.vue';
@@ -99,13 +100,17 @@
     results: Record<string, Record<string, Result[]>>;
   }>();
 
-  const eventParts = computed(
-    () => (route.params.event_id as string)?.split('-') || []
-  );
-  const leagueId = computed(() => eventParts.value[0]);
-  const homeId = computed(() => eventParts.value[1]);
-  const awayId = computed(() => eventParts.value[2]);
-  const date = computed(() => eventParts.value.slice(3).join('-'));
+  const { decode } = useEncodedRoute();
+const eventData = computed(() => {
+  const encoded = route.params.event_id as string;
+  if (!encoded) return null;
+  return decode(encoded);
+});
+
+const leagueId = computed(() => eventData.value?.leagueId);
+const homeId = computed(() => eventData.value?.homeId);
+const awayId = computed(() => eventData.value?.awayId);
+const date = computed(() => eventData.value?.date);
 
   const match = computed(() => {
     const f = props.fixtures[date.value]?.[leagueId.value]?.find(

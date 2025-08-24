@@ -4,6 +4,9 @@ from datetime import datetime
 from scrape_utils import get_soup, save_to_csv
 from league_utils import load_team_id_map, load_league_ids, load_clubs
 
+# rseq
+from scrapers.rseq.main import scrape as scrape_rseq
+
 SCRAPERS = {
     "ab": {
         "clubs": {
@@ -216,6 +219,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     WEEKLY_TYPES = {"fixtures", "results", "standings"}
+
+    # scrape rseq
+    scrape_rseq()
 
     for federation, datatypes in SCRAPERS.items():
         if args.federation and federation != args.federation:
