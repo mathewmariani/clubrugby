@@ -19,18 +19,39 @@ team_id_map = {
 }
 
 team_logo_map = {
-    # cegep_m
+    # cegep_m_sud_ouest
     "01c83f3e-efe3-4d3b-8864-5f79ac764329": "https://rseq.ca/ImageGen.ashx?image=/media/24420/1.jpg&width=58&height=58&pad=true&constrain=true",
     "28daff3d-3fbc-4f00-9092-f87940c4232d": "https://rseq.ca/ImageGen.ashx?image=/media/2536015/2022-2023_dawson_blues-logo-full-color-rgb.jpg&width=58&height=58&pad=true&constrain=true",
     "6aacdf88-aad8-4e59-a052-1bb3ca919973": "https://rseq.ca/ImageGen.ashx?image=/media/463331/microsoftteams-image.png&width=58&height=58&pad=true&constrain=true",
     "d6627ecd-a2c7-4eb2-9255-1a2c9ea73840": "https://rseq.ca/ImageGen.ashx?image=/media/24490/john_abbott.jpg&width=58&height=58&pad=true&constrain=true",
     "897495b8-1451-4510-8ce4-6038228aedca": "https://rseq.ca/ImageGen.ashx?image=/media/24630/vaniercheetahsrgblrg__2_.gif&width=58&height=58&pad=true&constrain=true",
 
-    # cegep_f
+    # cegep_m_nord_est
+    "b4f9a25c-b6e3-4529-94b0-e4bafc4d9686": "https://rseq.ca/ImageGen.ashx?image=/media/2703294/logo_trappeurs_avec_mention_c_gep.png&width=58&height=58&pad=true&constrain=true",
+    "fa2f2d1e-bf65-4179-8e4e-959f0c2ffa42": "https://rseq.ca/ImageGen.ashx?image=/media/24465/francois_xavier_garneau-seul.jpg&width=58&height=58&pad=true&constrain=true",
+    "478f9c84-0ce1-4d2f-a6fa-2b9163152a63": "https://rseq.ca/ImageGen.ashx?image=/media/2912206/cl_titans_sans_e_noirrouge_cmyk.png&width=58&height=58&pad=true&constrain=true",
+    "07856c1b-26b9-447b-83e5-938cecd3673b": "https://rseq.ca/ImageGen.ashx?image=/media/347235/nd-condensee-neg.jpg&width=58&height=58&pad=true&constrain=true",
+    "658fb115-60f3-4b9d-8d25-25852aec61a0": "https://rseq.ca/ImageGen.ashx?image=/media/24590/csf-logo_dynamiques_cmyk.jpg&width=58&height=58&pad=true&constrain=true",
+    "0b1a8430-d0d4-47b7-afcb-ba99d4818cb8": "https://rseq.ca/ImageGen.ashx?image=/media/2539895/logo_vulkins_couleur.png&width=58&height=58&pad=true&constrain=true",
+    
+    # cegep_f_sud_ouest
     "e4a5282d-4093-4c43-98ef-103912518fc9": "https://rseq.ca/ImageGen.ashx?image=/media/24420/1.jpg&width=58&height=58&pad=true&constrain=true",
     "22c1dc92-c684-4528-ac31-154ff5d0daaa": "https://rseq.ca/ImageGen.ashx?image=/media/2536015/2022-2023_dawson_blues-logo-full-color-rgb.jpg&width=58&height=58&pad=true&constrain=true",
     "e635ab97-3ddf-47c6-8b1b-10aa0eb30679": "https://rseq.ca/ImageGen.ashx?image=/media/24490/john_abbott.jpg&width=58&height=58&pad=true&constrain=true",
     "8d0be92f-fbe0-454b-a35f-a366282ecade": "https://rseq.ca/ImageGen.ashx?image=/media/24630/vaniercheetahsrgblrg__2_.gif&width=58&height=58&pad=true&constrain=true",
+
+    # cegep_f_nord_est
+    "4a80e344-e20a-4376-aa0f-b7590543d7e5": "https://rseq.ca/ImageGen.ashx?image=/media/2332428/6cc74913-ad22-4935-9959-1c9a8fe572b9.png&width=58&height=58&pad=true&constrain=true",
+    "69c44926-e1ed-4382-a8d5-079e1847dca4": "https://rseq.ca/ImageGen.ashx?image=/media/24465/francois_xavier_garneau-seul.jpg&width=58&height=58&pad=true&constrain=true",
+    "90846462-e058-4727-97cb-3f2fb56fcb16": "https://rseq.ca/ImageGen.ashx?image=/media/2346449/118088694_4185596501515934_4396355006125742223_o.jpg&width=58&height=58&pad=true&constrain=true",
+    "4bf1c15b-7ef0-4b55-9aae-4a0c05c58256": "https://rseq.ca/ImageGen.ashx?image=/media/2912206/cl_titans_sans_e_noirrouge_cmyk.png&width=58&height=58&pad=true&constrain=true",
+    "0d0b9090-acf8-46d7-8b7b-23f69ec7f36f": "https://rseq.ca/ImageGen.ashx?image=/media/347235/nd-condensee-neg.jpg&width=58&height=58&pad=true&constrain=true",
+    "801854c8-8799-4bba-aee5-7be408eaeb4d": "https://rseq.ca/ImageGen.ashx?image=/media/24590/csf-logo_dynamiques_cmyk.jpg&width=58&height=58&pad=true&constrain=true",
+    "bc938e9b-84cf-45d2-9ba1-c09e206bda54": "https://rseq.ca/ImageGen.ashx?image=/media/347235/nd-condensee-neg.jpg&width=58&height=58&pad=true&constrain=true",
+    "5b08280d-2feb-40b3-9e40-bd7668975824": "https://rseq.ca/ImageGen.ashx?image=/media/24485/laureats-light_black.jpg&width=58&height=58&pad=true&constrain=true",
+    "50af410b-0961-4ea7-acfd-64535a1a27ab": "https://rseq.ca/ImageGen.ashx?image=/media/24575/volontaires_complet_pformat_couleur.jpg&width=58&height=58&pad=true&constrain=true",
+    "838fbfd2-4ba7-4d63-92d8-64331b421399": "https://rseq.ca/ImageGen.ashx?image=/media/1961060/logo__12a_diablos_diablotin_cegept-r_rgb.jpg&width=58&height=58&pad=true&constrain=true",
+    "089caade-8658-48a9-90f5-9a9c875120c3": "https://rseq.ca/ImageGen.ashx?image=/media/2539895/logo_vulkins_couleur.png&width=58&height=58&pad=true&constrain=true",
 
     # university_m
     "78a948a7-5eed-4f98-ba32-1b73ba2b3e91": "https://rseq.ca/ImageGen.ashx?image=/media/24646/uni_logos_bsh_gaiters.jpg&width=58&height=58&pad=true&constrain=true",
@@ -55,125 +76,139 @@ team_logo_map = {
 def id_to_logo(team_id):
     return team_logo_map.get(team_id, "")
 
-# Map of leagues
-leagues = {
-    "cegep_m": "77390fac-c162-47e4-9f91-b4bf5151b938",
-    "cegep_f": "a87e9fe1-3972-42eb-be01-b19f1304c3b4",
-    "university_m": "c80803ae-8c87-4619-8d76-3eda0fdf2d27",
-    "university_f": "f675b71f-ef1a-4dc5-ba09-0e378be48975",
-}
-
-url = "https://s1.rseq.ca/api/LeagueApi/GetLeagueDiffusion/"
-headers = {
-    "User-Agent": "Mozilla/5.0",
-    "Accept": "application/json, text/javascript, */*; q=0.01",
-    "Origin": "https://diffusion.rseq.ca",
-    "Referer": "https://diffusion.rseq.ca/"
-}
-
-# Paths for CSV files
-os.makedirs("data/rseq/2025", exist_ok=True)
-teams_csv = "data/rseq/2025/clubs.csv"
-fixtures_csv = "data/rseq/2025/fixtures.csv"
-results_csv = "data/rseq/2025/results.csv"
-standings_csv = "data/rseq/2025/standings.csv"
-
-# Initialize CSV files with headers if they don't exist
-# Clear CSV files and write headers
-with open(teams_csv, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=["id", "name", "code", "pseudonym", "logo_url"], quoting=csv.QUOTE_ALL)
-    writer.writeheader()
-
-with open(fixtures_csv, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=["league_id","home_id","away_id","date","time","venue"], quoting=csv.QUOTE_ALL)
-    writer.writeheader()
-
-with open(results_csv, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=["league_id","date","time","home_id","home_score","away_id","away_score"], quoting=csv.QUOTE_ALL)
-    writer.writeheader()
-
-with open(standings_csv, "w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=["league_id","team_id","pos","pld","w","d","l","pf","pa","diff","tf","ta","td","pts"], quoting=csv.QUOTE_ALL)
-    writer.writeheader()
-
-def minutes_to_hhmm(minutes):
+def minutes_to_hhmm(minutes: int) -> str:
+    if not isinstance(minutes, int):
+        return ""
     hours = minutes // 60
     mins = minutes % 60
     return f"{hours:02d}:{mins:02d}"
 
+# Map of leagues
+leagues = {
+    "Collégial Masculin Sud-Ouest": "77390fac-c162-47e4-9f91-b4bf5151b938",
+    "Collégial Masculin Nord-Est": "a7e8232c-9d47-49cc-b578-1482d0f34bce",
+    "Collégial Féminin Sud-Ouest": "a87e9fe1-3972-42eb-be01-b19f1304c3b4",
+    "Collégial Féminin Nord-Est QCA": "12a14f6f-5e2d-442f-9b32-e53df70980bb",
+    "Collégial Féminin Nord-Est QC": "c705d49e-e082-4922-98e1-9a636e9fd391",
+    "Universitaire Masculin": "c80803ae-8c87-4619-8d76-3eda0fdf2d27",
+    "Universitaire Féminin": "f675b71f-ef1a-4dc5-ba09-0e378be48975",
+}
 
-# Fetch each league and append to CSVs
-for league_name, league_id in leagues.items():
-    print(f"Fetching {league_name}...")
-    response = requests.get(url, params={"leagueId": league_id}, headers=headers)
-    response.raise_for_status()
-    data = response.json()
+def scrape(output_dir: str = "data/rseq/2025") -> None:
+    """Fetch RSEQ data and save into CSVs inside output_dir."""
 
-    # Teams
-    teams = data.get("Teams", [])
-    with open(teams_csv, "a", newline="", encoding="utf-8") as f:
+    url = "https://s1.rseq.ca/api/LeagueApi/GetLeagueDiffusion/"
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json, text/javascript, */*; q=0.01",
+        "Origin": "https://diffusion.rseq.ca",
+        "Referer": "https://diffusion.rseq.ca/"
+    }
+
+    # Ensure folder exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    teams_csv = os.path.join(output_dir, "clubs.csv")
+    leagues_csv = os.path.join(output_dir, "leagues.csv")
+    fixtures_csv = os.path.join(output_dir, "fixtures.csv")
+    results_csv = os.path.join(output_dir, "results.csv")
+    standings_csv = os.path.join(output_dir, "standings.csv")
+
+    # Write fresh headers
+    with open(teams_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["id", "name", "code", "pseudonym", "logo_url"], quoting=csv.QUOTE_ALL)
-        for team in teams:
-            writer.writerow({
-                "id": team.get("TeamId", ""),
-                "name": team.get("TeamName", ""),
-                "code": team.get("TeamCode", ""),
-                "pseudonym": team.get("TeamPseudonym", ""),
-                "logo_url": id_to_logo(team.get("TeamId", "")),
-            })
+        writer.writeheader()
 
-    # Fixtures
-    fixtures = data.get("RegularSeasonGames", [])
-    with open(fixtures_csv, "a", newline="", encoding="utf-8") as f:
+    with open(fixtures_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["league_id","home_id","away_id","date","time","venue"], quoting=csv.QUOTE_ALL)
-        for fixture in fixtures:
-            if fixture.get("IsSubmittedForStandings") is True:
-                continue 
-            writer.writerow({
-                "league_id": fixture.get("LeagueId", ""),
-                "home_id": fixture.get("HomeTeamId", ""),
-                "away_id": fixture.get("VisitingTeamId", ""),
-                "date": fixture.get("GameDateText", ""),
-                "time": minutes_to_hhmm(fixture.get("GameTime", "")),
-                "venue": fixture.get("SportFacilityDescription", ""),
-            })
+        writer.writeheader()
 
-    # Results
-    with open(results_csv, "a", newline="", encoding="utf-8") as f:
+    with open(results_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["league_id","date","time","home_id","home_score","away_id","away_score"], quoting=csv.QUOTE_ALL)
-        for fixture in fixtures:
-            if fixture.get("IsSubmittedForStandings") is False:
-                continue 
-            writer.writerow({
-                "league_id": fixture.get("LeagueId", ""),
-                "date": fixture.get("GameDateText", ""),
-                "time": minutes_to_hhmm(fixture.get("GameTime", "")),
-                "home_id": fixture.get("HomeTeamId", ""),
-                "home_score": fixture.get("HomeTeamScore", ""),
-                "away_id": fixture.get("VisitingTeamId", ""),
-                "away_score": fixture.get("VisitingTeamScore", ""),
-            })
+        writer.writeheader()
 
-    # Standings
-    standings = data.get("Standings", [])
-    with open(standings_csv, "a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["league_id","team_id","pos","pld","w","d","l","pf","pa","diff","tf","ta","td","pts"], quoting=csv.QUOTE_ALL)
-        for team in standings:
-            writer.writerow({
-                "league_id": team.get("LeagueId", ""),
-                "team_id": team.get("TeamId", ""),
-                "pos": team.get("Position", ""),
-                "pld": team.get("GamesPlayed", ""),
-                "w": team.get("Wins", ""),
-                "d": team.get("Draws", ""),
-                "l": team.get("Losses", ""),
-                "pf": team.get("PointsFor", ""),
-                "pa": team.get("PointsAgaints", ""),
-                "diff": team.get("PointsDiff", ""),
-                "tf": team.get("TriesFor", ""),
-                "ta": team.get("TriesAgainst", ""),
-                "td": team.get("TriesDiff", ""),
-                "pts": team.get("PointsTotal", ""),
-            })
+    with open(standings_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["league_id","team_id","pos","pld","w","d","l","pf","pa","diff","tf","ta","td","pts","division"], quoting=csv.QUOTE_ALL)
+        writer.writeheader()
 
-print("All leagues saved to single CSVs")
+    with open(leagues_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["id", "name"], quoting=csv.QUOTE_ALL)
+        writer.writeheader()
+        for name, league_id in leagues.items():
+            writer.writerow({"id": league_id, "name": name})
+
+    # Fetch each league
+    for league_name, league_id in leagues.items():
+        print(f"Fetching {league_name}...")
+        response = requests.get(url, params={"leagueId": league_id}, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+
+        # Teams
+        with open(teams_csv, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["id", "name", "code", "pseudonym", "logo_url"], quoting=csv.QUOTE_ALL)
+            for team in data.get("Teams", []):
+                writer.writerow({
+                    "id": team.get("TeamId", ""),
+                    "name": team.get("TeamName", ""),
+                    "code": team.get("TeamCode", ""),
+                    "pseudonym": team.get("TeamPseudonym", ""),
+                    "logo_url": id_to_logo(team.get("TeamId", "")),
+                })
+
+        # Fixtures & Results
+        fixtures = data.get("RegularSeasonGames", [])
+        with open(fixtures_csv, "a", newline="", encoding="utf-8") as f_fix, \
+             open(results_csv, "a", newline="", encoding="utf-8") as f_res:
+            writer_fix = csv.DictWriter(f_fix, fieldnames=["league_id","home_id","away_id","date","time","venue"], quoting=csv.QUOTE_ALL)
+            writer_res = csv.DictWriter(f_res, fieldnames=["league_id","date","time","home_id","home_score","away_id","away_score"], quoting=csv.QUOTE_ALL)
+
+            for fixture in fixtures:
+                if fixture.get("IsSubmittedForStandings"):
+                    writer_res.writerow({
+                        "league_id": fixture.get("LeagueId", ""),
+                        "date": fixture.get("GameDateText", ""),
+                        "time": minutes_to_hhmm(fixture.get("GameTime", "")),
+                        "home_id": fixture.get("HomeTeamId", ""),
+                        "home_score": fixture.get("HomeTeamScore", ""),
+                        "away_id": fixture.get("VisitingTeamId", ""),
+                        "away_score": fixture.get("VisitingTeamScore", ""),
+                    })
+                else:
+                    writer_fix.writerow({
+                        "league_id": fixture.get("LeagueId", ""),
+                        "home_id": fixture.get("HomeTeamId", ""),
+                        "away_id": fixture.get("VisitingTeamId", ""),
+                        "date": fixture.get("GameDateText", ""),
+                        "time": minutes_to_hhmm(fixture.get("GameTime", "")),
+                        "venue": fixture.get("SportFacilityDescription", ""),
+                    })
+
+        # Standings
+        with open(standings_csv, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["league_id","team_id","pos","pld","w","d","l","pf","pa","diff","tf","ta","td","pts","division"], quoting=csv.QUOTE_ALL)
+            for team in data.get("Standings", []):
+                writer.writerow({
+                    "league_id": team.get("LeagueId", ""),
+                    "team_id": team.get("TeamId", ""),
+                    "pos": team.get("Position", ""),
+                    "pld": team.get("GamesPlayed", ""),
+                    "w": team.get("Wins", ""),
+                    "d": team.get("Draws", ""),
+                    "l": team.get("Losses", ""),
+                    "pf": team.get("PointsFor", ""),
+                    "pa": team.get("PointsAgaints", ""),
+                    "diff": team.get("PointsDiff", ""),
+                    "tf": team.get("TriesFor", ""),
+                    "ta": team.get("TriesAgainst", ""),
+                    "td": team.get("TriesDiff", ""),
+                    "pts": team.get("PointsTotal", ""),
+                    "division": data.get("Conference", ""),
+                })
+
+    print("All leagues saved to single CSVs")
+
+
+# Allow running as script
+if __name__ == "__main__":
+    scrape()
