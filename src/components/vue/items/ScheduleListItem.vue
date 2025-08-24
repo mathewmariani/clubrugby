@@ -83,6 +83,7 @@
   import type { Club, League, Fixture, Result } from '@/utils/types';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
   import { parseISO, format } from 'date-fns';
+  import { useEncodedRoute } from "@/composables/useEncodedRoute";
 
   const route = useRoute();
   const router = useRouter();
@@ -142,10 +143,19 @@
     return `${match.home_score} - ${match.away_score}`;
   }
 
+  const { encode } = useEncodedRoute();
   function goToEvent(match: Result) {
-    const id = `${match.league_id}-${match.home_id}-${match.away_id}-${match.date}`;
-    router.push({ path: `/event/${id}` });
-  }
+  const obj = {
+    leagueId: match.league_id,
+    homeId: match.home_id,
+    awayId: match.away_id,
+    date: match.date,
+  };
+
+  const encoded = encode(obj);
+
+  router.push({ path: `/event/${encoded}` }); // use encoded object in URL
+}
 </script>
 
 <style scoped>

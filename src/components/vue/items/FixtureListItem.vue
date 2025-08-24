@@ -30,6 +30,7 @@
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
   import type { Club, Fixture } from '@/utils/types';
+  import { useEncodedRoute } from "@/composables/useEncodedRoute";
 
   const props = defineProps<{
     home: Club;
@@ -37,11 +38,20 @@
     match: Fixture;
   }>();
 
+  const { encode } = useEncodedRoute();
   const router = useRouter();
   function goToEvent() {
-    const id = `${props.match.league_id}-${props.match.home_id}-${props.match.away_id}-${props.match.date}`;
-    router.push({ path: `/event/${id}` });
-  }
+  const obj = {
+    leagueId: props.match.league_id,
+    homeId: props.match.home_id,
+    awayId: props.match.away_id,
+    date: props.match.date,
+  };
+
+  const encoded = encode(obj);
+
+  router.push({ path: `/event/${encoded}` }); // use encoded object in URL
+}
 </script>
 
 <style scoped>
