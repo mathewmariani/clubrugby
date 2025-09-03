@@ -198,11 +198,11 @@ def scrape(output_dir: str = "data/rseq/2025") -> None:
                     "l": team.get("Losses", ""),
                     "pf": team.get("PointsFor", ""),
                     "pa": team.get("PointsAgaints", ""),
-                    "diff": team.get("PointsDiff", ""),
+                    "diff": team.get("Diff1", ""),
                     "tf": team.get("TriesFor", ""),
                     "ta": team.get("TriesAgainst", ""),
                     "td": team.get("TriesDiff", ""),
-                    "pts": team.get("PointsTotal", ""),
+                    "pts": team.get("TotalPoints", ""),
                     "division": data.get("Conference", ""),
                 })
 
