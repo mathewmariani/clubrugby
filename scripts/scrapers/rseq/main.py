@@ -164,6 +164,10 @@ def scrape(output_dir: str = "data/rseq/2025") -> None:
             writer_res = csv.DictWriter(f_res, fieldnames=["league_id","date","time","home_id","home_score","away_id","away_score"], quoting=csv.QUOTE_ALL)
 
             for fixture in fixtures:
+                # TODO: a quick patch fix for rescheduled games.
+                if fixture.get("IsDateModified") and fixture.get("IsTimeModified"):
+                    continue
+
                 if fixture.get("IsSubmittedForStandings"):
                     writer_res.writerow({
                         "league_id": fixture.get("LeagueId", ""),
