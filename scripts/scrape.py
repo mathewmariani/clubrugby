@@ -53,14 +53,18 @@ SCRAPERS = {
         },
     },
     "qc": {
-        "clubs": {
-            "url": "https://rugbyquebec.org/clubs/",
-            "module": "scrapers.qc.clubs",
-        },
-        "leagues": {
-            "url": "https://rugbyquebec.org/competitions/",
-            "module": "scrapers.qc.leagues",
-        },
+        # FIXME: patch fix for 2026
+        # NOTE: this page has gone missing
+        # "clubs": {
+        #     "url": "https://rugbyquebec.org/clubs/",
+        #     "module": "scrapers.qc.clubs",
+        # },
+        # FIXME: patch fix for 2026
+        # NOTE: this page has gone missing
+        # "leagues": {
+        #     "url": "https://rugbyquebec.org/competitions/",
+        #     "module": "scrapers.qc.leagues",
+        # },
         "fixtures": {
             "url": "https://rugbyquebec.org/league/{}/",
             "module": "scrapers.qc.fixtures",
@@ -221,7 +225,8 @@ if __name__ == "__main__":
     WEEKLY_TYPES = {"fixtures", "results", "standings"}
 
     # scrape rseq
-    scrape_rseq()
+    # FIXME: patch fix for 2026
+    scrape_rseq(output_dir = "data/rseq/2026")
 
     for federation, datatypes in SCRAPERS.items():
         if args.federation and federation != args.federation:
@@ -234,6 +239,7 @@ if __name__ == "__main__":
             scrape_weekly_group(federation)
         else:
             # Scrape individually by datatype or full mode
+            print(datatypes)
             for datatype in datatypes:
                 if args.datatype and datatype != args.datatype:
                     continue

@@ -94,7 +94,7 @@ leagues = {
     "Universitaire Féminin": "f675b71f-ef1a-4dc5-ba09-0e378be48975",
 }
 
-def scrape(output_dir: str = "data/rseq/2025") -> None:
+def scrape(output_dir: str) -> None:
     """Fetch RSEQ data and save into CSVs inside output_dir."""
 
     url = "https://s1.rseq.ca/api/LeagueApi/GetLeagueDiffusion/"
