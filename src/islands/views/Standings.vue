@@ -1,31 +1,13 @@
 <template>
   <div>
     <template v-if="hasStandings">
-      <template
-        v-for="leagueGroup in groupedStandings"
-        :key="leagueGroup.leagueId"
-      >
-        <template v-if="leagueGroup.divisions">
-          <template
-            v-for="division in leagueGroup.divisions"
-            :key="division.division"
-          >
-            <StandingsTable
-              :title="division.division"
-              :teams="division.teams"
-              :clubs="clubs"
-              :columns="sortableColumns"
-            />
-          </template>
-        </template>
-        <template v-else>
-          <StandingsTable
-            :title="leagues[leagueGroup.leagueId]?.name || leagueGroup.leagueId"
-            :teams="leagueGroup.teams"
-            :clubs="clubs"
-            :columns="sortableColumns"
-          />
-        </template>
+      <template v-for="(teams, leagueId) in standings" :key="leagueId">
+        <StandingsTable
+          :title="leagues[leagueId]?.name || leagueId"
+          :teams="teams"
+          :clubs="clubs"
+          :columns="sortableColumns"
+        />
       </template>
     </template>
 
@@ -40,35 +22,26 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, toRef } from 'vue';
-  import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
-  import type { Club, League, Standing } from '@/utils/types';
-  import { useSavedLeagues } from '@/composables/useSavedLeagues';
-  import { useFilteredStandings } from '@/composables/useFilteredStandings';
+import { computed } from 'vue';
+import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
+import type { Club, League, Standing } from '@/utils/types';
 
-  const props = defineProps<{
-    standings: Record<string, Standing[]>;
-    clubs: Record<string, Club>;
-    leagues: Record<string, League>;
-  }>();
+const props = defineProps<{
+  standings: Record<string, Standing[]>; // already sorted by league & rank
+  clubs: Record<string, Club>;
+  leagues: Record<string, League>;
+}>();
 
-  const sortColumn = ref<keyof Standing>('pts');
-  const sortDirection = ref<'asc' | 'desc'>('desc');
+// No more grouping or filtering needed
+const hasStandings = computed(() => Object.keys(props.standings).length > 0);
 
-  const { savedLeagues } = useSavedLeagues();
-  const { groupedStandings, hasStandings } = useFilteredStandings(
-    toRef(props, 'standings'),
-    savedLeagues,
-    sortColumn,
-    sortDirection
-  );
-
-  const sortableColumns = [
-    { key: 'pld', label: 'PLD' },
-    { key: 'w', label: 'W-D-L' },
-    { key: 'pts', label: 'PTS' },
-    { key: 'pf', label: 'PF' },
-    { key: 'pa', label: 'PA' },
-    { key: 'diff', label: 'PD' },
-  ];
+// Columns to display in the table
+const sortableColumns = [
+  { key: 'played', label: 'PLD' },
+  { key: 'w-d-l', label: 'W-D-L' },
+  { key: 'points', label: 'PTS' },
+  { key: 'pointsFor', label: 'PF' },
+  { key: 'pointsAgainst', label: 'PA' },
+  { key: 'pointsDifference', label: 'PD' },
+];
 </script>

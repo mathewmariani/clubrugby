@@ -26,8 +26,7 @@ export function getLeagueName(
 }
 
 export function getOrdinalSuffix(n: number): string {
-  const j = n % 10,
-    k = n % 100;
+  const j = n % 10, k = n % 100;
   if (k >= 11 && k <= 13) {
     return n + 'th';
   }

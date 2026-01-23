@@ -1,7 +1,7 @@
 export interface Club {
   id: string;
   name: string;
-  logo_url: string;
+  logo: string;
 }
 
 export interface League {
@@ -10,43 +10,59 @@ export interface League {
 }
 
 export interface Standing {
-  league_id: string;
-  team_id: string;
-  pos: number;
-  pld: number;
-  w: number;
-  d: number;
-  l: number;
-  pf: number;
-  pa: number;
-  diff: number;
-  tf: number;
-  ta: number;
-  td: number;
-  pts: number;
-  division: string;
+  league_id: string;       // league the team belongs to
+  club_id: string;         // club identifier (maps to clubs)
+  team_id: number;         // team identifier (unique per league)
+  pos: number;             // rank / position
+  played: number;          // number of games played
+  gamesWon: number;        // games won
+  gamesDraw: number;       // games drawn
+  gameLost: number;        // games lost
+  pointsFor: number;       // total points scored
+  pointsAgainst: number;   // total points conceded
+  pointsDifference: number;// pointsFor - pointsAgainst
+  bonusPoints: number;     // bonus points total
+  points: number;          // total points (used for ranking)
+  triesFor: number;        // total tries scored
+  triesAgainst: number;    // total tries conceded
+  triesDifference: number; // triesFor - triesAgainst
+  Pen: number;             // penalty goals scored
+  Conv: number;            // conversions scored
+  Drop: number;            // drop goals scored
 }
 
 export interface Fixture {
-  league_id: string;
-  date: string;
-  time: string;
-  venue: string;
-  home_id: string;
-  away_id: string;
-}
+  fixtureId: string;        // unique ID
+  league_id: string;        // league
+  fixtureDate: number;      // unix timestamp in seconds
+  fixtureStatus: 'fixture' | 'result'; // result or upcoming
 
-export interface Result {
-  league_id: string;
-  date: string;
-  time: string;
-  venue: string;
-  home_id: string;
-  home_score: string;
-  away_id: string;
-  away_score: string;
-}
+  seasonId: string;         // optional for reference
+  compYear: string;
 
-export type StandingsMap = Record<string, Standing[]>;
-export type FixturesMap = Record<string, Fixture[]>;
-export type ResultsMap = Record<string, Result[]>;
+  venue: string;
+  venuePostalCode?: string;
+  venuelat?: string;
+  venuelng?: string;
+
+  homeTeamId: string;
+  awayTeamId: string;
+  homeClubId: string;
+  awayClubId: string;
+
+  homeScore?: string;       // e.g., "50;8"
+  awayScore?: string;
+
+  homeResult?: 'win' | 'lose' | 'draw';
+  awayResult?: 'win' | 'lose' | 'draw';
+
+  // optional per-match stats
+  homeDrop?: string | null;
+  homePen?: string | null;
+  homeConv?: string | null;
+  awayDrop?: string | null;
+  awayPen?: string | null;
+  awayConv?: string | null;
+
+  matchOfficials?: Record<string, { role: string; name: string; refID: string; display: string }>;
+}

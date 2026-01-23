@@ -16,6 +16,8 @@ import { prepareUnionData } from '@/utils/data.ts';
 
 const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
   await prepareUnionData(union.slug);
+
+  console.log(standingsByLeague);
 ---
 
 <Page>

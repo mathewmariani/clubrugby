@@ -2,7 +2,7 @@
   <div class="list-group list-group-flush">
     <div class="sticky-date" :style="{ top: navbarHeight + 'px' }">
       <div class="list-group-header list-group-item bg-body-tertiary">
-        {{ formatDate(day) }}
+        {{ day }}
       </div>
     </div>
 
@@ -17,10 +17,10 @@
         <component
           :is="components[matchComponent]"
           v-for="match in matches"
-          :key="match.id"
+          :key="match.fixtureId"
           :match="match"
-          :home="clubs[match.home_id]"
-          :away="clubs[match.away_id]"
+          :home="clubs[match.homeClubId]"
+          :away="clubs[match.awayClubId]"
         />
       </div>
     </template>
@@ -33,12 +33,12 @@
   import ResultListItem from '@/components/vue/items/ResultListItem.vue';
   import { formatDate } from '@/utils/data';
   import { getLeagueName } from '@/composables/utils';
-  import type { Club, League, Fixture, Result } from '@/utils/types';
+  import type { Club, League, Fixture } from '@/utils/types';
 
   const props = withDefaults(
     defineProps<{
       day: string;
-      leaguesForDay: Record<string, (Fixture | Result)[]>;
+      leaguesForDay: Record<string, Fixture[]>;
       clubs: Record<string, Club>;
       leagues: Record<string, League>;
       matchComponent: 'FixtureListItem' | 'ResultListItem';

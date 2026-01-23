@@ -1,143 +1,98 @@
-import Papa from 'papaparse';
-import type { Fixture, Result, Standing, Club, League } from './types';
-import { format, parseISO } from 'date-fns';
+import type { Fixture, Standing, Club, League } from './types';
+import { format } from 'date-fns';
 
-export function formatDate(dateStr: string): string {
-  return format(parseISO(dateStr), 'EEE MMM d');
+/* -------------------------------------------------------------------------- */
+/* Date helpers (unix seconds only)                                            */
+/* -------------------------------------------------------------------------- */
+
+function fromUnixSeconds(ts: number): Date {
+  return new Date(ts * 1000);
 }
 
-export function formatMonth(monthStr: string): string {
-  return format(parseISO(monthStr + '-01'), 'MMMM yyyy'); // e.g. "June 2025"
+/* -------------------------------------------------------------------------- */
+/* Formatting helpers                                                         */
+/* -------------------------------------------------------------------------- */
+
+export function formatDate(ts: number): string {
+  return format(fromUnixSeconds(ts), 'EEE MMM d');
 }
 
-export function formatTime(timeStr: string): string {
-  const [hours, minutes] = timeStr.split(':').map(Number);
-  const date = new Date();
-  date.setHours(hours, minutes);
-  return format(date, 'h:mm a');
+export function formatMonth(ts: number): string {
+  return format(fromUnixSeconds(ts), 'MMMM yyyy');
 }
 
-const csvModules = import.meta.glob('/src/data/*/*/*.csv', {
-  query: '?raw',
-  eager: true,
-}) as Record<string, string>;
-
-function getCsv(slug: string, year: string, name: string): string {
-  const key = `/src/data/${slug}/${year}/${name}.csv`;
-  const module = csvModules[key];
-  if (!module) throw new Error(`Missing CSV module: ${key}`);
-  return typeof module === 'string' ? module : module.default;
+export function formatTime(ts: number): string {
+  return format(fromUnixSeconds(ts), 'h:mm a');
 }
 
-function parseCsv<T>(raw: string): T[] {
-  return Papa.parse<T>(raw, { header: true, skipEmptyLines: true }).data;
+/* -------------------------------------------------------------------------- */
+/* Sorting helpers                                                            */
+/* -------------------------------------------------------------------------- */
+
+export function sortByFixtureDate<
+  T extends { fixtureDate: number }
+>(items: T[] = []): T[] {
+  return [...items].sort((a, b) => a.fixtureDate - b.fixtureDate);
 }
 
-export function sortByDateTime<T extends { date: string; time?: string }>(
-  items: T[] = []
-): T[] {
-  return [...items].sort((a, b) => {
-    const aDate = new Date(`${a.date}T${a.time || '00:00'}`);
-    const bDate = new Date(`${b.date}T${b.time || '00:00'}`);
-    return aDate.getTime() - bDate.getTime();
-  });
+/* -------------------------------------------------------------------------- */
+/* Grouping helpers                                                           */
+/* -------------------------------------------------------------------------- */
+
+export function groupByDay<
+  T extends { fixtureDate: number }
+>(items: T[]): Record<string, T[]> {
+  return items.reduce((acc, item) => {
+    const key = format(fromUnixSeconds(item.fixtureDate), 'yyyy-MM-dd');
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(item);
+    return acc;
+  }, {} as Record<string, T[]>);
 }
 
-export function groupByDay<T extends { date: string }>(
-  items: T[]
-): Record<string, T[]> {
-  return items.reduce(
-    (acc, item) => {
-      const day = item.date;
-      if (!acc[day]) acc[day] = [];
-      acc[day].push(item);
-      return acc;
-    },
-    {} as Record<string, T[]>
-  );
+export function groupByLeague<
+  T extends { league_id: string }
+>(items: T[]): Record<string, T[]> {
+  return items.reduce((acc, item) => {
+    if (!acc[item.league_id]) acc[item.league_id] = [];
+    acc[item.league_id].push(item);
+    return acc;
+  }, {} as Record<string, T[]>);
 }
-
-export function groupByLeague<T extends { league_id: string }>(
-  items: T[]
-): Record<string, T[]> {
-  return items.reduce(
-    (acc, item) => {
-      if (!acc[item.league_id]) acc[item.league_id] = [];
-      acc[item.league_id].push(item);
-      return acc;
-    },
-    {} as Record<string, T[]>
-  );
-}
-
-type Match = {
-  league_id: string;
-  date: string;
-  time?: string;
-  [key: string]: any;
-};
 
 export function groupByDayThenLeague<
-  T extends { date: string; league_id: string },
+  T extends { fixtureDate: number; league_id: string }
 >(items: T[]): Record<string, Record<string, T[]>> {
-  const sorted = [...items].sort((a, b) => {
-    const aTime = new Date(`${a.date}T${(a as any).time || '00:00'}`);
-    const bTime = new Date(`${b.date}T${(b as any).time || '00:00'}`);
-    return aTime.getTime() - bTime.getTime();
-  });
-
+  const sorted = sortByFixtureDate(items);
   const grouped: Record<string, Record<string, T[]>> = {};
 
   for (const item of sorted) {
-    const dayKey = format(parseISO(item.date), 'yyyy-MM-dd');
+    const dayKey = format(
+      fromUnixSeconds(item.fixtureDate),
+      'yyyy-MM-dd'
+    );
+
     if (!grouped[dayKey]) grouped[dayKey] = {};
-    if (!grouped[dayKey][item.league_id]) grouped[dayKey][item.league_id] = [];
+    if (!grouped[dayKey][item.league_id]) {
+      grouped[dayKey][item.league_id] = [];
+    }
+
     grouped[dayKey][item.league_id].push(item);
   }
 
   return grouped;
 }
 
-export async function loadUnionData(slug: string, year = '2025') {
-  return {
-    clubs: parseCsv<Club>(getCsv(slug, year, 'clubs')),
-    leagues: parseCsv<League>(getCsv(slug, year, 'leagues')),
-    fixtures: parseCsv<Fixture>(getCsv(slug, year, 'fixtures')),
-    results: parseCsv<Result>(getCsv(slug, year, 'results')),
-    standings: parseCsv<Standing>(getCsv(slug, year, 'standings')),
-  };
-}
-
-export async function prepareUnionData(slug: string, year = '2025') {
-  const raw = await loadUnionData(slug, year);
-
-  const clubsMap = Object.fromEntries(raw.clubs.map((c) => [c.id, c]));
-  const leaguesMap = Object.fromEntries(raw.leagues.map((l) => [l.id, l]));
-
-  return {
-    clubs: clubsMap,
-    leagues: leaguesMap,
-    fixturesByLeague: groupByDayThenLeague(raw.fixtures),
-    resultsByLeague: groupByDayThenLeague(raw.results),
-    standingsByLeague: groupByLeague(raw.standings),
-  };
-}
-
-export function groupByMonthThenDay<T extends { date: string }>(
-  items: T[]
-): Record<string, Record<string, T[]>> {
-  const sorted = [...items].sort((a, b) => {
-    const aTime = new Date(`${a.date}T${(a as any).time || '00:00'}`);
-    const bTime = new Date(`${b.date}T${(b as any).time || '00:00'}`);
-    return aTime.getTime() - bTime.getTime();
-  });
-
+export function groupByMonthThenDay<
+  T extends { fixtureDate: number }
+>(items: T[]): Record<string, Record<string, T[]>> {
+  const sorted = sortByFixtureDate(items);
   const grouped: Record<string, Record<string, T[]>> = {};
 
   for (const item of sorted) {
-    const date = parseISO(item.date);
-    const monthKey = format(date, 'yyyy-MM'); // e.g. "2025-06"
-    const dayKey = format(date, 'yyyy-MM-dd'); // e.g. "2025-06-18"
+    const date = fromUnixSeconds(item.fixtureDate);
+    const monthKey = format(date, 'yyyy-MM');
+    const dayKey = format(date, 'yyyy-MM-dd');
 
     if (!grouped[monthKey]) grouped[monthKey] = {};
     if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
@@ -146,4 +101,49 @@ export function groupByMonthThenDay<T extends { date: string }>(
   }
 
   return grouped;
+}
+
+/* -------------------------------------------------------------------------- */
+/* JSON loading                                                               */
+/* -------------------------------------------------------------------------- */
+
+const jsonModules = import.meta.glob('/src/data/*/*/*.json', {
+  eager: true,
+}) as Record<string, any>;
+
+function getJson<T>(slug: string, year: string, name: string): T {
+  const key = `/src/data/${slug}/${year}/${name}.json`;
+  const module = jsonModules[key];
+  if (!module) throw new Error(`Missing JSON module: ${key}`);
+  return module.default ?? module;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Public API                                                                 */
+/* -------------------------------------------------------------------------- */
+
+export async function loadUnionData(slug: string, year = '2025') {
+  return {
+    clubs: getJson<Record<string, Club>>(slug, year, 'clubs'),
+    leagues: getJson<Record<string, League>>(slug, year, 'leagues'),
+    fixtures: getJson<Record<string, Fixture[]>>(slug, year, 'fixtures'),
+    standings: getJson<Record<string, Standing[]>>(slug, year, 'standings'),
+  };
+}
+
+export async function prepareUnionData(slug: string, year = '2025') {
+  const raw = await loadUnionData(slug, year);
+
+  return {
+    clubs: raw.clubs,
+    leagues: raw.leagues,
+    fixturesByLeague: raw.fixtures,
+    // fixturesByLeague: Object.fromEntries(
+    //   Object.entries(raw.fixtures).map(([leagueId, items]) => [
+    //     leagueId,
+    //     groupByDayThenLeague(items),
+    //   ])
+    // ),
+    standingsByLeague: raw.standings,
+  };
 }
