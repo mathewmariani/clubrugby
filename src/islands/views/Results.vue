@@ -1,46 +1,55 @@
 <template>
-  <div v-if="hasResults">
-    <DayMatchGroup
-      v-for="(leaguesForDay, day) in filteredResults"
-      :key="day"
-      :day="day"
-      :leagues-for-day="leaguesForDay"
-      :clubs="clubs"
-      :leagues="leagues"
-      match-component="ResultListItem"
-    />
+  <div v-if="hasFixtures">
+    <template v-for="(fixtures, leagueId) in leaguesWithResults" :key="leagueId">
+      <div class="list-group list-group-flush">
+        <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
+          <div class="list-group-header list-group-item bg-body-tertiary">
+            <small>{{ leagueId }}</small>
+          </div>
+        </div>
+
+        <ResultListItem
+          v-for="fixture in fixtures"
+          :key="fixture.fixtureId"
+          :match="fixture"
+          :home="clubs[fixture.homeClubId]"
+          :away="clubs[fixture.awayClubId]"
+        />
+      </div>
+    </template>
   </div>
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No results available.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
-    </div>
-  </template>
+  <div v-else class="container-fluid text-center text-muted pt-3">
+    <p>No fixtures available.</p>
+    <hr />
+    <p>Ensure your preferences are set.</p>
+  </div>
 </template>
 
+
 <script setup lang="ts">
-  import { toRef } from 'vue';
-  import DayMatchGroup from '@/components/vue/DayMatchGroup.vue';
-  import ResultListItem from '@/components/vue/items/ResultListItem.vue';
-  import { useSavedLeagues } from '@/composables/useSavedLeagues';
-  import { useFilteredMatches } from '@/composables/useFilteredMatches';
-  import type { Club, League, Result } from '@/utils/types';
-  import type { Union } from '@/utils/unions';
+import { computed } from 'vue';
+import type { Club, League, Fixture } from '@/utils/types';
+import type { Union } from '@/utils/unions';
+import ResultListItem from '@/components/vue/items/ResultListItem.vue';
 
-  const props = defineProps<{
-    union: Union;
-    clubs: Record<string, Club>;
-    leagues: Record<string, League>;
-    results: Record<string, Record<string, Result[]>>;
-  }>();
+const props = defineProps<{
+  union: Union;
+  clubs: Record<string, Club>;
+  leagues: Record<string, League>;
+  fixtures: Record<string, Fixture[]>;
+}>();
 
-  const clubs = toRef(props, 'clubs');
-  const leagues = toRef(props, 'leagues');
-  const results = toRef(props, 'results');
-  const { savedLeagues } = useSavedLeagues();
-  const { filtered: filteredResults, has: hasResults } = useFilteredMatches(
-    results,
-    savedLeagues
-  );
+const leaguesWithResults = computed(() =>
+  Object.fromEntries(
+    Object.entries(props.fixtures).map(([leagueId, fixtures]) => [
+      leagueId,
+      fixtures.filter(f => f.fixtureStatus === 'result'),
+    ]).filter(([_, fixtures]) => fixtures.length > 0)
+  )
+);
+
+const hasFixtures = computed(
+  () => Object.keys(leaguesWithResults.value).length > 0
+);
+
 </script>

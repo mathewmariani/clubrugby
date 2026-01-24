@@ -26,15 +26,14 @@
 
   import TeamLayout from '@/layouts/vue/TeamLayout.vue';
   import type { Union } from '@/utils/unions';
-  import type { Fixture, Result, Standing, Club, League } from '@/utils/types';
+  import type { Fixture, Standing, Club, League } from '@/utils/types';
 
   const props = defineProps<{
     union: Union;
     clubs: Record<string, Club>;
     leagues: Record<string, League>;
     standings: Record<string, Standing[]>;
-    fixtures: Record<string, Record<string, Fixture[]>>;
-    results: Record<string, Record<string, Result[]>>;
+    fixtures: Record<string, Fixture[]>;
   }>();
 
   // Setup router
@@ -60,7 +59,7 @@
         component: Results,
         props: {
           union: props.union,
-          results: props.results,
+          fixtures: props.fixtures,
           clubs: props.clubs,
           leagues: props.leagues,
         },
@@ -81,7 +80,6 @@
         props: (route) => ({
           event_id: route.params.event_id,
           fixtures: props.fixtures,
-          results: props.results,
           clubs: props.clubs,
           leagues: props.leagues,
           standings: props.standings,
@@ -101,7 +99,6 @@
             props: (route) => ({
               club_id: route.params.club_id,
               fixtures: props.fixtures,
-              results: props.results,
               clubs: props.clubs,
               leagues: props.leagues,
             }),

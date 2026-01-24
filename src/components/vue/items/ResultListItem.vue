@@ -1,26 +1,26 @@
 <template>
   <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img v-if="home?.logo_url" :src="home.logo_url" :alt="home.name" />
+      <img v-if="home?.logo" :src="home.logo" :alt="home.name" />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
       <span class="text-body-emphasis fw-normal">{{
         home?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.home_score, match.away_score)"
+        :class="scoreClass(match.homeScore, match.awayScore)"
         class="ms-auto"
-        >{{ match.home_score || 'Unknown' }}</strong
+        >{{ match.homeScore || 'Unknown' }}</strong
       >
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img v-if="away?.logo_url" :src="away.logo_url" :alt="away.name" />
+      <img v-if="away?.logo" :src="away.logo" :alt="away.name" />
       <span class="text-body-emphasis fw-normal">{{
         away?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.away_score, match.home_score)"
+        :class="scoreClass(match.awayScore, match.homeScore)"
         class="ms-auto"
-        >{{ match.away_score || 'Unknown' }}</strong
+        >{{ match.awayScore || 'Unknown' }}</strong
       >
     </div>
   </a>
@@ -28,13 +28,13 @@
 
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
-  import type { Club, Result } from '@/utils/types';
+  import type { Club, Fixture } from '@/utils/types';
   import { useEncodedRoute } from "@/composables/useEncodedRoute";
 
   const props = defineProps<{
     home: Club;
     away: Club;
-    match: Result;
+    match: Fixture;
   }>();
 
   function scoreClass(score: string, opponentScore: string) {
@@ -50,9 +50,9 @@
   function goToEvent() {
   const obj = {
     leagueId: props.match.league_id,
-    homeId: props.match.home_id,
-    awayId: props.match.away_id,
-    date: props.match.date,
+    homeId: props.match.homeClubId,
+    awayId: props.match.awayClubId,
+    date: props.match.fixtureDate,
   };
 
   const encoded = encode(obj);
