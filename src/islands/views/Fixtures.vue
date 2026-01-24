@@ -4,7 +4,7 @@
       <div class="list-group list-group-flush">
         <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
           <div class="list-group-header list-group-item bg-body-tertiary">
-            <small>{{ leagueId }}</small>
+            <small>{{ getLeagueName(leagueId.toString(), props.leagues) }}</small>
           </div>
         </div>
 
@@ -28,14 +28,15 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { Club, League, Fixture } from '@/utils/types';
+import type { Club, Fixture } from '@/utils/types';
 import type { Union } from '@/utils/unions';
+import { getLeagueName } from '@/composables/utils';
 import FixtureListItem from '@/components/vue/items/FixtureListItem.vue';
 
 const props = defineProps<{
   union: Union;
   clubs: Record<string, Club>;
-  leagues: Record<string, League>;
+  leagues: Record<string, string>;
   fixtures: Record<string, Fixture[]>;
 }>();
 
@@ -48,8 +49,6 @@ const leaguesWithFixtures = computed(() =>
   )
 );
 
-const hasFixtures = computed(
-  () => Object.keys(leaguesWithFixtures.value).length > 0
-);
+const hasFixtures = computed(() => Object.keys(leaguesWithFixtures.value).length > 0);
 
 </script>

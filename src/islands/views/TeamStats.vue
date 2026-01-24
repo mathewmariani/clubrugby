@@ -57,7 +57,7 @@
   const props = defineProps<{
     club_id: string;
     clubs: Record<string, Club>;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
     standings: Record<string, Standing[]>;
   }>();
 

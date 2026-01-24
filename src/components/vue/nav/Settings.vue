@@ -52,7 +52,7 @@
   import { ref, onMounted } from 'vue';
 
   const props = defineProps<{
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
   }>();
 
   const isDarkMode = ref(false);

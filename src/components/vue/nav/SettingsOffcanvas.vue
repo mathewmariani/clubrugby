@@ -25,7 +25,7 @@
   import { type League } from '@/utils/types.ts';
 
   const props = defineProps<{
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
   }>();
 
   const offcanvasRef = ref<HTMLElement | null>(null);

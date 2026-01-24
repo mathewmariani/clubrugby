@@ -1,12 +1,6 @@
 export interface Club {
-  id: string;
   name: string;
   logo: string;
-}
-
-export interface League {
-  id: string;
-  name: string;
 }
 
 export interface Standing {

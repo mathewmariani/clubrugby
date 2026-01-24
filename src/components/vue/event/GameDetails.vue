@@ -3,7 +3,7 @@
     <div class="d-flex flex-column mt-3">
       <h6>Match Details</h6>
       <span class="text-muted">Date</span>
-      <p>{{ date }} {{ time }}</p>
+      <p>{{ date }}</p>
       <span class="text-muted">League</span>
       <p>{{ league }}</p>
       <template v-if="!isResult">
@@ -15,11 +15,15 @@
 </template>
 
 <script setup lang="ts">
-  defineProps<{
-    date: string;
-    time: string;
+  import { formattedDate } from '@/composables/utils';
+  import { computed } from 'vue';
+
+  const props = defineProps<{
+    fixtureDate: number;
     league: string;
-    venue?: string;
+    venue: string;
     isResult: boolean;
   }>();
+
+  const date = computed(() => formattedDate(props.fixtureDate));
 </script>

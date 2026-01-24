@@ -14,9 +14,15 @@
   import { useLayout } from '@/composables/useLayout';
   const { navbarHeight } = useLayout();
 
-  defineProps<{
+  import { formattedTime } from '@/composables/utils';
+  import { computed } from 'vue';
+
+
+  const props = defineProps<{
     leagueName: string;
     isResult: boolean;
-    time?: string;
+    fixtureDate: number;
   }>();
+
+  const time = computed(() => formattedTime(props.fixtureDate));
 </script>

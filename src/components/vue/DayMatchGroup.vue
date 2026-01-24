@@ -40,7 +40,7 @@
       day: string;
       leaguesForDay: Record<string, Fixture[]>;
       clubs: Record<string, Club>;
-      leagues: Record<string, League>;
+      leagues: Record<string, string>;
       matchComponent: 'FixtureListItem' | 'ResultListItem';
     }>(),
     {}

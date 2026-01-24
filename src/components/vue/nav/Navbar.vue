@@ -71,7 +71,7 @@
 
   const props = defineProps<{
     union: Union;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
     clubs?: Record<string, Club>;
   }>();
 

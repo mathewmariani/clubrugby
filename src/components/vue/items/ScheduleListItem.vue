@@ -29,8 +29,8 @@
               </span>
 
               <img
-                v-if="getOpponent(match)?.logo_url"
-                :src="getOpponent(match)?.logo_url"
+                v-if="getOpponent(match)?.logo"
+                :src="getOpponent(match)?.logo"
                 :alt="getOpponent(match)?.name || ''"
                 width="24"
                 height="24"
@@ -80,10 +80,9 @@
   import { toRef, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
 
-  import type { Club, League, Fixture, Result } from '@/utils/types';
+  import type { Club, League, Fixture } from '@/utils/types';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
   import { parseISO, format } from 'date-fns';
-  import { useEncodedRoute } from "@/composables/useEncodedRoute";
 
   const route = useRoute();
   const router = useRouter();
@@ -91,8 +90,8 @@
 
   const props = defineProps<{
     clubs: Record<string, Club>;
-    leagues: Record<string, League>;
-    matches?: (Fixture | Result)[];
+    leagues: Record<string, string>;
+    matches?: Fixture[];
   }>();
 
   // Defensive fallback so matches is always an array
@@ -106,19 +105,19 @@
   const dayName = computed(() => format(dateObj.value, 'EEE')); // e.g. Wed
   const dayNumber = computed(() => format(dateObj.value, 'd')); // e.g. 18
 
-  function isResult(match: Fixture | Result): match is Result {
-    return 'home_score' in match && 'away_score' in match;
+  function isResult(match: Fixture): boolean {
+    return match.fixtureStatus === "result";
   }
 
-  function isHome(match: Fixture | Result): boolean {
-    return String(match.home_id) === clubId;
+  function isHome(match: Fixture): boolean {
+    return String(match.homeClubId) === clubId;
   }
 
-  function isAway(match: Fixture | Result): boolean {
-    return String(match.away_id) === clubId;
+  function isAway(match: Fixture): boolean {
+    return String(match.awayClubId) === clubId;
   }
 
-  function getOpponent(match: Fixture | Result) {
+  function getOpponent(match: Fixture) {
     // useMatchClubs expects a ref, so create a computed ref wrapping the match
     const matchRef = toRef({ value: match }, 'value');
     const { home, away } = useMatchClubs(matchRef, props.clubs);
@@ -127,10 +126,10 @@
     return null;
   }
 
-  function didWin(match: Result): boolean {
+  function didWin(match: Fixture): boolean {
     if (!isResult(match)) return false;
-    const homeScore = Number(match.home_score);
-    const awayScore = Number(match.away_score);
+    const homeScore = Number(match.homeScore);
+    const awayScore = Number(match.awayScore);
     return isHome(match)
       ? homeScore > awayScore
       : isAway(match)
@@ -138,24 +137,14 @@
         : false;
   }
 
-  function scoreDisplay(match: Result): string {
+  function scoreDisplay(match: Fixture): string {
     if (!isResult(match)) return '';
-    return `${match.home_score} - ${match.away_score}`;
+    return `${match.homeScore} - ${match.awayScore}`;
   }
 
-  const { encode } = useEncodedRoute();
-  function goToEvent(match: Result) {
-  const obj = {
-    leagueId: match.league_id,
-    homeId: match.home_id,
-    awayId: match.away_id,
-    date: match.date,
-  };
-
-  const encoded = encode(obj);
-
-  router.push({ path: `/event/${encoded}` }); // use encoded object in URL
-}
+  function goToEvent(match: Fixture) {
+    router.push({ path: `/event/${match.fixtureDate}` });
+  }
 </script>
 
 <style scoped>

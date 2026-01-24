@@ -26,12 +26,12 @@
 
   import TeamLayout from '@/layouts/vue/TeamLayout.vue';
   import type { Union } from '@/utils/unions';
-  import type { Fixture, Standing, Club, League } from '@/utils/types';
+  import type { Fixture, Standing, Club } from '@/utils/types';
 
   const props = defineProps<{
     union: Union;
     clubs: Record<string, Club>;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
     standings: Record<string, Standing[]>;
     fixtures: Record<string, Fixture[]>;
   }>();

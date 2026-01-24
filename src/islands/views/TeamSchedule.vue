@@ -76,7 +76,7 @@
     fixtures: Record<string, Record<string, Fixture[]>>;
     results: Record<string, Record<string, Result[]>>;
     clubs: Record<string, Club>;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
   }>();
 
   import { useLayout } from '@/composables/useLayout';

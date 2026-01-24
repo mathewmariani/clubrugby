@@ -3,7 +3,7 @@
     <template v-if="hasStandings">
       <template v-for="(teams, leagueId) in standings" :key="leagueId">
         <StandingsTable
-          :title="leagues[leagueId]?.name || leagueId"
+          :title="getLeagueName(leagueId.toString(), props.leagues)"
           :teams="teams"
           :clubs="clubs"
           :columns="sortableColumns"
@@ -24,12 +24,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
-import type { Club, League, Standing } from '@/utils/types';
+import { getLeagueName } from '@/composables/utils';
+import type { Club, Standing } from '@/utils/types';
 
 const props = defineProps<{
   standings: Record<string, Standing[]>; // already sorted by league & rank
   clubs: Record<string, Club>;
-  leagues: Record<string, League>;
+  leagues: Record<string, string>;
 }>();
 
 // No more grouping or filtering needed
