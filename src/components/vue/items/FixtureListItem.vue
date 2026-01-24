@@ -34,7 +34,6 @@
 import { useRouter } from 'vue-router';
 import type { Club } from '@/utils/types';
 import type { Fixture } from '@/utils/types';
-import { useEncodedRoute } from '@/composables/useEncodedRoute';
 import { computed } from 'vue';
 
 const props = defineProps<{
@@ -43,7 +42,6 @@ const props = defineProps<{
   match: Fixture;
 }>();
 
-const { encode } = useEncodedRoute();
 const router = useRouter();
 
 // Convert unix timestamp to human-readable "h:mm a"
@@ -55,15 +53,7 @@ const formattedTime = computed(() => {
 
 // Navigate to the event page
 function goToEvent() {
-  const obj = {
-    leagueId: props.match.league_id,
-    homeId: props.match.homeTeamId,
-    awayId: props.match.awayTeamId,
-    date: props.match.fixtureDate, // unix timestamp
-  };
-
-  const encoded = encode(obj);
-  router.push({ path: `/event/${encoded}` });
+  router.push({ path: `/event/${props.match.fixtureId}` });
 }
 </script>
 
