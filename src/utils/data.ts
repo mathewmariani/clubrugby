@@ -122,28 +122,18 @@ function getJson<T>(slug: string, year: string, name: string): T {
 /* Public API                                                                 */
 /* -------------------------------------------------------------------------- */
 
-export async function loadUnionData(slug: string, year = '2025') {
-  return {
-    clubs: getJson<Record<string, Club>>(slug, year, 'clubs'),
-    leagues: getJson<Record<string, League>>(slug, year, 'leagues'),
-    fixtures: getJson<Record<string, Fixture[]>>(slug, year, 'fixtures'),
-    standings: getJson<Record<string, Standing[]>>(slug, year, 'standings'),
-  };
-}
-
-export async function prepareUnionData(slug: string, year = '2025') {
-  const raw = await loadUnionData(slug, year);
+export async function getUnionData(slug: string, year = '2025') {
+  const [clubs, leagues, fixtures, standings] = await Promise.all([
+    getJson<Record<string, Club>>(slug, year, 'clubs'),
+    getJson<Record<string, League>>(slug, year, 'leagues'),
+    getJson<Record<string, Fixture[]>>(slug, year, 'fixtures'),
+    getJson<Record<string, Standing[]>>(slug, year, 'standings'),
+  ]);
 
   return {
-    clubs: raw.clubs,
-    leagues: raw.leagues,
-    fixturesByLeague: raw.fixtures,
-    // fixturesByLeague: Object.fromEntries(
-    //   Object.entries(raw.fixtures).map(([leagueId, items]) => [
-    //     leagueId,
-    //     groupByDayThenLeague(items),
-    //   ])
-    // ),
-    standingsByLeague: raw.standings,
+    clubs,
+    leagues,
+    fixtures,
+    standings,
   };
 }

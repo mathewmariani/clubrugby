@@ -12,12 +12,9 @@ export async function getStaticPaths() {
   }));
 }
 
-import { prepareUnionData } from '@/utils/data.ts';
+import { getUnionData } from '@/utils/data.ts';
 
-const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
-  await prepareUnionData(union.slug);
-
-  console.log(standingsByLeague);
+const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug);
 ---
 
 <Page>
@@ -26,8 +23,7 @@ const { clubs, leagues, fixturesByLeague, resultsByLeague, standingsByLeague } =
     union={union}
     clubs={clubs}
     leagues={leagues}
-    standings={standingsByLeague}
-    fixtures={fixturesByLeague}
-    results={resultsByLeague}
+    standings={standings}
+    fixtures={fixtures}
   />
 </Page>
