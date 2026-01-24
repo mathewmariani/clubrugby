@@ -1,6 +1,7 @@
 <template>
   <div class="list-group-item">
     <div class="d-flex gap-2">
+      <!-- Date capsule -->
       <div
         class="capsule-shape capsule-date d-flex flex-column align-items-center justify-content-center bg-body-tertiary"
       >
@@ -14,16 +15,14 @@
       <div class="flex-grow-1 d-flex flex-column justify-content-center gap-3">
         <a
           v-for="match in matches"
-          :key="match.id"
+          :key="match.fixtureId"
           class="list-group-item-action text-decoration-none"
           role="button"
           @click.prevent="goToEvent(match)"
         >
           <div class="d-flex justify-content-between align-items-center">
-            <!-- Opponent info -->
-            <div
-              class="d-flex align-items-center gap-2 flex-grow-1 min-width-0"
-            >
+            <!-- Opponent -->
+            <div class="d-flex align-items-center gap-2 flex-grow-1 min-width-0">
               <span class="fw-normal text-muted flex-shrink-0">
                 {{ isHome(match) ? 'vs' : 'at' }}
               </span>
@@ -37,21 +36,18 @@
                 class="logo-img flex-shrink-0"
               />
 
-              <!-- Opponent name container with truncate -->
               <div class="flex-grow-1 min-width-0">
                 <span class="text-body-emphasis fw-normal">
                   {{ getOpponent(match)?.name || 'Unknown' }}
                 </span>
                 <small class="text-body-secondary d-block">
-                  {{ getLeagueName(match?.league_id, leagues) || 'Unknown' }}
+                  {{ getLeagueName(match.leagueId, leagues) || 'Unknown league' }}
                 </small>
               </div>
             </div>
 
-            <!-- Right: badge/time -->
-            <div
-              class="d-flex align-items-center gap-1 flex-shrink-0 text-muted"
-            >
+            <!-- Right side -->
+            <div class="d-flex align-items-center gap-1 flex-shrink-0 text-muted">
               <template v-if="isResult(match)">
                 <span
                   class="badge text-center"
@@ -64,9 +60,9 @@
                 </span>
               </template>
               <template v-else>
-                <div class="d-flex align-items-center gap-1">
-                  <span class="text-body-secondary">{{ match.time }}</span>
-                </div>
+                <span class="text-body-secondary">
+                  {{ timeLabel(match.fixtureDate) }}
+                </span>
               </template>
             </div>
           </div>
@@ -77,108 +73,96 @@
 </template>
 
 <script setup lang="ts">
-  import { toRef, computed } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
+import { computed, toRef } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { format } from 'date-fns';
 
-  import type { Club, League, Fixture } from '@/utils/types';
-  import { useMatchClubs, getLeagueName } from '@/composables/utils';
-  import { parseISO, format } from 'date-fns';
+import type { Club, Fixture } from '@/utils/types';
+import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
-  const route = useRoute();
-  const router = useRouter();
-  const clubId = route.params.club_id as string;
+const route = useRoute();
+const router = useRouter();
+const clubId = route.params.club_id as string;
 
-  const props = defineProps<{
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-    matches?: Fixture[];
-  }>();
+const props = defineProps<{
+  clubs: Record<string, Club>;
+  leagues: Record<string, string>;
+  fixtures: Fixture[];
+}>();
 
-  // Defensive fallback so matches is always an array
-  const matches = computed(() => props.matches ?? []);
+const matches = computed(() => props.fixtures ?? []);
 
-  const dateObj = computed(() => {
-    if (matches.value.length === 0) return new Date();
-    return parseISO(matches.value[0].date);
-  });
+/* --- Date helpers --- */
 
-  const dayName = computed(() => format(dateObj.value, 'EEE')); // e.g. Wed
-  const dayNumber = computed(() => format(dateObj.value, 'd')); // e.g. 18
+const firstMatchDate = computed(() => {
+  if (!matches.value.length) return new Date();
+  return new Date(matches.value[0].fixtureDate * 1000);
+});
 
-  function isResult(match: Fixture): boolean {
-    return match.fixtureStatus === "result";
-  }
+const dayName = computed(() => format(firstMatchDate.value, 'EEE'));
+const dayNumber = computed(() => format(firstMatchDate.value, 'd'));
 
-  function isHome(match: Fixture): boolean {
-    return String(match.homeClubId) === clubId;
-  }
+function timeLabel(unixSeconds: number): string {
+  return format(new Date(unixSeconds * 1000), 'HH:mm');
+}
 
-  function isAway(match: Fixture): boolean {
-    return String(match.awayClubId) === clubId;
-  }
+/* --- Match helpers --- */
 
-  function getOpponent(match: Fixture) {
-    // useMatchClubs expects a ref, so create a computed ref wrapping the match
-    const matchRef = toRef({ value: match }, 'value');
-    const { home, away } = useMatchClubs(matchRef, props.clubs);
-    if (isHome(match)) return away?.value || null;
-    if (isAway(match)) return home?.value || null;
-    return null;
-  }
+function isResult(match: Fixture) {
+  return match.fixtureStatus === 'result';
+}
 
-  function didWin(match: Fixture): boolean {
-    if (!isResult(match)) return false;
-    const homeScore = Number(match.homeScore);
-    const awayScore = Number(match.awayScore);
-    return isHome(match)
-      ? homeScore > awayScore
-      : isAway(match)
-        ? awayScore > homeScore
-        : false;
-  }
+function isHome(match: Fixture) {
+  return match.homeClubId === clubId;
+}
 
-  function scoreDisplay(match: Fixture): string {
-    if (!isResult(match)) return '';
-    return `${match.homeScore} - ${match.awayScore}`;
-  }
+function isAway(match: Fixture) {
+  return match.awayClubId === clubId;
+}
 
-  function goToEvent(match: Fixture) {
-    router.push({ path: `/event/${match.fixtureDate}` });
-  }
+function getOpponent(match: Fixture) {
+  const matchRef = toRef({ value: match }, 'value');
+  const { home, away } = useMatchClubs(matchRef, props.clubs);
+  if (isHome(match)) return away?.value ?? null;
+  if (isAway(match)) return home?.value ?? null;
+  return null;
+}
+
+function didWin(match: Fixture): boolean {
+  if (!isResult(match)) return false;
+  const home = Number(match.homeScore);
+  const away = Number(match.awayScore);
+  return isHome(match) ? home > away : away > home;
+}
+
+function goToEvent(match: Fixture) {
+  router.push({ path: `/event/${match.fixtureId}` });
+}
 </script>
 
 <style scoped>
-  .capsule-date {
-    width: 32px;
-    user-select: none;
-    cursor: default;
-    padding: 8px 0;
-    min-width: 32px;
-    flex-shrink: 0;
-    background-color: var(--bs-secondary);
-    color: white;
+.capsule-date {
+  width: 32px;
+  user-select: none;
+  cursor: default;
+  padding: 8px 0;
+  min-width: 32px;
+  flex-shrink: 0;
+}
 
-    /* center content */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+.capsule-shape {
+  border-radius: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  align-self: stretch;
+}
 
-  .capsule-shape {
-    border-radius: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    height: auto;
-    align-self: stretch;
-  }
+small {
+  font-size: 0.75em;
+}
 
-  small {
-    font-size: 0.75em;
-  }
-
-  .logo-img {
-    object-fit: contain;
-    display: block;
-  }
+.logo-img {
+  object-fit: contain;
+  display: block;
+}
 </style>

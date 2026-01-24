@@ -11,7 +11,7 @@
         <ResultListItem
           v-for="fixture in fixtures"
           :key="fixture.fixtureId"
-          :match="fixture"
+          :fixture="fixture"
           :home="clubs[fixture.homeClubId]"
           :away="clubs[fixture.awayClubId]"
         />

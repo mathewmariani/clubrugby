@@ -27,7 +27,6 @@ export interface Standing {
 
 export interface Fixture {
   fixtureId: string;        // unique ID
-  league_id: string;        // league
   fixtureDate: number;      // unix timestamp in seconds
   fixtureStatus: 'fixture' | 'result'; // result or upcoming
 

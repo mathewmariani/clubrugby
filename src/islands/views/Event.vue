@@ -11,6 +11,8 @@
       <TeamHeader
         :home="home"
         :away="away"
+        :homeClubId="fixture.homeClubId"
+        :awayClubId="fixture.awayClubId"
         :homeScore="fixture.homeScore"
         :awayScore="fixture.awayScore"
         :homeRecord="homeTeamRecord"

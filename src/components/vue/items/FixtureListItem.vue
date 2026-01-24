@@ -3,7 +3,7 @@
   <a class="list-group-item" @click.prevent="goToEvent">
     <!-- top info: venue and time -->
     <div class="d-flex justify-content-between w-100 mb-2">
-      <small class="text-body-secondary">{{ match.venue }}</small>
+      <small class="text-body-secondary">{{ fixture.venue }}</small>
       <div class="d-flex align-items-center gap-2">
         <small class="text-body-secondary">
           {{ time }}
@@ -39,15 +39,15 @@ import { computed } from 'vue';
 const props = defineProps<{
   home: Club;
   away: Club;
-  match: Fixture;
+  fixture: Fixture;
 }>();
 
 
-const time = computed(() => { return formattedTime(props.match.fixtureDate); });
+const time = computed(() => { return formattedTime(props.fixture.fixtureDate); });
 
 const router = useRouter();
 function goToEvent() {
-  router.push({ path: `/event/${props.match.fixtureId}` });
+  router.push({ path: `/event/${props.fixture.fixtureId}` });
 }
 </script>
 

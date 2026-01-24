@@ -9,23 +9,22 @@
     <p>Ensure your preferences are set.</p>
   </div>
 
-  <!-- Fixtures and Results -->
   <div v-else>
-    <!-- Fixtures -->
+    <!-- Upcoming Fixtures -->
     <template v-if="hasFixtures">
       <template
-        v-for="(daysForMonth, month) in teamFixturesByMonthDay"
+        v-for="(daysForMonth, month) in upcomingByMonthDay"
         :key="month"
       >
         <div class="list-group list-group-flush">
           <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
             <div class="list-group-header list-group-item bg-body-tertiary">
-              {{ formatMonth(month) }}
+              {{ month }}
             </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
-              :matches="matchesForDay"
+              :fixtures="matchesForDay"
               :clubs="clubs"
               :leagues="leagues"
             />
@@ -39,18 +38,18 @@
     <!-- Results -->
     <template v-if="hasResults">
       <template
-        v-for="(daysForMonth, month) in teamResultsByMonthDay"
+        v-for="(daysForMonth, month) in resultsByMonthDay"
         :key="month"
       >
         <div class="list-group list-group-flush">
           <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
             <div class="list-group-header list-group-item bg-body-tertiary">
-              {{ formatMonth(month) }}
+              {{ month }}
             </div>
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
-              :matches="matchesForDay"
+              :fixtures="matchesForDay"
               :clubs="clubs"
               :leagues="leagues"
             />
@@ -62,155 +61,75 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import type { Club, League, Fixture, Result } from '@/utils/types';
-  import { formatDate, formatMonth } from '@/utils/data';
-  import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
-  import { parseISO, format } from 'date-fns';
+import { computed } from 'vue';
+import type { Club, Fixture } from '@/utils/types';
+import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
+import { format } from 'date-fns';
+import { useSavedLeagues } from '@/composables/useSavedLeagues';
+import { useLayout } from '@/composables/useLayout';
 
-  // Import your saved leagues composable
-  import { useSavedLeagues } from '@/composables/useSavedLeagues';
+const props = defineProps<{
+  club_id: string;
+  fixtures: Record<string, Fixture[]>; // league_id -> Fixture[]
+  clubs: Record<string, Club>;
+  leagues: Record<string, string>;
+}>();
 
-  const props = defineProps<{
-    club_id: string;
-    fixtures: Record<string, Record<string, Fixture[]>>;
-    results: Record<string, Record<string, Result[]>>;
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-  }>();
+const { navbarHeight } = useLayout();
 
-  import { useLayout } from '@/composables/useLayout';
-  const { navbarHeight } = useLayout();
+// --- Flatten & filter fixtures for this club ---
+function flattenClubMatches(status: 'fixture' | 'result') {
+  const all: Fixture[] = [];
+  for (const [leagueId, matches] of Object.entries(props.fixtures)) {
+    for (const match of matches) {
+      if (
+        match.homeClubId === props.club_id ||
+        match.awayClubId === props.club_id
+      ) {
+        if (match.fixtureStatus === status) {
+          all.push(match);
+        }
+      }
+    }
+  }
+  return all;
+}
 
-  const { savedLeagues } = useSavedLeagues();
+// --- Group by month/day ---
+function groupByMonthDay(matches: Fixture[]) {
+  const grouped: Record<string, Record<string, Fixture[]>> = {};
+  const sorted = [...matches].sort((a, b) => a.fixtureDate - b.fixtureDate);
 
-  function leagueIsIncluded(leagueId: string) {
-    // Adjust logic to either include or exclude saved leagues
-    // Here, show only leagues that are saved
-    return !savedLeagues.value.includes(leagueId);
+  for (const match of sorted) {
+    const date = new Date(match.fixtureDate * 1000);
+    const monthKey = format(date, 'yyyy-MM');
+    const dayKey = format(date, 'yyyy-MM-dd');
+
+    if (!grouped[monthKey]) grouped[monthKey] = {};
+    if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
+
+    grouped[monthKey][dayKey].push(match);
   }
 
-  const hasFixtures = computed(() =>
-    Object.entries(props.fixtures).some(([day, leaguesForDay]) => {
-      return Object.entries(leaguesForDay).some(([leagueId, matches]) => {
-        if (!leagueIsIncluded(leagueId)) return false;
-        return matches.some(
-          (match) =>
-            match.home_id === props.club_id || match.away_id === props.club_id
-        );
-      });
-    })
-  );
+  return grouped;
+}
 
-  const hasResults = computed(() =>
-    Object.entries(props.results).some(([day, leaguesForDay]) => {
-      return Object.entries(leaguesForDay).some(([leagueId, matches]) => {
-        if (!leagueIsIncluded(leagueId)) return false;
-        return matches.some(
-          (match) =>
-            match.home_id === props.club_id || match.away_id === props.club_id
-        );
-      });
-    })
-  );
+// --- Computed fixtures/results ---
+const upcomingByMonthDay = computed(() =>
+  groupByMonthDay(flattenClubMatches('fixture'))
+);
 
-  const teamFixturesByMonthDay = computed(() => {
-    // Go through days
-    const filteredByDay: Record<string, Fixture[]> = {};
+const resultsByMonthDay = computed(() =>
+  groupByMonthDay(flattenClubMatches('result'))
+);
 
-    for (const [day, leaguesForDay] of Object.entries(props.fixtures)) {
-      // Filter leagues inside this day by hide list
-      const filteredLeagues = Object.fromEntries(
-        Object.entries(leaguesForDay).filter(([leagueId]) =>
-          leagueIsIncluded(leagueId)
-        )
-      );
-
-      // Flatten filtered matches from included leagues
-      const matches = Object.values(filteredLeagues).flat();
-
-      // Keep only matches involving the club
-      const filteredMatches = matches.filter(
-        (f) => f.home_id === props.club_id || f.away_id === props.club_id
-      );
-
-      if (filteredMatches.length > 0) {
-        filteredByDay[day] = filteredMatches;
-      }
-    }
-
-    // Flatten all matches from all days to a list for grouping by month/day
-    const allMatches = Object.values(filteredByDay).flat();
-
-    // Sort matches by date/time
-    allMatches.sort(
-      (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
-    );
-
-    // Group matches by month/day
-    const grouped: Record<string, Record<string, Fixture[]>> = {};
-
-    for (const match of allMatches) {
-      const date = parseISO(match.date);
-      const monthKey = format(date, 'yyyy-MM');
-      const dayKey = format(date, 'yyyy-MM-dd');
-
-      if (!grouped[monthKey]) grouped[monthKey] = {};
-      if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
-
-      grouped[monthKey][dayKey].push(match);
-    }
-
-    return grouped;
-  });
-
-  const teamResultsByMonthDay = computed(() => {
-    const filteredByDay: Record<string, Result[]> = {};
-
-    for (const [day, leaguesForDay] of Object.entries(props.results)) {
-      const filteredLeagues = Object.fromEntries(
-        Object.entries(leaguesForDay).filter(([leagueId]) =>
-          leagueIsIncluded(leagueId)
-        )
-      );
-
-      const matches = Object.values(filteredLeagues).flat();
-
-      const filteredMatches = matches.filter(
-        (f) => f.home_id === props.club_id || f.away_id === props.club_id
-      );
-
-      if (filteredMatches.length > 0) {
-        filteredByDay[day] = filteredMatches;
-      }
-    }
-
-    const allMatches = Object.values(filteredByDay).flat();
-
-    allMatches.sort(
-      (a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time)
-    );
-
-    const grouped: Record<string, Record<string, Result[]>> = {};
-
-    for (const match of allMatches) {
-      const date = parseISO(match.date);
-      const monthKey = format(date, 'yyyy-MM');
-      const dayKey = format(date, 'yyyy-MM-dd');
-
-      if (!grouped[monthKey]) grouped[monthKey] = {};
-      if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
-
-      grouped[monthKey][dayKey].push(match);
-    }
-
-    return grouped;
-  });
+const hasFixtures = computed(() => Object.keys(upcomingByMonthDay.value).length > 0);
+const hasResults = computed(() => Object.keys(resultsByMonthDay.value).length > 0);
 </script>
 
 <style scoped>
-  .sticky-month {
-    position: sticky;
-    z-index: 10;
-  }
+.sticky-month {
+  position: sticky;
+  z-index: 10;
+}
 </style>

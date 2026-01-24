@@ -7,9 +7,9 @@
         home?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.homeScore, match.awayScore)"
+        :class="scoreClass(fixture.homeScore, fixture.awayScore)"
         class="ms-auto"
-        >{{ match.homeScore || 'Unknown' }}</strong
+        >{{ fixture.homeScore || 'Unknown' }}</strong
       >
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
@@ -18,9 +18,9 @@
         away?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.awayScore, match.homeScore)"
+        :class="scoreClass(fixture.awayScore, fixture.homeScore)"
         class="ms-auto"
-        >{{ match.awayScore || 'Unknown' }}</strong
+        >{{ fixture.awayScore || 'Unknown' }}</strong
       >
     </div>
   </a>
@@ -33,7 +33,7 @@
   const props = defineProps<{
     home: Club;
     away: Club;
-    match: Fixture;
+    fixture: Fixture;
   }>();
 
   function scoreClass(score: string, opponentScore: string) {
@@ -46,7 +46,7 @@
 
   const router = useRouter();
   function goToEvent() {
-    router.push({ path: `/event/${props.match.fixtureId}` });
+    router.push({ path: `/event/${props.fixture.fixtureId}` });
   }
 </script>
 

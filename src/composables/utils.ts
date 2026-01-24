@@ -19,17 +19,14 @@ export function formattedDate(timestamp: number): string {
   });
 }
 
-export function useMatchClubs(
-  match: Ref<Fixture | null>,
-  clubs: Record<string, Club>
-) {
+export function useMatchClubs(fixture: Ref<Fixture | null>, clubs: Record<string, Club>) {
   const home = computed(() => {
-    const id = match.value?.homeClubId;
+    const id = fixture.value?.homeClubId;
     return id ? clubs[id] : undefined;
   });
 
   const away = computed(() => {
-    const id = match.value?.awayClubId;
+    const id = fixture.value?.awayClubId;
     return id ? clubs[id] : undefined;
   });
 
