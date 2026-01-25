@@ -22,7 +22,6 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import SettingsComponent from './Settings.vue';
-  import { type League } from '@/utils/types.ts';
 
   const props = defineProps<{
     leagues: Record<string, string>;

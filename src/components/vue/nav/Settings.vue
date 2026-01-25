@@ -24,7 +24,7 @@
     <ul class="list-group">
       <li
         v-for="(league, index) in leagues"
-        :key="league.id"
+        :key="league"
         class="list-group-item"
       >
         <div class="form-check form-switch">
@@ -33,11 +33,11 @@
             type="checkbox"
             role="switch"
             :id="`league-${index}`"
-            :checked="!isLeagueSelected(league.id)"
-            @change="toggleLeague(league.id)"
+            :checked="!isLeagueSelected(league)"
+            @change="toggleLeague(league)"
           />
           <label class="form-check-label" :for="`league-${index}`">
-            {{ league.name }}
+            {{ league }}
           </label>
         </div>
       </li>
@@ -47,8 +47,6 @@
 
 <script setup lang="ts">
   import { useSavedLeagues } from '@/composables/useSavedLeagues';
-  import { type League } from '@/utils/types';
-
   import { ref, onMounted } from 'vue';
 
   const props = defineProps<{
