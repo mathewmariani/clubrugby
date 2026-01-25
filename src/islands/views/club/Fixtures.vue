@@ -64,63 +64,26 @@
 import { computed } from 'vue';
 import type { Club, Fixture } from '@/utils/types';
 import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
-import { format } from 'date-fns';
+import { groupByMonthDay, flattenFixturesForClub } from '@/composables/utils';
 import { useSavedLeagues } from '@/composables/useSavedLeagues';
 import { useLayout } from '@/composables/useLayout';
 
 const props = defineProps<{
   club_id: string;
-  fixtures: Record<string, Fixture[]>; // league_id -> Fixture[]
+  fixtures: Record<string, Fixture[]>;
   clubs: Record<string, Club>;
   leagues: Record<string, string>;
 }>();
 
 const { navbarHeight } = useLayout();
 
-// --- Flatten & filter fixtures for this club ---
-function flattenClubMatches(status: 'fixture' | 'result') {
-  const all: Fixture[] = [];
-  for (const [leagueId, matches] of Object.entries(props.fixtures)) {
-    for (const match of matches) {
-      if (
-        match.homeClubId === props.club_id ||
-        match.awayClubId === props.club_id
-      ) {
-        if (match.fixtureStatus === status) {
-          all.push(match);
-        }
-      }
-    }
-  }
-  return all;
-}
-
-// --- Group by month/day ---
-function groupByMonthDay(matches: Fixture[]) {
-  const grouped: Record<string, Record<string, Fixture[]>> = {};
-  const sorted = [...matches].sort((a, b) => a.fixtureDate - b.fixtureDate);
-
-  for (const match of sorted) {
-    const date = new Date(match.fixtureDate * 1000);
-    const monthKey = format(date, 'yyyy-MM');
-    const dayKey = format(date, 'yyyy-MM-dd');
-
-    if (!grouped[monthKey]) grouped[monthKey] = {};
-    if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
-
-    grouped[monthKey][dayKey].push(match);
-  }
-
-  return grouped;
-}
-
 // --- Computed fixtures/results ---
 const upcomingByMonthDay = computed(() =>
-  groupByMonthDay(flattenClubMatches('fixture'))
+  groupByMonthDay(flattenFixturesForClub(props.fixtures, props.club_id, 'fixture'))
 );
 
 const resultsByMonthDay = computed(() =>
-  groupByMonthDay(flattenClubMatches('result'))
+  groupByMonthDay(flattenFixturesForClub(props.fixtures, props.club_id, 'result'))
 );
 
 const hasFixtures = computed(() => Object.keys(upcomingByMonthDay.value).length > 0);

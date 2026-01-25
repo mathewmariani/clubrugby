@@ -1,5 +1,6 @@
 import { computed, type Ref } from 'vue';
 import type { Club, Fixture, Standing } from '@/utils/types';
+import { format } from 'date-fns';
 
 // Convert unix timestamp to human-readable "h:mm a"
 export function formattedTime(timestamp: number): string {
@@ -79,4 +80,40 @@ export function getOrdinalSuffix(n: number): string {
     default:
       return n + 'th';
   }
+}
+
+export function flattenFixturesForClub(fixtures: Record<string, Fixture[]>, club_id: string, status: 'fixture' | 'result') {
+  const all: Fixture[] = [];
+  for (const [leagueId, schedule] of Object.entries(fixtures)) {
+    for (const fixture of schedule) {
+      if (
+        fixture.homeClubId === club_id ||
+        fixture.awayClubId === club_id
+      ) {
+        if (fixture.fixtureStatus === status) {
+          all.push(fixture);
+        }
+      }
+    }
+  }
+  return all;
+}
+
+// --- Group by month/day ---
+export function groupByMonthDay(matches: Fixture[]) {
+  const grouped: Record<string, Record<string, Fixture[]>> = {};
+  const sorted = [...matches].sort((a, b) => a.fixtureDate - b.fixtureDate);
+
+  for (const match of sorted) {
+    const date = new Date(match.fixtureDate * 1000);
+    const monthKey = format(date, 'yyyy-MM');
+    const dayKey = format(date, 'yyyy-MM-dd');
+
+    if (!grouped[monthKey]) grouped[monthKey] = {};
+    if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
+
+    grouped[monthKey][dayKey].push(match);
+  }
+
+  return grouped;
 }

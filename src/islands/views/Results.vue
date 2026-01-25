@@ -1,21 +1,15 @@
 <template>
-  <div v-if="hasFixtures">
-    <template v-for="(fixtures, leagueId) in leaguesWithResults" :key="leagueId">
-      <div class="list-group list-group-flush">
-        <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
-          <div class="list-group-header list-group-item bg-body-tertiary">
-            <small>{{ getLeagueName(leagueId.toString(), props.leagues) }}</small>
-          </div>
-        </div>
-
-        <ResultListItem
-          v-for="fixture in fixtures"
-          :key="fixture.fixtureId"
-          :fixture="fixture"
-          :home="clubs[fixture.homeClubId]"
-          :away="clubs[fixture.awayClubId]"
-        />
-      </div>
+  <div v-if="hasResults">
+    <template v-for="(daysInMonth, monthId) in resultsByMonthDay" :key="monthId">
+      <DayMatchGroup
+        v-for="(fixtures, dayId) in daysInMonth"
+        :key="dayId"
+        :day="dayId"
+        :leaguesForDay="getLeaguesByDay(fixtures)"
+        :clubs="clubs"
+        :leagues="leagues"
+        matchComponent="ResultListItem"
+      />
     </template>
   </div>
   <div v-else class="container-fluid text-center text-muted pt-3">
@@ -30,8 +24,9 @@
 import { computed } from 'vue';
 import type { Club, Fixture } from '@/utils/types';
 import type { Union } from '@/utils/unions';
-import { getLeagueName } from '@/composables/utils';
-import ResultListItem from '@/components/vue/items/ResultListItem.vue';
+import { useFixtureFilters } from '@/composables/useFixtureFilters';
+import { groupByMonthDay } from '@/composables/utils';
+import DayMatchGroup from '@/components/vue/DayMatchGroup.vue';
 
 const props = defineProps<{
   union: Union;
@@ -40,15 +35,31 @@ const props = defineProps<{
   fixtures: Record<string, Fixture[]>;
 }>();
 
-const leaguesWithResults = computed(() =>
-  Object.fromEntries(
-    Object.entries(props.fixtures).map(([leagueId, fixtures]) => [
-      leagueId,
-      fixtures.filter(f => f.fixtureStatus === 'result'),
-    ]).filter(([_, fixtures]) => fixtures.length > 0)
-  )
+const { leaguesWithResults, hasResults } = useFixtureFilters(
+  computed(() => props.fixtures)
 );
 
-const hasFixtures = computed(() => Object.keys(leaguesWithResults.value).length > 0);
+// Group all results by month/day
+const resultsByMonthDay = computed(() => {
+  const allResults = Object.values(leaguesWithResults.value).flat();
+  return groupByMonthDay(allResults);
+});
+
+// Convert flat fixture array to leagues grouped by league ID
+function getLeaguesByDay(fixtures: Fixture[]): Record<string, Fixture[]> {
+  const grouped: Record<string, Fixture[]> = {};
+  for (const fixture of fixtures) {
+    // Find which league this fixture belongs to
+    const leagueId = Object.entries(props.fixtures).find(([_, leagueFixtures]) =>
+      leagueFixtures.includes(fixture)
+    )?.[0];
+    
+    if (leagueId) {
+      if (!grouped[leagueId]) grouped[leagueId] = [];
+      grouped[leagueId].push(fixture);
+    }
+  }
+  return grouped;
+}
 
 </script>
