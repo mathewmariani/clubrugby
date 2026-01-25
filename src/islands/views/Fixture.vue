@@ -74,7 +74,7 @@
 
   <template v-else>
     <div class="container-fluid text-center text-muted pt-3">
-      <p>No event was found.</p>
+      <p>No fixture was found.</p>
       <hr />
       <p>Ensure your preferences are set.</p>
     </div>
@@ -102,7 +102,7 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
-const fixture_id = computed(() => route.params.event_id as string | undefined);
+const fixture_id = computed(() => route.params.fixture_id as string | undefined);
 
 const { fixture, league_id } = useFixtureById(fixture_id, props.fixtures );
 const { home, away } = useMatchClubs(fixture, props.clubs);

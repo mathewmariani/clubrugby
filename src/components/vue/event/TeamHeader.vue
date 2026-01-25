@@ -2,18 +2,18 @@
   <div class="list-group-item">
     <template v-if="isResult">
       <div class="d-flex align-items-center justify-content-between my-3">
-        <router-link v-if="home" :to="`/team/${homeClubId}`">
+        <router-link v-if="home" :to="`/club/${homeClubId}`">
           <img :src="home.logo" alt="" />
         </router-link>
         <EventScore :homeScore="homeScore" :awayScore="awayScore" />
-        <router-link v-if="away" :to="`/team/${awayClubId}`">
+        <router-link v-if="away" :to="`/club/${awayClubId}`">
           <img :src="away.logo" alt="" />
         </router-link>
       </div>
     </template>
     <template v-else>
       <div class="d-flex gap-3 my-3">
-        <router-link v-if="home" :to="`/team/${homeClubId}`">
+        <router-link v-if="home" :to="`/club/${homeClubId}`">
           <img :src="home.logo" alt="" />
         </router-link>
         <div class="d-flex flex-column justify-content-center">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="d-flex gap-3 mb-3 my-3">
-        <router-link v-if="away" :to="`/team/${awayClubId}`">
+        <router-link v-if="away" :to="`/club/${awayClubId}`">
           <img :src="away.logo" alt="" />
         </router-link>
         <div class="d-flex flex-column justify-content-center">

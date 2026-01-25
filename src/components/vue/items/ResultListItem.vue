@@ -46,7 +46,7 @@
 
   const router = useRouter();
   function goToEvent() {
-    router.push({ path: `/event/${props.fixture.fixtureId}` });
+    router.push({ path: `/fixture/${props.fixture.fixtureId}` });
   }
 </script>
 

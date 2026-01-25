@@ -136,7 +136,7 @@ function didWin(match: Fixture): boolean {
 }
 
 function goToEvent(match: Fixture) {
-  router.push({ path: `/event/${match.fixtureId}` });
+  router.push({ path: `/fixture/${match.fixtureId}` });
 }
 </script>
 
