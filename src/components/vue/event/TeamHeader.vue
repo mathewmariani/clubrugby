@@ -45,8 +45,8 @@
     homeRecord?: string;
     awayRecord?: string;
     isResult: boolean;
-    homeScore?: string;
-    awayScore?: string;
+    homeScore?: number;
+    awayScore?: number;
   }>();
 </script>
 

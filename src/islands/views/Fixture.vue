@@ -13,8 +13,8 @@
         :away="away"
         :homeClubId="fixture.homeClubId"
         :awayClubId="fixture.awayClubId"
-        :homeScore="fixture.homeScore"
-        :awayScore="fixture.awayScore"
+        :homeScore="extractMainScore(fixture.homeScore)"
+        :awayScore="extractMainScore(fixture.awayScore)"
         :homeRecord="homeTeamRecord"
         :awayRecord="awayTeamRecord"
         :isResult="isResult"
@@ -85,7 +85,7 @@
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 
-import { getLeagueName, useMatchClubs, useFixtureById, getRecordString } from '@/composables/utils';
+import { getLeagueName, useMatchClubs, useFixtureById, getRecordString, extractMainScore } from '@/composables/utils';
 
 import MatchHeader from '@/components/vue/event/MatchHeader.vue';
 import TeamHeader from '@/components/vue/event/TeamHeader.vue';
@@ -93,6 +93,7 @@ import GameDetails from '@/components/vue/event/GameDetails.vue';
 import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
 import type { Fixture, Standing, Club } from '@/utils/types';
+
 
 const props = defineProps<{
   clubs: Record<string, Club>;

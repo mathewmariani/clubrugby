@@ -7,9 +7,9 @@
         home?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(fixture.homeScore, fixture.awayScore)"
+        :class="scoreClass(homeScore, awayScore)"
         class="ms-auto"
-        >{{ fixture.homeScore || 'Unknown' }}</strong
+        >{{ homeScore }}</strong
       >
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
@@ -18,9 +18,9 @@
         away?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(fixture.awayScore, fixture.homeScore)"
+        :class="scoreClass(awayScore, homeScore)"
         class="ms-auto"
-        >{{ fixture.awayScore || 'Unknown' }}</strong
+        >{{ awayScore }}</strong
       >
     </div>
   </a>
@@ -29,6 +29,8 @@
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
   import type { Club, Fixture } from '@/utils/types';
+  import { extractMainScore } from '@/composables/utils';
+  import { computed } from 'vue';
 
   const props = defineProps<{
     home: Club;
@@ -36,7 +38,11 @@
     fixture: Fixture;
   }>();
 
-  function scoreClass(score: string, opponentScore: string) {
+  
+  const homeScore = computed(() => { return extractMainScore(props.fixture.homeScore); });
+  const awayScore = computed(() => { return extractMainScore(props.fixture.awayScore); });
+
+  function scoreClass(score: number, opponentScore: number) {
     if (score == null || opponentScore == null) return '';
     if (score === opponentScore) return ''; // tie no color
     return Number(score) > Number(opponentScore)
