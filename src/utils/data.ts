@@ -14,7 +14,7 @@ function getJson<T>(slug: string, year: string, name: string): T {
 export async function getUnionData(slug: string, year = '2025') {
   const [clubs, leagues, fixtures, standings] = await Promise.all([
     getJson<Record<string, Club>>(slug, year, 'clubs'),
-    getJson<Record<string, Record<string, string>>>(slug, year, 'leagues'),
+    getJson<Record<string, string>>(slug, year, 'leagues'),
     getJson<Record<string, Fixture[]>>(slug, year, 'fixtures'),
     getJson<Record<string, Standing[]>>(slug, year, 'standings'),
   ]);

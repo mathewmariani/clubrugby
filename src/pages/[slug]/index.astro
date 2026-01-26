@@ -14,7 +14,8 @@ export async function getStaticPaths() {
 
 import { getUnionData } from '@/utils/data.ts';
 
-const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug);
+const year = new Date().getFullYear().toString();
+const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug, year);
 ---
 
 <Page>
