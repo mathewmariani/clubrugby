@@ -20,12 +20,12 @@ jobs:
 
       - name: Install Packages 📦
         run: |
-            npm ci
-            python -m pip install --upgrade pip
-            pip install -e clubrugby-data[dev]
+          npm ci
+          python -m pip install --upgrade pip
+          pip install -e clubrugby-data[dev]
 
-      - name: Run Scraper 🔍
-        run: clubrugby-scraper --unions ALL --year 2026
+      - name: Run Scraper 🕷️
+        run: python clubrugby-data/main.py --unions ALL --year 2025
 
       - name: Building Website 🔧
         run: npm run build
