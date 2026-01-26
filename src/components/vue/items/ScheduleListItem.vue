@@ -13,60 +13,62 @@
 
       <!-- Matches list -->
       <div class="flex-grow-1 d-flex flex-column justify-content-center gap-3">
-        <a
-          v-for="match in matches"
-          :key="match.fixtureId"
-          class="list-group-item-action text-decoration-none"
-          role="button"
-          @click.prevent="goToEvent(match)"
-        >
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Opponent -->
-            <div class="d-flex align-items-center gap-2 flex-grow-1 min-width-0">
-              <span class="fw-normal text-muted flex-shrink-0">
-                {{ isHome(match) ? 'vs' : 'at' }}
-              </span>
-
-              <img
-                v-if="getOpponent(match)?.logo"
-                :src="getOpponent(match)?.logo"
-                :alt="getOpponent(match)?.name || ''"
-                width="24"
-                height="24"
-                class="logo-img flex-shrink-0"
-              />
-
-              <div class="flex-grow-1 min-width-0">
-                <span class="text-body-emphasis fw-normal">
-                  {{ getOpponent(match)?.name || 'Unknown' }}
+        <template v-for="(fixtures, leagueId) in fixturesByLeague" :key="leagueId">
+          <a
+            v-for="fixture in fixtures"
+            :key="fixture.fixtureId"
+            class="list-group-item-action text-decoration-none"
+            role="button"
+            @click.prevent="goToEvent(fixture)"
+          >
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Opponent -->
+              <div class="d-flex align-items-center gap-2 flex-grow-1 min-width-0">
+                <span class="fw-normal text-muted flex-shrink-0">
+                  {{ isHome(fixture) ? 'vs' : 'at' }}
                 </span>
-                <small class="text-body-secondary d-block">
-                  {{ getLeagueName(match.leagueId, leagues) || 'Unknown league' }}
-                </small>
+
+                <img
+                  v-if="getOpponent(fixture)?.logo"
+                  :src="getOpponent(fixture)?.logo"
+                  :alt="getOpponent(fixture)?.name || ''"
+                  width="24"
+                  height="24"
+                  class="logo-img flex-shrink-0"
+                />
+
+                <div class="flex-grow-1 min-width-0">
+                  <span class="text-body-emphasis fw-normal">
+                    {{ getOpponent(fixture)?.name || 'Unknown' }}
+                  </span>
+                  <small class="text-body-secondary d-block">
+                    {{ getLeagueName(leagueId, props.leagues) || 'Unknown league' }}
+                  </small>
+                </div>
+              </div>
+
+              <!-- Right side -->
+              <div class="d-flex align-items-center gap-1 flex-shrink-0 text-muted">
+                <template v-if="isResult(fixture)">
+                  <span
+                    class="badge text-center"
+                    :class="{
+                      'text-bg-success': didWin(fixture),
+                      'text-bg-danger': !didWin(fixture),
+                    }"
+                  >
+                    {{ didWin(fixture) ? 'W' : 'L' }}
+                  </span>
+                </template>
+                <template v-else>
+                  <span class="text-body-secondary">
+                    {{ timeLabel(fixture.fixtureDate) }}
+                  </span>
+                </template>
               </div>
             </div>
-
-            <!-- Right side -->
-            <div class="d-flex align-items-center gap-1 flex-shrink-0 text-muted">
-              <template v-if="isResult(match)">
-                <span
-                  class="badge text-center"
-                  :class="{
-                    'text-bg-success': didWin(match),
-                    'text-bg-danger': !didWin(match),
-                  }"
-                >
-                  {{ didWin(match) ? 'W' : 'L' }}
-                </span>
-              </template>
-              <template v-else>
-                <span class="text-body-secondary">
-                  {{ timeLabel(match.fixtureDate) }}
-                </span>
-              </template>
-            </div>
-          </div>
-        </a>
+          </a>
+        </template>
       </div>
     </div>
   </div>
@@ -78,7 +80,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { format } from 'date-fns';
 
 import type { Club, Fixture } from '@/utils/types';
-import { useMatchClubs, getLeagueName } from '@/composables/utils';
+import { useMatchClubs, getLeagueName, extractMainScore } from '@/composables/utils';
 
 const route = useRoute();
 const router = useRouter();
@@ -87,16 +89,17 @@ const clubId = route.params.club_id as string;
 const props = defineProps<{
   clubs: Record<string, Club>;
   leagues: Record<string, string>;
-  fixtures: Fixture[];
+  fixturesByLeague: Record<string, Fixture[]>;
 }>();
 
-const matches = computed(() => props.fixtures ?? []);
+const fixturesByLeague = computed(() => props.fixturesByLeague ?? {});
 
 /* --- Date helpers --- */
 
 const firstMatchDate = computed(() => {
-  if (!matches.value.length) return new Date();
-  return new Date(matches.value[0].fixtureDate * 1000);
+  const allFixtures = Object.values(fixturesByLeague.value).flat();
+  if (!allFixtures.length) return new Date();
+  return new Date(allFixtures[0].fixtureDate * 1000);
 });
 
 const dayName = computed(() => format(firstMatchDate.value, 'EEE'));
@@ -108,35 +111,35 @@ function timeLabel(unixSeconds: number): string {
 
 /* --- Match helpers --- */
 
-function isResult(match: Fixture) {
-  return match.fixtureStatus === 'result';
+function isResult(fixture: Fixture) {
+  return fixture.fixtureStatus === 'result';
 }
 
-function isHome(match: Fixture) {
-  return match.homeClubId === clubId;
+function isHome(fixture: Fixture) {
+  return fixture.homeClubId === clubId;
 }
 
-function isAway(match: Fixture) {
-  return match.awayClubId === clubId;
+function isAway(fixture: Fixture) {
+  return fixture.awayClubId === clubId;
 }
 
-function getOpponent(match: Fixture) {
-  const matchRef = toRef({ value: match }, 'value');
-  const { home, away } = useMatchClubs(matchRef, props.clubs);
-  if (isHome(match)) return away?.value ?? null;
-  if (isAway(match)) return home?.value ?? null;
+function getOpponent(fixture: Fixture) {
+  const fixtureRef = toRef({ value: fixture }, 'value');
+  const { home, away } = useMatchClubs(fixtureRef, props.clubs);
+  if (isHome(fixture)) return away?.value ?? null;
+  if (isAway(fixture)) return home?.value ?? null;
   return null;
 }
 
-function didWin(match: Fixture): boolean {
-  if (!isResult(match)) return false;
-  const home = Number(match.homeScore);
-  const away = Number(match.awayScore);
-  return isHome(match) ? home > away : away > home;
+function didWin(fixture: Fixture): boolean {
+  if (!isResult(fixture)) return false;
+  const home = extractMainScore(fixture.homeScore);
+  const away = extractMainScore(fixture.awayScore);
+  return isHome(fixture) ? home > away : away > home;
 }
 
-function goToEvent(match: Fixture) {
-  router.push({ path: `/fixture/${match.fixtureId}` });
+function goToEvent(fixture: Fixture) {
+  router.push({ path: `/fixture/${fixture.fixtureId}` });
 }
 </script>
 

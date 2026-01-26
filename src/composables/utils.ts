@@ -118,6 +118,35 @@ export function groupByMonthDay(matches: Fixture[]) {
   return grouped;
 }
 
+// Group by month/day/league, preserving league information
+export function groupByMonthDayLeague(fixturesByLeague: Record<string, Fixture[]>, club_id: string, status: 'fixture' | 'result') {
+  const grouped: Record<string, Record<string, Record<string, Fixture[]>>> = {};
+
+  for (const [leagueId, fixtures] of Object.entries(fixturesByLeague)) {
+    // Filter fixtures for the club and status
+    const filtered = fixtures.filter(f => {
+      return (f.homeClubId === club_id || f.awayClubId === club_id) && f.fixtureStatus === status;
+    });
+
+    // Sort by date
+    const sorted = [...filtered].sort((a, b) => a.fixtureDate - b.fixtureDate);
+
+    for (const fixture of sorted) {
+      const date = new Date(fixture.fixtureDate * 1000);
+      const monthKey = format(date, 'yyyy-MM');
+      const dayKey = format(date, 'yyyy-MM-dd');
+
+      if (!grouped[monthKey]) grouped[monthKey] = {};
+      if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = {};
+      if (!grouped[monthKey][dayKey][leagueId]) grouped[monthKey][dayKey][leagueId] = [];
+
+      grouped[monthKey][dayKey][leagueId].push(fixture);
+    }
+  }
+
+  return grouped;
+}
+
 // Extract the main score from format like "36;6" -> "36"
 export function extractMainScore(score: string | undefined): number {
   if (!score) return 0;

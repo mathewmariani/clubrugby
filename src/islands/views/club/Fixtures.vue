@@ -13,7 +13,7 @@
     <!-- Upcoming Fixtures -->
     <template v-if="hasFixtures">
       <template
-        v-for="(daysForMonth, month) in upcomingByMonthDay"
+        v-for="(daysForMonth, month) in fixturesByMonthDay"
         :key="month"
       >
         <div class="list-group list-group-flush">
@@ -24,7 +24,7 @@
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
-              :fixtures="matchesForDay"
+              :fixturesByLeague="matchesForDay"
               :clubs="clubs"
               :leagues="leagues"
             />
@@ -49,7 +49,7 @@
           </div>
           <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
             <ScheduleListItem
-              :fixtures="matchesForDay"
+              :fixturesByLeague="matchesForDay"
               :clubs="clubs"
               :leagues="leagues"
             />
@@ -64,8 +64,7 @@
 import { computed } from 'vue';
 import type { Club, Fixture } from '@/utils/types';
 import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
-import { groupByMonthDay, flattenFixturesForClub } from '@/composables/utils';
-import { useSavedLeagues } from '@/composables/useSavedLeagues';
+import { groupByMonthDayLeague } from '@/composables/utils';
 import { useLayout } from '@/composables/useLayout';
 
 const props = defineProps<{
@@ -78,15 +77,15 @@ const props = defineProps<{
 const { navbarHeight } = useLayout();
 
 // --- Computed fixtures/results ---
-const upcomingByMonthDay = computed(() =>
-  groupByMonthDay(flattenFixturesForClub(props.fixtures, props.club_id, 'fixture'))
+const fixturesByMonthDay = computed(() =>
+  groupByMonthDayLeague(props.fixtures, props.club_id, 'fixture')
 );
 
 const resultsByMonthDay = computed(() =>
-  groupByMonthDay(flattenFixturesForClub(props.fixtures, props.club_id, 'result'))
+  groupByMonthDayLeague(props.fixtures, props.club_id, 'result')
 );
 
-const hasFixtures = computed(() => Object.keys(upcomingByMonthDay.value).length > 0);
+const hasFixtures = computed(() => Object.keys(fixturesByMonthDay.value).length > 0);
 const hasResults = computed(() => Object.keys(resultsByMonthDay.value).length > 0);
 </script>
 
