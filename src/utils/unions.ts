@@ -76,9 +76,9 @@ export const unions: Union[] = [
     name: 'Saskatchewan Rugby',
     url: 'https://rugbysaskatchewan.com',
   },
-    {
-    slug: 'rseq',
-    name: 'RSEQ',
-    url: 'https://rugbysaskatchewan.com',
-  },
+  // {
+  //   slug: 'rseq',
+  //   name: 'RSEQ',
+  //   url: 'https://rugbysaskatchewan.com',
+  // },
 ];
