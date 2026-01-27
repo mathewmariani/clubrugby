@@ -39,13 +39,13 @@
       <!-- Tab navigation -->
       <TabScroller
         v-if="isLeagueView"
-        :titles="['Fixtures', 'Results', 'Standings']"
-        :routes="['/fixtures', '/results', '/standings']"
+        :titles="['Schedule', 'Results', 'Standings']"
+        :routes="['/schedule', '/results', '/standings']"
       />
       <TabScroller
         v-else-if="isTeamView"
-        :titles="['Schedule', 'Team Stats']"
-        :routes="[`/team/${teamId}/schedule`, `/team/${teamId}/stats`]"
+        :titles="['Schedule', 'Stats']"
+        :routes="[`/club/${teamId}/schedule`, `/club/${teamId}/stats`]"
       />
     </div>
 
@@ -66,12 +66,12 @@
   import SettingsOffcanvas from './SettingsOffcanvas.vue';
 
   import { SITE_TITLE } from '@/consts.ts';
-  import type { League, Club } from '@/utils/types.ts';
+  import type { Club } from '@/utils/types.ts';
   import type { Union } from '@/utils/unions.ts';
 
   const props = defineProps<{
     union: Union;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
     clubs?: Record<string, Club>;
   }>();
 
@@ -79,13 +79,13 @@
   const router = useRouter();
 
   const isLeagueView = computed(() =>
-    ['/fixtures', '/results', '/standings'].some((v) =>
+    ['/schedule', '/results', '/standings'].some((v) =>
       route.path.startsWith(v)
     )
   );
 
-  const isTeamView = computed(() => route.path.startsWith('/team/'));
-  const isEventView = computed(() => route.path.startsWith('/event/'));
+  const isTeamView = computed(() => route.path.startsWith('/club/'));
+  const isEventView = computed(() => route.path.startsWith('/fixture/'));
 
   const teamId = computed(() => route.params.club_id as string | undefined);
   const team = computed(() =>
@@ -94,7 +94,7 @@
 
   // Navigation handler
   function goBack() {
-    router.push({ path: '/fixtures' });
+    router.push({ path: '/schedule' });
   }
 
   // Dynamic navbar height

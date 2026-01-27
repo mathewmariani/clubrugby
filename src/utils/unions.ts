@@ -31,16 +31,16 @@ export const unions: Union[] = [
     name: 'British Columbia Rugby',
     url: 'https://www.bcrugby.com',
   },
-  // {
-  //   slug: 'mb',
-  //   name: 'Rugby Manitoba',
-  //   url: 'https://rugbymanitoba.com',
-  // },
-  // {
-  //   slug: 'nb',
-  //   name: 'New Brunswick Rugby Union',
-  //   url: 'https://www.rugbynb.ca',
-  // },
+  {
+    slug: 'mb',
+    name: 'Rugby Manitoba',
+    url: 'https://rugbymanitoba.com',
+  },
+  {
+    slug: 'nb',
+    name: 'New Brunswick Rugby Union',
+    url: 'https://www.rugbynb.ca',
+  },
   // {
   //   slug: 'nl',
   //   name: 'Newfoundland Rugby Union',
@@ -71,14 +71,14 @@ export const unions: Union[] = [
     name: 'Rugby Quebec',
     url: 'https://www.rugbyquebec.com',
   },
-  // {
-  //   slug: 'sk',
-  //   name: 'Saskatchewan Rugby',
-  //   url: 'https://rugbysaskatchewan.com',
-  // },
-    {
-    slug: 'rseq',
-    name: 'RSEQ',
+  {
+    slug: 'sk',
+    name: 'Saskatchewan Rugby',
     url: 'https://rugbysaskatchewan.com',
   },
+  // {
+  //   slug: 'rseq',
+  //   name: 'RSEQ',
+  //   url: 'https://rugbysaskatchewan.com',
+  // },
 ];

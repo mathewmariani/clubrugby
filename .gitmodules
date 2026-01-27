@@ -1,0 +1,3 @@
+[submodule "clubrugby-data"]
+	path = clubrugby-data
+	url = https://github.com/mathewmariani/clubrugby-data

@@ -1,26 +1,26 @@
 <template>
   <a class="list-group-item" @click.prevent="goToEvent">
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img v-if="home?.logo_url" :src="home.logo_url" :alt="home.name" />
+      <img v-if="home?.logo" :src="home.logo" :alt="home.name" />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
       <span class="text-body-emphasis fw-normal">{{
         home?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.home_score, match.away_score)"
+        :class="scoreClass(homeScore, awayScore)"
         class="ms-auto"
-        >{{ match.home_score || 'Unknown' }}</strong
+        >{{ homeScore }}</strong
       >
     </div>
     <div class="d-flex align-items-center gap-2 mb-1">
-      <img v-if="away?.logo_url" :src="away.logo_url" :alt="away.name" />
+      <img v-if="away?.logo" :src="away.logo" :alt="away.name" />
       <span class="text-body-emphasis fw-normal">{{
         away?.name || 'Unknown'
       }}</span>
       <strong
-        :class="scoreClass(match.away_score, match.home_score)"
+        :class="scoreClass(awayScore, homeScore)"
         class="ms-auto"
-        >{{ match.away_score || 'Unknown' }}</strong
+        >{{ awayScore }}</strong
       >
     </div>
   </a>
@@ -28,16 +28,21 @@
 
 <script setup lang="ts">
   import { useRouter } from 'vue-router';
-  import type { Club, Result } from '@/utils/types';
-  import { useEncodedRoute } from "@/composables/useEncodedRoute";
+  import type { Club, Fixture } from '@/utils/types';
+  import { extractMainScore } from '@/composables/utils';
+  import { computed } from 'vue';
 
   const props = defineProps<{
     home: Club;
     away: Club;
-    match: Result;
+    fixture: Fixture;
   }>();
 
-  function scoreClass(score: string, opponentScore: string) {
+  
+  const homeScore = computed(() => { return extractMainScore(props.fixture.homeScore); });
+  const awayScore = computed(() => { return extractMainScore(props.fixture.awayScore); });
+
+  function scoreClass(score: number, opponentScore: number) {
     if (score == null || opponentScore == null) return '';
     if (score === opponentScore) return ''; // tie no color
     return Number(score) > Number(opponentScore)
@@ -45,20 +50,10 @@
       : 'text-danger';
   }
 
-  const { encode } = useEncodedRoute();
   const router = useRouter();
   function goToEvent() {
-  const obj = {
-    leagueId: props.match.league_id,
-    homeId: props.match.home_id,
-    awayId: props.match.away_id,
-    date: props.match.date,
-  };
-
-  const encoded = encode(obj);
-
-  router.push({ path: `/event/${encoded}` }); // use encoded object in URL
-}
+    router.push({ path: `/fixture/${props.fixture.fixtureId}` });
+  }
 </script>
 
 <style scoped>

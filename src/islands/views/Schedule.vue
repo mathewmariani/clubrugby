@@ -1,6 +1,6 @@
 <template>
-  <div v-if="hasResults">
-    <template v-for="(daysInMonth, monthId) in resultsByMonthDay" :key="monthId">
+  <div v-if="hasFixtures">
+    <template v-for="(daysInMonth, monthId) in fixturesByMonthDay" :key="monthId">
       <DayMatchGroup
         v-for="(fixtures, dayId) in daysInMonth"
         :key="dayId"
@@ -8,7 +8,7 @@
         :leaguesForDay="getLeaguesByDay(fixtures)"
         :clubs="clubs"
         :leagues="leagues"
-        matchComponent="ResultListItem"
+        matchComponent="FixtureListItem"
       />
     </template>
   </div>
@@ -35,14 +35,14 @@ const props = defineProps<{
   fixtures: Record<string, Fixture[]>;
 }>();
 
-const { leaguesWithResults, hasResults } = useFixtureFilters(
+const { leaguesWithFixtures, hasFixtures } = useFixtureFilters(
   computed(() => props.fixtures)
 );
 
-// Group all results by month/day
-const resultsByMonthDay = computed(() => {
-  const allResults = Object.values(leaguesWithResults.value).flat();
-  return groupByMonthDay(allResults);
+// Group all fixtures by month/day
+const fixturesByMonthDay = computed(() => {
+  const allFixtures = Object.values(leaguesWithFixtures.value).flat();
+  return groupByMonthDay(allFixtures);
 });
 
 // Convert flat fixture array to leagues grouped by league ID

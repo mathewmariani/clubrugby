@@ -13,14 +13,17 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Update Submodules 🛎️
+        run: git submodule update --init --recursive
+
       - name: Install Packages 📦
         run: |
             npm ci
             python -m pip install --upgrade pip
-            pip install beautifulsoup4 requests
+            pip install -e clubrugby-data[dev]
 
       - name: Run Scraper 🔍
-        run: npm run scrape
+        run: clubrugby-scraper --unions ALL --year 2026
 
       - name: Building Website 🔧
         run: npm run build

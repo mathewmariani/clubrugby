@@ -16,25 +16,24 @@
   import { ref } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import Fixtures from './views/Fixtures.vue';
+  import Schedule from './views/Schedule.vue';
   import Results from './views/Results.vue';
   import Standings from './views/Standings.vue';
-  import EventView from './views/Event.vue';
+  import FixtureView from './views/Fixture.vue';
 
-  import TeamScheduleView from './views/TeamSchedule.vue';
-  import TeamStatsView from './views/TeamStats.vue';
+  import ClubFixtures from './views/club/Fixtures.vue';
+  import ClubStats from './views/club/Stats.vue';
 
   import TeamLayout from '@/layouts/vue/TeamLayout.vue';
   import type { Union } from '@/utils/unions';
-  import type { Fixture, Result, Standing, Club, League } from '@/utils/types';
+  import type { Fixture, Standing, Club } from '@/utils/types';
 
   const props = defineProps<{
     union: Union;
     clubs: Record<string, Club>;
-    leagues: Record<string, League>;
+    leagues: Record<string, string>;
     standings: Record<string, Standing[]>;
-    fixtures: Record<string, Record<string, Fixture[]>>;
-    results: Record<string, Record<string, Result[]>>;
+    fixtures: Record<string, Fixture[]>;
   }>();
 
   // Setup router
@@ -44,10 +43,10 @@
       return { top: 0 };
     },
     routes: [
-      { path: '/', redirect: '/fixtures' },
+      { path: '/', redirect: '/schedule' },
       {
-        path: '/fixtures',
-        component: Fixtures,
+        path: '/schedule',
+        component: Schedule,
         props: {
           union: props.union,
           fixtures: props.fixtures,
@@ -60,7 +59,7 @@
         component: Results,
         props: {
           union: props.union,
-          results: props.results,
+          fixtures: props.fixtures,
           clubs: props.clubs,
           leagues: props.leagues,
         },
@@ -76,19 +75,18 @@
         },
       },
       {
-        path: '/event/:event_id',
-        component: EventView,
+        path: '/fixture/:fixture_id',
+        component: FixtureView,
         props: (route) => ({
-          event_id: route.params.event_id,
+          fixture_id: route.params.fixture_id,
           fixtures: props.fixtures,
-          results: props.results,
           clubs: props.clubs,
           leagues: props.leagues,
           standings: props.standings,
         }),
       },
       {
-        path: '/team/:club_id',
+        path: '/club/:club_id',
         component: TeamLayout,
         props: {
           clubs: props.clubs,
@@ -97,18 +95,17 @@
         children: [
           {
             path: 'schedule',
-            component: TeamScheduleView,
+            component: ClubFixtures,
             props: (route) => ({
               club_id: route.params.club_id,
               fixtures: props.fixtures,
-              results: props.results,
               clubs: props.clubs,
               leagues: props.leagues,
             }),
           },
           {
             path: 'stats',
-            component: TeamStatsView,
+            component: ClubStats,
             props: (route) => ({
               club_id: route.params.club_id,
               standings: props.standings,
@@ -118,7 +115,7 @@
           },
           {
             path: '',
-            redirect: (to) => `/team/${to.params.club_id}/schedule`,
+            redirect: (to) => `/club/${to.params.club_id}/schedule`,
           },
         ],
       },
@@ -129,15 +126,15 @@
   const direction = ref<'forward' | 'back'>('forward');
 
   router.beforeEach((to, from, next) => {
-    const mainPages = ['/fixtures', '/results', '/standings'];
+    const mainPages = ['/schedule', '/results', '/standings'];
 
     const isMainFrom = mainPages.some((p) => from.path.startsWith(p));
     const isMainTo = mainPages.some((p) => to.path.startsWith(p));
     const isDetailFrom =
-      to.path.startsWith('/event') ||
-      from.path.startsWith('/event') ||
-      from.path.startsWith('/team') ||
-      to.path.startsWith('/team');
+      to.path.startsWith('/fixture') ||
+      from.path.startsWith('/fixture') ||
+      from.path.startsWith('/club') ||
+      to.path.startsWith('/club');
 
     // 1. Handle main page linear order
     const fromIndex = mainPages.findIndex((p) => from.path.startsWith(p));
@@ -155,9 +152,9 @@
       direction.value = 'back';
     }
     // 4. Team schedule/stats for same club (detailed)
-    else if (from.path.startsWith('/team/') && to.path.startsWith('/team/')) {
-      const fromMatch = from.path.match(/^\/team\/([^/]+)\/(schedule|stats)$/);
-      const toMatch = to.path.match(/^\/team\/([^/]+)\/(schedule|stats)$/);
+    else if (from.path.startsWith('/club/') && to.path.startsWith('/club/')) {
+      const fromMatch = from.path.match(/^\/club\/([^/]+)\/(schedule|stats)$/);
+      const toMatch = to.path.match(/^\/club\/([^/]+)\/(schedule|stats)$/);
 
       if (fromMatch && toMatch) {
         const [_, fromClub, fromSub] = fromMatch;
