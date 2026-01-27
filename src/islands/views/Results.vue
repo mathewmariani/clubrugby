@@ -26,7 +26,7 @@ import type { Club, Fixture } from '@/utils/types';
 import type { Union } from '@/utils/unions';
 import { useFixtureFilters } from '@/composables/useFixtureFilters';
 import { groupByMonthDay } from '@/composables/utils';
-import DayMatchGroup from '@/components/vue/DayMatchGroup.vue';
+import DayMatchGroup from '@/components/vue/items/DayMatchGroup.vue';
 
 const props = defineProps<{
   union: Union;
