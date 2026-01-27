@@ -25,7 +25,7 @@ jobs:
           pip install -e clubrugby-data[dev]
 
       - name: Run Scraper 🕷️
-        run: python clubrugby-data/main.py --unions ALL --year 2025
+        run: clubrugby-scraper --unions ALL --year 2025
 
       - name: Building Website 🔧
         run: npm run build
