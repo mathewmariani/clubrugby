@@ -3,79 +3,99 @@ import Page from '@/layouts/astro/Page.astro';
 ---
 
 <Page>
-  <div class="container">
-    <h1>Privacy Policy</h1>
-    <p><em>Last updated: May 31, 2025</em></p>
+  <!-- Navbar -->
+  <nav class="navbar rugby-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">ClubRugby.ca</a>
+    </div>
+  </nav>
 
-    <p>
-      This website values your privacy. We aim to minimize data collection and
-      provide transparency about what is stored and how it's used.
-    </p>
+  <!-- Hero -->
+  <section class="contact-hero py-5">
+    <div class="container text-center">
+      <h1 class="contact-title mb-2">Contact</h1>
+    </div>
+  </section>
 
-    <h2>What We Store</h2>
-    <p>
-      We use your browser's <strong>localStorage</strong> to remember basic settings
-      and improve your experience. For example, we may store:
-    </p>
-    <ul>
-      <li>Your theme preference (light/dark)</li>
-      <li>Selected leagues, filters, or layout settings</li>
-      <li>
-        Anonymous site usage data (e.g., page views, device type) via Google
-        Analytics
-      </li>
-    </ul>
+  <!-- Content -->
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4 p-md-5">
+            <p>
+              ClubRugby.ca is a community-focused project. If you notice incorrect
+              information, have suggestions, or want to get involved, we’re happy
+              to hear from you.
+            </p>
 
-    <h2>What We Don't Do</h2>
-    <ul>
-      <li>
-        We do <strong>not</strong> collect or transmit personal data without your
-        knowledge.
-      </li>
-      <li>
-        We do <strong>not</strong> use cookies for advertising or track you across
-        other websites.
-      </li>
-      <li>We do <strong>not</strong> sell or share any usage data.</li>
-    </ul>
+            <h5 class="section-heading">What to Contact Us About</h5>
+            <ul>
+              <li>Incorrect fixtures, results, or standings</li>
+              <li>League or club information updates</li>
+              <li>Feature requests or usability feedback</li>
+              <li>Data sourcing or attribution questions</li>
+            </ul>
 
-    <h2>Third-Party Services</h2>
-    <p>
-      We use <strong>Google Analytics</strong> to understand how visitors interact
-      with the site, such as which pages are most visited, how long users stay, and
-      what devices are used. This information is anonymized and helps us improve
-      the website.
-    </p>
-    <p>
-      Google Analytics may set cookies or collect usage information in
-      accordance with its own privacy policies. You can learn more about how
-      Google uses data <a
-        href="https://policies.google.com/technologies/partner-sites"
-        target="_blank"
-        rel="noopener noreferrer">here</a
-      >.
-    </p>
+            <h5 class="section-heading">How to Reach Us</h5>
+            <p>
+              The best way to get in touch is by email:
+            </p>
 
-    <h2>Your Control</h2>
-    <p>
-      Because localStorage is stored in your browser, you have full control. You
-      can clear your browser data at any time to remove saved settings.
-    </p>
-    <p>
-      You can also use browser extensions or settings to opt out of Google
-      Analytics tracking if you prefer not to share anonymous usage data.
-    </p>
+            <div class="alert alert-light border d-flex align-items-center">
+              <strong class="me-2">Email:</strong>
+              <a href="mailto:info@clubrugby.ca">info@clubrugby.ca</a>
+            </div>
 
-    <p>
-      If you have any questions about how this site works or handles your data,
-      feel free to reach out.
-    </p>
+            <p class="mb-0">
+              We do our best to respond in a reasonable timeframe, especially
+              during the active rugby season.
+            </p>
 
-    <hr />
-
-    <blockquote>
-      If we ever begin collecting identifiable data or using additional
-      third-party services, this policy will be updated accordingly.
-    </blockquote>
-  </div>
+            <div class="alert alert-light border mt-5">
+              <strong>Note:</strong>  
+              This site does not offer official league support. For match
+              sanctions, registrations, or disciplinary matters, please contact
+              your provincial union directly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Page>
+
+<style>
+/* Navbar */
+.rugby-navbar {
+  background-color: #c8102e; /* rugby red */
+}
+
+.rugby-navbar .navbar-brand {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.contact-hero {
+  background: #ffcc00; /* rugby yellow */
+}
+
+.contact-title {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Sections */
+.section-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+</style>

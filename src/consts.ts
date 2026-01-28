@@ -1,6 +1,6 @@
-export const SITE_TITLE = 'Club Rugby';
+export const SITE_TITLE = 'ClubRugby.ca';
 export const SITE_DESCRIPTION =
-  'A centralized platform to view fixtures, scores, and schedules for club rugby teams in Canada.';
+  'In-depth stats & matchup coverage for Canadian rugby unions.';
 
 export const SYMLINK_SRC = 'data';
 export const SYMLINK_DST = 'src/data';
