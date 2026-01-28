@@ -122,7 +122,6 @@ import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue'
 
 import type { Fixture, Standing, Club } from '@/utils/types';
 
-
 const props = defineProps<{
   clubs: Record<string, Club>;
   leagues: Record<string, string>;
@@ -162,6 +161,9 @@ const recordStats = [
   { key: 'gamesWon', label: 'Wins' },
   { key: 'gamesDraw', label: 'Draws' },
   { key: 'gameLost', label: 'Losses' },
+  { key: 'points', label: 'Points' },
+  { key: 'bonusPointsW', label: 'Offensive Bonus Points' },
+  { key: 'bonusPointsL', label: 'Defensive Bonus Points' },
 ] as const;
 
 const pointsTotalStats = [
@@ -185,7 +187,6 @@ const pointsPerGameStats = [
 function getStatValue(team: Standing, key: keyof Standing): number {
   return Number(team[key]);
 }
-
 
 function getStatValuePerGame(team: Standing, key: keyof Standing): number {
   return (Number(team[key]) / Number(team.played));
