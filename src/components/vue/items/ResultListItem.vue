@@ -38,9 +38,8 @@
     fixture: Fixture;
   }>();
 
-  
-  const homeScore = computed(() => { return extractMainScore(props.fixture.homeScore); });
-  const awayScore = computed(() => { return extractMainScore(props.fixture.awayScore); });
+  const homeScore = computed(() => { return extractMainScore(props.fixture.home.score); });
+  const awayScore = computed(() => { return extractMainScore(props.fixture.away.score); });
 
   function scoreClass(score: number, opponentScore: number) {
     if (score == null || opponentScore == null) return '';

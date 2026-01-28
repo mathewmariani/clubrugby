@@ -11,12 +11,8 @@
       <TeamHeader
         :home="home"
         :away="away"
-        :homeClubId="fixture.homeClubId"
-        :awayClubId="fixture.awayClubId"
-        :homeScore="extractMainScore(fixture.homeScore)"
-        :awayScore="extractMainScore(fixture.awayScore)"
-        :homeRecord="homeTeamRecord"
-        :awayRecord="awayTeamRecord"
+        :homeSummary="fixture.home"
+        :awaySummary="fixture.away"
         :isResult="isResult"
       />
 
@@ -124,11 +120,11 @@ const standingsForLeague = computed(() =>
 );
 
 const homeTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.homeClubId)
+  standingsForLeague.value.find(s => s.club_id === fixture.value?.home.club_id)
 );
 
 const awayTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.awayClubId)
+  standingsForLeague.value.find(s => s.club_id === fixture.value?.away.club_id)
 );
 
 const hasMatchOfficials = computed(() => {

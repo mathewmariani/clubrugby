@@ -19,8 +19,8 @@
           v-for="fixture in fixtures"
           :key="fixture.fixtureId"
           :fixture="fixture"
-          :home="clubs[fixture.homeClubId]"
-          :away="clubs[fixture.awayClubId]"
+          :home="clubs[fixture.home.club_id]"
+          :away="clubs[fixture.away.club_id]"
         />
       </div>
     </template>

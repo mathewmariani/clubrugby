@@ -30,6 +30,16 @@ export interface MatchOfficial {
   name: string;
 }
 
+export interface FixtureResultSummary {
+  team_id: string;
+  club_id: string;
+  score: string;
+  drop: string;
+  pen: string;
+  conv: string;
+  result: 'win' | 'lose' | 'draw' | null;
+}
+
 export interface Fixture {
   fixtureId: string;        // unique ID
   fixtureDate: number;      // unix timestamp in seconds
@@ -43,24 +53,8 @@ export interface Fixture {
   venuelat?: string;
   venuelng?: string;
 
-  homeTeamId: string;
-  awayTeamId: string;
-  homeClubId: string;
-  awayClubId: string;
-
-  homeScore?: string;       // e.g., "50;8"
-  awayScore?: string;
-
-  homeResult?: 'win' | 'lose' | 'draw';
-  awayResult?: 'win' | 'lose' | 'draw';
-
-  // optional per-match stats
-  homeDrop?: string | null;
-  homePen?: string | null;
-  homeConv?: string | null;
-  awayDrop?: string | null;
-  awayPen?: string | null;
-  awayConv?: string | null;
+  home: FixtureResultSummary;
+  away: FixtureResultSummary;
 
   matchOfficials?: MatchOfficial[];
 }

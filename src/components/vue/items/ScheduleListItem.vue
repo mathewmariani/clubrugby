@@ -116,11 +116,11 @@ function isResult(fixture: Fixture) {
 }
 
 function isHome(fixture: Fixture) {
-  return fixture.homeClubId === clubId;
+  return fixture.home.club_id === clubId;
 }
 
 function isAway(fixture: Fixture) {
-  return fixture.awayClubId === clubId;
+  return fixture.away.club_id === clubId;
 }
 
 function getOpponent(fixture: Fixture) {
@@ -133,8 +133,8 @@ function getOpponent(fixture: Fixture) {
 
 function didWin(fixture: Fixture): boolean {
   if (!isResult(fixture)) return false;
-  const home = extractMainScore(fixture.homeScore);
-  const away = extractMainScore(fixture.awayScore);
+  const home = extractMainScore(fixture.home.score);
+  const away = extractMainScore(fixture.away.score);
   return isHome(fixture) ? home > away : away > home;
 }
 
