@@ -80,7 +80,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { format } from 'date-fns';
 
 import type { Club, Fixture } from '@/utils/types';
-import { useMatchClubs, getLeagueName, extractMainScore } from '@/composables/utils';
+import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
 const route = useRoute();
 const router = useRouter();
@@ -133,9 +133,9 @@ function getOpponent(fixture: Fixture) {
 
 function didWin(fixture: Fixture): boolean {
   if (!isResult(fixture)) return false;
-  const home = extractMainScore(fixture.home.score);
-  const away = extractMainScore(fixture.away.score);
-  return isHome(fixture) ? home > away : away > home;
+  const home = fixture.home.result;
+  const away = fixture.away.result;
+  return isHome(fixture) ? home === 'win' : away === 'win';
 }
 
 function goToEvent(fixture: Fixture) {

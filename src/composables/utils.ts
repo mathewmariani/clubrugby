@@ -146,9 +146,3 @@ export function groupByMonthDayLeague(fixturesByLeague: Record<string, Fixture[]
 
   return grouped;
 }
-
-// Extract the main score from format like "36;6" -> "36"
-export function extractMainScore(score: string | undefined): number {
-  if (!score) return 0;
-  return parseInt(score.split(';')[0], 10);
-}
