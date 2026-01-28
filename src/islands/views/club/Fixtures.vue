@@ -1,4 +1,6 @@
 <template>
+  <!-- FIXME: this div is not needed, it only suppresses the warnings -->
+  <div>
   <!-- Empty state -->
   <template v-if="!hasFixtures && !hasResults">
     <div class="container-fluid text-center text-muted pt-3">
@@ -57,6 +59,7 @@
       </template>
     </template>
   </template>
+  </div>
 </template>
 
 <script setup lang="ts">
