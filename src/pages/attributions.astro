@@ -4,47 +4,115 @@ import { unions } from '@/utils/unions.ts';
 ---
 
 <Page>
-  <div class="container">
-    <h1>Sources & Attribution</h1>
+  <!-- Navbar -->
+  <nav class="navbar rugby-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">ClubRugby.ca</a>
+    </div>
+  </nav>
 
-    <p>
-      Our mission is to provide accurate and accessible rugby scores, standings,
-      and statistics. To do this, we rely on data from trusted organizations and
-      websites.
-    </p>
+  <!-- Hero -->
+  <section class="attributions-hero py-5">
+    <div class="container text-center">
+      <h1 class="attributions-title mb-2">Sources & Attribution</h1>
+    </div>
+  </section>
 
-    <h2>Primary Data Sources</h2>
-    <ul>
-      {
-        unions.map((federation) => (
-          <li>
-            <a href={federation.url} target="_blank" rel="noopener noreferrer">
-              {federation.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+  <!-- Content -->
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4 p-md-5">
+            <p>
+              Our mission is to provide accurate and accessible rugby scores,
+              standings, and statistics. To do this, we rely on data from trusted
+              organizations and official sources.
+            </p>
 
-    <h2>Data Usage & Permissions</h2>
-    <p>
-      Whenever possible, we seek permission from data providers to use and
-      display their information. If you are a data provider and have questions
-      or concerns about how your data is used, please <a href="/contact"
-        >contact us</a
-      >.
-    </p>
+            <h5 class="section-heading">Primary Data Sources</h5>
+            <ul class="list-unstyled">
+              {
+                unions.map((federation) => (
+                  <li class="mb-2">
+                    <a
+                      href={federation.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="fw-semibold text-decoration-none"
+                    >
+                      {federation.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
 
-    <h2>Licensing & Attribution</h2>
-    <p>
-      Some data or content may be subject to licenses from the original
-      providers. We make every effort to credit these sources appropriately.
-    </p>
+            <h5 class="section-heading">Data Usage & Permissions</h5>
+            <p>
+              Whenever possible, we seek permission from data providers to use and
+              display their information. If you are a data provider and have
+              questions or concerns about how your data is used, please
+              <a href="/contact"> contact us</a>.
+            </p>
 
-    <h2>Feedback & Corrections</h2>
-    <p>
-      If you notice any inaccuracies or have suggestions for additional data
-      sources, please let us know via our <a href="/contact">contact page</a>.
-    </p>
-  </div>
+            <h5 class="section-heading">Licensing & Attribution</h5>
+            <p>
+              Some data or content may be subject to licensing terms from the
+              original providers. We make every effort to credit these sources
+              appropriately and respect usage conditions.
+            </p>
+
+            <h5 class="section-heading">Feedback & Corrections</h5>
+            <p>
+              If you notice inaccuracies or would like to suggest additional
+              data sources, please reach out via our
+              <a href="/contact"> contact page</a>.
+            </p>
+
+            <div class="alert alert-light border mt-5">
+              <strong>Transparency matters:</strong>  
+              This project exists to support grassroots rugby and respect the
+              organizations that make this data available.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Page>
+
+<style>
+/* Navbar */
+.rugby-navbar {
+  background-color: #c8102e; /* rugby red */
+}
+
+.rugby-navbar .navbar-brand {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.attributions-hero {
+  background: #ffcc00; /* rugby yellow */
+}
+
+.attributions-title {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Sections */
+.section-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+</style>

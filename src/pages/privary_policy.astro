@@ -3,79 +3,137 @@ import Page from '@/layouts/astro/Page.astro';
 ---
 
 <Page>
-  <div class="container">
-    <h1>Privacy Policy</h1>
-    <p><em>Last updated: May 31, 2025</em></p>
+  <!-- Navbar -->
+  <nav class="navbar rugby-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">ClubRugby.ca</a>
+    </div>
+  </nav>
 
-    <p>
-      This website values your privacy. We aim to minimize data collection and
-      provide transparency about what is stored and how it's used.
-    </p>
+  <!-- Hero -->
+  <section class="privacy-hero py-5">
+    <div class="container text-center">
+      <h1 class="privacy-title mb-2">Privacy Policy</h1>
+    </div>
+  </section>
 
-    <h2>What We Store</h2>
-    <p>
-      We use your browser's <strong>localStorage</strong> to remember basic settings
-      and improve your experience. For example, we may store:
-    </p>
-    <ul>
-      <li>Your theme preference (light/dark)</li>
-      <li>Selected leagues, filters, or layout settings</li>
-      <li>
-        Anonymous site usage data (e.g., page views, device type) via Google
-        Analytics
-      </li>
-    </ul>
+  <!-- Content -->
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4 p-md-5">
+            <p class="text-muted fst-italic mb-4">
+              Last updated: May 31, 2025
+            </p>
 
-    <h2>What We Don't Do</h2>
-    <ul>
-      <li>
-        We do <strong>not</strong> collect or transmit personal data without your
-        knowledge.
-      </li>
-      <li>
-        We do <strong>not</strong> use cookies for advertising or track you across
-        other websites.
-      </li>
-      <li>We do <strong>not</strong> sell or share any usage data.</li>
-    </ul>
+            <p>
+              This website values your privacy. We aim to minimize data
+              collection and provide transparency about what is stored and how
+              it's used.
+            </p>
 
-    <h2>Third-Party Services</h2>
-    <p>
-      We use <strong>Google Analytics</strong> to understand how visitors interact
-      with the site, such as which pages are most visited, how long users stay, and
-      what devices are used. This information is anonymized and helps us improve
-      the website.
-    </p>
-    <p>
-      Google Analytics may set cookies or collect usage information in
-      accordance with its own privacy policies. You can learn more about how
-      Google uses data <a
-        href="https://policies.google.com/technologies/partner-sites"
-        target="_blank"
-        rel="noopener noreferrer">here</a
-      >.
-    </p>
+            <h5 class="section-heading">What We Store</h5>
+            <p>
+              We use your browser’s <strong>localStorage</strong> to remember
+              basic settings and improve your experience. This may include:
+            </p>
+            <ul>
+              <li>Theme preferences (light / dark)</li>
+              <li>Selected leagues, filters, or layouts</li>
+              <li>
+                Anonymous usage data (page views, device type) via Google
+                Analytics
+              </li>
+            </ul>
 
-    <h2>Your Control</h2>
-    <p>
-      Because localStorage is stored in your browser, you have full control. You
-      can clear your browser data at any time to remove saved settings.
-    </p>
-    <p>
-      You can also use browser extensions or settings to opt out of Google
-      Analytics tracking if you prefer not to share anonymous usage data.
-    </p>
+            <h5 class="section-heading">What We Don’t Do</h5>
+            <ul>
+              <li>
+                We do <strong>not</strong> collect personal data without your
+                knowledge
+              </li>
+              <li>
+                We do <strong>not</strong> use advertising cookies or cross-site
+                tracking
+              </li>
+              <li>
+                We do <strong>not</strong> sell or share usage data
+              </li>
+            </ul>
 
-    <p>
-      If you have any questions about how this site works or handles your data,
-      feel free to reach out.
-    </p>
+            <h5 class="section-heading">Third-Party Services</h5>
+            <p>
+              We use <strong>Google Analytics</strong> to understand how visitors
+              interact with the site — which pages are visited, how long users
+              stay, and what devices are used. This data is anonymized and helps
+              improve the site.
+            </p>
+            <p>
+              Google may collect data according to its own policies.
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more here
+              </a>.
+            </p>
 
-    <hr />
+            <h5 class="section-heading">Your Control</h5>
+            <p>
+              Because settings are stored locally in your browser, you are in
+              full control. You can clear your browser data at any time to remove
+              saved preferences.
+            </p>
+            <p>
+              You may also use browser tools or extensions to opt out of Google
+              Analytics tracking.
+            </p>
 
-    <blockquote>
-      If we ever begin collecting identifiable data or using additional
-      third-party services, this policy will be updated accordingly.
-    </blockquote>
-  </div>
+            <div class="alert alert-light border mt-5">
+              <strong>Transparency promise:</strong>  
+              If we ever collect identifiable data or introduce new third-party
+              services, this policy will be updated clearly and promptly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Page>
+
+<style>
+/* Navbar */
+.rugby-navbar {
+  background-color: #c8102e; /* rugby red */
+}
+
+.rugby-navbar .navbar-brand {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Hero */
+.privacy-hero {
+  background: #ffcc00; /* rugby yellow */
+}
+
+.privacy-title {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Sections */
+.section-heading {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+</style>

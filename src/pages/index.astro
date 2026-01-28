@@ -1,8 +1,8 @@
 ---
 import Page from '@/layouts/astro/Page.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts.ts';
-
 import { unions } from '../utils/unions.ts';
+
 export async function getStaticPaths() {
   return unions.map((federation) => ({
     params: { slug: federation.slug },
@@ -11,41 +11,90 @@ export async function getStaticPaths() {
 }
 
 const terms_and_policies = [
-  { title: 'Terms of Service', href: './terms_of_serice' },
-  { title: 'Privary Policy', href: './privary_policy' },
+  { title: 'Terms of Service', href: './terms_of_service' },
+  { title: 'Privacy Policy', href: './privary_policy' },
   { title: 'Attributions', href: './attributions' },
 ];
 ---
 
 <Page>
-  <div class="container">
-    <h1 class="display-1">{SITE_TITLE}</h1>
-    <p class="lead">{SITE_DESCRIPTION}</p>
+  <!-- Hero -->
+  <section class="hero-yellow py-5">
+    <div class="container text-center">
+      <h1 class="site-title mb-3">{SITE_TITLE}</h1>
+      <p class="lead text-white opacity-75">
+        {SITE_DESCRIPTION}
+      </p>
+    </div>
+  </section>
 
-    <h6 class="mt-4">Unions</h6>
-    <ul class="list-group">
-      {
-        unions.map((fed) => (
-          <li class="list-group-item">
-            <a href={`/${fed.slug}`} class="text-decoration-none">
-              {fed.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+  <!-- Content -->
+  <section class="container py-5">
+    <div class="row g-4">
+      <!-- Unions -->
+      <div class="col-md-6">
+        <h6 class="section-title mb-3">Provincial Unions</h6>
+        <ul class="list-group shadow-sm">
+          {
+            unions.map((fed) => (
+              <li class="list-group-item list-group-item-action">
+                <a href={`/${fed.slug}`} class="text-decoration-none fw-semibold">
+                  {fed.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-    <h6 class="mt-4">Terms and Policies</h6>
-    <ul class="list-group">
-      {
-        terms_and_policies.map((tab) => (
-          <li class="list-group-item">
-            <a href={`/${tab.href}`} class="text-decoration-none">
-              {tab.title}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+      <!-- Terms -->
+      <div class="col-md-6">
+        <h6 class="section-title mb-3">Terms & Policies</h6>
+        <ul class="list-group shadow-sm">
+          {
+            terms_and_policies.map((tab) => (
+              <li class="list-group-item list-group-item-action">
+                <a href={`/${tab.href}`} class="text-decoration-none fw-semibold">
+                  {tab.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 </Page>
+
+<style>
+  /* Hero background */
+  .hero-yellow {
+    background: #ffcc00; /* rugby yellow */
+    background: #C8102E
+  }
+
+  /* Chunky site title */
+  .site-title {
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #fff;
+    font-size: clamp(3rem, 6vw, 5rem);
+    text-transform: uppercase;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* List items */
+  .list-group-item a {
+    color: #000;
+  }
+
+  .list-group-item:hover {
+    background-color: #fff9db;
+  }
+</style>
