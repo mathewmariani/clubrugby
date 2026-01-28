@@ -59,6 +59,13 @@
         </div>
       </template>
 
+      <!-- post game boxscore -->
+       <BoxScore
+        v-if="isResult"
+        :home="fixture.home"
+        :away="fixture.away"
+      />
+
       <MatchOfficials
         v-if="hasMatchOfficials"
         :matchOfficial="fixture.matchOfficials || []"
@@ -86,9 +93,10 @@
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 
-import { getLeagueName, useMatchClubs, useFixtureById, getRecordString, extractMainScore } from '@/composables/utils';
+import { getLeagueName, useMatchClubs, useFixtureById, getRecordString } from '@/composables/utils';
 
 import MatchHeader from '@/components/vue/event/MatchHeader.vue';
+import BoxScore from '@/components/vue/event/BoxScore.vue';
 import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
 import TeamHeader from '@/components/vue/event/TeamHeader.vue';
 import GameDetails from '@/components/vue/event/GameDetails.vue';
