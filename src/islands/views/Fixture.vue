@@ -63,6 +63,11 @@
         </div>
       </template>
 
+      <MatchOfficials
+        v-if="hasMatchOfficials"
+        :matchOfficial="fixture.matchOfficials || []"
+      />
+
       <GameDetails
         :fixtureDate="fixture.fixtureDate"
         :league="leagueName"
@@ -88,6 +93,7 @@ import { computed } from 'vue';
 import { getLeagueName, useMatchClubs, useFixtureById, getRecordString, extractMainScore } from '@/composables/utils';
 
 import MatchHeader from '@/components/vue/event/MatchHeader.vue';
+import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
 import TeamHeader from '@/components/vue/event/TeamHeader.vue';
 import GameDetails from '@/components/vue/event/GameDetails.vue';
 import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
@@ -124,6 +130,10 @@ const homeTeam = computed(() =>
 const awayTeam = computed(() =>
   standingsForLeague.value.find(s => s.club_id === fixture.value?.awayClubId)
 );
+
+const hasMatchOfficials = computed(() => {
+  return fixture.value?.matchOfficials && fixture.value.matchOfficials.length > 0;
+});
 
 const regularStats = [
   { key: 'played', label: 'Played' },

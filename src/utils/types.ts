@@ -25,6 +25,11 @@ export interface Standing {
   Drop: number;            // drop goals scored
 }
 
+export interface MatchOfficial {
+  role: string;
+  name: string;
+}
+
 export interface Fixture {
   fixtureId: string;        // unique ID
   fixtureDate: number;      // unix timestamp in seconds
@@ -57,5 +62,5 @@ export interface Fixture {
   awayPen?: string | null;
   awayConv?: string | null;
 
-  matchOfficials?: Record<string, { role: string; name: string; refID: string; display: string }>;
+  matchOfficials?: MatchOfficial[];
 }
