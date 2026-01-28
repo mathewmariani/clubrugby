@@ -1,15 +1,16 @@
 <template>
+  <!-- FIXME: this div is not needed, it only suppresses the warnings -->
+  <div>
   <!-- Empty state -->
-  <div
-    v-if="!hasFixtures && !hasResults"
-    class="container-fluid text-center text-muted pt-3"
-  >
-    <p>No fixtures or results available.</p>
-    <hr />
-    <p>Ensure your preferences are set.</p>
-  </div>
+  <template v-if="!hasFixtures && !hasResults">
+    <div class="container-fluid text-center text-muted pt-3">
+      <p>No fixtures or results available.</p>
+      <hr />
+      <p>Ensure your preferences are set.</p>
+    </div>
+  </template>
 
-  <div v-else>
+  <template v-else>
     <!-- Upcoming Fixtures -->
     <template v-if="hasFixtures">
       <template
@@ -57,6 +58,7 @@
         </div>
       </template>
     </template>
+  </template>
   </div>
 </template>
 

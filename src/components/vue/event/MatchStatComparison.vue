@@ -3,19 +3,23 @@
     <div class="d-flex justify-content-between mb-1">
       <small class="text-body-primary">
         {{ leftValue.toFixed(1) }}
-        <small v-if="leftRank" class="text-body-secondary fw-light"
-          >({{ leftRank }})</small
-        >
+        <small v-if="leftRank" class="text-body-secondary fw-light">
+          ({{ leftRank }})
+        </small>
       </small>
+
       <small class="text-body-secondary">{{ label }}</small>
+
       <small class="text-body-primary">
-        <small v-if="rightRank" class="text-body-secondary fw-light"
-          >({{ rightRank }})</small
-        >
+        <small v-if="rightRank" class="text-body-secondary fw-light">
+          ({{ rightRank }})
+        </small>
         {{ rightValue.toFixed(1) }}
       </small>
     </div>
-    <div class="progress-stacked">
+
+    <!-- Bars -->
+    <div v-if="showBars" class="progress-stacked">
       <div class="progress" :style="{ width: leftWidth + '%' }">
         <div class="progress-bar bg-primary"></div>
       </div>
@@ -35,6 +39,7 @@
     rightValue: number;
     leftRank?: number;
     rightRank?: number;
+    showBars?: boolean;
   }>();
 
   const total = computed(() => props.leftValue + props.rightValue);

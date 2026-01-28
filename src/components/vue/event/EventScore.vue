@@ -1,19 +1,19 @@
 <template>
   <h1 class="mb-0">
-    <span :class="scoreClass(homeScore, awayScore)">
-      {{ homeScore ?? '-' }}
+    <span :class="scoreClass(home, away)">
+      {{ home ?? '-' }}
     </span>
     <span> - </span>
-    <span :class="scoreClass(awayScore, homeScore)">
-      {{ awayScore ?? '-' }}
+    <span :class="scoreClass(away, home)">
+      {{ away ?? '-' }}
     </span>
   </h1>
 </template>
 
 <script setup>
   const props = defineProps({
-    homeScore: Number,
-    awayScore: Number,
+    home: String,
+    away: String,
   });
 
   function scoreClass(score, opponentScore) {

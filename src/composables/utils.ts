@@ -22,12 +22,12 @@ export function formattedDate(timestamp: number): string {
 
 export function useMatchClubs(fixture: Ref<Fixture | null>, clubs: Record<string, Club>) {
   const home = computed(() => {
-    const id = fixture.value?.homeClubId;
+    const id = fixture.value?.home.club_id;
     return id ? clubs[id] : undefined;
   });
 
   const away = computed(() => {
-    const id = fixture.value?.awayClubId;
+    const id = fixture.value?.away.club_id;
     return id ? clubs[id] : undefined;
   });
 
@@ -87,8 +87,8 @@ export function flattenFixturesForClub(fixtures: Record<string, Fixture[]>, club
   for (const [leagueId, schedule] of Object.entries(fixtures)) {
     for (const fixture of schedule) {
       if (
-        fixture.homeClubId === club_id ||
-        fixture.awayClubId === club_id
+        fixture.home.club_id === club_id ||
+        fixture.away.club_id === club_id
       ) {
         if (fixture.fixtureStatus === status) {
           all.push(fixture);
@@ -125,7 +125,7 @@ export function groupByMonthDayLeague(fixturesByLeague: Record<string, Fixture[]
   for (const [leagueId, fixtures] of Object.entries(fixturesByLeague)) {
     // Filter fixtures for the club and status
     const filtered = fixtures.filter(f => {
-      return (f.homeClubId === club_id || f.awayClubId === club_id) && f.fixtureStatus === status;
+      return (f.home.club_id === club_id || f.away.club_id === club_id) && f.fixtureStatus === status;
     });
 
     // Sort by date
@@ -145,10 +145,4 @@ export function groupByMonthDayLeague(fixturesByLeague: Record<string, Fixture[]
   }
 
   return grouped;
-}
-
-// Extract the main score from format like "36;6" -> "36"
-export function extractMainScore(score: string | undefined): number {
-  if (!score) return 0;
-  return parseInt(score.split(';')[0], 10);
 }

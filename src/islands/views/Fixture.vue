@@ -11,12 +11,8 @@
       <TeamHeader
         :home="home"
         :away="away"
-        :homeClubId="fixture.homeClubId"
-        :awayClubId="fixture.awayClubId"
-        :homeScore="extractMainScore(fixture.homeScore)"
-        :awayScore="extractMainScore(fixture.awayScore)"
-        :homeRecord="homeTeamRecord"
-        :awayRecord="awayTeamRecord"
+        :homeSummary="fixture.home"
+        :awaySummary="fixture.away"
         :isResult="isResult"
       />
 
@@ -30,12 +26,11 @@
             <img :src="home?.logo" />
             <div class="text-center">
               <strong>Record</strong>
-              <div class="text-muted">TOTAL</div>
             </div>
             <img :src="away?.logo" />
           </div>
           <MatchStatComparison
-            v-for="stat in regularStats"
+            v-for="stat in recordStats"
             :key="stat.key"
             :label="stat.label"
             :leftValue="getStatValue(homeTeam, stat.key)"
@@ -49,19 +44,50 @@
             <img :src="home?.logo" />
             <div class="text-center">
               <strong>Stats</strong>
+              <div class="text-muted">TOTAL</div>
+            </div>
+            <img :src="away?.logo" />
+          </div>
+          <MatchStatComparison
+            v-for="stat in pointsTotalStats"
+            :key="stat.key"
+            :label="stat.label"
+            :leftValue="getStatValue(homeTeam, stat.key)"
+            :rightValue="getStatValue(awayTeam, stat.key)"
+            :showBars="true"
+          />
+        </div>
+        <div class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center my-3">
+            <img :src="home?.logo" />
+            <div class="text-center">
+              <strong>Stats</strong>
               <div class="text-muted">PER GAME</div>
             </div>
             <img :src="away?.logo" />
           </div>
           <MatchStatComparison
-            v-for="stat in perGameStats"
+            v-for="stat in pointsPerGameStats"
             :key="stat.key"
             :label="stat.label"
-            :leftValue="getStatValue(homeTeam, stat.key)"
-            :rightValue="getStatValue(awayTeam, stat.key)"
+            :leftValue="getStatValuePerGame(homeTeam, stat.key)"
+            :rightValue="getStatValuePerGame(awayTeam, stat.key)"
+            :showBars="true"
           />
         </div>
       </template>
+
+      <!-- post game boxscore -->
+       <BoxScore
+        v-if="isResult"
+        :home="fixture.home"
+        :away="fixture.away"
+      />
+
+      <MatchOfficials
+        v-if="hasMatchOfficials"
+        :matchOfficial="fixture.matchOfficials || []"
+      />
 
       <GameDetails
         :fixtureDate="fixture.fixtureDate"
@@ -85,15 +111,16 @@
 import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 
-import { getLeagueName, useMatchClubs, useFixtureById, getRecordString, extractMainScore } from '@/composables/utils';
+import { getLeagueName, useMatchClubs, useFixtureById, getRecordString } from '@/composables/utils';
 
 import MatchHeader from '@/components/vue/event/MatchHeader.vue';
+import BoxScore from '@/components/vue/event/BoxScore.vue';
+import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
 import TeamHeader from '@/components/vue/event/TeamHeader.vue';
 import GameDetails from '@/components/vue/event/GameDetails.vue';
 import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
 import type { Fixture, Standing, Club } from '@/utils/types';
-
 
 const props = defineProps<{
   clubs: Record<string, Club>;
@@ -118,30 +145,51 @@ const standingsForLeague = computed(() =>
 );
 
 const homeTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.homeClubId)
+  standingsForLeague.value.find(s => s.club_id === fixture.value?.home.club_id)
 );
 
 const awayTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.awayClubId)
+  standingsForLeague.value.find(s => s.club_id === fixture.value?.away.club_id)
 );
 
-const regularStats = [
+const hasMatchOfficials = computed(() => {
+  return fixture.value?.matchOfficials && fixture.value.matchOfficials.length > 0;
+});
+
+const recordStats = [
   { key: 'played', label: 'Played' },
   { key: 'gamesWon', label: 'Wins' },
   { key: 'gamesDraw', label: 'Draws' },
   { key: 'gameLost', label: 'Losses' },
   { key: 'points', label: 'Points' },
+  { key: 'bonusPointsW', label: 'Offensive Bonus Points' },
+  { key: 'bonusPointsL', label: 'Defensive Bonus Points' },
 ] as const;
 
-const perGameStats = [
+const pointsTotalStats = [
   { key: 'pointsFor', label: 'Points For' },
   { key: 'pointsAgainst', label: 'Points Against' },
   { key: 'triesFor', label: 'Tries For' },
   { key: 'triesAgainst', label: 'Tries Against' },
+  { key: 'Conv', label: 'Conversions' },
+  { key: 'Pen', label: 'Penalties' },
+  { key: 'Drop', label: 'Drop Kicks' },
 ] as const;
 
-function getStatValue(team: Standing | undefined, key: keyof Standing): number {
-  return Number(team?.[key] ?? 0);
+const pointsPerGameStats = [
+  { key: 'triesFor', label: 'Tries For' },
+  { key: 'triesAgainst', label: 'Tries Against' },
+  { key: 'Conv', label: 'Conversions' },
+  { key: 'Pen', label: 'Penalties' },
+  { key: 'Drop', label: 'Drop Kicks' },
+] as const;
+
+function getStatValue(team: Standing, key: keyof Standing): number {
+  return Number(team[key]);
+}
+
+function getStatValuePerGame(team: Standing, key: keyof Standing): number {
+  return (Number(team[key]) / Number(team.played));
 }
 </script>
 
