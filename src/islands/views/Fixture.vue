@@ -16,6 +16,12 @@
         :isResult="isResult"
       />
 
+      <CalendarButton
+        :fixture="fixture"
+        :home="homeTeamName"
+        :away="awayTeamName"
+      />
+
       <!-- Pre-game comparison -->
       <template v-if="!isResult">
 
@@ -78,7 +84,7 @@
       </template>
 
       <!-- post game boxscore -->
-       <BoxScore
+      <BoxScore
         v-if="isResult"
         :home="fixture.home"
         :away="fixture.away"
@@ -121,6 +127,7 @@ import GameDetails from '@/components/vue/event/GameDetails.vue';
 import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
 import type { Fixture, Standing, Club } from '@/utils/types';
+import CalendarButton from '@/components/vue/event/CalendarButton.vue';
 
 const props = defineProps<{
   clubs: Record<string, Club>;
@@ -150,6 +157,18 @@ const homeTeam = computed(() =>
 
 const awayTeam = computed(() =>
   standingsForLeague.value.find(s => s.club_id === fixture.value?.away.club_id)
+);
+
+const homeTeamName = computed(() =>
+  standingsForLeague.value.find(
+    s => s.club_id === fixture.value?.home.club_id
+  )?.name ?? "Unknown"
+);
+
+const awayTeamName = computed(() =>
+  standingsForLeague.value.find(
+    s => s.club_id === fixture.value?.away.club_id
+  )?.name ?? "Unknown"
 );
 
 const hasMatchOfficials = computed(() => {

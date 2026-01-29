@@ -12,6 +12,7 @@
         "@astrojs/vue": "^5.1.4",
         "astro": "^5.16.12",
         "bootstrap": "^5.3.8",
+        "calendar-link": "^2.11.0",
         "date-fns": "^4.1.0",
         "vue-router": "^4.6.4"
     },
