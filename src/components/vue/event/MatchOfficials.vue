@@ -14,6 +14,6 @@
   import type { MatchOfficial } from '@/utils/types';
 
   const props = defineProps<{
-    matchOfficial: MatchOfficial[],
+    matchOfficial: MatchOfficial[];
   }>();
 </script>

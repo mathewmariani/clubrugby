@@ -22,27 +22,27 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
-import { getLeagueName } from '@/composables/utils';
-import type { Club, Standing } from '@/utils/types';
+  import { computed } from 'vue';
+  import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
+  import { getLeagueName } from '@/composables/utils';
+  import type { Club, Standing } from '@/utils/types';
 
-const props = defineProps<{
-  standings: Record<string, Standing[]>; // already sorted by league & rank
-  clubs: Record<string, Club>;
-  leagues: Record<string, string>;
-}>();
+  const props = defineProps<{
+    standings: Record<string, Standing[]>; // already sorted by league & rank
+    clubs: Record<string, Club>;
+    leagues: Record<string, string>;
+  }>();
 
-// No more grouping or filtering needed
-const hasStandings = computed(() => Object.keys(props.standings).length > 0);
+  // No more grouping or filtering needed
+  const hasStandings = computed(() => Object.keys(props.standings).length > 0);
 
-// Columns to display in the table
-const sortableColumns = [
-  { key: 'played', label: 'PLD' },
-  { key: 'w-d-l', label: 'W-D-L' },
-  { key: 'points', label: 'PTS' },
-  { key: 'pointsFor', label: 'PF' },
-  { key: 'pointsAgainst', label: 'PA' },
-  { key: 'pointsDifference', label: 'PD' },
-];
+  // Columns to display in the table
+  const sortableColumns = [
+    { key: 'played', label: 'PLD' },
+    { key: 'w-d-l', label: 'W-D-L' },
+    { key: 'points', label: 'PTS' },
+    { key: 'pointsFor', label: 'PF' },
+    { key: 'pointsAgainst', label: 'PA' },
+    { key: 'pointsDifference', label: 'PD' },
+  ];
 </script>

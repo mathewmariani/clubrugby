@@ -24,7 +24,6 @@
 
       <!-- Pre-game comparison -->
       <template v-if="!isResult">
-
         <!-- Record Comparison -->
         <div class="list-group-item">
           <!-- NOTE: can be a component -->
@@ -84,11 +83,7 @@
       </template>
 
       <!-- post game boxscore -->
-      <BoxScore
-        v-if="isResult"
-        :home="fixture.home"
-        :away="fixture.away"
-      />
+      <BoxScore v-if="isResult" :home="fixture.home" :away="fixture.away" />
 
       <MatchOfficials
         v-if="hasMatchOfficials"
@@ -114,102 +109,117 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+  import { useRoute } from 'vue-router';
+  import { computed } from 'vue';
 
-import { getLeagueName, useMatchClubs, useFixtureById, getRecordString } from '@/composables/utils';
+  import {
+    getLeagueName,
+    useMatchClubs,
+    useFixtureById,
+    getRecordString,
+  } from '@/composables/utils';
 
-import MatchHeader from '@/components/vue/event/MatchHeader.vue';
-import BoxScore from '@/components/vue/event/BoxScore.vue';
-import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
-import TeamHeader from '@/components/vue/event/TeamHeader.vue';
-import GameDetails from '@/components/vue/event/GameDetails.vue';
-import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
+  import MatchHeader from '@/components/vue/event/MatchHeader.vue';
+  import BoxScore from '@/components/vue/event/BoxScore.vue';
+  import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
+  import TeamHeader from '@/components/vue/event/TeamHeader.vue';
+  import GameDetails from '@/components/vue/event/GameDetails.vue';
+  import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
-import type { Fixture, Standing, Club } from '@/utils/types';
-import CalendarButton from '@/components/vue/event/CalendarButton.vue';
+  import type { Fixture, Standing, Club } from '@/utils/types';
+  import CalendarButton from '@/components/vue/event/CalendarButton.vue';
 
-const props = defineProps<{
-  clubs: Record<string, Club>;
-  leagues: Record<string, string>;
-  standings: Record<string, Standing[]>;
-  fixtures: Record<string, Fixture[]>;
-}>();
+  const props = defineProps<{
+    clubs: Record<string, Club>;
+    leagues: Record<string, string>;
+    standings: Record<string, Standing[]>;
+    fixtures: Record<string, Fixture[]>;
+  }>();
 
-const route = useRoute();
-const fixture_id = computed(() => route.params.fixture_id as string | undefined);
+  const route = useRoute();
+  const fixture_id = computed(
+    () => route.params.fixture_id as string | undefined
+  );
 
-const { fixture, league_id } = useFixtureById(fixture_id, props.fixtures );
-const { home, away } = useMatchClubs(fixture, props.clubs);
-const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
+  const { fixture, league_id } = useFixtureById(fixture_id, props.fixtures);
+  const { home, away } = useMatchClubs(fixture, props.clubs);
+  const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
 
-const leagueName = getLeagueName(league_id.value, props.leagues);
-const homeTeamRecord = computed(() => getRecordString(homeTeam.value));
-const awayTeamRecord = computed(() => getRecordString(awayTeam.value));
+  const leagueName = getLeagueName(league_id.value, props.leagues);
+  const homeTeamRecord = computed(() => getRecordString(homeTeam.value));
+  const awayTeamRecord = computed(() => getRecordString(awayTeam.value));
 
-const standingsForLeague = computed(() =>
-  props.standings[league_id.value] ?? []
-);
+  const standingsForLeague = computed(
+    () => props.standings[league_id.value] ?? []
+  );
 
-const homeTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.home.club_id)
-);
+  const homeTeam = computed(() =>
+    standingsForLeague.value.find(
+      (s) => s.club_id === fixture.value?.home.club_id
+    )
+  );
 
-const awayTeam = computed(() =>
-  standingsForLeague.value.find(s => s.club_id === fixture.value?.away.club_id)
-);
+  const awayTeam = computed(() =>
+    standingsForLeague.value.find(
+      (s) => s.club_id === fixture.value?.away.club_id
+    )
+  );
 
-const homeTeamName = computed(() =>
-  standingsForLeague.value.find(
-    s => s.club_id === fixture.value?.home.club_id
-  )?.name ?? "Unknown"
-);
+  const homeTeamName = computed(
+    () =>
+      standingsForLeague.value.find(
+        (s) => s.club_id === fixture.value?.home.club_id
+      )?.name ?? 'Unknown'
+  );
 
-const awayTeamName = computed(() =>
-  standingsForLeague.value.find(
-    s => s.club_id === fixture.value?.away.club_id
-  )?.name ?? "Unknown"
-);
+  const awayTeamName = computed(
+    () =>
+      standingsForLeague.value.find(
+        (s) => s.club_id === fixture.value?.away.club_id
+      )?.name ?? 'Unknown'
+  );
 
-const hasMatchOfficials = computed(() => {
-  return fixture.value?.matchOfficials && fixture.value.matchOfficials.length > 0;
-});
+  const hasMatchOfficials = computed(() => {
+    return (
+      fixture.value?.matchOfficials && fixture.value.matchOfficials.length > 0
+    );
+  });
 
-const recordStats = [
-  { key: 'played', label: 'Played' },
-  { key: 'gamesWon', label: 'Wins' },
-  { key: 'gamesDraw', label: 'Draws' },
-  { key: 'gameLost', label: 'Losses' },
-  { key: 'points', label: 'Points' },
-  { key: 'bonusPointsW', label: 'Offensive Bonus Points' },
-  { key: 'bonusPointsL', label: 'Defensive Bonus Points' },
-] as const;
+  const recordStats = [
+    { key: 'played', label: 'Played' },
+    { key: 'gamesWon', label: 'Wins' },
+    { key: 'gamesDraw', label: 'Draws' },
+    { key: 'gameLost', label: 'Losses' },
+    { key: 'points', label: 'Points' },
+    { key: 'bonusPointsW', label: 'Offensive Bonus Points' },
+    { key: 'bonusPointsL', label: 'Defensive Bonus Points' },
+  ] as const;
 
-const pointsTotalStats = [
-  { key: 'pointsFor', label: 'Points For' },
-  { key: 'pointsAgainst', label: 'Points Against' },
-  { key: 'triesFor', label: 'Tries For' },
-  { key: 'triesAgainst', label: 'Tries Against' },
-  { key: 'Conv', label: 'Conversions' },
-  { key: 'Pen', label: 'Penalties' },
-  { key: 'Drop', label: 'Drop Kicks' },
-] as const;
+  const pointsTotalStats = [
+    { key: 'pointsFor', label: 'Points For' },
+    { key: 'pointsAgainst', label: 'Points Against' },
+    { key: 'triesFor', label: 'Tries For' },
+    { key: 'triesAgainst', label: 'Tries Against' },
+    { key: 'Conv', label: 'Conversions' },
+    { key: 'Pen', label: 'Penalties' },
+    { key: 'Drop', label: 'Drop Kicks' },
+  ] as const;
 
-const pointsPerGameStats = [
-  { key: 'triesFor', label: 'Tries For' },
-  { key: 'triesAgainst', label: 'Tries Against' },
-  { key: 'Conv', label: 'Conversions' },
-  { key: 'Pen', label: 'Penalties' },
-  { key: 'Drop', label: 'Drop Kicks' },
-] as const;
+  const pointsPerGameStats = [
+    { key: 'triesFor', label: 'Tries For' },
+    { key: 'triesAgainst', label: 'Tries Against' },
+    { key: 'Conv', label: 'Conversions' },
+    { key: 'Pen', label: 'Penalties' },
+    { key: 'Drop', label: 'Drop Kicks' },
+  ] as const;
 
-function getStatValue(team: Standing, key: keyof Standing): number {
-  return Number(team[key]);
-}
+  function getStatValue(team: Standing, key: keyof Standing): number {
+    return Number(team[key]);
+  }
 
-function getStatValuePerGame(team: Standing, key: keyof Standing): number {
-  return (Number(team[key]) / Number(team.played));
-}
+  function getStatValuePerGame(team: Standing, key: keyof Standing): number {
+    return Number(team[key]) / Number(team.played);
+  }
 </script>
 
 <style scoped>

@@ -31,30 +31,31 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-import type { Club, Fixture } from '@/utils/types';
-import { formattedTime } from '@/composables/utils';
-import { computed } from 'vue';
+  import { useRouter } from 'vue-router';
+  import type { Club, Fixture } from '@/utils/types';
+  import { formattedTime } from '@/composables/utils';
+  import { computed } from 'vue';
 
-const props = defineProps<{
-  home: Club;
-  away: Club;
-  fixture: Fixture;
-}>();
+  const props = defineProps<{
+    home: Club;
+    away: Club;
+    fixture: Fixture;
+  }>();
 
+  const time = computed(() => {
+    return formattedTime(props.fixture.fixtureDate);
+  });
 
-const time = computed(() => { return formattedTime(props.fixture.fixtureDate); });
-
-const router = useRouter();
-function goToEvent() {
-  router.push({ path: `/fixture/${props.fixture.fixtureId}` });
-}
+  const router = useRouter();
+  function goToEvent() {
+    router.push({ path: `/fixture/${props.fixture.fixtureId}` });
+  }
 </script>
 
 <style scoped>
-img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
 </style>

@@ -18,11 +18,14 @@
   import type { FixtureResultSummary } from '@/utils/types';
 
   const props = defineProps<{
-    home: FixtureResultSummary,
-    away: FixtureResultSummary,
+    home: FixtureResultSummary;
+    away: FixtureResultSummary;
   }>();
 
-  function getStatValue(team: FixtureResultSummary, key: keyof FixtureResultSummary): number {
+  function getStatValue(
+    team: FixtureResultSummary,
+    key: keyof FixtureResultSummary
+  ): number {
     return Number(team[key]);
   }
 

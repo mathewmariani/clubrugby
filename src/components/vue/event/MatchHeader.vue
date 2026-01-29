@@ -17,7 +17,6 @@
   import { formattedTime } from '@/composables/utils';
   import { computed } from 'vue';
 
-
   const props = defineProps<{
     leagueName: string;
     isResult: boolean;

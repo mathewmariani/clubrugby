@@ -28,30 +28,30 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import FixtureListItem from '@/components/vue/items/FixtureListItem.vue';
-import ResultListItem from '@/components/vue/items/ResultListItem.vue';
-import { getLeagueName } from '@/composables/utils';
-import { useLayout } from '@/composables/useLayout';
-import type { Club, Fixture } from '@/utils/types';
+  import { computed } from 'vue';
+  import FixtureListItem from '@/components/vue/items/FixtureListItem.vue';
+  import ResultListItem from '@/components/vue/items/ResultListItem.vue';
+  import { getLeagueName } from '@/composables/utils';
+  import { useLayout } from '@/composables/useLayout';
+  import type { Club, Fixture } from '@/utils/types';
 
-const props = defineProps<{
-  day: string;
-  leaguesForDay: Record<string, Fixture[]>;
-  clubs: Record<string, Club>;
-  leagues: Record<string, string>;
-  matchComponent: 'FixtureListItem' | 'ResultListItem';
-}>();
+  const props = defineProps<{
+    day: string;
+    leaguesForDay: Record<string, Fixture[]>;
+    clubs: Record<string, Club>;
+    leagues: Record<string, string>;
+    matchComponent: 'FixtureListItem' | 'ResultListItem';
+  }>();
 
-const { navbarHeight } = useLayout();
-const dateHeaderHeight = 32;
+  const { navbarHeight } = useLayout();
+  const dateHeaderHeight = 32;
 
-const leagueTopOffset = computed(() => navbarHeight.value + dateHeaderHeight);
+  const leagueTopOffset = computed(() => navbarHeight.value + dateHeaderHeight);
 
-const components = {
-  FixtureListItem,
-  ResultListItem,
-};
+  const components = {
+    FixtureListItem,
+    ResultListItem,
+  };
 </script>
 
 <style scoped>
