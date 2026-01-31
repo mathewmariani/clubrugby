@@ -15,11 +15,7 @@
 
         <!-- Stats -->
         <div class="list-group-item">
-          <div
-            v-for="stat in PER_GAME_STATS"
-            :key="stat.key"
-            class="mb-3"
-          >
+          <div v-for="stat in PER_GAME_STATS" :key="stat.key" class="mb-3">
             <div class="d-flex mb-1">
               <small>{{ stat.label }}</small>
               <small class="ms-auto">
@@ -30,7 +26,10 @@
               </small>
             </div>
             <div class="progress-stacked">
-              <div class="progress" :style="{ width: stat.relativeWidth + '%' }">
+              <div
+                class="progress"
+                :style="{ width: stat.relativeWidth + '%' }"
+              >
                 <div class="progress-bar bg-primary"></div>
               </div>
             </div>
@@ -42,84 +41,95 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { getOrdinalSuffix } from '@/composables/utils';
-import { useSavedLeagues } from '@/composables/useSavedLeagues';
-import { useLayout } from '@/composables/useLayout';
+  import { computed } from 'vue';
+  import { getOrdinalSuffix } from '@/composables/utils';
+  import { useSavedLeagues } from '@/composables/useSavedLeagues';
+  import { useLayout } from '@/composables/useLayout';
 
-import type { Standing } from '@/utils/types';
+  import type { Standing } from '@/utils/types';
 
-const { navbarHeight } = useLayout();
-const { savedLeagues } = useSavedLeagues();
+  const { navbarHeight } = useLayout();
+  const { savedLeagues } = useSavedLeagues();
 
-const props = defineProps<{
-  club_id: string;
-  leagues: Record<string, string>;
-  standings: Record<string, Standing[]>;
-}>();
+  const props = defineProps<{
+    club_id: string;
+    leagues: Record<string, string>;
+    standings: Record<string, Standing[]>;
+  }>();
 
-/* ---------------- constants ---------------- */
+  /* ---------------- constants ---------------- */
 
-const PER_GAME_STATS = [
-  { key: 'pointsFor', label: 'Points For' },
-  { key: 'pointsAgainst', label: 'Points Against' },
-  { key: 'triesFor', label: 'Tries For' },
-  { key: 'triesAgainst', label: 'Tries Against' },
-  { key: 'Pen', label: 'Penalty Kicks' },
-  { key: 'Drop', label: 'Drop Kicks' },
-  { key: 'Conv', label: 'Conversions' },
-] as const;
+  const PER_GAME_STATS = [
+    { key: 'pointsFor', label: 'Points For' },
+    { key: 'pointsAgainst', label: 'Points Against' },
+    { key: 'triesFor', label: 'Tries For' },
+    { key: 'triesAgainst', label: 'Tries Against' },
+    { key: 'Pen', label: 'Penalty Kicks' },
+    { key: 'Drop', label: 'Drop Kicks' },
+    { key: 'Conv', label: 'Conversions' },
+  ] as const;
 
-function getStatValue(team: Standing | undefined, key: keyof Standing): number {
-  return Number(team?.[key] ?? 0);
-}
+  function getStatValue(
+    team: Standing | undefined,
+    key: keyof Standing
+  ): number {
+    return Number(team?.[key] ?? 0);
+  }
 
-/* ---------------- helpers ---------------- */
+  /* ---------------- helpers ---------------- */
 
-function perGame(team: Standing, key: keyof Standing): number {
-  return team.pld > 0 ? Number(team[key]) / team.pld : 0;
-}
+  function perGame(team: Standing, key: keyof Standing): number {
+    return team.pld > 0 ? Number(team[key]) / team.pld : 0;
+  }
 
-function rankByPerGame(standings: Standing[], teamId: string, key: keyof Standing): number | null {
-  const ranked = standings
-    .map(s => ({ id: s.club_id, value: perGame(s, key) }))
-    .sort((a, b) => b.value - a.value);
+  function rankByPerGame(
+    standings: Standing[],
+    teamId: string,
+    key: keyof Standing
+  ): number | null {
+    const ranked = standings
+      .map((s) => ({ id: s.club_id, value: perGame(s, key) }))
+      .sort((a, b) => b.value - a.value);
 
-  const index = ranked.findIndex(t => t.id === teamId);
-  return index >= 0 ? index + 1 : null;
-}
+    const index = ranked.findIndex((t) => t.id === teamId);
+    return index >= 0 ? index + 1 : null;
+  }
 
-function relativeWidth(standings: Standing[], team: Standing, key: keyof Standing): number {
-  const values = standings.map(s => perGame(s, key));
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  const range = max - min;
-  return range > 0 ? ((perGame(team, key) - min) / range) * 100 : 100;
-}
+  function relativeWidth(
+    standings: Standing[],
+    team: Standing,
+    key: keyof Standing
+  ): number {
+    const values = standings.map((s) => perGame(s, key));
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
+    return range > 0 ? ((perGame(team, key) - min) / range) * 100 : 100;
+  }
 
-/* ---------------- computed ---------------- */
+  /* ---------------- computed ---------------- */
 
-const entries = computed(() => {
-  return Object.entries(props.standings)
-    .map(([leagueId, standings]) => {
-      const league = props.leagues[leagueId];
-      const team = standings.find(s => s.club_id === props.club_id);
+  const entries = computed(() => {
+    return Object.entries(props.standings)
+      .map(([leagueId, standings]) => {
+        const league = props.leagues[leagueId];
+        const team = standings.find((s) => s.club_id === props.club_id);
 
-      if (!league || !team) return null;
+        if (!league || !team) return null;
 
-      return {
-        league,
-        team,
-      };
-    })
-    .filter(Boolean);
-});
+        return {
+          league,
+          team,
+        };
+      })
+      .filter(Boolean);
+  });
 </script>
 
 <style scoped>
-.sticky-league-name {
-  position: sticky;
-  z-index: 10;
-  background-color: var(--bs-body-bg);
-}
+  .sticky-league-name {
+    position: sticky;
+    z-index: 10;
+    background-color: var(--bs-body-bg);
+  }
 </style>

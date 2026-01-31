@@ -23,7 +23,7 @@ export function useFixtureFilters(
       Object.entries(fixtures.value)
         .map(([leagueId, fixtureList]) => [
           leagueId,
-          fixtureList.filter(f => f.fixtureStatus === 'fixture'),
+          fixtureList.filter((f) => f.fixtureStatus === 'fixture'),
         ])
         .filter(([_, fixtureList]) => fixtureList.length > 0)
     )
@@ -32,7 +32,9 @@ export function useFixtureFilters(
   /**
    * Check if there are any upcoming fixtures
    */
-  const hasFixtures = computed(() => Object.keys(leaguesWithFixtures.value).length > 0);
+  const hasFixtures = computed(
+    () => Object.keys(leaguesWithFixtures.value).length > 0
+  );
 
   /**
    * Group fixtures by league, filtering to only results
@@ -42,7 +44,7 @@ export function useFixtureFilters(
       Object.entries(fixtures.value)
         .map(([leagueId, fixtureList]) => [
           leagueId,
-          fixtureList.filter(f => f.fixtureStatus === 'result'),
+          fixtureList.filter((f) => f.fixtureStatus === 'result'),
         ])
         .filter(([_, fixtureList]) => fixtureList.length > 0)
     )
@@ -51,7 +53,9 @@ export function useFixtureFilters(
   /**
    * Check if there are any results
    */
-  const hasResults = computed(() => Object.keys(leaguesWithResults.value).length > 0);
+  const hasResults = computed(
+    () => Object.keys(leaguesWithResults.value).length > 0
+  );
 
   // ========== Club-Specific Filters ==========
 
@@ -60,7 +64,9 @@ export function useFixtureFilters(
    */
   const upcomingByMonthDay = computed(() => {
     if (!options?.clubId) return {};
-    return groupByMonthDay(flattenFixturesForClub(fixtures.value, options.clubId, 'fixture'));
+    return groupByMonthDay(
+      flattenFixturesForClub(fixtures.value, options.clubId, 'fixture')
+    );
   });
 
   /**
@@ -68,18 +74,24 @@ export function useFixtureFilters(
    */
   const resultsByMonthDay = computed(() => {
     if (!options?.clubId) return {};
-    return groupByMonthDay(flattenFixturesForClub(fixtures.value, options.clubId, 'result'));
+    return groupByMonthDay(
+      flattenFixturesForClub(fixtures.value, options.clubId, 'result')
+    );
   });
 
   /**
    * Check if club has upcoming fixtures
    */
-  const clubHasFixtures = computed(() => Object.keys(upcomingByMonthDay.value).length > 0);
+  const clubHasFixtures = computed(
+    () => Object.keys(upcomingByMonthDay.value).length > 0
+  );
 
   /**
    * Check if club has results
    */
-  const clubHasResults = computed(() => Object.keys(resultsByMonthDay.value).length > 0);
+  const clubHasResults = computed(
+    () => Object.keys(resultsByMonthDay.value).length > 0
+  );
 
   // ========== Saved Leagues Filter ==========
 
@@ -106,7 +118,7 @@ export function useFixtureFilters(
       Object.entries(filteredByLeagues.value)
         .map(([leagueId, fixtureList]) => [
           leagueId,
-          fixtureList.filter(f => f.fixtureStatus === 'fixture'),
+          fixtureList.filter((f) => f.fixtureStatus === 'fixture'),
         ])
         .filter(([_, fixtureList]) => fixtureList.length > 0)
     )
@@ -120,7 +132,7 @@ export function useFixtureFilters(
       Object.entries(filteredByLeagues.value)
         .map(([leagueId, fixtureList]) => [
           leagueId,
-          fixtureList.filter(f => f.fixtureStatus === 'result'),
+          fixtureList.filter((f) => f.fixtureStatus === 'result'),
         ])
         .filter(([_, fixtureList]) => fixtureList.length > 0)
     )
@@ -129,12 +141,16 @@ export function useFixtureFilters(
   /**
    * Check if there are any filtered fixtures
    */
-  const hasFilteredFixtures = computed(() => Object.keys(filteredFixturesByLeagues.value).length > 0);
+  const hasFilteredFixtures = computed(
+    () => Object.keys(filteredFixturesByLeagues.value).length > 0
+  );
 
   /**
    * Check if there are any filtered results
    */
-  const hasFilteredResults = computed(() => Object.keys(filteredResultsByLeagues.value).length > 0);
+  const hasFilteredResults = computed(
+    () => Object.keys(filteredResultsByLeagues.value).length > 0
+  );
 
   return {
     // Basic status filters
