@@ -39,16 +39,16 @@ Before you begin, ensure you have the following installed:
 
 - **nvm** (Node Version Manager) – easily switch Node versions
 ```bash
-  nvm install 22
-  nvm use 22
+nvm install 22
+nvm use 22
 ```
 
 * **Python virtual environment** – isolate scraper dependencies
 
 ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate  # macOS/Linux
-    .venv\Scripts\activate     # Windows
+python3 -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
 ```
 * **VS Code** – recommended editor with Prettier extension for formatting
 
