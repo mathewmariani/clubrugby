@@ -4,8 +4,12 @@ dist/
 # generated types
 .astro/
 
-# database files
+# generated files
 data/
+
+# calendar files
+public/calendar/
+.ics
 
 # dependencies
 node_modules/

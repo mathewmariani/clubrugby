@@ -80,8 +80,7 @@
   }));
 
   const calendarLink = computed(() => {
-    const provider = getDefaultCalendar();
-    return calendarHandlers[provider](event.value);
+    return `/calendar/${props.fixture.fixtureId}.ics`;
   });
 </script>
 
