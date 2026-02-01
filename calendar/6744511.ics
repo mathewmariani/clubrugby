@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155150Z
+DESCRIPTION:Island U14 Boys\nSalish Warriors vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744511
+DTEND:20251130T130000Z
+GEO:0.000000;0.000000
+LOCATION:Shawnigan Lake
+DTSTART:20251130T110000Z
+SUMMARY:Salish Warriors vs Castaway Wanderers
+UID:6744511@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6744511
+END:VEVENT
+END:VCALENDAR

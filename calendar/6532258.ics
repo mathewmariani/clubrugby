@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nPort Alberni Black Sheep vs Comox Valley Kickers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532258
+DTEND:20251101T150000Z
+GEO:49.235000;-124.788000
+LOCATION:Port Alberni- Black Sheep Rugby Park
+DTSTART:20251101T130000Z
+SUMMARY:Port Alberni Black Sheep vs Comox Valley Kickers
+UID:6532258@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532258
+END:VEVENT
+END:VCALENDAR

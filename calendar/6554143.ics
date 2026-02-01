@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554143
+DTEND:20260328T144500Z
+GEO:49.276700;-122.925000
+LOCATION:Simon Fraser Field 4
+DTSTART:20260328T124500Z
+SUMMARY:Simon Fraser RC vs Vancouver Rowing Club
+UID:6554143@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554143
+END:VEVENT
+END:VCALENDAR

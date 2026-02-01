@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155322Z
+DESCRIPTION:Junior Provincial Cup - U16 Girls\nCrusaders Rugby Club 1XV vs Burlington Centaurs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6500193
+DTEND:20250719T120000Z
+GEO:43.489100;-79.652800
+LOCATION:Crusaders Park
+DTSTART:20250719T100000Z
+SUMMARY:Crusaders Rugby Club 1XV vs Burlington Centaurs 1XV
+UID:6500193@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6500193
+END:VEVENT
+END:VCALENDAR

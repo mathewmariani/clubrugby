@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155248Z
+DESCRIPTION:Men's University Division 2\nUniversity of King's College 2 vs St FX University\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609464
+DTEND:20251019T150000Z
+GEO:44.679100;-63.544800
+LOCATION:Graves 2
+DTSTART:20251019T130000Z
+SUMMARY:University of King's College 2 vs St FX University
+UID:6609464@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609464
+END:VEVENT
+END:VCALENDAR

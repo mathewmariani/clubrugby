@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155351Z
+DESCRIPTION:LPR 3 Masculin\nSt-Lambert Locks RFC vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481986
+DTEND:20250517T120000Z
+GEO:45.597400;-73.300200
+LOCATION:Ste-Julie
+DTSTART:20250517T100000Z
+SUMMARY:St-Lambert Locks RFC vs Club de rugby Sainte-Anne de Bellevue
+UID:6481986@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481986
+END:VEVENT
+END:VCALENDAR

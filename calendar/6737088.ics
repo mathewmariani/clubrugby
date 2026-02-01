@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155244Z
+DESCRIPTION:Women's Exhbition Games\nEnfield A vs Dalhousie University 1\,2\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6737088
+DTEND:20251018T120000Z
+GEO:44.963600;-63.534900
+LOCATION:Enfield Lions Den
+DTSTART:20251018T100000Z
+SUMMARY:Enfield A vs Dalhousie University 1\,2
+UID:6737088@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6737088
+END:VEVENT
+END:VCALENDAR

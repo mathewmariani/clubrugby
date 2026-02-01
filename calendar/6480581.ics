@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nRugby Club de Montréal vs Town of Mount Royal RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480581
+DTEND:20250517T160000Z
+GEO:0.000000;0.000000
+LOCATION:Parc Henri-Julien
+DTSTART:20250517T140000Z
+SUMMARY:Rugby Club de Montréal vs Town of Mount Royal RFC
+UID:6480581@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480581
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155253Z
+DESCRIPTION:Marshall Premiership\nBalmy Beach vs Oshawa Vikings 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471021
+DTEND:20250816T163000Z
+GEO:43.664100;-79.317300
+LOCATION:Tubs and Gee Gage
+DTSTART:20250816T143000Z
+SUMMARY:Balmy Beach vs Oshawa Vikings 1XV
+UID:6471021@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471021
+END:VEVENT
+END:VCALENDAR

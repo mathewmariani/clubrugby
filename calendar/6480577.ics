@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nClub de Rugby de Québec vs Town of Mount Royal RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480577
+DTEND:20250510T153000Z
+GEO:46.736100;-71.403000
+LOCATION:Campus Notre-Dame-de-Foy
+DTSTART:20250510T133000Z
+SUMMARY:Club de Rugby de Québec vs Town of Mount Royal RFC
+UID:6480577@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480577
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155201Z
+DESCRIPTION:2025 Senior Men's A \nFredericton Loyalist Rugby Club A vs Moncton Black Tide A\n\nMatch details:\nhttps://clubrugby.ca/nb#/fixture/6478456
+DTEND:20250823T010000Z
+GEO:45.973500;-66.648700
+LOCATION:Fredericton Loyalist Rugby Club
+DTSTART:20250822T230000Z
+SUMMARY:Fredericton Loyalist Rugby Club A vs Moncton Black Tide A
+UID:6478456@clubrugby.ca
+URL:https://clubrugby.ca/nb#/fixture/6478456
+END:VEVENT
+END:VCALENDAR

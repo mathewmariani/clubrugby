@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155316Z
+DESCRIPTION:Junior Regional Cup - U18 Boys\nBelleville Bulldogs 1XV vs Ajax Wanderers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492641
+DTEND:20250702T203000Z
+GEO:44.153400;-77.404900
+LOCATION:Mary Ann Sills Park
+DTSTART:20250702T183000Z
+SUMMARY:Belleville Bulldogs 1XV vs Ajax Wanderers
+UID:6492641@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492641
+END:VEVENT
+END:VCALENDAR

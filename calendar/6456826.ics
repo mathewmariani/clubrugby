@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nSt Albert RFC vs Edmonton Leprechaun Tigers RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456826
+DTEND:20250614T150000Z
+GEO:53.634300;-113.606000
+LOCATION:St Albert RFC
+DTSTART:20250614T130000Z
+SUMMARY:St Albert RFC vs Edmonton Leprechaun Tigers RFC
+UID:6456826@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456826
+END:VEVENT
+END:VCALENDAR

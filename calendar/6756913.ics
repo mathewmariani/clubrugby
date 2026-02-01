@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nTrinity Western University vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6756913
+DTEND:20251129T140000Z
+GEO:49.068300;-122.323000
+LOCATION:Abbotsford Exhibition Park
+DTSTART:20251129T120000Z
+SUMMARY:Trinity Western University vs Abbotsford RFC
+UID:6756913@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6756913
+END:VEVENT
+END:VCALENDAR

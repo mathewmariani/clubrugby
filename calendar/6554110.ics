@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nCapilano vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554110
+DTEND:20260207T131500Z
+GEO:49.327400;-123.126000
+LOCATION:Klahanie Park
+DTSTART:20260207T111500Z
+SUMMARY:Capilano vs Axemen Rugby Club
+UID:6554110@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554110
+END:VEVENT
+END:VCALENDAR

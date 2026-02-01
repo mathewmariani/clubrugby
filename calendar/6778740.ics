@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155135Z
+DESCRIPTION:CanWest 7s\nUniversity Of Victoria vs University of Lethbridge\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6778740
+DTEND:20260207T114500Z
+GEO:48.469700;-123.315000
+LOCATION:U Of Victoria- Wallace Field
+DTSTART:20260207T094500Z
+SUMMARY:University Of Victoria vs University of Lethbridge
+UID:6778740@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6778740
+END:VEVENT
+END:VCALENDAR

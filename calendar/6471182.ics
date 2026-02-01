@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155254Z
+DESCRIPTION:OWL Premiership\nAurora Barbarians vs Toronto Nomads 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471182
+DTEND:20250626T211500Z
+GEO:44.004000;-79.454200
+LOCATION:St. Max of Kolbe CHS\, 278 Wellington Street\, Aurora\, ON
+DTSTART:20250626T191500Z
+SUMMARY:Aurora Barbarians vs Toronto Nomads 1XV
+UID:6471182@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471182
+END:VEVENT
+END:VCALENDAR

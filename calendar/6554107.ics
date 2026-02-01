@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Simon Fraser RC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554107
+DTEND:20260131T131500Z
+GEO:49.250900;-122.961000
+LOCATION:Burnaby Lake Rugby Club
+DTSTART:20260131T111500Z
+SUMMARY:Burnaby Lake vs Simon Fraser RC
+UID:6554107@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554107
+END:VEVENT
+END:VCALENDAR

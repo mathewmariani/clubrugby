@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155212Z
+DESCRIPTION:Prairie University Mens Rugby 2025\nMount Royal University vs Edmonton Gold\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6694712
+DTEND:20251004T150000Z
+GEO:51.008600;-114.133000
+LOCATION:Mount Royal University
+DTSTART:20251004T130000Z
+SUMMARY:Mount Royal University vs Edmonton Gold
+UID:6694712@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6694712
+END:VEVENT
+END:VCALENDAR

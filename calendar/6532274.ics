@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nComox Valley Kickers vs Cowichan RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532274
+DTEND:20260124T163000Z
+GEO:49.624300;-125.021000
+LOCATION:Comox- Cumberland Village Park
+DTSTART:20260124T143000Z
+SUMMARY:Comox Valley Kickers vs Cowichan RFC
+UID:6532274@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532274
+END:VEVENT
+END:VCALENDAR

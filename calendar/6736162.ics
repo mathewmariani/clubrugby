@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Women's Rugby\nUniversity of Guelph vs Brock University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6736162
+DTEND:20251017T190000Z
+GEO:43.536900;-80.224600
+LOCATION:University of Guelph - Varsity Field
+DTSTART:20251017T170000Z
+SUMMARY:University of Guelph vs Brock University
+UID:6736162@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6736162
+END:VEVENT
+END:VCALENDAR

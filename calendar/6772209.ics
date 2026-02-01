@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155137Z
+DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Rugby Union vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6772209
+DTEND:20260418T140000Z
+GEO:49.339400;-123.179000
+LOCATION:TBC
+DTSTART:20260418T120000Z
+SUMMARY:Vancouver Rugby Union vs Vancouver Thunderbirds 2
+UID:6772209@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6772209
+END:VEVENT
+END:VCALENDAR

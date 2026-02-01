@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nSarnia Saints 1XV vs Middlesex-Huron Youth Rugby\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6498347
+DTEND:20250628T110000Z
+GEO:42.951500;-82.399400
+LOCATION:Norm Perry Park
+DTSTART:20250628T090000Z
+SUMMARY:Sarnia Saints 1XV vs Middlesex-Huron Youth Rugby
+UID:6498347@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6498347
+END:VEVENT
+END:VCALENDAR

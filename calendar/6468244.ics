@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nEdmonton Clansmen RFC vs Calgary Hornets RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468244
+DTEND:20250816T170000Z
+GEO:53.558500;-113.513000
+LOCATION:Clansmen RFC
+DTSTART:20250816T150000Z
+SUMMARY:Edmonton Clansmen RFC vs Calgary Hornets RFC
+UID:6468244@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468244
+END:VEVENT
+END:VCALENDAR

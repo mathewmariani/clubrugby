@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155309Z
+DESCRIPTION:EORU Men Championship\nOttawa Ospreys RFC vs Ottawa Wolves\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6483335
+DTEND:20250607T130000Z
+GEO:45.149600;-75.808900
+LOCATION:Twin Elm Rugby Park
+DTSTART:20250607T110000Z
+SUMMARY:Ottawa Ospreys RFC vs Ottawa Wolves
+UID:6483335@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6483335
+END:VEVENT
+END:VCALENDAR

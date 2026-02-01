@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155333Z
+DESCRIPTION:Exhibition - Senior Men\nNiagara Wasps 1XV vs Toronto Dragons 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6479437
+DTEND:20250503T150000Z
+GEO:43.058100;-79.137900
+LOCATION:Niagara Wasps
+DTSTART:20250503T130000Z
+SUMMARY:Niagara Wasps 1XV vs Toronto Dragons 1XV
+UID:6479437@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6479437
+END:VEVENT
+END:VCALENDAR

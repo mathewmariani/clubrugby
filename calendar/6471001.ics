@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155253Z
+DESCRIPTION:Marshall Premiership\nBurlington Centaurs 1XV vs Toronto Scottish 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471001
+DTEND:20250621T163000Z
+GEO:43.379600;-79.756300
+LOCATION:Sherwood Forest Park
+DTSTART:20250621T143000Z
+SUMMARY:Burlington Centaurs 1XV vs Toronto Scottish 1XV
+UID:6471001@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471001
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155155Z
+DESCRIPTION:Mens Division 2 \nKamloops vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532819
+DTEND:20260314T144500Z
+GEO:50.675800;-120.311000
+LOCATION:Kamloops Exhibition Park
+DTSTART:20260314T124500Z
+SUMMARY:Kamloops vs Meraloma
+UID:6532819@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532819
+END:VEVENT
+END:VCALENDAR

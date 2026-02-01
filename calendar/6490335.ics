@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155242Z
+DESCRIPTION:Women's Division Two\nEnfield A vs Dartmouth East Rugby Union\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490335
+DTEND:20250719T140000Z
+GEO:44.963600;-63.534900
+LOCATION:Enfield Lions Den
+DTSTART:20250719T120000Z
+SUMMARY:Enfield A vs Dartmouth East Rugby Union
+UID:6490335@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490335
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155233Z
+DESCRIPTION:Mens Division 2\nWanderers vs Brandon Barbarians\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6708875
+DTEND:20250927T130000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250927T110000Z
+SUMMARY:Wanderers vs Brandon Barbarians
+UID:6708875@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6708875
+END:VEVENT
+END:VCALENDAR

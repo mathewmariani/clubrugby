@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155333Z
+DESCRIPTION:Exhibition - Senior Men\nPeterborough Pagans 1XV vs Toronto Scottish 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6470100
+DTEND:20250503T140000Z
+GEO:44.331000;-78.310100
+LOCATION:Thomas A. Stewart Secondary School
+DTSTART:20250503T120000Z
+SUMMARY:Peterborough Pagans 1XV vs Toronto Scottish 1XV
+UID:6470100@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6470100
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155335Z
+DESCRIPTION:Exhibition - OCAA/OUA Men\nUniversity of Guelph vs Queens University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540830
+DTEND:20251019T133000Z
+GEO:43.535400;-80.219600
+LOCATION:University of Guelph South Grass
+DTSTART:20251019T113000Z
+SUMMARY:University of Guelph vs Queens University
+UID:6540830@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540830
+END:VEVENT
+END:VCALENDAR

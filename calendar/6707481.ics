@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155210Z
+DESCRIPTION:Prairie University Womens Rugby Championship 2025\nSouthern Alberta Institute of Technology vs University of Regina\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6707481
+DTEND:20250926T190000Z
+GEO:56.130400;-106.347000
+LOCATION:Calgary Rugby Park 1
+DTSTART:20250926T170000Z
+SUMMARY:Southern Alberta Institute of Technology vs University of Regina
+UID:6707481@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6707481
+END:VEVENT
+END:VCALENDAR

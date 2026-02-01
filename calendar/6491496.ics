@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155315Z
+DESCRIPTION:Junior Provincial Cup - U18 Boys\nGeorgian Bay Titans vs Burlington Centaurs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491496
+DTEND:20250706T123000Z
+GEO:44.502900;-80.230200
+LOCATION:Harbourview Park (Collingwood)
+DTSTART:20250706T103000Z
+SUMMARY:Georgian Bay Titans vs Burlington Centaurs 1XV
+UID:6491496@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491496
+END:VEVENT
+END:VCALENDAR

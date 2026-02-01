@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155305Z
+DESCRIPTION:Marshall Premiership 2XV\nBalmy Beach vs Aurora Barbarians\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471074
+DTEND:20250719T150000Z
+GEO:43.664100;-79.317300
+LOCATION:Tubs and Gee Gage
+DTSTART:20250719T130000Z
+SUMMARY:Balmy Beach vs Aurora Barbarians
+UID:6471074@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471074
+END:VEVENT
+END:VCALENDAR

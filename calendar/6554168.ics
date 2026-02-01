@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155153Z
+DESCRIPTION:Womens Division 2 Tier 1\nRidge Meadows vs Kelowna Crows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554168
+DTEND:20251122T144500Z
+GEO:49.211800;-122.582000
+LOCATION:Thomas Haney
+DTSTART:20251122T124500Z
+SUMMARY:Ridge Meadows vs Kelowna Crows
+UID:6554168@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554168
+END:VEVENT
+END:VCALENDAR

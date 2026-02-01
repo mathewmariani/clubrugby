@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155217Z
+DESCRIPTION:Canadian Rugby Championship U19 Male\nWolf Pack vs Atlantic Rock\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6507019
+DTEND:20250726T170000Z
+GEO:56.130400;-106.347000
+LOCATION:Calgary Rugby Park 1
+DTSTART:20250726T150000Z
+SUMMARY:Wolf Pack vs Atlantic Rock
+UID:6507019@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6507019
+END:VEVENT
+END:VCALENDAR

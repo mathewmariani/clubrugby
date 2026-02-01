@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155347Z
+DESCRIPTION:LPR 1 Reserve  - Masculin\nWestmount Rugby Club vs XV de Montréal\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480718
+DTEND:20250712T143000Z
+GEO:45.489400;-73.603700
+LOCATION:Parc King George
+DTSTART:20250712T123000Z
+SUMMARY:Westmount Rugby Club vs XV de Montréal
+UID:6480718@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480718
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155234Z
+DESCRIPTION:Womens Premier\nParkland Pirates / Mavericks Division 2 vs Assassins Premier\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6492309
+DTEND:20250621T150000Z
+GEO:51.158200;-100.060000
+LOCATION:Vermillion Park
+DTSTART:20250621T130000Z
+SUMMARY:Parkland Pirates / Mavericks Division 2 vs Assassins Premier
+UID:6492309@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6492309
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nCalgary Canadian Irish AC U18B vs Nor Westers Athletic Association NWAA\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456891
+DTEND:20250816T150000Z
+GEO:50.972100;-113.991000
+LOCATION:Calgary Rugby Park 2
+DTSTART:20250816T130000Z
+SUMMARY:Calgary Canadian Irish AC U18B vs Nor Westers Athletic Association NWAA
+UID:6456891@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456891
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155351Z
+DESCRIPTION:LPR 3 Masculin\nMontréal Phénix Rugby vs Montreal Barbarians RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481993
+DTEND:20250607T170000Z
+GEO:45.547900;-73.621500
+LOCATION:Parc Villeray 
+DTSTART:20250607T150000Z
+SUMMARY:Montréal Phénix Rugby vs Montreal Barbarians RFC
+UID:6481993@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481993
+END:VEVENT
+END:VCALENDAR

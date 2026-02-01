@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155259Z
+DESCRIPTION:Marshall Championship\nPeterborough Pagans 1XV vs Markham Irish Canadian RFC 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6499971
+DTEND:20250816T153000Z
+GEO:44.356400;-78.285100
+LOCATION:Trent University - Eastbank Fields
+DTSTART:20250816T133000Z
+SUMMARY:Peterborough Pagans 1XV vs Markham Irish Canadian RFC 1XV
+UID:6499971@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6499971
+END:VEVENT
+END:VCALENDAR

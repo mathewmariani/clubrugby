@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155225Z
+DESCRIPTION:ERU Women's 2nd Division\nEdmonton Leprechaun Tigers RFC vs Grande Prairie RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6540260
+DTEND:20250823T160000Z
+GEO:53.634300;-113.606000
+LOCATION:St Albert RFC
+DTSTART:20250823T140000Z
+SUMMARY:Edmonton Leprechaun Tigers RFC vs Grande Prairie RFC
+UID:6540260@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6540260
+END:VEVENT
+END:VCALENDAR

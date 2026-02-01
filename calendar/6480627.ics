@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nParc Olympique vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480627
+DTEND:20250726T143000Z
+GEO:45.560800;-73.581500
+LOCATION:Parc Etienne Desmarteau
+DTSTART:20250726T123000Z
+SUMMARY:Parc Olympique vs Club de Rugby de Québec
+UID:6480627@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480627
+END:VEVENT
+END:VCALENDAR

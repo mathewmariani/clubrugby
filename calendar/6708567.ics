@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Mainland U16 Boys Pool B\nSurrey Beavers AA vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708567
+DTEND:20251026T141500Z
+GEO:49.117700;-122.822000
+LOCATION:Sullivan Heights
+DTSTART:20251026T121500Z
+SUMMARY:Surrey Beavers AA vs Axemen Rugby Club
+UID:6708567@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708567
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155251Z
+DESCRIPTION:Ontario Blues - Senior Women\nOntario Blues Women East vs Ontario Blues Women East\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6468619
+DTEND:20250406T150000Z
+GEO:43.732500;-79.379200
+LOCATION:Crescent School
+DTSTART:20250406T130000Z
+SUMMARY:Ontario Blues Women East vs Ontario Blues Women East
+UID:6468619@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6468619
+END:VEVENT
+END:VCALENDAR

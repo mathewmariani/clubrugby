@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155233Z
+DESCRIPTION:Mens Premier\nWombats/Brumbies Premier vs Assassins Premier\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6492293
+DTEND:20250524T173000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250524T153000Z
+SUMMARY:Wombats/Brumbies Premier vs Assassins Premier
+UID:6492293@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6492293
+END:VEVENT
+END:VCALENDAR

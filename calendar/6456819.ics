@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nCalgary Canucks RC vs Strathcona Druids RFC Druids\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456819
+DTEND:20250607T150000Z
+GEO:50.972100;-113.991000
+LOCATION:Calgary Rugby Park 3
+DTSTART:20250607T130000Z
+SUMMARY:Calgary Canucks RC vs Strathcona Druids RFC Druids
+UID:6456819@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456819
+END:VEVENT
+END:VCALENDAR

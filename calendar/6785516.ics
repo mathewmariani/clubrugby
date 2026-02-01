@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nCastaway Wanderers vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6785516
+DTEND:20260124T131500Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20260124T111500Z
+SUMMARY:Castaway Wanderers vs United
+UID:6785516@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6785516
+END:VEVENT
+END:VCALENDAR

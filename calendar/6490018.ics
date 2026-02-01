@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155225Z
+DESCRIPTION:ERU Women's 2nd Division\nStrathcona Druids RFC Druids vs Edmonton Leprechaun Tigers RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6490018
+DTEND:20250719T150000Z
+GEO:53.521800;-113.341000
+LOCATION:Strathcona Druids RFC
+DTSTART:20250719T130000Z
+SUMMARY:Strathcona Druids RFC Druids vs Edmonton Leprechaun Tigers RFC
+UID:6490018@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6490018
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Men's Rugby\nUniversity of Guelph vs University of Waterloo\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540736
+DTEND:20251005T140000Z
+GEO:43.536900;-80.224600
+LOCATION:University of Guelph - Varsity Field
+DTSTART:20251005T120000Z
+SUMMARY:University of Guelph vs University of Waterloo
+UID:6540736@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540736
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 2 Masculin\nMont-Tremblant RFC vs Ormstown Saracens RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481120
+DTEND:20250607T153000Z
+GEO:46.124400;-74.585200
+LOCATION:École Secondaire Curé-Mercure
+DTSTART:20250607T133000Z
+SUMMARY:Mont-Tremblant RFC vs Ormstown Saracens RFC
+UID:6481120@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481120
+END:VEVENT
+END:VCALENDAR

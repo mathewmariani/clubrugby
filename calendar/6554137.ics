@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nAxemen Rugby Club vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554137
+DTEND:20260321T131500Z
+GEO:49.726000;-123.144000
+LOCATION:Brennan Park field
+DTSTART:20260321T111500Z
+SUMMARY:Axemen Rugby Club vs Langley RFC
+UID:6554137@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554137
+END:VEVENT
+END:VCALENDAR

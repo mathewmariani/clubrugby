@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155149Z
+DESCRIPTION:Island U14 Girls\nJames Bay AA vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705708
+DTEND:20251019T120000Z
+GEO:48.418600;-123.382000
+LOCATION:James Bay AA- MacDonald Park
+DTSTART:20251019T100000Z
+SUMMARY:James Bay AA vs Castaway Wanderers
+UID:6705708@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6705708
+END:VEVENT
+END:VCALENDAR

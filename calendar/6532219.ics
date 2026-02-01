@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nBayside vs Comox Valley Kickers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532219
+DTEND:20251025T143000Z
+GEO:49.039600;-122.815000
+LOCATION:South Surrey Ath Pk
+DTSTART:20251025T123000Z
+SUMMARY:Bayside vs Comox Valley Kickers
+UID:6532219@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532219
+END:VEVENT
+END:VCALENDAR

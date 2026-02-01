@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155335Z
+DESCRIPTION:Exhibition - OCAA/OUA Women\nUniversity of Toronto vs Brock University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6453000
+DTEND:20250322T145000Z
+GEO:43.796200;-79.349000
+LOCATION:Seneca Newnham Campus Dome
+DTSTART:20250322T125000Z
+SUMMARY:University of Toronto vs Brock University
+UID:6453000@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6453000
+END:VEVENT
+END:VCALENDAR

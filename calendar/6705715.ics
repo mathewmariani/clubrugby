@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155149Z
+DESCRIPTION:Island U14 Girls\nWestshore vs CV Rapids Rugby Association\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705715
+DTEND:20251109T130000Z
+GEO:48.443600;-123.463000
+LOCATION:Juan De Fuca
+DTSTART:20251109T110000Z
+SUMMARY:Westshore vs CV Rapids Rugby Association
+UID:6705715@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6705715
+END:VEVENT
+END:VCALENDAR

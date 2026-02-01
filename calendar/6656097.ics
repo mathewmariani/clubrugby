@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Girls\nKingston Panthers vs Belleville Bulldogs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6656097
+DTEND:20250907T103000Z
+GEO:44.302600;-76.366100
+LOCATION:Lasalle SS
+DTSTART:20250907T083000Z
+SUMMARY:Kingston Panthers vs Belleville Bulldogs 1XV
+UID:6656097@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6656097
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155212Z
+DESCRIPTION:Prairie University Mens Rugby 2025\nSouthern Alberta Institute of Technology vs University of Saskatchewan\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6694714
+DTEND:20251005T110000Z
+GEO:56.130400;-106.347000
+LOCATION:Calgary Rugby Park 1
+DTSTART:20251005T090000Z
+SUMMARY:Southern Alberta Institute of Technology vs University of Saskatchewan
+UID:6694714@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6694714
+END:VEVENT
+END:VCALENDAR

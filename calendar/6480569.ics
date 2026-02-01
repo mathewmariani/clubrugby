@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nRugby Club de Montréal vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480569
+DTEND:20250802T190000Z
+GEO:0.000000;0.000000
+LOCATION:Parc Henri-Julien
+DTSTART:20250802T170000Z
+SUMMARY:Rugby Club de Montréal vs Club de rugby Sainte-Anne de Bellevue
+UID:6480569@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480569
+END:VEVENT
+END:VCALENDAR

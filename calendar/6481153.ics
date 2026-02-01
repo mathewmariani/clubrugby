@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nWestmount Rugby Club vs Mont-Tremblant RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481153
+DTEND:20250705T130000Z
+GEO:45.489400;-73.603700
+LOCATION:Parc King George
+DTSTART:20250705T110000Z
+SUMMARY:Westmount Rugby Club vs Mont-Tremblant RFC
+UID:6481153@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481153
+END:VEVENT
+END:VCALENDAR

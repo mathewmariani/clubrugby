@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155302Z
+DESCRIPTION:EORU Men Premiership\nOttawa Irish vs Kingston Panthers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6480837
+DTEND:20250621T150000Z
+GEO:45.149600;-75.808900
+LOCATION:Twin Elm Rugby Park
+DTSTART:20250621T130000Z
+SUMMARY:Ottawa Irish vs Kingston Panthers
+UID:6480837@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6480837
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155242Z
+DESCRIPTION:Women's Division Two\nHalifax A vs Dartmouth East Rugby Union\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6489545
+DTEND:20250614T134000Z
+GEO:0.000000;0.000000
+LOCATION:St Francis Field
+DTSTART:20250614T114000Z
+SUMMARY:Halifax A vs Dartmouth East Rugby Union
+UID:6489545@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6489545
+END:VEVENT
+END:VCALENDAR

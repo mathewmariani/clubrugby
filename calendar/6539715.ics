@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155308Z
+DESCRIPTION:TRU Men Championship\nToronto Buccaneers 1XV vs Toronto Muddy York 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6539715
+DTEND:20250816T130000Z
+GEO:43.723800;-79.356400
+LOCATION:Sunnybrook Park
+DTSTART:20250816T110000Z
+SUMMARY:Toronto Buccaneers 1XV vs Toronto Muddy York 1XV
+UID:6539715@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6539715
+END:VEVENT
+END:VCALENDAR

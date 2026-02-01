@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155308Z
+DESCRIPTION:TRU Men Championship\nToronto Muddy York 1XV vs Belleville Bulldogs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478300
+DTEND:20250614T150000Z
+GEO:44.380300;-78.577400
+LOCATION:67 Vince Jones Rd (Lindsay)
+DTSTART:20250614T130000Z
+SUMMARY:Toronto Muddy York 1XV vs Belleville Bulldogs 1XV
+UID:6478300@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478300
+END:VEVENT
+END:VCALENDAR

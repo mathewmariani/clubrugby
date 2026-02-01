@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155137Z
+DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Island Tide vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6730677
+DTEND:20260117T150000Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20260117T130000Z
+SUMMARY:Vancouver Island Tide vs Vancouver Thunderbirds 2
+UID:6730677@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6730677
+END:VEVENT
+END:VCALENDAR

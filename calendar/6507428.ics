@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155336Z
+DESCRIPTION:Exhibition - U18 Boys\nScarborough RFC 1XV vs Toronto City Youth\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6507428
+DTEND:20250715T203000Z
+GEO:43.750100;-79.318000
+LOCATION:Senator O'Connor
+DTSTART:20250715T183000Z
+SUMMARY:Scarborough RFC 1XV vs Toronto City Youth
+UID:6507428@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6507428
+END:VEVENT
+END:VCALENDAR

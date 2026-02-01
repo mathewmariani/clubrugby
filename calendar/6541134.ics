@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155256Z
+DESCRIPTION:OCAA Men's Rugby\nConestoga College vs Humber College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6541134
+DTEND:20251004T130000Z
+GEO:43.455600;-80.360300
+LOCATION:Fountain Street Soccer Complex - Cambridge
+DTSTART:20251004T110000Z
+SUMMARY:Conestoga College vs Humber College
+UID:6541134@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6541134
+END:VEVENT
+END:VCALENDAR

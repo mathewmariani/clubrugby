@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155318Z
+DESCRIPTION:Junior Regional Cup - U18 Girls\nNiagara Wasps 1XV vs Caledon Cavaliers RFC\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492360
+DTEND:20250705T120000Z
+GEO:43.213700;-79.819700
+LOCATION:Mohawk Sports Park
+DTSTART:20250705T100000Z
+SUMMARY:Niagara Wasps 1XV vs Caledon Cavaliers RFC
+UID:6492360@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492360
+END:VEVENT
+END:VCALENDAR

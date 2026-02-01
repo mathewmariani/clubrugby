@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nEdmonton Leprechaun Tigers RFC vs Nor Westers Athletic Association NWAA\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468247
+DTEND:20250816T170000Z
+GEO:53.460100;-113.470000
+LOCATION:Leprechaun Tigers RFC
+DTSTART:20250816T150000Z
+SUMMARY:Edmonton Leprechaun Tigers RFC vs Nor Westers Athletic Association NWAA
+UID:6468247@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468247
+END:VEVENT
+END:VCALENDAR

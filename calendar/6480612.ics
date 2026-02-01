@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nClub de Rugby de Québec vs Parc Olympique\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480612
+DTEND:20250607T153000Z
+GEO:46.767900;-71.298000
+LOCATION:École secondaire De Rochebelle
+DTSTART:20250607T133000Z
+SUMMARY:Club de Rugby de Québec vs Parc Olympique
+UID:6480612@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480612
+END:VEVENT
+END:VCALENDAR

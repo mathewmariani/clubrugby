@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155347Z
+DESCRIPTION:LPR 1 Reserve  - Masculin\nWestmount Rugby Club vs Rugby Club Ottawa\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480705
+DTEND:20250607T143000Z
+GEO:45.489400;-73.603700
+LOCATION:Parc King George
+DTSTART:20250607T123000Z
+SUMMARY:Westmount Rugby Club vs Rugby Club Ottawa
+UID:6480705@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480705
+END:VEVENT
+END:VCALENDAR

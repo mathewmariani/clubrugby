@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155347Z
+DESCRIPTION:LPR 1 Reserve  - Masculin\nMontreal Wanderers RFC vs XV de Montréal\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480698
+DTEND:20250516T200000Z
+GEO:0.000000;0.000000
+LOCATION:Parc Riverside
+DTSTART:20250516T180000Z
+SUMMARY:Montreal Wanderers RFC vs XV de Montréal
+UID:6480698@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480698
+END:VEVENT
+END:VCALENDAR

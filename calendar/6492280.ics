@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155319Z
+DESCRIPTION:Junior Provincial Cup - U16 Boys\nBarrhaven Scottish vs Kingston Panthers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492280
+DTEND:20250621T130000Z
+GEO:45.267800;-75.761700
+LOCATION:Rowans Pitch
+DTSTART:20250621T110000Z
+SUMMARY:Barrhaven Scottish vs Kingston Panthers
+UID:6492280@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492280
+END:VEVENT
+END:VCALENDAR

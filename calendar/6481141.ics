@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nRugby Châteauguay vs Rugby Club Ottawa\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481141
+DTEND:20250531T133000Z
+GEO:45.344500;-73.767500
+LOCATION:École Louis-Phillipe-Paré
+DTSTART:20250531T113000Z
+SUMMARY:Rugby Châteauguay vs Rugby Club Ottawa
+UID:6481141@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481141
+END:VEVENT
+END:VCALENDAR

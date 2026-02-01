@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155315Z
+DESCRIPTION:Junior Provincial Cup - U18 Boys\nGuelph RFC 1XV vs Crusaders Rugby Club 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491488
+DTEND:20250707T203000Z
+GEO:43.537800;-80.310900
+LOCATION:Guelph Lake Sports Fields
+DTSTART:20250707T183000Z
+SUMMARY:Guelph RFC 1XV vs Crusaders Rugby Club 1XV
+UID:6491488@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491488
+END:VEVENT
+END:VCALENDAR

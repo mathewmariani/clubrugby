@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155349Z
+DESCRIPTION:LPR 2 Féminin\nBeaconsfield RFC vs St-Georges Lumberjacks\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481085
+DTEND:20250531T130000Z
+GEO:45.429700;-73.862900
+LOCATION:Beaconsfield HS
+DTSTART:20250531T110000Z
+SUMMARY:Beaconsfield RFC vs St-Georges Lumberjacks
+UID:6481085@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481085
+END:VEVENT
+END:VCALENDAR

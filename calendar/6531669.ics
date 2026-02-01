@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nBeaconsfield RFC vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6531669
+DTEND:20250809T170000Z
+GEO:45.429700;-73.862900
+LOCATION:Beaconsfield HS
+DTSTART:20250809T150000Z
+SUMMARY:Beaconsfield RFC vs Club de Rugby de Québec
+UID:6531669@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6531669
+END:VEVENT
+END:VCALENDAR

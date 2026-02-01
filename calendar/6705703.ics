@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155143Z
+DESCRIPTION:Island U16 Girls\nJames Bay AA vs Port Alberni Black Sheep\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705703
+DTEND:20250928T131500Z
+GEO:48.418600;-123.382000
+LOCATION:James Bay AA- MacDonald Park
+DTSTART:20250928T111500Z
+SUMMARY:James Bay AA vs Port Alberni Black Sheep
+UID:6705703@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6705703
+END:VEVENT
+END:VCALENDAR

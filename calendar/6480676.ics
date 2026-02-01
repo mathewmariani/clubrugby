@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:LPR 1 Masculin\nMontreal Wanderers RFC vs Rugby Club Ottawa\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480676
+DTEND:20250803T133000Z
+GEO:45.442000;-73.580000
+LOCATION:Hopital Douglas
+DTSTART:20250803T113000Z
+SUMMARY:Montreal Wanderers RFC vs Rugby Club Ottawa
+UID:6480676@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480676
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nKelowna Crows vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554150
+DTEND:20260411T121500Z
+GEO:49.883500;-119.458000
+LOCATION:Parkinson Rec Park
+DTSTART:20260411T101500Z
+SUMMARY:Kelowna Crows vs Meraloma
+UID:6554150@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554150
+END:VEVENT
+END:VCALENDAR

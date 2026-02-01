@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155313Z
+DESCRIPTION:Masters Rugby - EORU \nOttawa Ospreys RFC vs Ottawa Senators Old Boys\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6555347
+DTEND:20250824T130000Z
+GEO:45.149600;-75.808900
+LOCATION:Twin Elm Rugby Park
+DTSTART:20250824T110000Z
+SUMMARY:Ottawa Ospreys RFC vs Ottawa Senators Old Boys
+UID:6555347@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6555347
+END:VEVENT
+END:VCALENDAR

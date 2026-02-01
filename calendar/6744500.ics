@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Island U16 Boys \nCV Rapids Rugby Association vs Westshore\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744500
+DTEND:20251123T141500Z
+GEO:49.624300;-125.021000
+LOCATION:Cumberland Village Park
+DTSTART:20251123T121500Z
+SUMMARY:CV Rapids Rugby Association vs Westshore
+UID:6744500@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6744500
+END:VEVENT
+END:VCALENDAR

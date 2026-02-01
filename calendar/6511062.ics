@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155223Z
+DESCRIPTION:CRU U16G 2025\nCalgary Canadian Irish AC U18B vs Calgary Hornets RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6511062
+DTEND:20250726T110000Z
+GEO:51.090800;-114.015000
+LOCATION:Calgary Canadian Irish Athletic Club South
+DTSTART:20250726T090000Z
+SUMMARY:Calgary Canadian Irish AC U18B vs Calgary Hornets RFC
+UID:6511062@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6511062
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Boys\nCaledon Cavaliers RFC vs Toronto City Youth\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491223
+DTEND:20250607T110000Z
+GEO:43.888100;-79.736800
+LOCATION:Humberview SS
+DTSTART:20250607T090000Z
+SUMMARY:Caledon Cavaliers RFC vs Toronto City Youth
+UID:6491223@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491223
+END:VEVENT
+END:VCALENDAR

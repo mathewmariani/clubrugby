@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155316Z
+DESCRIPTION:Junior Provincial Cup - U18 Boys 2\nCrusaders Rugby Club 1XV vs Barrie RFC\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6517675
+DTEND:20250723T193000Z
+GEO:43.490400;-79.654300
+LOCATION:Crusaders Rugby Club
+DTSTART:20250723T173000Z
+SUMMARY:Crusaders Rugby Club 1XV vs Barrie RFC
+UID:6517675@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6517675
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155155Z
+DESCRIPTION:Mens Division 2 \nKelowna Crows vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532848
+DTEND:20251101T144500Z
+GEO:49.898300;-119.380000
+LOCATION:Rutland Recreation Park
+DTSTART:20251101T124500Z
+SUMMARY:Kelowna Crows vs Kamloops
+UID:6532848@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532848
+END:VEVENT
+END:VCALENDAR

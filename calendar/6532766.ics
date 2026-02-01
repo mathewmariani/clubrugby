@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155156Z
+DESCRIPTION:Womens Division 1\nKamloops vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532766
+DTEND:20251101T140000Z
+GEO:50.675800;-120.311000
+LOCATION:Kamloops Exhibition Park
+DTSTART:20251101T120000Z
+SUMMARY:Kamloops vs Bayside
+UID:6532766@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532766
+END:VEVENT
+END:VCALENDAR

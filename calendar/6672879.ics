@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Boys\nWaterloo County 1XV vs Balmy Beach\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6672879
+DTEND:20250912T200000Z
+GEO:43.774900;-79.444000
+LOCATION:Esther Shriner Stadium
+DTSTART:20250912T180000Z
+SUMMARY:Waterloo County 1XV vs Balmy Beach
+UID:6672879@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6672879
+END:VEVENT
+END:VCALENDAR

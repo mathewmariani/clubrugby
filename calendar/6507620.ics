@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155234Z
+DESCRIPTION:Womens Premier\nAssassins Premier vs Brandon Barbarians\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6507620
+DTEND:20250809T130000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250809T110000Z
+SUMMARY:Assassins Premier vs Brandon Barbarians
+UID:6507620@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6507620
+END:VEVENT
+END:VCALENDAR

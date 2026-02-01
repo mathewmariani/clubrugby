@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nBeaconsfield RFC vs Parc Olympique\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6531550
+DTEND:20250809T130000Z
+GEO:45.429700;-73.862900
+LOCATION:Beaconsfield HS
+DTSTART:20250809T110000Z
+SUMMARY:Beaconsfield RFC vs Parc Olympique
+UID:6531550@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6531550
+END:VEVENT
+END:VCALENDAR

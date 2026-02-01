@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nCalgary Canadian Irish AC U18B vs Edmonton Leprechaun Tigers RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456857
+DTEND:20250726T170000Z
+GEO:51.090800;-114.015000
+LOCATION:Calgary Canadian Irish Athletic Club South
+DTSTART:20250726T150000Z
+SUMMARY:Calgary Canadian Irish AC U18B vs Edmonton Leprechaun Tigers RFC
+UID:6456857@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456857
+END:VEVENT
+END:VCALENDAR

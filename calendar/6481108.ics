@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155349Z
+DESCRIPTION:LPR 2 Féminin\nMontreal Barbarians RFC vs Braves de Trois-Rivières\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481108
+DTEND:20250726T130000Z
+GEO:45.495000;-73.797800
+LOCATION:PARC SUNNYBROOKE
+DTSTART:20250726T110000Z
+SUMMARY:Montreal Barbarians RFC vs Braves de Trois-Rivières
+UID:6481108@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481108
+END:VEVENT
+END:VCALENDAR

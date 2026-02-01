@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155256Z
+DESCRIPTION:OCAA Men's Rugby\nConestoga College vs Durham College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6541141
+DTEND:20251024T200000Z
+GEO:43.455600;-80.360300
+LOCATION:Fountain Street Soccer Complex - Cambridge
+DTSTART:20251024T180000Z
+SUMMARY:Conestoga College vs Durham College
+UID:6541141@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6541141
+END:VEVENT
+END:VCALENDAR

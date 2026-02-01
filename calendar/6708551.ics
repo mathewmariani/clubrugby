@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155141Z
+DESCRIPTION:Mainland U18 Boys Pool B\nSurrey Beavers AA vs Richmond\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708551
+DTEND:20251026T153000Z
+GEO:49.117700;-122.822000
+LOCATION:Sullivan Heights
+DTSTART:20251026T133000Z
+SUMMARY:Surrey Beavers AA vs Richmond
+UID:6708551@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708551
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155243Z
+DESCRIPTION:Men's Exhibition Games\nUniversity of King's College 2 vs Mount Allison University\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6754086
+DTEND:20251116T160000Z
+GEO:0.000000;0.000000
+LOCATION:Burnside
+DTSTART:20251116T140000Z
+SUMMARY:University of King's College 2 vs Mount Allison University
+UID:6754086@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6754086
+END:VEVENT
+END:VCALENDAR

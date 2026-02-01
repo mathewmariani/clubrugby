@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Womens Premier \nCastaway Wanderers vs Seattle Rugby\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532739
+DTEND:20260207T150000Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20260207T130000Z
+SUMMARY:Castaway Wanderers vs Seattle Rugby
+UID:6532739@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532739
+END:VEVENT
+END:VCALENDAR

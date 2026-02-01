@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155234Z
+DESCRIPTION:Womens Premier\nAssassins Premier vs Sturgeon Creek Rowdies\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6699334
+DTEND:20250920T023000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250920T003000Z
+SUMMARY:Assassins Premier vs Sturgeon Creek Rowdies
+UID:6699334@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6699334
+END:VEVENT
+END:VCALENDAR

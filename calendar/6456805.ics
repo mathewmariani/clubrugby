@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nCalgary Canucks RC vs Calgary Rams RFC U18G\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456805
+DTEND:20250524T150000Z
+GEO:50.972100;-113.991000
+LOCATION:Calgary Rugby Park 2
+DTSTART:20250524T130000Z
+SUMMARY:Calgary Canucks RC vs Calgary Rams RFC U18G
+UID:6456805@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456805
+END:VEVENT
+END:VCALENDAR

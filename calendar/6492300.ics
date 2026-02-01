@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155233Z
+DESCRIPTION:Mens Division 2\nWombats/Brumbies Premier vs Wanderers\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6492300
+DTEND:20250612T200000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250612T180000Z
+SUMMARY:Wombats/Brumbies Premier vs Wanderers
+UID:6492300@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6492300
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155143Z
+DESCRIPTION:Mainland U18 Boys Pool A\nAbbotsford RFC vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6743972
+DTEND:20251123T153000Z
+GEO:49.068300;-122.323000
+LOCATION:Abbotsford Exhibition Park
+DTSTART:20251123T133000Z
+SUMMARY:Abbotsford RFC vs Bayside
+UID:6743972@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6743972
+END:VEVENT
+END:VCALENDAR

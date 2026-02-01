@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155319Z
+DESCRIPTION:Junior Provincial Cup - U16 Boys\nBytown Blues 1XV vs Kingston Panthers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492284
+DTEND:20250705T110000Z
+GEO:45.149600;-75.808900
+LOCATION:Twin Elm Rugby Park
+DTSTART:20250705T090000Z
+SUMMARY:Bytown Blues 1XV vs Kingston Panthers
+UID:6492284@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492284
+END:VEVENT
+END:VCALENDAR

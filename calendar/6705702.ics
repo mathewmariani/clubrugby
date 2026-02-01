@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155143Z
+DESCRIPTION:Island U16 Girls\nCowichan Valley Junior Rugby Development Society vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705702
+DTEND:20250928T131500Z
+GEO:48.826300;-123.665000
+LOCATION:Cowichan Rugby Club
+DTSTART:20250928T111500Z
+SUMMARY:Cowichan Valley Junior Rugby Development Society vs Castaway Wanderers
+UID:6705702@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6705702
+END:VEVENT
+END:VCALENDAR

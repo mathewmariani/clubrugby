@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155316Z
+DESCRIPTION:Junior Regional Cup - U18 Boys\nToronto Nomads 1XV vs Vaughan Yeomen 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6503026
+DTEND:20250723T203000Z
+GEO:43.596700;-79.623500
+LOCATION:Mississauga Valleys
+DTSTART:20250723T183000Z
+SUMMARY:Toronto Nomads 1XV vs Vaughan Yeomen 1XV
+UID:6503026@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6503026
+END:VEVENT
+END:VCALENDAR

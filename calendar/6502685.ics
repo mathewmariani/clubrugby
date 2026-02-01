@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155323Z
+DESCRIPTION:Junior Regional Cup - U16 Girls\nToronto City Youth vs Balmy Beach\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6502685
+DTEND:20250726T110000Z
+GEO:43.723800;-79.356400
+LOCATION:Sunnybrook Park
+DTSTART:20250726T090000Z
+SUMMARY:Toronto City Youth vs Balmy Beach
+UID:6502685@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6502685
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Women's Rugby\nYork U vs Trent University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540813
+DTEND:20250927T200000Z
+GEO:43.774500;-79.513300
+LOCATION:York University - Alumni Field
+DTSTART:20250927T180000Z
+SUMMARY:York U vs Trent University
+UID:6540813@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540813
+END:VEVENT
+END:VCALENDAR

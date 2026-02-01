@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nTrinity Western University vs Western Washington\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6555701
+DTEND:20260117T150000Z
+GEO:49.104200;-122.660000
+LOCATION:Langley Events Centre
+DTSTART:20260117T130000Z
+SUMMARY:Trinity Western University vs Western Washington
+UID:6555701@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6555701
+END:VEVENT
+END:VCALENDAR

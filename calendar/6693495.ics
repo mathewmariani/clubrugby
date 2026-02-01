@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155143Z
+DESCRIPTION:Mainland U18 Boys Pool A\nKamloops vs Kelowna Crows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6693495
+DTEND:20250928T130000Z
+GEO:49.898300;-119.380000
+LOCATION:Rutland Recreation Park
+DTSTART:20250928T110000Z
+SUMMARY:Kamloops vs Kelowna Crows
+UID:6693495@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6693495
+END:VEVENT
+END:VCALENDAR

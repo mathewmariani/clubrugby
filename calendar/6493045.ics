@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155323Z
+DESCRIPTION:Junior Regional Cup - U16 Girls\nBelleville Bulldogs 1XV vs Peterborough Pagans 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6493045
+DTEND:20250628T121500Z
+GEO:44.153400;-77.404900
+LOCATION:Mary Ann Sills Park
+DTSTART:20250628T101500Z
+SUMMARY:Belleville Bulldogs 1XV vs Peterborough Pagans 1XV
+UID:6493045@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6493045
+END:VEVENT
+END:VCALENDAR

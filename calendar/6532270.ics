@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nUniversity Of Victoria vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532270
+DTEND:20251206T144500Z
+GEO:48.469700;-123.315000
+LOCATION:U Of Victoria- Wallace Field
+DTSTART:20251206T124500Z
+SUMMARY:University Of Victoria vs Castaway Wanderers
+UID:6532270@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532270
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155240Z
+DESCRIPTION:Women's Division One\nValley Rugby Union vs Charlottetown Rugby Club A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490346
+DTEND:20250802T010000Z
+GEO:53.142400;-7.692050
+LOCATION:TBC
+DTSTART:20250801T230000Z
+SUMMARY:Valley Rugby Union vs Charlottetown Rugby Club A
+UID:6490346@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490346
+END:VEVENT
+END:VCALENDAR

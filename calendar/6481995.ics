@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155351Z
+DESCRIPTION:LPR 3 Masculin\nClub de rugby Sainte-Anne de Bellevue vs Montreal Barbarians RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481995
+DTEND:20250614T113000Z
+GEO:45.413300;-73.950700
+LOCATION:Ecole St-Georges
+DTSTART:20250614T093000Z
+SUMMARY:Club de rugby Sainte-Anne de Bellevue vs Montreal Barbarians RFC
+UID:6481995@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481995
+END:VEVENT
+END:VCALENDAR

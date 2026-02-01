@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155225Z
+DESCRIPTION:ERU Women's 2nd Division\nEdmonton Clansmen RFC vs Strathcona Druids RFC Druids\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6490019
+DTEND:20250723T200000Z
+GEO:53.558500;-113.513000
+LOCATION:Clansmen RFC
+DTSTART:20250723T180000Z
+SUMMARY:Edmonton Clansmen RFC vs Strathcona Druids RFC Druids
+UID:6490019@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6490019
+END:VEVENT
+END:VCALENDAR

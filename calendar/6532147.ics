@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nCastaway Wanderers vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532147
+DTEND:20251115T164500Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20251115T144500Z
+SUMMARY:Castaway Wanderers vs Burnaby Lake
+UID:6532147@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532147
+END:VEVENT
+END:VCALENDAR

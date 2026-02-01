@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155346Z
+DESCRIPTION:Super Ligue Masculine | RESERVE\nRugby Club de Montréal vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480584
+DTEND:20250524T140000Z
+GEO:0.000000;0.000000
+LOCATION:Parc Henri-Julien
+DTSTART:20250524T120000Z
+SUMMARY:Rugby Club de Montréal vs Club de Rugby de Québec
+UID:6480584@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480584
+END:VEVENT
+END:VCALENDAR

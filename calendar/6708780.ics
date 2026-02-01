@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Mainland U16 Boys Pool B\nBayside vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708780
+DTEND:20251109T141500Z
+GEO:49.039600;-122.815000
+LOCATION:South Surrey Ath Pk
+DTSTART:20251109T121500Z
+SUMMARY:Bayside vs Axemen Rugby Club
+UID:6708780@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708780
+END:VEVENT
+END:VCALENDAR

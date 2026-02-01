@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155348Z
+DESCRIPTION:LPR 1 Féminin\nAbénakis de Sherbrooke vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481053
+DTEND:20250510T130000Z
+GEO:45.367100;-71.856000
+LOCATION:Grant Bishops College
+DTSTART:20250510T110000Z
+SUMMARY:Abénakis de Sherbrooke vs Club de rugby Sainte-Anne de Bellevue
+UID:6481053@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481053
+END:VEVENT
+END:VCALENDAR

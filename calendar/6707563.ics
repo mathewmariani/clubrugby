@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155210Z
+DESCRIPTION:Prairie University Womens Rugby Championship 2025\nSouthern Alberta Institute of Technology vs Mount Royal University\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6707563
+DTEND:20251018T150000Z
+GEO:51.008600;-114.133000
+LOCATION:Mount Royal University
+DTSTART:20251018T130000Z
+SUMMARY:Southern Alberta Institute of Technology vs Mount Royal University
+UID:6707563@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6707563
+END:VEVENT
+END:VCALENDAR

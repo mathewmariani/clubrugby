@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155243Z
+DESCRIPTION:Men's Exhibition Games\nHalifax A vs NS Barbarians\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6555406
+DTEND:20250821T190000Z
+GEO:0.000000;0.000000
+LOCATION:St Francis Field
+DTSTART:20250821T170000Z
+SUMMARY:Halifax A vs NS Barbarians
+UID:6555406@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6555406
+END:VEVENT
+END:VCALENDAR

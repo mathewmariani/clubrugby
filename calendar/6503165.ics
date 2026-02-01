@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155219Z
+DESCRIPTION:ERU U16 Girls\nSt Albert Blue vs Nor Westers Athletic Association NWAA\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6503165
+DTEND:20250805T190000Z
+GEO:53.634300;-113.606000
+LOCATION:St Albert RFC
+DTSTART:20250805T170000Z
+SUMMARY:St Albert Blue vs Nor Westers Athletic Association NWAA
+UID:6503165@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6503165
+END:VEVENT
+END:VCALENDAR

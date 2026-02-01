@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155317Z
+DESCRIPTION:Junior Provincial Cup - U18 Girls\nBarrhaven Scottish vs Belleville Bulldogs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492315
+DTEND:20250615T140000Z
+GEO:45.267800;-75.761700
+LOCATION:Rowans Pitch
+DTSTART:20250615T120000Z
+SUMMARY:Barrhaven Scottish vs Belleville Bulldogs 1XV
+UID:6492315@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492315
+END:VEVENT
+END:VCALENDAR

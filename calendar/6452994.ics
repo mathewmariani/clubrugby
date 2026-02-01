@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155335Z
+DESCRIPTION:Exhibition - OCAA/OUA Women\nUniversity of Western Ontario vs Brock University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6452994
+DTEND:20250322T125000Z
+GEO:43.796200;-79.349000
+LOCATION:Seneca Newnham Campus Dome
+DTSTART:20250322T105000Z
+SUMMARY:University of Western Ontario vs Brock University
+UID:6452994@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6452994
+END:VEVENT
+END:VCALENDAR

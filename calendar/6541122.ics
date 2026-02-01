@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155256Z
+DESCRIPTION:OCAA Men's Rugby\nSeneca College vs Georgian College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6541122
+DTEND:20250913T173000Z
+GEO:43.868200;-79.297600
+LOCATION:Austin Dr (Markham)
+DTSTART:20250913T153000Z
+SUMMARY:Seneca College vs Georgian College
+UID:6541122@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6541122
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155347Z
+DESCRIPTION:LPR 1 Reserve  - Masculin\nRugby Club Ottawa vs Montreal Irish RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480715
+DTEND:20250705T150000Z
+GEO:45.452700;-75.765100
+LOCATION:Heritage College
+DTSTART:20250705T130000Z
+SUMMARY:Rugby Club Ottawa vs Montreal Irish RFC
+UID:6480715@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480715
+END:VEVENT
+END:VCALENDAR

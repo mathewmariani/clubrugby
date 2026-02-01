@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nRugby Châteauguay vs Montreal Irish RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481162
+DTEND:20250802T123000Z
+GEO:45.361700;-73.727200
+LOCATION:Parc Billings
+DTSTART:20250802T103000Z
+SUMMARY:Rugby Châteauguay vs Montreal Irish RFC
+UID:6481162@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481162
+END:VEVENT
+END:VCALENDAR

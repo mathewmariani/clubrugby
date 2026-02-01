@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nToronto City Youth vs Oshawa Vikings 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6493081
+DTEND:20250708T203000Z
+GEO:43.750100;-79.318000
+LOCATION:Senator O'Connor
+DTSTART:20250708T183000Z
+SUMMARY:Toronto City Youth vs Oshawa Vikings 1XV
+UID:6493081@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6493081
+END:VEVENT
+END:VCALENDAR

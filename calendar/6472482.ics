@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155259Z
+DESCRIPTION:OWL Championship\nBelleville Bulldogs 1XV vs London St George 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6472482
+DTEND:20250607T133000Z
+GEO:44.153400;-77.404900
+LOCATION:Mary Ann Sills Park
+DTSTART:20250607T113000Z
+SUMMARY:Belleville Bulldogs 1XV vs London St George 1XV
+UID:6472482@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6472482
+END:VEVENT
+END:VCALENDAR

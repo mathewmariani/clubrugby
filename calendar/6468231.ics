@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nStrathcona Druids RFC Druids vs Edmonton Clansmen RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468231
+DTEND:20250711T200000Z
+GEO:53.521800;-113.341000
+LOCATION:Strathcona Druids RFC
+DTSTART:20250711T180000Z
+SUMMARY:Strathcona Druids RFC Druids vs Edmonton Clansmen RFC
+UID:6468231@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468231
+END:VEVENT
+END:VCALENDAR

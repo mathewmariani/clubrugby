@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155257Z
+DESCRIPTION:OCAA Women's Rugby\nConestoga College vs Fleming College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6541013
+DTEND:20251018T154500Z
+GEO:44.296400;-78.372500
+LOCATION:Fleming College - Sutherland Campus
+DTSTART:20251018T134500Z
+SUMMARY:Conestoga College vs Fleming College
+UID:6541013@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6541013
+END:VEVENT
+END:VCALENDAR

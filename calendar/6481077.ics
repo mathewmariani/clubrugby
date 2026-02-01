@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155349Z
+DESCRIPTION:LPR 2 Féminin\nTown of Mount Royal RFC vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481077
+DTEND:20250517T140000Z
+GEO:45.514200;-73.675700
+LOCATION:Cegep Vanier
+DTSTART:20250517T120000Z
+SUMMARY:Town of Mount Royal RFC vs Club de Rugby de Québec
+UID:6481077@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481077
+END:VEVENT
+END:VCALENDAR

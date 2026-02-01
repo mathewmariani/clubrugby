@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155239Z
+DESCRIPTION:Mens Division One\nCharlottetown Rugby Club A vs Valley Rugby Union\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6489525
+DTEND:20250803T150000Z
+GEO:0.000000;0.000000
+LOCATION:Charlottetown
+DTSTART:20250803T130000Z
+SUMMARY:Charlottetown Rugby Club A vs Valley Rugby Union
+UID:6489525@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6489525
+END:VEVENT
+END:VCALENDAR

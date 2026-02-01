@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nLangley RFC vs Trinity Western University\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6756293
+DTEND:20260124T153000Z
+GEO:49.132800;-122.631000
+LOCATION:Crush Crescent
+DTSTART:20260124T133000Z
+SUMMARY:Langley RFC vs Trinity Western University
+UID:6756293@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6756293
+END:VEVENT
+END:VCALENDAR

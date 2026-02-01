@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155335Z
+DESCRIPTION:Exhibition - OCAA/OUA Women\nToronto Metropolitan University vs Royal Military College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6554856
+DTEND:20250928T133000Z
+GEO:43.664100;-79.317300
+LOCATION:Tubs and Gee Gage
+DTSTART:20250928T113000Z
+SUMMARY:Toronto Metropolitan University vs Royal Military College
+UID:6554856@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6554856
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155225Z
+DESCRIPTION:ERU Women's 2nd Division\nRockers Athletic Club vs Edmonton Pirates RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6489989
+DTEND:20250531T150000Z
+GEO:53.505200;-113.466000
+LOCATION:Rockers Athletic Club
+DTSTART:20250531T130000Z
+SUMMARY:Rockers Athletic Club vs Edmonton Pirates RFC
+UID:6489989@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6489989
+END:VEVENT
+END:VCALENDAR

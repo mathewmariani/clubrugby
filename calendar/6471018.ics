@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155253Z
+DESCRIPTION:Marshall Premiership\nToronto Scottish 1XV vs Crusaders Rugby Club 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471018
+DTEND:20250816T163000Z
+GEO:43.723800;-79.356400
+LOCATION:Sunnybrook Park
+DTSTART:20250816T143000Z
+SUMMARY:Toronto Scottish 1XV vs Crusaders Rugby Club 1XV
+UID:6471018@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471018
+END:VEVENT
+END:VCALENDAR

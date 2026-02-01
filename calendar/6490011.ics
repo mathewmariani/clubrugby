@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155225Z
+DESCRIPTION:ERU Women's 2nd Division\nGrande Prairie RFC vs Edmonton Pirates RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6490011
+DTEND:20250802T150000Z
+GEO:55.172600;-118.773000
+LOCATION:Grande Prairie Centaurs
+DTSTART:20250802T130000Z
+SUMMARY:Grande Prairie RFC vs Edmonton Pirates RFC
+UID:6490011@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6490011
+END:VEVENT
+END:VCALENDAR

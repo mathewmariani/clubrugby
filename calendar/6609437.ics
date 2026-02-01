@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155247Z
+DESCRIPTION:Men's University Division 1\nDalhousie University 1\,2 vs University of Prince Edward Island\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609437
+DTEND:20250920T180000Z
+GEO:0.000000;0.000000
+LOCATION:Graves 1
+DTSTART:20250920T160000Z
+SUMMARY:Dalhousie University 1\,2 vs University of Prince Edward Island
+UID:6609437@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609437
+END:VEVENT
+END:VCALENDAR

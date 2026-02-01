@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155313Z
+DESCRIPTION:Masters Rugby - EORU \nBelleville Bulldogs 1XV vs Lanark/Brockville Old Boys\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6480779
+DTEND:20250525T143000Z
+GEO:44.977700;-76.185500
+LOCATION:Lanark Highlanders
+DTSTART:20250525T123000Z
+SUMMARY:Belleville Bulldogs 1XV vs Lanark/Brockville Old Boys
+UID:6480779@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6480779
+END:VEVENT
+END:VCALENDAR

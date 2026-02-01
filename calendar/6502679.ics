@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155323Z
+DESCRIPTION:Junior Regional Cup - U16 Girls\nFergus Highland 1XV vs Middlesex-Huron Youth Rugby\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6502679
+DTEND:20250719T110000Z
+GEO:43.718400;-80.315700
+LOCATION:Victoria Park Fergus
+DTSTART:20250719T090000Z
+SUMMARY:Fergus Highland 1XV vs Middlesex-Huron Youth Rugby
+UID:6502679@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6502679
+END:VEVENT
+END:VCALENDAR

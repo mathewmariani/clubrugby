@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nBayside vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532307
+DTEND:20251122T163000Z
+GEO:49.039600;-122.815000
+LOCATION:South Surrey Ath Pk
+DTSTART:20251122T143000Z
+SUMMARY:Bayside vs Vancouver Rowing Club
+UID:6532307@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532307
+END:VEVENT
+END:VCALENDAR

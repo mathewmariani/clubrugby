@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155226Z
+DESCRIPTION:ERU Men's 2nd Division\nNor Westers Athletic Association NWAA vs Edmonton Leprechaun Tigers RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6489955
+DTEND:20250524T150000Z
+GEO:53.419200;-113.415000
+LOCATION:NorWesters Athletic Association
+DTSTART:20250524T130000Z
+SUMMARY:Nor Westers Athletic Association NWAA vs Edmonton Leprechaun Tigers RFC
+UID:6489955@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6489955
+END:VEVENT
+END:VCALENDAR

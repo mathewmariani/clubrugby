@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155229Z
+DESCRIPTION:SAM3 (Recreational) 2025\nBow Valley Lions (Babas) Senior Men Babas vs Calgary Hornets RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6480953
+DTEND:20250523T200000Z
+GEO:50.732700;-113.965000
+LOCATION:Wylie Athletic Park
+DTSTART:20250523T180000Z
+SUMMARY:Bow Valley Lions (Babas) Senior Men Babas vs Calgary Hornets RFC
+UID:6480953@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6480953
+END:VEVENT
+END:VCALENDAR

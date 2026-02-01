@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155317Z
+DESCRIPTION:Junior Provincial Cup - U18 Girls\nScarborough RFC 1XV vs Aurora Barbarians\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491542
+DTEND:20250611T203000Z
+GEO:43.756800;-79.226400
+LOCATION:Cedarbrae CI
+DTSTART:20250611T183000Z
+SUMMARY:Scarborough RFC 1XV vs Aurora Barbarians
+UID:6491542@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491542
+END:VEVENT
+END:VCALENDAR

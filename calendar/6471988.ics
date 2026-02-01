@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155306Z
+DESCRIPTION:Marshall Championship 2XV\nPeterborough Pagans 1XV vs Bytown Blues 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6471988
+DTEND:20250719T150000Z
+GEO:44.316400;-78.312400
+LOCATION:Nicholls Oval Park
+DTSTART:20250719T130000Z
+SUMMARY:Peterborough Pagans 1XV vs Bytown Blues 1XV
+UID:6471988@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6471988
+END:VEVENT
+END:VCALENDAR

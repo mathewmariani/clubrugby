@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155319Z
+DESCRIPTION:Junior Provincial Cup - U16 Boys\nBalmy Beach vs Aurora Barbarians\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6500183
+DTEND:20250726T100000Z
+GEO:43.717000;-79.287000
+LOCATION:SATEC @ WA Porter CI
+DTSTART:20250726T080000Z
+SUMMARY:Balmy Beach vs Aurora Barbarians
+UID:6500183@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6500183
+END:VEVENT
+END:VCALENDAR

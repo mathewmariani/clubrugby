@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nAxemen Rugby Club vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532214
+DTEND:20251004T134500Z
+GEO:49.726000;-123.144000
+LOCATION:Brennan Park field
+DTSTART:20251004T114500Z
+SUMMARY:Axemen Rugby Club vs Bayside
+UID:6532214@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532214
+END:VEVENT
+END:VCALENDAR

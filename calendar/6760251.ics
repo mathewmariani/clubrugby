@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155243Z
+DESCRIPTION:Men's Exhibition Games\nKeltics Men vs Keltics Fall Team 1\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6760251
+DTEND:20251213T180000Z
+GEO:44.985600;-63.488800
+LOCATION:East Hants Sportsplex
+DTSTART:20251213T160000Z
+SUMMARY:Keltics Men vs Keltics Fall Team 1
+UID:6760251@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6760251
+END:VEVENT
+END:VCALENDAR

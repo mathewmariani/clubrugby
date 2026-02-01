@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155137Z
+DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Island Tide vs Vancouver Rugby Union\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6772207
+DTEND:20260523T140000Z
+GEO:49.242600;-124.054000
+LOCATION:May Bennett Pioneer
+DTSTART:20260523T120000Z
+SUMMARY:Vancouver Island Tide vs Vancouver Rugby Union
+UID:6772207@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6772207
+END:VEVENT
+END:VCALENDAR

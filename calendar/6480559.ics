@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nClub de rugby Sainte-Anne de Bellevue vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480559
+DTEND:20250705T160000Z
+GEO:45.413300;-73.950700
+LOCATION:Ecole St-Georges
+DTSTART:20250705T140000Z
+SUMMARY:Club de rugby Sainte-Anne de Bellevue vs Club de Rugby de Québec
+UID:6480559@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480559
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nAbbotsford RFC vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532337
+DTEND:20260411T153000Z
+GEO:49.040100;-122.340000
+LOCATION:Exhibition Park
+DTSTART:20260411T133000Z
+SUMMARY:Abbotsford RFC vs Vancouver Rowing Club
+UID:6532337@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532337
+END:VEVENT
+END:VCALENDAR

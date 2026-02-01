@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155242Z
+DESCRIPTION:Women's Play-on\nValley Rugby Union vs Riverlake\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490558
+DTEND:20250809T120000Z
+GEO:0.000000;0.000000
+LOCATION:Port Williams 
+DTSTART:20250809T100000Z
+SUMMARY:Valley Rugby Union vs Riverlake
+UID:6490558@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490558
+END:VEVENT
+END:VCALENDAR

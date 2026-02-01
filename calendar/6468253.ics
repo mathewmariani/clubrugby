@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nNor Westers Athletic Association NWAA vs Strathcona Druids RFC Druids\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468253
+DTEND:20250906T170000Z
+GEO:53.419200;-113.415000
+LOCATION:NorWesters Athletic Association
+DTSTART:20250906T150000Z
+SUMMARY:Nor Westers Athletic Association NWAA vs Strathcona Druids RFC Druids
+UID:6468253@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468253
+END:VEVENT
+END:VCALENDAR

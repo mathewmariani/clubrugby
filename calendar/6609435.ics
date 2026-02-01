@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155247Z
+DESCRIPTION:Men's University Division 1\nSt FX University vs Dalhousie University 1\,2\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609435
+DTEND:20250914T140000Z
+GEO:45.580900;-61.944900
+LOCATION:St FX Field
+DTSTART:20250914T120000Z
+SUMMARY:St FX University vs Dalhousie University 1\,2
+UID:6609435@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609435
+END:VEVENT
+END:VCALENDAR

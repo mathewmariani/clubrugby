@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155243Z
+DESCRIPTION:Men's Exhibition Games\nUniversity of New Brunswick vs Mount Allison University\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609446
+DTEND:20250913T140000Z
+GEO:0.000000;0.000000
+LOCATION:UNB
+DTSTART:20250913T120000Z
+SUMMARY:University of New Brunswick vs Mount Allison University
+UID:6609446@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609446
+END:VEVENT
+END:VCALENDAR

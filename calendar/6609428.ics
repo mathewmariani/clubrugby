@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155244Z
+DESCRIPTION:Women's Exhbition Games\nAcadia University 1 vs Dalhousie University 1\,2\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609428
+DTEND:20250926T173000Z
+GEO:45.083900;-64.357600
+LOCATION:Acadia Rugby Field
+DTSTART:20250926T153000Z
+SUMMARY:Acadia University 1 vs Dalhousie University 1\,2
+UID:6609428@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609428
+END:VEVENT
+END:VCALENDAR

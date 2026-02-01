@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155155Z
+DESCRIPTION:Mens Division 2 \nChilliwack Crusaders vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532838
+DTEND:20251018T134500Z
+GEO:49.071100;-122.071000
+LOCATION:Chilliwack- Yarrow Sportsfield
+DTSTART:20251018T114500Z
+SUMMARY:Chilliwack Crusaders vs Kamloops
+UID:6532838@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532838
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nCastaway Wanderers vs Cowichan RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532264
+DTEND:20251115T150000Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20251115T130000Z
+SUMMARY:Castaway Wanderers vs Cowichan RFC
+UID:6532264@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532264
+END:VEVENT
+END:VCALENDAR

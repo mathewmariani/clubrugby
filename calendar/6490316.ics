@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155243Z
+DESCRIPTION:Men's Exhibition Games\nBright & Lion Rugby Football Club vs Riverlake\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490316
+DTEND:20250531T170000Z
+GEO:44.371800;-64.517900
+LOCATION:Kinsman Athletic Field (Bridgewater)
+DTSTART:20250531T150000Z
+SUMMARY:Bright & Lion Rugby Football Club vs Riverlake
+UID:6490316@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490316
+END:VEVENT
+END:VCALENDAR

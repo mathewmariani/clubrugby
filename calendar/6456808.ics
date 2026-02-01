@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155230Z
+DESCRIPTION:Alberta Women's Premier\nNor Westers Athletic Association NWAA vs Calgary Hornets RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6456808
+DTEND:20250531T170000Z
+GEO:53.419200;-113.415000
+LOCATION:NorWesters Athletic Association
+DTSTART:20250531T150000Z
+SUMMARY:Nor Westers Athletic Association NWAA vs Calgary Hornets RFC
+UID:6456808@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6456808
+END:VEVENT
+END:VCALENDAR

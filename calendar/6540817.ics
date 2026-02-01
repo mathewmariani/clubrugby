@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Women's Rugby\nMcMaster University vs Queens University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540817
+DTEND:20251004T150000Z
+GEO:43.266100;-79.917000
+LOCATION:McMaster University - Ron Joyce Stadium
+DTSTART:20251004T130000Z
+SUMMARY:McMaster University vs Queens University
+UID:6540817@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540817
+END:VEVENT
+END:VCALENDAR

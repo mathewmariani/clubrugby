@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155228Z
+DESCRIPTION:SAW2 (Developmental) 2025\nCalgary Canadian Irish AC U18B vs Calgary Saints RFC U18B\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6489475
+DTEND:20250726T130000Z
+GEO:51.080000;-114.025000
+LOCATION:Calgary Canadian Irish Athletic Club North
+DTSTART:20250726T110000Z
+SUMMARY:Calgary Canadian Irish AC U18B vs Calgary Saints RFC U18B
+UID:6489475@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6489475
+END:VEVENT
+END:VCALENDAR

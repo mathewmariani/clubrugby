@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nWestmount Rugby Club vs Ormstown Saracens RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481155
+DTEND:20250712T130000Z
+GEO:45.489400;-73.603700
+LOCATION:Parc King George
+DTSTART:20250712T110000Z
+SUMMARY:Westmount Rugby Club vs Ormstown Saracens RFC
+UID:6481155@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481155
+END:VEVENT
+END:VCALENDAR

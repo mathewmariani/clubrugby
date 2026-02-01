@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nEdmonton Clansmen RFC vs Nor Westers Athletic Association NWAA\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468157
+DTEND:20250606T200000Z
+GEO:53.558500;-113.513000
+LOCATION:Clansmen RFC
+DTSTART:20250606T180000Z
+SUMMARY:Edmonton Clansmen RFC vs Nor Westers Athletic Association NWAA
+UID:6468157@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468157
+END:VEVENT
+END:VCALENDAR

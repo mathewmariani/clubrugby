@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Womens Premier \nCastaway Wanderers vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532722
+DTEND:20251115T144500Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20251115T124500Z
+SUMMARY:Castaway Wanderers vs Meraloma
+UID:6532722@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532722
+END:VEVENT
+END:VCALENDAR

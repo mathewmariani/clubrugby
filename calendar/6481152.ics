@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nOrmstown Saracens RFC vs Rugby Châteauguay\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481152
+DTEND:20250705T130000Z
+GEO:45.121000;-73.989300
+LOCATION:Chateauguay Valley Reg HS
+DTSTART:20250705T110000Z
+SUMMARY:Ormstown Saracens RFC vs Rugby Châteauguay
+UID:6481152@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481152
+END:VEVENT
+END:VCALENDAR

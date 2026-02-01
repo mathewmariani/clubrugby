@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nMiddlesex-Huron Youth Rugby vs Sarnia Saints 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6493907
+DTEND:20250614T120000Z
+GEO:43.344000;-80.981600
+LOCATION:Army Navy & Air Force Veterans
+DTSTART:20250614T100000Z
+SUMMARY:Middlesex-Huron Youth Rugby vs Sarnia Saints 1XV
+UID:6493907@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6493907
+END:VEVENT
+END:VCALENDAR

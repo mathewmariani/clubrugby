@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Mainland U16 Boys Pool B\nAxemen Rugby Club vs Langley 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708564
+DTEND:20251019T131500Z
+GEO:49.726000;-123.144000
+LOCATION:Brennan Park field
+DTSTART:20251019T111500Z
+SUMMARY:Axemen Rugby Club vs Langley 2
+UID:6708564@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708564
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155239Z
+DESCRIPTION:Mens Division One\nHalifax A vs Pictou County A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490337
+DTEND:20250726T170000Z
+GEO:0.000000;0.000000
+LOCATION:St Francis Field
+DTSTART:20250726T150000Z
+SUMMARY:Halifax A vs Pictou County A
+UID:6490337@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490337
+END:VEVENT
+END:VCALENDAR

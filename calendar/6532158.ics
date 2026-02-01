@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nBurnaby Lake vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532158
+DTEND:20251206T163000Z
+GEO:49.250900;-122.961000
+LOCATION:Burnaby Lake Rugby Club
+DTSTART:20251206T143000Z
+SUMMARY:Burnaby Lake vs Capilano
+UID:6532158@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532158
+END:VEVENT
+END:VCALENDAR

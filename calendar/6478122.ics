@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155303Z
+DESCRIPTION:NRU Women Premiership\nCrusaders Rugby Club 1XV vs Grimsby RFC Grimsby RFC\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478122
+DTEND:20250524T133000Z
+GEO:43.490400;-79.654300
+LOCATION:Crusaders Rugby Club
+DTSTART:20250524T113000Z
+SUMMARY:Crusaders Rugby Club 1XV vs Grimsby RFC Grimsby RFC
+UID:6478122@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478122
+END:VEVENT
+END:VCALENDAR

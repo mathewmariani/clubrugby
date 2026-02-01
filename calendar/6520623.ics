@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155355Z
+DESCRIPTION:Senior Men Division 2\nSaskatoon Badgers vs Gophers RFC\n\nMatch details:\nhttps://clubrugby.ca/sk#/fixture/6520623
+DTEND:20250723T220000Z
+GEO:52.182400;-106.642000
+LOCATION:Saskatoon Rugby Club
+DTSTART:20250723T200000Z
+SUMMARY:Saskatoon Badgers vs Gophers RFC
+UID:6520623@clubrugby.ca
+URL:https://clubrugby.ca/sk#/fixture/6520623
+END:VEVENT
+END:VCALENDAR

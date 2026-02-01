@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nAbbotsford RFC vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554114
+DTEND:20260221T144500Z
+GEO:49.040100;-122.340000
+LOCATION:Exhibition Park
+DTSTART:20260221T124500Z
+SUMMARY:Abbotsford RFC vs Axemen Rugby Club
+UID:6554114@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554114
+END:VEVENT
+END:VCALENDAR

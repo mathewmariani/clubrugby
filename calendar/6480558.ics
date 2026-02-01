@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nTown of Mount Royal RFC vs Rugby Club de Montréal\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480558
+DTEND:20250705T160000Z
+GEO:45.514200;-73.675700
+LOCATION:Cegep Vanier
+DTSTART:20250705T140000Z
+SUMMARY:Town of Mount Royal RFC vs Rugby Club de Montréal
+UID:6480558@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480558
+END:VEVENT
+END:VCALENDAR

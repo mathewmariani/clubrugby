@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155307Z
+DESCRIPTION:NRU Men Championship\nNorfolk Harvesters 1XV vs Windsor Rogues 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6489313
+DTEND:20250524T163000Z
+GEO:42.933200;-80.254400
+LOCATION:Waterford District HS
+DTSTART:20250524T143000Z
+SUMMARY:Norfolk Harvesters 1XV vs Windsor Rogues 1XV
+UID:6489313@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6489313
+END:VEVENT
+END:VCALENDAR

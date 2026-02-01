@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155334Z
+DESCRIPTION:Exhibition - Senior Women\nToronto Scottish 1XV vs Aurora Barbarians\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6521725
+DTEND:20250726T133000Z
+GEO:43.723800;-79.356400
+LOCATION:Sunnybrook Park
+DTSTART:20250726T113000Z
+SUMMARY:Toronto Scottish 1XV vs Aurora Barbarians
+UID:6521725@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6521725
+END:VEVENT
+END:VCALENDAR

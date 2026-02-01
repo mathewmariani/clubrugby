@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Mainland U16 Boys Pool B\nRidge Meadows vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708568
+DTEND:20251026T141500Z
+GEO:0.000000;0.000000
+LOCATION:Maple Ridge Secondary School
+DTSTART:20251026T121500Z
+SUMMARY:Ridge Meadows vs Capilano
+UID:6708568@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708568
+END:VEVENT
+END:VCALENDAR

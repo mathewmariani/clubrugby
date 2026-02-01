@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155257Z
+DESCRIPTION:OCAA Women's Rugby\nHumber College vs Algonquin College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6740952
+DTEND:20251025T110000Z
+GEO:43.455600;-80.360300
+LOCATION:Fountain Street Soccer Complex - Cambridge
+DTSTART:20251025T090000Z
+SUMMARY:Humber College vs Algonquin College
+UID:6740952@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6740952
+END:VEVENT
+END:VCALENDAR

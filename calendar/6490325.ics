@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155242Z
+DESCRIPTION:Women's Division Two\nDartmouth East Rugby Union vs Enfield A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490325
+DTEND:20250712T160000Z
+GEO:0.000000;0.000000
+LOCATION:Ira Settle
+DTSTART:20250712T140000Z
+SUMMARY:Dartmouth East Rugby Union vs Enfield A
+UID:6490325@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490325
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Boys\nToronto City Youth vs Ajax Wanderers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6672878
+DTEND:20250912T200000Z
+GEO:43.774900;-79.444000
+LOCATION:Esther Shriner Stadium
+DTSTART:20250912T180000Z
+SUMMARY:Toronto City Youth vs Ajax Wanderers
+UID:6672878@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6672878
+END:VEVENT
+END:VCALENDAR

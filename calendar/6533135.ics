@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Womens Pre Season\nVancouver Thunderbirds 2 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533135
+DTEND:20250927T124500Z
+GEO:49.260200;-123.243000
+LOCATION:UBC- Gerald McGavin Centre
+DTSTART:20250927T104500Z
+SUMMARY:Vancouver Thunderbirds 2 vs Meraloma
+UID:6533135@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6533135
+END:VEVENT
+END:VCALENDAR

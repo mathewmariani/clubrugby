@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155239Z
+DESCRIPTION:Mens Division One\nValley Rugby Union vs Enfield A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490329
+DTEND:20250719T180000Z
+GEO:0.000000;0.000000
+LOCATION:Port Williams 
+DTSTART:20250719T160000Z
+SUMMARY:Valley Rugby Union vs Enfield A
+UID:6490329@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490329
+END:VEVENT
+END:VCALENDAR

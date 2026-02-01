@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155229Z
+DESCRIPTION:SAM3 (Recreational) 2025\nBow Valley Lions (Babas) Senior Men Babas vs Calgary Knights RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6484522
+DTEND:20250606T200000Z
+GEO:51.188500;-114.488000
+LOCATION:Cochrane - Mitford Park
+DTSTART:20250606T180000Z
+SUMMARY:Bow Valley Lions (Babas) Senior Men Babas vs Calgary Knights RFC
+UID:6484522@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6484522
+END:VEVENT
+END:VCALENDAR

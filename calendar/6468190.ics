@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155220Z
+DESCRIPTION:Alberta Cup\nCalgary Saracens RFC vs Calgary Hornets RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6468190
+DTEND:20250613T210000Z
+GEO:56.130400;-106.347000
+LOCATION:Calgary Rugby Park 1
+DTSTART:20250613T190000Z
+SUMMARY:Calgary Saracens RFC vs Calgary Hornets RFC
+UID:6468190@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6468190
+END:VEVENT
+END:VCALENDAR

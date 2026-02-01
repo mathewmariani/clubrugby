@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nUBC RFC (Men's) vs California Golden Bears\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6772991
+DTEND:20260207T140000Z
+GEO:49.265400;-123.248000
+LOCATION:UBC Thunderbird Stadium
+DTSTART:20260207T120000Z
+SUMMARY:UBC RFC (Men's) vs California Golden Bears
+UID:6772991@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6772991
+END:VEVENT
+END:VCALENDAR

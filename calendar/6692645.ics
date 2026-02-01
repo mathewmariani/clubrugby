@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nUniversity Of Victoria vs UBC RFC (Men's)\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6692645
+DTEND:20250920T134500Z
+GEO:48.469700;-123.315000
+LOCATION:U Of Victoria- Wallace Field
+DTSTART:20250920T114500Z
+SUMMARY:University Of Victoria vs UBC RFC (Men's)
+UID:6692645@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6692645
+END:VEVENT
+END:VCALENDAR

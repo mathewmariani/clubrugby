@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Island U16 Boys \nCV Rapids Rugby Association vs James Bay AA\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6707271
+DTEND:20251116T141500Z
+GEO:49.624300;-125.021000
+LOCATION:Cumberland Village Park
+DTSTART:20251116T121500Z
+SUMMARY:CV Rapids Rugby Association vs James Bay AA
+UID:6707271@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6707271
+END:VEVENT
+END:VCALENDAR

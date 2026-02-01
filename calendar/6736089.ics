@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155145Z
+DESCRIPTION:Island U16 Boys \nWestshore vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6736089
+DTEND:20251026T141500Z
+GEO:49.235000;-124.788000
+LOCATION:Port Alberni- Black Sheep Rugby Park
+DTSTART:20251026T121500Z
+SUMMARY:Westshore vs Castaway Wanderers
+UID:6736089@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6736089
+END:VEVENT
+END:VCALENDAR

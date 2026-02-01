@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155353Z
+DESCRIPTION:Senior Men Division 1\nSaskatoon Badgers vs Wild Oats RFC\n\nMatch details:\nhttps://clubrugby.ca/sk#/fixture/6462605
+DTEND:20250725T200000Z
+GEO:0.000000;0.000000
+LOCATION:Saskatoon Rugby Club Field 1
+DTSTART:20250725T180000Z
+SUMMARY:Saskatoon Badgers vs Wild Oats RFC
+UID:6462605@clubrugby.ca
+URL:https://clubrugby.ca/sk#/fixture/6462605
+END:VEVENT
+END:VCALENDAR

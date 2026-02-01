@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nAbbotsford RFC vs Touring Side\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6756914
+DTEND:20251129T150000Z
+GEO:49.068300;-122.323000
+LOCATION:Abbotsford Exhibition Park
+DTSTART:20251129T130000Z
+SUMMARY:Abbotsford RFC vs Touring Side
+UID:6756914@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6756914
+END:VEVENT
+END:VCALENDAR

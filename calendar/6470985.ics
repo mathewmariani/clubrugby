@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155253Z
+DESCRIPTION:Marshall Premiership\nBurlington Centaurs 1XV vs Balmy Beach\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6470985
+DTEND:20250531T163000Z
+GEO:43.379600;-79.756300
+LOCATION:Sherwood Forest Park
+DTSTART:20250531T143000Z
+SUMMARY:Burlington Centaurs 1XV vs Balmy Beach
+UID:6470985@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6470985
+END:VEVENT
+END:VCALENDAR

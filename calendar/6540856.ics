@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nAbbotsford RFC vs Surrey Beavers AA\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6540856
+DTEND:20250823T145500Z
+GEO:49.132800;-122.631000
+LOCATION:Crush Crescent
+DTSTART:20250823T125500Z
+SUMMARY:Abbotsford RFC vs Surrey Beavers AA
+UID:6540856@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6540856
+END:VEVENT
+END:VCALENDAR

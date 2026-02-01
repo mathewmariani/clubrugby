@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155226Z
+DESCRIPTION:ERU Men's 2nd Division\nNor Westers Athletic Association NWAA vs LA Crude RFC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6489959
+DTEND:20250712T130000Z
+GEO:53.419200;-113.415000
+LOCATION:NorWesters Athletic Association
+DTSTART:20250712T110000Z
+SUMMARY:Nor Westers Athletic Association NWAA vs LA Crude RFC
+UID:6489959@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6489959
+END:VEVENT
+END:VCALENDAR

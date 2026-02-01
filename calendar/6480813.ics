@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155313Z
+DESCRIPTION:Masters Rugby - EORU \nKingston Panthers vs Belleville Bulldogs 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6480813
+DTEND:20250914T163000Z
+GEO:44.230500;-76.484000
+LOCATION:St. Lawrence College
+DTSTART:20250914T143000Z
+SUMMARY:Kingston Panthers vs Belleville Bulldogs 1XV
+UID:6480813@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6480813
+END:VEVENT
+END:VCALENDAR

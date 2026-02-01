@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155212Z
+DESCRIPTION:Prairie University Mens Rugby 2025\nCentral Predators vs Mount Royal University\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6694731
+DTEND:20251025T110000Z
+GEO:53.419200;-113.415000
+LOCATION:NorWesters Athletic Association
+DTSTART:20251025T090000Z
+SUMMARY:Central Predators vs Mount Royal University
+UID:6694731@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6694731
+END:VEVENT
+END:VCALENDAR

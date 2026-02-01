@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155302Z
+DESCRIPTION:TRU Men Premiership\nBay Street Pigs 1XV vs Toronto Saracens\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478259
+DTEND:20250719T163000Z
+GEO:43.723800;-79.356400
+LOCATION:Sunnybrook Park
+DTSTART:20250719T143000Z
+SUMMARY:Bay Street Pigs 1XV vs Toronto Saracens
+UID:6478259@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478259
+END:VEVENT
+END:VCALENDAR

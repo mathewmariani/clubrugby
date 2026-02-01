@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nCastaway Wanderers vs Touring Side\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6585270
+DTEND:20250927T110000Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20250927T090000Z
+SUMMARY:Castaway Wanderers vs Touring Side
+UID:6585270@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6585270
+END:VEVENT
+END:VCALENDAR

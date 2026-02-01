@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nMeraloma vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532313
+DTEND:20260124T144500Z
+GEO:49.261700;-123.160000
+LOCATION:Connaught Park
+DTSTART:20260124T124500Z
+SUMMARY:Meraloma vs Axemen Rugby Club
+UID:6532313@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532313
+END:VEVENT
+END:VCALENDAR

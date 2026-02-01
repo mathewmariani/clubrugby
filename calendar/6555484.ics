@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nPenticton Harlequins vs Touring Side\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6555484
+DTEND:20250830T140000Z
+GEO:49.490300;-119.569000
+LOCATION:Penticton Harlequins- McNicoll Park
+DTSTART:20250830T120000Z
+SUMMARY:Penticton Harlequins vs Touring Side
+UID:6555484@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6555484
+END:VEVENT
+END:VCALENDAR

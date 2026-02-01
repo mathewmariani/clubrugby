@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nCastaway Wanderers vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532082
+DTEND:20251025T153000Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20251025T133000Z
+SUMMARY:Castaway Wanderers vs Capilano
+UID:6532082@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532082
+END:VEVENT
+END:VCALENDAR

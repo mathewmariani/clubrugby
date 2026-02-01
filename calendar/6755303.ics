@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155138Z
+DESCRIPTION:Age Grade Exhibition \nAbbotsford RFC vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6755303
+DTEND:20251123T141000Z
+GEO:48.443600;-123.463000
+LOCATION:Juan De Fuca
+DTSTART:20251123T121000Z
+SUMMARY:Abbotsford RFC vs Castaway Wanderers
+UID:6755303@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6755303
+END:VEVENT
+END:VCALENDAR

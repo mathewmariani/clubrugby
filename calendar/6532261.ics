@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nPort Alberni Black Sheep vs Westshore\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532261
+DTEND:20251108T150000Z
+GEO:49.235000;-124.788000
+LOCATION:Port Alberni- Black Sheep Rugby Park
+DTSTART:20251108T130000Z
+SUMMARY:Port Alberni Black Sheep vs Westshore
+UID:6532261@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532261
+END:VEVENT
+END:VCALENDAR

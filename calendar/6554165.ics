@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155153Z
+DESCRIPTION:Womens Division 2 Tier 1\nScribes vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554165
+DTEND:20251206T131500Z
+GEO:49.257000;-123.064000
+LOCATION:Trout Lake
+DTSTART:20251206T111500Z
+SUMMARY:Scribes vs Vancouver Rowing Club
+UID:6554165@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554165
+END:VEVENT
+END:VCALENDAR

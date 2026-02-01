@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 2 Masculin\nBrome Lake Ducks vs Ormstown Saracens RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481125
+DTEND:20250705T160000Z
+GEO:45.190900;-72.516100
+LOCATION:Lions Park
+DTSTART:20250705T140000Z
+SUMMARY:Brome Lake Ducks vs Ormstown Saracens RFC
+UID:6481125@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481125
+END:VEVENT
+END:VCALENDAR

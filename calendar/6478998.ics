@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155304Z
+DESCRIPTION:TRU Women Premiership\nBrampton Beavers 1XV vs Ajax Wanderers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478998
+DTEND:20250712T133000Z
+GEO:43.708300;-79.768000
+LOCATION:Vortex Beaver Dam
+DTSTART:20250712T113000Z
+SUMMARY:Brampton Beavers 1XV vs Ajax Wanderers
+UID:6478998@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478998
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155353Z
+DESCRIPTION:Senior Men Division 1\nRegina Rogues vs Krems RFC\n\nMatch details:\nhttps://clubrugby.ca/sk#/fixture/6462589
+DTEND:20250621T140000Z
+GEO:0.000000;0.000000
+LOCATION:Saskatoon Rugby Club Field 1
+DTSTART:20250621T120000Z
+SUMMARY:Regina Rogues vs Krems RFC
+UID:6462589@clubrugby.ca
+URL:https://clubrugby.ca/sk#/fixture/6462589
+END:VEVENT
+END:VCALENDAR

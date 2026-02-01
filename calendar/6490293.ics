@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Boys\nToronto City Youth vs Balmy Beach\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6490293
+DTEND:20250531T110000Z
+GEO:43.664100;-79.317300
+LOCATION:Tubs and Gee Gage
+DTSTART:20250531T090000Z
+SUMMARY:Toronto City Youth vs Balmy Beach
+UID:6490293@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6490293
+END:VEVENT
+END:VCALENDAR

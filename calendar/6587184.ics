@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155341Z
+DESCRIPTION:Senior Men - Fall 7s Exhibition\nHamilton Hornets 1XV vs Georgian Bay Titans\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6587184
+DTEND:20250906T152000Z
+GEO:43.718400;-80.315700
+LOCATION:Fergus Highland Rugby Club at Victoria Park
+DTSTART:20250906T132000Z
+SUMMARY:Hamilton Hornets 1XV vs Georgian Bay Titans
+UID:6587184@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6587184
+END:VEVENT
+END:VCALENDAR

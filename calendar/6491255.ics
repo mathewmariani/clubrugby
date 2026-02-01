@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155319Z
+DESCRIPTION:Junior Provincial Cup - U16 Boys\nBrantford Harlequins 1XV vs Guelph RFC 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491255
+DTEND:20250705T113000Z
+GEO:43.183800;-80.315700
+LOCATION:Harlequins RFC
+DTSTART:20250705T093000Z
+SUMMARY:Brantford Harlequins 1XV vs Guelph RFC 1XV
+UID:6491255@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491255
+END:VEVENT
+END:VCALENDAR

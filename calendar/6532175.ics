@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nUniversity Of Victoria vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532175
+DTEND:20260207T154500Z
+GEO:48.469700;-123.315000
+LOCATION:U Of Victoria- Wallace Field
+DTSTART:20260207T134500Z
+SUMMARY:University Of Victoria vs Capilano
+UID:6532175@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532175
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155257Z
+DESCRIPTION:OCAA Women's Rugby\nDurham College vs Fleming College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6541003
+DTEND:20251005T123000Z
+GEO:43.708300;-79.768000
+LOCATION:Vortex Beaver Dam
+DTSTART:20251005T103000Z
+SUMMARY:Durham College vs Fleming College
+UID:6541003@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6541003
+END:VEVENT
+END:VCALENDAR

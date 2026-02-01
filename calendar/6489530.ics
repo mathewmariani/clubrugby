@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155239Z
+DESCRIPTION:Mens Division One\nEnfield A vs Pictou County A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6489530
+DTEND:20250607T170000Z
+GEO:44.963600;-63.534900
+LOCATION:Enfield Lions Den
+DTSTART:20250607T150000Z
+SUMMARY:Enfield A vs Pictou County A
+UID:6489530@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6489530
+END:VEVENT
+END:VCALENDAR

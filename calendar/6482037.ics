@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155351Z
+DESCRIPTION:LPR 3 Masculin\nMontreal Barbarians RFC vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6482037
+DTEND:20250726T160000Z
+GEO:45.495000;-73.797800
+LOCATION:PARC SUNNYBROOKE
+DTSTART:20250726T140000Z
+SUMMARY:Montreal Barbarians RFC vs Club de rugby Sainte-Anne de Bellevue
+UID:6482037@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6482037
+END:VEVENT
+END:VCALENDAR

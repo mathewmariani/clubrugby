@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155249Z
+DESCRIPTION:U17 Women's Club\nValley Rugby Union vs Moncton Black Tide\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609475
+DTEND:20251004T150000Z
+GEO:0.000000;0.000000
+LOCATION:Port Williams 
+DTSTART:20251004T130000Z
+SUMMARY:Valley Rugby Union vs Moncton Black Tide
+UID:6609475@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609475
+END:VEVENT
+END:VCALENDAR

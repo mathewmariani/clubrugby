@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155318Z
+DESCRIPTION:Junior Regional Cup - U18 Girls\nMiddlesex-Huron Youth Rugby vs Sarnia Saints 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492341
+DTEND:20250710T203000Z
+GEO:42.951500;-82.399400
+LOCATION:Norm Perry Park
+DTSTART:20250710T183000Z
+SUMMARY:Middlesex-Huron Youth Rugby vs Sarnia Saints 1XV
+UID:6492341@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492341
+END:VEVENT
+END:VCALENDAR

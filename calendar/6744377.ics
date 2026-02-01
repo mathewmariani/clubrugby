@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155247Z
+DESCRIPTION:Men's University Division 1\nAcadia University 1 vs University of New Brunswick\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6744377
+DTEND:20251101T150000Z
+GEO:45.083900;-64.357600
+LOCATION:Acadia Rugby Field
+DTSTART:20251101T130000Z
+SUMMARY:Acadia University 1 vs University of New Brunswick
+UID:6744377@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6744377
+END:VEVENT
+END:VCALENDAR

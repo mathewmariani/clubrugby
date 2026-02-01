@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155351Z
+DESCRIPTION:LPR 3 Masculin\nNomades de Laval vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6482034
+DTEND:20250719T160000Z
+GEO:45.577800;-73.682600
+LOCATION:Parc Chênier
+DTSTART:20250719T140000Z
+SUMMARY:Nomades de Laval vs Club de rugby Sainte-Anne de Bellevue
+UID:6482034@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6482034
+END:VEVENT
+END:VCALENDAR

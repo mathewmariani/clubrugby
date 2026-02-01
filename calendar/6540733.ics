@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Men's Rugby\nTrent University vs Wilfrid Laurier University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540733
+DTEND:20251003T200000Z
+GEO:44.355200;-78.294300
+LOCATION:Trent University - Justin Chiu Stadium
+DTSTART:20251003T180000Z
+SUMMARY:Trent University vs Wilfrid Laurier University
+UID:6540733@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540733
+END:VEVENT
+END:VCALENDAR

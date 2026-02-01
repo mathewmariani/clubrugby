@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155348Z
+DESCRIPTION:LPR 1 Féminin\nMontreal Irish RFC vs Abénakis de Sherbrooke\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6531546
+DTEND:20250809T130000Z
+GEO:45.597400;-73.300200
+LOCATION:Ste-Julie
+DTSTART:20250809T110000Z
+SUMMARY:Montreal Irish RFC vs Abénakis de Sherbrooke
+UID:6531546@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6531546
+END:VEVENT
+END:VCALENDAR

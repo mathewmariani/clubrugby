@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155215Z
+DESCRIPTION:CanWest Women's Rugby\nUniversity of Calgary vs University of Lethbridge Trolls Club\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6732203
+DTEND:20251010T140000Z
+GEO:51.071900;-114.167000
+LOCATION:Shouldice Hellard Field
+DTSTART:20251010T120000Z
+SUMMARY:University of Calgary vs University of Lethbridge Trolls Club
+UID:6732203@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6732203
+END:VEVENT
+END:VCALENDAR

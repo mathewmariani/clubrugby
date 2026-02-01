@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155155Z
+DESCRIPTION:Mens Division 2 \nSurrey Beavers AA vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532841
+DTEND:20251018T134500Z
+GEO:49.117700;-122.822000
+LOCATION:Sullivan Heights
+DTSTART:20251018T114500Z
+SUMMARY:Surrey Beavers AA vs Meraloma
+UID:6532841@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532841
+END:VEVENT
+END:VCALENDAR

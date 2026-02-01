@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155333Z
+DESCRIPTION:Exhibition - Senior Men\nKingston Panthers vs Oshawa Vikings 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6479989
+DTEND:20250503T150000Z
+GEO:44.302600;-76.366100
+LOCATION:Lasalle SS
+DTSTART:20250503T130000Z
+SUMMARY:Kingston Panthers vs Oshawa Vikings 1XV
+UID:6479989@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6479989
+END:VEVENT
+END:VCALENDAR

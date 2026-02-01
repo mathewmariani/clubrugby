@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155312Z
+DESCRIPTION:Masters Rugby - Men\nNiagara Old Boys vs Balmy Beach\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6496209
+DTEND:20250906T133000Z
+GEO:43.379600;-79.756300
+LOCATION:Sherwood Forest Park
+DTSTART:20250906T113000Z
+SUMMARY:Niagara Old Boys vs Balmy Beach
+UID:6496209@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6496209
+END:VEVENT
+END:VCALENDAR

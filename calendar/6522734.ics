@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155353Z
+DESCRIPTION:Senior Men Division 1\nCampion Grads vs Regina Rogues\n\nMatch details:\nhttps://clubrugby.ca/sk#/fixture/6522734
+DTEND:20250823T180000Z
+GEO:50.417700;-104.638000
+LOCATION:Regina Rugby Club Field 1
+DTSTART:20250823T160000Z
+SUMMARY:Campion Grads vs Regina Rogues
+UID:6522734@clubrugby.ca
+URL:https://clubrugby.ca/sk#/fixture/6522734
+END:VEVENT
+END:VCALENDAR

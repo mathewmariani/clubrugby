@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155350Z
+DESCRIPTION:LPR 3 Féminin\nRugby Club Ottawa vs Rugby Châteauguay\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481154
+DTEND:20250712T130000Z
+GEO:45.452700;-75.765100
+LOCATION:Heritage College
+DTSTART:20250712T110000Z
+SUMMARY:Rugby Club Ottawa vs Rugby Châteauguay
+UID:6481154@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481154
+END:VEVENT
+END:VCALENDAR

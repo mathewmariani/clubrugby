@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155201Z
+DESCRIPTION:2025 Senior Men's B\nMoncton Black Tide A vs Miramichi RFC B\n\nMatch details:\nhttps://clubrugby.ca/nb#/fixture/6478465
+DTEND:20250726T010000Z
+GEO:0.000000;0.000000
+LOCATION:Moncton Black Tide
+DTSTART:20250725T230000Z
+SUMMARY:Moncton Black Tide A vs Miramichi RFC B
+UID:6478465@clubrugby.ca
+URL:https://clubrugby.ca/nb#/fixture/6478465
+END:VEVENT
+END:VCALENDAR

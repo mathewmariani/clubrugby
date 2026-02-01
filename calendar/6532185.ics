@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nJames Bay AA vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532185
+DTEND:20260228T163000Z
+GEO:48.418600;-123.382000
+LOCATION:James Bay AA- MacDonald Park
+DTSTART:20260228T143000Z
+SUMMARY:James Bay AA vs University Of Victoria
+UID:6532185@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532185
+END:VEVENT
+END:VCALENDAR

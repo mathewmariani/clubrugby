@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155139Z
+DESCRIPTION:Island U18 Girls\nNanaimo Hornets vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708816
+DTEND:20251019T143000Z
+GEO:49.242600;-124.054000
+LOCATION:May Bennett Pioneer
+DTSTART:20251019T123000Z
+SUMMARY:Nanaimo Hornets vs Castaway Wanderers
+UID:6708816@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6708816
+END:VEVENT
+END:VCALENDAR

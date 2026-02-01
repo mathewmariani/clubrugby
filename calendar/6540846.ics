@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155334Z
+DESCRIPTION:Exhibition - OCAA/OUA Men\nTrent University vs Georgian College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540846
+DTEND:20250905T190000Z
+GEO:44.355200;-78.294300
+LOCATION:Trent University - Justin Chiu Stadium
+DTSTART:20250905T170000Z
+SUMMARY:Trent University vs Georgian College
+UID:6540846@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540846
+END:VEVENT
+END:VCALENDAR

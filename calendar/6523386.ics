@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155338Z
+DESCRIPTION:Exhibition - U16 Boys\nAurora Barbarians vs Brock RFC 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6523386
+DTEND:20250807T200000Z
+GEO:44.012300;-79.477300
+LOCATION:St. Andrew's College (Aurora)
+DTSTART:20250807T180000Z
+SUMMARY:Aurora Barbarians vs Brock RFC 1XV
+UID:6523386@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6523386
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155307Z
+DESCRIPTION:NRU Men Championship\nStratford Blackswans 1XV vs Georgian Bay Titans\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478186
+DTEND:20250621T150000Z
+GEO:43.344000;-80.981600
+LOCATION:Army Navy & Air Force Veterans
+DTSTART:20250621T130000Z
+SUMMARY:Stratford Blackswans 1XV vs Georgian Bay Titans
+UID:6478186@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478186
+END:VEVENT
+END:VCALENDAR

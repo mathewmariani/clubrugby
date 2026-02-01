@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155151Z
+DESCRIPTION:2025 Junior 7s\nAbbotsford RFC vs Campbell River\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6683623
+DTEND:20250914T152000Z
+GEO:49.068300;-122.323000
+LOCATION:Abbotsford Exhibition Park
+DTSTART:20250914T132000Z
+SUMMARY:Abbotsford RFC vs Campbell River
+UID:6683623@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6683623
+END:VEVENT
+END:VCALENDAR

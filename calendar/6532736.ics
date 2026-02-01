@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Womens Premier \nWestshore vs Seattle Rugby\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532736
+DTEND:20260131T150000Z
+GEO:49.244700;-123.175000
+LOCATION:Balaclava Park
+DTSTART:20260131T130000Z
+SUMMARY:Westshore vs Seattle Rugby
+UID:6532736@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532736
+END:VEVENT
+END:VCALENDAR

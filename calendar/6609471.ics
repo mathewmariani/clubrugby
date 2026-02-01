@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155249Z
+DESCRIPTION:U17 Women's Club\nValley Rugby Union vs Truro Saints\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6609471
+DTEND:20250913T150000Z
+GEO:44.371800;-64.517900
+LOCATION:Kinsman Athletic Field (Bridgewater)
+DTSTART:20250913T130000Z
+SUMMARY:Valley Rugby Union vs Truro Saints
+UID:6609471@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6609471
+END:VEVENT
+END:VCALENDAR

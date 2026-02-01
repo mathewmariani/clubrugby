@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nNanaimo Hornets vs Cowichan RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532250
+DTEND:20251018T143000Z
+GEO:49.242600;-124.054000
+LOCATION:May Bennett Pioneer
+DTSTART:20251018T123000Z
+SUMMARY:Nanaimo Hornets vs Cowichan RFC
+UID:6532250@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532250
+END:VEVENT
+END:VCALENDAR

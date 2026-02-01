@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155152Z
+DESCRIPTION:2025 CanWest XVs\nUBC Thunderbirds vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554972
+DTEND:20250830T140000Z
+GEO:49.260200;-123.243000
+LOCATION:UBC- Gerald McGavin Centre
+DTSTART:20250830T120000Z
+SUMMARY:UBC Thunderbirds vs University Of Victoria
+UID:6554972@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6554972
+END:VEVENT
+END:VCALENDAR

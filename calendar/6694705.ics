@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155212Z
+DESCRIPTION:Prairie University Mens Rugby 2025\nUniversity of Alberta 3rd team vs Calgary Mavericks Colts\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6694705
+DTEND:20250928T150000Z
+GEO:53.558500;-113.513000
+LOCATION:Clansmen RFC
+DTSTART:20250928T130000Z
+SUMMARY:University of Alberta 3rd team vs Calgary Mavericks Colts
+UID:6694705@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6694705
+END:VEVENT
+END:VCALENDAR

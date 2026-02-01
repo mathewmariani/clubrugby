@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nBarrhaven Scottish vs Kingston Panthers\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6496275
+DTEND:20250621T141500Z
+GEO:45.267800;-75.761700
+LOCATION:Rowans Pitch
+DTSTART:20250621T121500Z
+SUMMARY:Barrhaven Scottish vs Kingston Panthers
+UID:6496275@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6496275
+END:VEVENT
+END:VCALENDAR

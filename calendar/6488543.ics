@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155305Z
+DESCRIPTION:EORU Women Premiership\nOttawa Ospreys RFC vs Ottawa Wolves\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6488543
+DTEND:20250621T120000Z
+GEO:44.977700;-76.185500
+LOCATION:Lanark Highlanders
+DTSTART:20250621T100000Z
+SUMMARY:Ottawa Ospreys RFC vs Ottawa Wolves
+UID:6488543@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6488543
+END:VEVENT
+END:VCALENDAR

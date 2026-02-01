@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nGuelph RFC 1XV vs Stratford Blackswans 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6498344
+DTEND:20250628T110000Z
+GEO:43.474800;-80.499700
+LOCATION:Bluevale Collegiate
+DTSTART:20250628T090000Z
+SUMMARY:Guelph RFC 1XV vs Stratford Blackswans 1XV
+UID:6498344@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6498344
+END:VEVENT
+END:VCALENDAR

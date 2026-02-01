@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155233Z
+DESCRIPTION:Mens Division 2\nWasps Premier vs Wombats/Brumbies Premier\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6492296
+DTEND:20250607T150000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250607T130000Z
+SUMMARY:Wasps Premier vs Wombats/Brumbies Premier
+UID:6492296@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6492296
+END:VEVENT
+END:VCALENDAR

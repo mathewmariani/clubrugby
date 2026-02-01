@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nClub de Rugby de Québec vs Club de rugby Sainte-Anne de Bellevue\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480537
+DTEND:20250517T163000Z
+GEO:46.767900;-71.298000
+LOCATION:École secondaire De Rochebelle
+DTSTART:20250517T143000Z
+SUMMARY:Club de Rugby de Québec vs Club de rugby Sainte-Anne de Bellevue
+UID:6480537@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480537
+END:VEVENT
+END:VCALENDAR

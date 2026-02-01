@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155228Z
+DESCRIPTION:SAW2 (Developmental) 2025\nCalgary Saracens RFC vs Calgary Canucks RC\n\nMatch details:\nhttps://clubrugby.ca/ab#/fixture/6489469
+DTEND:20250719T130000Z
+GEO:56.130400;-106.347000
+LOCATION:Calgary Rugby Park 1
+DTSTART:20250719T110000Z
+SUMMARY:Calgary Saracens RFC vs Calgary Canucks RC
+UID:6489469@clubrugby.ca
+URL:https://clubrugby.ca/ab#/fixture/6489469
+END:VEVENT
+END:VCALENDAR

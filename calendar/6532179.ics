@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155158Z
+DESCRIPTION:Mens Premier \nCapilano vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532179
+DTEND:20260314T163000Z
+GEO:49.327400;-123.126000
+LOCATION:Klahanie Park
+DTSTART:20260314T143000Z
+SUMMARY:Capilano vs University Of Victoria
+UID:6532179@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532179
+END:VEVENT
+END:VCALENDAR

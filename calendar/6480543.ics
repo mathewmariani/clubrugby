@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nBeaconsfield RFC vs Rugby Club de Montréal\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480543
+DTEND:20250607T160000Z
+GEO:45.429700;-73.862900
+LOCATION:Beaconsfield HS
+DTSTART:20250607T140000Z
+SUMMARY:Beaconsfield RFC vs Rugby Club de Montréal
+UID:6480543@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480543
+END:VEVENT
+END:VCALENDAR

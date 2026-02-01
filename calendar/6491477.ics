@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155322Z
+DESCRIPTION:Junior Provincial Cup - U16 Girls\nAurora Barbarians vs Brock RFC 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491477
+DTEND:20250628T103000Z
+GEO:43.998200;-79.456100
+LOCATION:Sheppards Bush Field
+DTSTART:20250628T083000Z
+SUMMARY:Aurora Barbarians vs Brock RFC 1XV
+UID:6491477@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491477
+END:VEVENT
+END:VCALENDAR

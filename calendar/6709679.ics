@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155244Z
+DESCRIPTION:Women's Exhbition Games\nAxe Rugby Club vs Dalhousie University 1\,2\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6709679
+DTEND:20250926T190000Z
+GEO:45.083900;-64.357600
+LOCATION:Acadia Rugby Field
+DTSTART:20250926T170000Z
+SUMMARY:Axe Rugby Club vs Dalhousie University 1\,2
+UID:6709679@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6709679
+END:VEVENT
+END:VCALENDAR

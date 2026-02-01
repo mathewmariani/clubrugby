@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155236Z
+DESCRIPTION:Boys Exhibition Matches \nManitoba Boys vs Saskatchewan Boys\n\nMatch details:\nhttps://clubrugby.ca/mb#/fixture/6496235
+DTEND:20250615T110000Z
+GEO:56.130400;-106.347000
+LOCATION:Maple Grove Rugby Park
+DTSTART:20250615T090000Z
+SUMMARY:Manitoba Boys vs Saskatchewan Boys
+UID:6496235@clubrugby.ca
+URL:https://clubrugby.ca/mb#/fixture/6496235
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155348Z
+DESCRIPTION:LPR 1 Féminin\nAbénakis de Sherbrooke vs Club de Rugby de Québec\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6481057
+DTEND:20250524T140000Z
+GEO:45.377500;-71.937300
+LOCATION:Université de Sherbrooke
+DTSTART:20250524T120000Z
+SUMMARY:Abénakis de Sherbrooke vs Club de Rugby de Québec
+UID:6481057@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6481057
+END:VEVENT
+END:VCALENDAR

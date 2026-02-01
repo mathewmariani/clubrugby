@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155154Z
+DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533205
+DTEND:20251129T140000Z
+GEO:49.276700;-122.925000
+LOCATION:Simon Fraser Field 4
+DTSTART:20251129T120000Z
+SUMMARY:Simon Fraser RC vs Axemen Rugby Club
+UID:6533205@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6533205
+END:VEVENT
+END:VCALENDAR

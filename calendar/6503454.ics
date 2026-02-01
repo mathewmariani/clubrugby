@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155318Z
+DESCRIPTION:Junior Regional Cup - U18 Girls\nLindsay RFC 1XV vs Oshawa Vikings 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6503454
+DTEND:20250716T194500Z
+GEO:44.380300;-78.577400
+LOCATION:67 Vince Jones Rd (Lindsay)
+DTSTART:20250716T174500Z
+SUMMARY:Lindsay RFC 1XV vs Oshawa Vikings 1XV
+UID:6503454@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6503454
+END:VEVENT
+END:VCALENDAR

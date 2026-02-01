@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155323Z
+DESCRIPTION:Junior Regional Cup - U16 Girls\nWaterloo County 1XV vs Fergus Highland 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6493025
+DTEND:20250712T100000Z
+GEO:43.474800;-80.499700
+LOCATION:Bluevale Collegiate
+DTSTART:20250712T080000Z
+SUMMARY:Waterloo County 1XV vs Fergus Highland 1XV
+UID:6493025@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6493025
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155147Z
+DESCRIPTION:Senior Exhibition\nPacific Pride vs Atlantic Privateers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6770679
+DTEND:20260214T183000Z
+GEO:48.443100;-123.523000
+LOCATION:Westhills Stadium
+DTSTART:20260214T163000Z
+SUMMARY:Pacific Pride vs Atlantic Privateers
+UID:6770679@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6770679
+END:VEVENT
+END:VCALENDAR

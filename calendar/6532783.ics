@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155156Z
+DESCRIPTION:Womens Division 1\nJames Bay AA vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532783
+DTEND:20251129T131500Z
+GEO:48.418600;-123.382000
+LOCATION:James Bay AA- MacDonald Park
+DTSTART:20251129T111500Z
+SUMMARY:James Bay AA vs Castaway Wanderers
+UID:6532783@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532783
+END:VEVENT
+END:VCALENDAR

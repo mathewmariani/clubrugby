@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155155Z
+DESCRIPTION:Mens Division 2 \nChilliwack Crusaders vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532847
+DTEND:20251101T144500Z
+GEO:49.071100;-122.071000
+LOCATION:Chilliwack- Yarrow Sportsfield
+DTSTART:20251101T124500Z
+SUMMARY:Chilliwack Crusaders vs Ridge Meadows
+UID:6532847@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532847
+END:VEVENT
+END:VCALENDAR

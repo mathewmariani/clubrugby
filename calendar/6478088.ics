@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155301Z
+DESCRIPTION:NRU Men Premiership\nNorfolk Harvesters 1XV vs Stoney Creek Camels RFC 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6478088
+DTEND:20250607T163000Z
+GEO:42.933200;-80.254400
+LOCATION:Waterford District HS
+DTSTART:20250607T143000Z
+SUMMARY:Norfolk Harvesters 1XV vs Stoney Creek Camels RFC 1XV
+UID:6478088@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6478088
+END:VEVENT
+END:VCALENDAR

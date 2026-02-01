@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155354Z
+DESCRIPTION:2025 Senior Women \nWild Oats Women vs Regina Rage\n\nMatch details:\nhttps://clubrugby.ca/sk#/fixture/6462617
+DTEND:20250607T143000Z
+GEO:50.417700;-104.638000
+LOCATION:Regina Rugby Club Field 1
+DTSTART:20250607T123000Z
+SUMMARY:Wild Oats Women vs Regina Rage
+UID:6462617@clubrugby.ca
+URL:https://clubrugby.ca/sk#/fixture/6462617
+END:VEVENT
+END:VCALENDAR

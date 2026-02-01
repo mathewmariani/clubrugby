@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155345Z
+DESCRIPTION:Super Ligue Masculine\nClub de Rugby de Québec vs Beaconsfield RFC\n\nMatch details:\nhttps://clubrugby.ca/qc#/fixture/6480568
+DTEND:20250802T163000Z
+GEO:46.767900;-71.298000
+LOCATION:École secondaire De Rochebelle
+DTSTART:20250802T143000Z
+SUMMARY:Club de Rugby de Québec vs Beaconsfield RFC
+UID:6480568@clubrugby.ca
+URL:https://clubrugby.ca/qc#/fixture/6480568
+END:VEVENT
+END:VCALENDAR

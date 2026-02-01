@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155255Z
+DESCRIPTION:OUA Women's Rugby\nMcMaster University vs Wilfrid Laurier University\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6540805
+DTEND:20250913T210000Z
+GEO:43.266100;-79.917000
+LOCATION:McMaster University - Ron Joyce Stadium
+DTSTART:20250913T190000Z
+SUMMARY:McMaster University vs Wilfrid Laurier University
+UID:6540805@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6540805
+END:VEVENT
+END:VCALENDAR

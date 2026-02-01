@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155157Z
+DESCRIPTION:Mens Division 1 \nUniversity Of Victoria vs Westshore\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532255
+DTEND:20251025T134500Z
+GEO:48.469700;-123.315000
+LOCATION:U Of Victoria- Wallace Field
+DTSTART:20251025T114500Z
+SUMMARY:University Of Victoria vs Westshore
+UID:6532255@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6532255
+END:VEVENT
+END:VCALENDAR

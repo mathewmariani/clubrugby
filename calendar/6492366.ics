@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155318Z
+DESCRIPTION:Junior Regional Cup - U18 Girls\nOwen Sound vs Caledon Cavaliers RFC\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6492366
+DTEND:20250716T203000Z
+GEO:44.570300;-80.929900
+LOCATION:Victoria Park\, Owen Sound
+DTSTART:20250716T183000Z
+SUMMARY:Owen Sound vs Caledon Cavaliers RFC
+UID:6492366@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6492366
+END:VEVENT
+END:VCALENDAR

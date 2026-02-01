@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155321Z
+DESCRIPTION:Junior Regional Cup - U16 Boys\nBytown Blues 1XV vs Ottawa Irish\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6496274
+DTEND:20250703T193000Z
+GEO:45.378000;-75.659900
+LOCATION:St. Patrick's HS (Ottawa)
+DTSTART:20250703T173000Z
+SUMMARY:Bytown Blues 1XV vs Ottawa Irish
+UID:6496274@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6496274
+END:VEVENT
+END:VCALENDAR

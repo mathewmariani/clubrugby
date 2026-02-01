@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155239Z
+DESCRIPTION:Mens Division One\nCharlottetown Rugby Club A vs Halifax A\n\nMatch details:\nhttps://clubrugby.ca/ns#/fixture/6490360
+DTEND:20250816T133000Z
+GEO:0.000000;0.000000
+LOCATION:Co-op
+DTSTART:20250816T113000Z
+SUMMARY:Charlottetown Rugby Club A vs Halifax A
+UID:6490360@clubrugby.ca
+URL:https://clubrugby.ca/ns#/fixture/6490360
+END:VEVENT
+END:VCALENDAR

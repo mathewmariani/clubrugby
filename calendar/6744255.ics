@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155256Z
+DESCRIPTION:OCAA Men's Rugby\nGeorgian College vs Conestoga College\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6744255
+DTEND:20251116T150000Z
+GEO:44.412000;-79.664000
+LOCATION:Georgian College - JC Massie Field
+DTSTART:20251116T130000Z
+SUMMARY:Georgian College vs Conestoga College
+UID:6744255@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6744255
+END:VEVENT
+END:VCALENDAR

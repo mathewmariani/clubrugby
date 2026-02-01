@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260201T155317Z
+DESCRIPTION:Junior Provincial Cup - U18 Girls\nBarrie RFC vs Crusaders Rugby Club 1XV\n\nMatch details:\nhttps://clubrugby.ca/on#/fixture/6491540
+DTEND:20250716T203000Z
+GEO:44.455100;-79.801700
+LOCATION:Jim Hamilton Field
+DTSTART:20250716T183000Z
+SUMMARY:Barrie RFC vs Crusaders Rugby Club 1XV
+UID:6491540@clubrugby.ca
+URL:https://clubrugby.ca/on#/fixture/6491540
+END:VEVENT
+END:VCALENDAR
