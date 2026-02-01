@@ -7,6 +7,14 @@
         :fixtureDate="fixture.fixtureDate"
       />
 
+      <section class="d-flex justify-content-end">
+        <ShareButton
+          :fixture="fixture"
+          :home="homeTeamName"
+          :away="awayTeamName"
+        />
+      </section>
+
       <!-- displays both home and away teams -->
       <TeamHeader
         :home="home"
@@ -94,6 +102,8 @@
         :fixtureDate="fixture.fixtureDate"
         :league="leagueName"
         :venue="fixture.venue"
+        :venueLong="fixture.venuelng || 0"
+        :venueLat="fixture.venuelat || 0"
         :isResult="isResult"
       />
     </div>
@@ -119,6 +129,7 @@
     getRecordString,
   } from '@/composables/utils';
 
+  import ShareButton from '@/components/vue/event/ShareButton.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import BoxScore from '@/components/vue/event/BoxScore.vue';
   import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
