@@ -81,15 +81,7 @@
       </template>
 
       <!-- post game boxscore -->
-<<<<<<< HEAD
       <BoxScore v-if="isResult" :home="fixture.home" :away="fixture.away" />
-=======
-      <BoxScore
-        v-if="isResult"
-        :home="fixture.home"
-        :away="fixture.away"
-      />
->>>>>>> 8b6e889 (Added calendar button)
 
       <MatchOfficials
         v-if="hasMatchOfficials"
@@ -132,7 +124,6 @@
   import GameDetails from '@/components/vue/event/GameDetails.vue';
   import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
-<<<<<<< HEAD
   import type { Fixture, Standing, Club } from '@/utils/types';
 
   const { fixtures, clubs, leagues, standings } = useAppData();
