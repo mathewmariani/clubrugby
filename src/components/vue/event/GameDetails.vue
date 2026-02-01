@@ -55,8 +55,8 @@
   function getDefaultMaps() {
     const ua = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(ua)) {
-      return 'https://maps.apple.com/?ll=48.4697,-123.315&q=U%20Of%20Victoria';
+      return `https://maps.apple.com/?ll=${props.venueLat},${props.venueLong}`;
     }
-    return `https://www.google.com/maps/search/?api=1&query=48.4697,-123.315`;
+    return `https://www.google.com/maps/search/?api=1&query=${props.venueLat},${props.venueLong}`;
   }
 </script>
