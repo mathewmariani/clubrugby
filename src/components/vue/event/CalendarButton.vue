@@ -83,10 +83,3 @@
     return `/calendar/${props.fixture.fixtureId}.ics`;
   });
 </script>
-
-<style scoped>
-  .bd-callout {
-    border-left: 0.25rem solid var(--bs-info);
-    border-right: 0.25rem solid var(--bs-info);
-  }
-</style>
