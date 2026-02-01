@@ -10,6 +10,13 @@
         <span class="text-muted">Venue</span>
         <p>{{ venue }}</p>
       </template>
+      <a
+       class="btn btn-danger"
+       :href="getDefaultMaps()"
+                 target="_blank"
+          rel="noopener noreferrer">
+        Open in Maps
+      </a>
     </div>
   </div>
 </template>
@@ -22,8 +29,18 @@
     fixtureDate: number;
     league: string;
     venue: string;
+    venueLong: string;
+    venueLat: string;
     isResult: boolean;
   }>();
 
   const date = computed(() => formattedDate(props.fixtureDate));
+
+function getDefaultMaps() {
+  const ua = navigator.userAgent.toLowerCase();
+  if (/iphone|ipad|ipod/.test(ua)) {
+    return 'https://maps.apple.com/?ll=48.4697,-123.315&q=U%20Of%20Victoria';
+  }
+  return `https://www.google.com/maps/search/?api=1&query=48.4697,-123.315`;
+}
 </script>
