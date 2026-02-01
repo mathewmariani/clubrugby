@@ -5,7 +5,7 @@ dist/
 .astro/
 
 # generated files
-data/
+src/data/
 
 # calendar files
 public/calendar/
