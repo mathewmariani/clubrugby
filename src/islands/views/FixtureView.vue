@@ -1,11 +1,20 @@
 <template>
   <template v-if="fixture">
     <div class="list-group list-group-flush">
+      
       <MatchHeader
         :leagueName="leagueName"
         :isResult="isResult"
         :fixtureDate="fixture.fixtureDate"
       />
+
+      <section class="d-flex justify-content-end">
+        <ShareButton
+          :fixture="fixture"
+          :home="homeTeamName"
+          :away="awayTeamName"
+        />
+      </section>
 
       <!-- displays both home and away teams -->
       <TeamHeader
