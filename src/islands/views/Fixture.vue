@@ -1,7 +1,6 @@
 <template>
   <template v-if="fixture">
     <div class="list-group list-group-flush">
-      
       <MatchHeader
         :leagueName="leagueName"
         :isResult="isResult"
