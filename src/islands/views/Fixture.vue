@@ -7,14 +7,6 @@
         :fixtureDate="fixture.fixtureDate"
       />
 
-      <section class="d-flex justify-content-end">
-        <ShareButton
-          :fixture="fixture"
-          :home="homeTeamName"
-          :away="awayTeamName"
-        />
-      </section>
-
       <!-- displays both home and away teams -->
       <TeamHeader
         :home="home"
