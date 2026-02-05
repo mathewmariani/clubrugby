@@ -132,29 +132,23 @@
   import type { Fixture, Standing, Club } from '@/utils/types';
   import CalendarButton from '@/components/vue/event/CalendarButton.vue';
 
-  const props = defineProps<{
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-    standings: Record<string, Standing[]>;
-    fixtures: Record<string, Fixture[]>;
-  }>();
+  import { useAppData } from '@/composables/useAppData';
+  const { unions, fixtures, clubs, leagues, standings } = useAppData();
 
   const route = useRoute();
   const fixture_id = computed(
     () => route.params.fixture_id as string | undefined
   );
 
-  const { fixture, league_id } = useFixtureById(fixture_id, props.fixtures);
-  const { home, away } = useMatchClubs(fixture, props.clubs);
+  const { fixture, league_id } = useFixtureById(fixture_id, fixtures);
+  const { home, away } = useMatchClubs(fixture, clubs);
   const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
 
-  const leagueName = getLeagueName(league_id.value, props.leagues);
+  const leagueName = getLeagueName(league_id.value, leagues);
   const homeTeamRecord = computed(() => getRecordString(homeTeam.value));
   const awayTeamRecord = computed(() => getRecordString(awayTeam.value));
 
-  const standingsForLeague = computed(
-    () => props.standings[league_id.value] ?? []
-  );
+  const standingsForLeague = computed(() => standings[league_id.value] ?? []);
 
   const homeTeam = computed(() =>
     standingsForLeague.value.find(

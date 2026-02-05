@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <template v-if="hasStandings">
       <template v-for="(teams, leagueId) in standings" :key="leagueId">
         <StandingsTable
@@ -18,7 +18,7 @@
         <p>Ensure your preferences are set.</p>
       </div>
     </template>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
@@ -27,11 +27,8 @@
   import { getLeagueName } from '@/composables/utils';
   import type { Club, Standing } from '@/utils/types';
 
-  const props = defineProps<{
-    standings: Record<string, Standing[]>; // already sorted by league & rank
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-  }>();
+  import { useAppData } from '@/composables/useAppData';
+  const { unions, fixtures, clubs, leagues, standings } = useAppData();
 
   // No more grouping or filtering needed
   const hasStandings = computed(() => Object.keys(props.standings).length > 0);

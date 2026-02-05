@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasResults">
+  <!-- <div v-if="hasResults">
     <template
       v-for="(daysInMonth, monthId) in resultsByMonthDay"
       :key="monthId"
@@ -19,7 +19,7 @@
     <p>No fixtures available.</p>
     <hr />
     <p>Ensure your preferences are set.</p>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
@@ -30,15 +30,11 @@
   import { groupByMonthDay } from '@/composables/utils';
   import DayMatchGroup from '@/components/vue/items/DayMatchGroup.vue';
 
-  const props = defineProps<{
-    union: Union;
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-    fixtures: Record<string, Fixture[]>;
-  }>();
+  import { useAppData } from '@/composables/useAppData';
+  const { unions, fixtures, clubs, leagues, standings } = useAppData();
 
   const { leaguesWithResults, hasResults } = useFixtureFilters(
-    computed(() => props.fixtures)
+    computed(() => fixtures)
   );
 
   // Group all results by month/day
@@ -52,8 +48,8 @@
     const grouped: Record<string, Fixture[]> = {};
     for (const fixture of fixtures) {
       // Find which league this fixture belongs to
-      const leagueId = Object.entries(props.fixtures).find(
-        ([_, leagueFixtures]) => leagueFixtures.includes(fixture)
+      const leagueId = Object.entries(fixtures).find(([_, leagueFixtures]) =>
+        leagueFixtures.includes(fixture)
       )?.[0];
 
       if (leagueId) {

@@ -1,5 +1,5 @@
 <template>
-  <Navbar :union="props.union" :clubs="props.clubs" :leagues="props.leagues" />
+  <Navbar />
 
   <div class="view-container">
     <router-view v-slot="{ Component }">
@@ -36,89 +36,62 @@
     fixtures: Record<string, Fixture[]>;
   }>();
 
+  import { provide, readonly } from 'vue';
+  provide(
+    'appData',
+    readonly({
+      union: props.union,
+      clubs: props.clubs,
+      leagues: props.leagues,
+      fixtures: props.fixtures,
+      standings: props.standings,
+    })
+  );
+
   // Setup router
   const router = createRouter({
     history: createWebHashHistory(),
-    scrollBehavior() {
-      return { top: 0 };
-    },
+    scrollBehavior: () => ({ top: 0 }),
     routes: [
-      { path: '/', redirect: '/schedule' },
-      {
-        path: '/schedule',
-        component: Schedule,
-        props: {
-          union: props.union,
-          fixtures: props.fixtures,
-          clubs: props.clubs,
-          leagues: props.leagues,
-        },
-      },
-      {
-        path: '/results',
-        component: Results,
-        props: {
-          union: props.union,
-          fixtures: props.fixtures,
-          clubs: props.clubs,
-          leagues: props.leagues,
-        },
-      },
-      {
-        path: '/standings',
-        component: Standings,
-        props: {
-          union: props.union,
-          standings: props.standings,
-          clubs: props.clubs,
-          leagues: props.leagues,
-        },
-      },
-      {
-        path: '/fixture/:fixture_id',
-        component: FixtureView,
-        props: (route) => ({
-          fixture_id: route.params.fixture_id,
-          fixtures: props.fixtures,
-          clubs: props.clubs,
-          leagues: props.leagues,
-          standings: props.standings,
-        }),
-      },
-      {
-        path: '/club/:club_id',
-        component: TeamLayout,
-        props: {
-          clubs: props.clubs,
-          leagues: props.leagues,
-        },
-        children: [
-          {
-            path: 'schedule',
-            component: ClubFixtures,
-            props: (route) => ({
-              club_id: route.params.club_id,
-              fixtures: props.fixtures,
-              clubs: props.clubs,
-              leagues: props.leagues,
-            }),
-          },
-          {
-            path: 'stats',
-            component: ClubStats,
-            props: (route) => ({
-              club_id: route.params.club_id,
-              standings: props.standings,
-              clubs: props.clubs,
-              leagues: props.leagues,
-            }),
-          },
-          {
-            path: '',
-            redirect: (to) => `/club/${to.params.club_id}/schedule`,
-          },
-        ],
-      },
+      { path: '/', redirect: '/fixtures' },
+      { path: '/fixtures', component: Schedule },
+      { path: '/results', component: Results },
+      { path: '/standings', component: Standings },
+      // {
+      //   path: '/fixture/:fixture_id',
+      //   component: FixtureView,
+      //   props: (route) => ({
+      //     fixture_id: route.params.fixture_id,
+      //   }),
+      // },
+      // {
+      //   path: '/club/:club_id',
+      //   component: TeamLayout,
+      //   props: {
+      //     clubs: props.clubs,
+      //     leagues: props.leagues,
+      //   },
+      //   children: [
+      //     {
+      //       path: 'schedule',
+      //       component: ClubFixtures,
+      //       props: (route) => ({
+      //         club_id: route.params.club_id,
+      //       }),
+      //     },
+      //     {
+      //       path: 'stats',
+      //       component: ClubStats,
+      //       props: (route) => ({
+      //         club_id: route.params.club_id,
+      //       }),
+      //     },
+      //     {
+      //       path: '',
+      //       redirect: (to) => `/club/${to.params.club_id}/schedule`,
+      //     },
+      //   ],
+      // },
     ],
   });
 
@@ -126,7 +99,7 @@
   const direction = ref<'forward' | 'back'>('forward');
 
   router.beforeEach((to, from, next) => {
-    const mainPages = ['/schedule', '/results', '/standings'];
+    const mainPages = ['/fixtures', '/results', '/standings'];
 
     const isMainFrom = mainPages.some((p) => from.path.startsWith(p));
     const isMainTo = mainPages.some((p) => to.path.startsWith(p));
@@ -190,51 +163,3 @@
     }
   });
 </script>
-
-<style>
-  /* Shared transition styles */
-  .slide-forward-enter-active,
-  .slide-forward-leave-active,
-  .slide-back-enter-active,
-  .slide-back-leave-active {
-    transition:
-      transform 0.25s ease,
-      opacity 0.25s ease;
-  }
-
-  /* Forward navigation: new page slides in from right */
-  .slide-forward-enter-from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  .slide-forward-enter-to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .slide-forward-leave-from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .slide-forward-leave-to {
-    transform: translateX(-30%);
-    opacity: 0;
-  }
-
-  /* Back navigation: new page slides in from left */
-  .slide-back-enter-from {
-    transform: translateX(-30%);
-    opacity: 0;
-  }
-  .slide-back-enter-to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .slide-back-leave-from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .slide-back-leave-to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-</style>
