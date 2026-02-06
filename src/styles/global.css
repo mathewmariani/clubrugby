@@ -49,3 +49,44 @@
   transform: translateX(100%);
   opacity: 0;
 }
+
+/* standings table */
+
+.table-fixed {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 700px;
+  margin-bottom: 0px;
+}
+
+.table-fixed th,
+.table-fixed td {
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: var(--bs-body-bg);
+}
+
+tbody tr:not(:last-child) {
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.table-fixed th:first-child,
+.table-fixed td:first-child {
+  width: 30%;
+  text-align: left;
+}
+
+.table-fixed th:nth-child(n + 2),
+.table-fixed td:nth-child(n + 2) {
+  width: 8.75%;
+  text-align: center;
+}
+
+.sticky-thead th {
+  position: sticky;
+  z-index: 5;
+  top: 88px;
+  background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
+}
