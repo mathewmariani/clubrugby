@@ -1,5 +1,7 @@
 <template>
-  <!-- <div v-if="hasFixtures">
+  {{ hasFixtures }}
+  {{ fixturesByMonthDay }}
+  <template v-if="hasFixtures">
     <template
       v-for="(daysInMonth, monthId) in fixturesByMonthDay"
       :key="monthId"
@@ -12,12 +14,14 @@
         matchComponent="FixtureListItem"
       />
     </template>
-  </div>
-  <div v-else class="container-fluid text-center text-muted pt-3">
-    <p>No fixtures available.</p>
-    <hr />
-    <p>Ensure your preferences are set.</p>
-  </div> -->
+  </template>
+  <template v-else>
+    <div class="container-fluid text-center text-muted pt-3">
+      <p>No fixtures available.</p>
+      <hr />
+      <p>Ensure your preferences are set.</p>
+    </div>
+  </template>
 </template>
 
 <script setup lang="ts">
