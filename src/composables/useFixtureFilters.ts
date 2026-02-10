@@ -11,30 +11,53 @@ export function useFixtureFilters(
   options?: {
     clubId?: string;
     savedLeagues?: string[];
+    leagueId?: string;
   }
 ) {
+  const filteredFixtures = computed(() => {
+    let source = fixtures;
+
+    // single league filter (highest priority)
+    if (options?.leagueId) {
+      return {
+        [options.leagueId]: fixtures[options.leagueId] ?? [],
+      };
+    }
+
+    // saved leagues filter
+    if (options?.savedLeagues?.length) {
+      return Object.fromEntries(
+        Object.entries(fixtures).filter(([id]) =>
+          options.savedLeagues!.includes(id)
+        )
+      );
+    }
+
+    return source;
+  });
+
   // --- basic league filters ---
-  const leaguesWithFixtures = computed(() => {
-    return Object.fromEntries(
-      Object.entries(fixtures)
+  const leaguesWithFixtures = computed(() =>
+    Object.fromEntries(
+      Object.entries(filteredFixtures.value)
         .map(([leagueId, list]) => [
           leagueId,
           list.filter((f) => f.fixtureStatus === 'fixture'),
         ])
         .filter(([_, list]) => list.length > 0)
-    );
-  });
+    )
+  );
 
-  const leaguesWithResults = computed(() => {
-    return Object.fromEntries(
-      Object.entries(fixtures)
+  const leaguesWithResults = computed(() =>
+    Object.fromEntries(
+      Object.entries(filteredFixtures.value)
         .map(([leagueId, list]) => [
           leagueId,
           list.filter((f) => f.fixtureStatus === 'result'),
         ])
         .filter(([_, list]) => list.length > 0)
-    );
-  });
+    )
+  );
 
   // --- grouped by month/day/league ---
   const fixturesByMonthDay = computed(() =>
@@ -48,7 +71,7 @@ export function useFixtureFilters(
   // --- club-specific ---
   const clubFixturesByMonthDay = computed(() => {
     if (!options?.clubId) return {};
-    return groupFixtures(fixtures, {
+    return groupFixtures(filteredFixtures.value, {
       clubId: options.clubId,
       status: 'fixture',
     });
@@ -56,7 +79,7 @@ export function useFixtureFilters(
 
   const clubResultsByMonthDay = computed(() => {
     if (!options?.clubId) return {};
-    return groupFixtures(fixtures, {
+    return groupFixtures(filteredFixtures.value, {
       clubId: options.clubId,
       status: 'result',
     });
@@ -82,25 +105,26 @@ export function useFixtureFilters(
       () => {
         if (!fixtureId) return null;
 
-        for (const [league_id, list] of Object.entries(fixtures)) {
+        for (const [league_id, list] of Object.entries(
+          filteredFixtures.value
+        )) {
           const fixture = list.find((f) => `${f.fixtureId}` === fixtureId);
           if (fixture) return { fixture, league_id };
         }
+
         return null;
       }
     );
 
-    const fixture = computed<Fixture | null>(
-      () => result.value?.fixture ?? null
-    );
-    const league_id = computed<string | null>(
-      () => result.value?.league_id ?? null
-    );
-
-    return { fixture, league_id };
+    return {
+      fixture: computed(() => result.value?.fixture ?? null),
+      league_id: computed(() => result.value?.league_id ?? null),
+    };
   }
 
   return {
+    filteredFixtures,
+
     // league filters
     leaguesWithFixtures,
     leaguesWithResults,
