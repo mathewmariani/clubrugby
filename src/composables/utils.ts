@@ -1,6 +1,5 @@
 import { computed, type Ref } from 'vue';
 import type { Club, Fixture, Standing } from '@/utils/types';
-import { format } from 'date-fns';
 
 // Convert unix timestamp to human-readable "h:mm a"
 export function formattedTime(timestamp: number): string {
@@ -37,36 +36,6 @@ export function useMatchClubs(
   return { home, away };
 }
 
-export function useFixtureById(
-  fixtureId: Ref<string | undefined>,
-  fixturesByLeague: Record<string, Fixture[]>
-) {
-  const result = computed<{ fixture: Fixture; league_id: string } | null>(
-    () => {
-      if (!fixtureId.value) {
-        return null;
-      }
-      for (const [league_id, fixtures] of Object.entries(fixturesByLeague)) {
-        const fixture = fixtures.find((f) => f.fixtureId === fixtureId.value);
-        if (fixture) {
-          return { fixture, league_id };
-        }
-      }
-      return null;
-    }
-  );
-
-  const fixture = computed<Fixture | null>(() => result.value?.fixture ?? null);
-  const league_id = computed<string | null>(
-    () => result.value?.league_id ?? null
-  );
-
-  return {
-    fixture,
-    league_id,
-  };
-}
-
 export function getRecordString(table?: Standing): string {
   return `${table?.gamesWon ?? 0}-${table?.gamesDraw ?? 0}-${table?.gameLost ?? 0}`;
 }
@@ -96,86 +65,4 @@ export function getOrdinalSuffix(n: number): string {
     default:
       return n + 'th';
   }
-}
-
-export function flattenFixturesForClub(
-  fixtures: Record<string, Fixture[]>,
-  club_id: string,
-  status: 'fixture' | 'result'
-) {
-  const all: Fixture[] = [];
-  for (const [leagueId, schedule] of Object.entries(fixtures)) {
-    for (const fixture of schedule) {
-      if (
-        fixture.home.club_id === club_id ||
-        fixture.away.club_id === club_id
-      ) {
-        if (fixture.fixtureStatus === status) {
-          all.push(fixture);
-        }
-      }
-    }
-  }
-  return all;
-}
-
-// --- Group by month/day ---
-export function groupByMonthDay(matches: Fixture[]) {
-  const grouped: Record<string, Record<string, Fixture[]>> = {};
-  const sorted = [...matches].sort((a, b) => a.fixtureDate - b.fixtureDate);
-
-  for (const match of sorted) {
-    const date = new Date(match.fixtureDate * 1000);
-    const monthKey = format(date, 'yyyy-MM');
-    const dayKey = format(date, 'yyyy-MM-dd');
-
-    if (!grouped[monthKey]) grouped[monthKey] = {};
-    if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = [];
-
-    grouped[monthKey][dayKey].push(match);
-  }
-
-  return grouped;
-}
-
-// Group by month/day/league, preserving league information
-export function groupByMonthDayLeague(
-  fixturesByLeague: Record<string, Fixture[]>,
-  options?: {
-    clubId?: string;
-    status?: 'fixture' | 'result';
-  }
-) {
-  const grouped: Record<string, Record<string, Record<string, Fixture[]>>> = {};
-
-  for (const [leagueId, fixtures] of Object.entries(fixturesByLeague)) {
-    const filtered = fixtures.filter((f) => {
-      if (options?.status && f.fixtureStatus !== options.status) return false;
-
-      if (
-        options?.clubId &&
-        f.home.club_id !== options.clubId &&
-        f.away.club_id !== options.clubId
-      )
-        return false;
-
-      return true;
-    });
-
-    const sorted = [...filtered].sort((a, b) => a.fixtureDate - b.fixtureDate);
-
-    for (const fixture of sorted) {
-      const date = new Date(fixture.fixtureDate * 1000);
-      const monthKey = format(date, 'yyyy-MM');
-      const dayKey = format(date, 'yyyy-MM-dd');
-
-      grouped[monthKey] ??= {};
-      grouped[monthKey][dayKey] ??= {};
-      grouped[monthKey][dayKey][leagueId] ??= [];
-
-      grouped[monthKey][dayKey][leagueId].push(fixture);
-    }
-  }
-
-  return grouped;
 }
