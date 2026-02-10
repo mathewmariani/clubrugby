@@ -3,3 +3,124 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+
+/* Shared transition styles */
+.slide-forward-enter-active,
+.slide-forward-leave-active,
+.slide-back-enter-active,
+.slide-back-leave-active {
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* Forward navigation: new page slides in from right */
+.slide-forward-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-forward-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-forward-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-forward-leave-to {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+/* Back navigation: new page slides in from left */
+.slide-back-enter-from {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+.slide-back-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-back-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-back-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* standings table */
+
+.table-fixed {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 700px;
+  margin-bottom: 0px;
+}
+
+.table-fixed th,
+.table-fixed td {
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: var(--bs-body-bg);
+}
+
+tbody tr:not(:last-child) {
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.table-fixed th:first-child,
+.table-fixed td:first-child {
+  width: 30%;
+  text-align: left;
+}
+
+.table-fixed th:nth-child(n + 2),
+.table-fixed td:nth-child(n + 2) {
+  width: 8.75%;
+  text-align: center;
+}
+
+.sticky-thead th {
+  position: sticky;
+  z-index: 5;
+  top: 88px;
+  background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
+}
+
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
+/*  Match Day Group */
+
+.sticky-date {
+  position: sticky;
+  z-index: 10;
+}
+.sticky-league {
+  position: sticky;
+  z-index: 9;
+}
+
+/* club-fixtures */
+.sticky-month {
+  position: sticky;
+  z-index: 10;
+}
+
+/* Fixture */
+
+.progress-stacked {
+  height: 8px;
+}
+.sticky-match-header {
+  position: sticky;
+  z-index: 10;
+}

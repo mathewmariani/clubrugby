@@ -1,13 +1,14 @@
 <template>
   <div>
     <template v-if="hasStandings">
-      <template v-for="(teams, leagueId) in standings" :key="leagueId">
-        <StandingsTable
-          :title="getLeagueName(leagueId.toString(), props.leagues)"
-          :teams="teams"
-          :clubs="clubs"
-          :columns="sortableColumns"
-        />
+      <template v-for="(standing, leagueId) in standings" :key="leagueId">
+        <div>
+          <StandingsTable
+            :title="getLeagueName(leagueId.toString(), leagues)"
+            :standings="standing"
+            :columns="sortableColumns"
+          />
+        </div>
       </template>
     </template>
 
@@ -25,16 +26,12 @@
   import { computed } from 'vue';
   import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
   import { getLeagueName } from '@/composables/utils';
-  import type { Club, Standing } from '@/utils/types';
 
-  const props = defineProps<{
-    standings: Record<string, Standing[]>; // already sorted by league & rank
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
-  }>();
+  import { useAppData } from '@/composables/useAppData';
+  const { standings, leagues } = useAppData();
 
   // No more grouping or filtering needed
-  const hasStandings = computed(() => Object.keys(props.standings).length > 0);
+  const hasStandings = computed(() => Object.keys(standings).length > 0);
 
   // Columns to display in the table
   const sortableColumns = [

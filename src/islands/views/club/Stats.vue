@@ -48,13 +48,14 @@
 
   import type { Standing } from '@/utils/types';
 
+  import { useAppData } from '@/composables/useAppData';
+  const { leagues, standings } = useAppData();
+
   const { navbarHeight } = useLayout();
   const { savedLeagues } = useSavedLeagues();
 
   const props = defineProps<{
     club_id: string;
-    leagues: Record<string, string>;
-    standings: Record<string, Standing[]>;
   }>();
 
   /* ---------------- constants ---------------- */
@@ -110,9 +111,9 @@
   /* ---------------- computed ---------------- */
 
   const entries = computed(() => {
-    return Object.entries(props.standings)
+    return Object.entries(standings)
       .map(([leagueId, standings]) => {
-        const league = props.leagues[leagueId];
+        const league = leagues[leagueId];
         const team = standings.find((s) => s.club_id === props.club_id);
 
         if (!league || !team) return null;

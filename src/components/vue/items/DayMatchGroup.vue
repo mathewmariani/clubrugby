@@ -35,11 +35,12 @@
   import { useLayout } from '@/composables/useLayout';
   import type { Club, Fixture } from '@/utils/types';
 
+  import { useAppData } from '@/composables/useAppData';
+  const { clubs, leagues } = useAppData();
+
   const props = defineProps<{
     day: string;
     leaguesForDay: Record<string, Fixture[]>;
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
     matchComponent: 'FixtureListItem' | 'ResultListItem';
   }>();
 
@@ -53,14 +54,3 @@
     ResultListItem,
   };
 </script>
-
-<style scoped>
-  .sticky-date {
-    position: sticky;
-    z-index: 10;
-  }
-  .sticky-league {
-    position: sticky;
-    z-index: 9;
-  }
-</style>
