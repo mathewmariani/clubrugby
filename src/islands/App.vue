@@ -57,13 +57,13 @@
       { path: '/fixtures', component: Schedule },
       { path: '/results', component: Results },
       { path: '/standings', component: Standings },
-      // {
-      //   path: '/fixture/:fixture_id',
-      //   component: FixtureView,
-      //   props: (route) => ({
-      //     fixture_id: route.params.fixture_id,
-      //   }),
-      // },
+      {
+        path: '/fixture/:fixture_id',
+        component: FixtureView,
+        props: (route) => ({
+          fixture_id: route.params.fixture_id,
+        }),
+      },
       // {
       //   path: '/club/:club_id',
       //   component: TeamLayout,

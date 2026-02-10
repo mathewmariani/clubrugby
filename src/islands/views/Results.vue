@@ -12,7 +12,7 @@
   </div>
 
   <div v-else class="text-center text-muted pt-3">
-    <p>No fixtures available.</p>
+    <p>No results available.</p>
     <hr />
     <p>Ensure your preferences are set.</p>
   </div>

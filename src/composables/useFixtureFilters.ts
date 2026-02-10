@@ -76,6 +76,30 @@ export function useFixtureFilters(
     () => Object.keys(clubResultsByMonthDay.value).length > 0
   );
 
+  // --- lookup a fixture by its ID across all leagues ---
+  function useFixtureById(fixtureId: string | undefined) {
+    const result = computed<{ fixture: Fixture; league_id: string } | null>(
+      () => {
+        if (!fixtureId) return null;
+
+        for (const [league_id, list] of Object.entries(fixtures)) {
+          const fixture = list.find((f) => `${f.fixtureId}` === fixtureId);
+          if (fixture) return { fixture, league_id };
+        }
+        return null;
+      }
+    );
+
+    const fixture = computed<Fixture | null>(
+      () => result.value?.fixture ?? null
+    );
+    const league_id = computed<string | null>(
+      () => result.value?.league_id ?? null
+    );
+
+    return { fixture, league_id };
+  }
+
   return {
     // league filters
     leaguesWithFixtures,
@@ -92,5 +116,8 @@ export function useFixtureFilters(
     clubResultsByMonthDay,
     clubHasFixtures,
     clubHasResults,
+
+    // fixture lookup
+    useFixtureById,
   };
 }
