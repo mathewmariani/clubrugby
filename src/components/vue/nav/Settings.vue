@@ -49,9 +49,8 @@
   import { useSavedLeagues } from '@/composables/useSavedLeagues';
   import { ref, onMounted } from 'vue';
 
-  const props = defineProps<{
-    leagues: Record<string, string>;
-  }>();
+  import { useAppData } from '@/composables/useAppData';
+  const { leagues } = useAppData();
 
   const isDarkMode = ref(false);
 

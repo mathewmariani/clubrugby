@@ -14,13 +14,26 @@
               <span style="cursor: pointer; font-size: 1rem">❮</span>
             </button>
           </template>
+          <template v-else>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#settingsOffcanvas"
+              aria-controls="settingsOffcanvas"
+              aria-label="Open Settings"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </template>
+
           <template v-if="isTeamView">
             <a class="navbar-brand mb-0 ms-2">{{ team?.name }}</a>
           </template>
-          <template v-if="isLeagueView">
-            <a class="navbar-brand mb-0 ms-2"
-              >{{ league }} | {{ union.slug.toUpperCase() }}</a
-            >
+          <template v-else-if="isLeagueView">
+            <a class="navbar-brand mb-0 ms-2">
+              {{ league }} | {{ union.slug.toUpperCase() }}
+            </a>
           </template>
           <template v-else>
             <a class="navbar-brand mb-0">
@@ -28,17 +41,6 @@
             </a>
           </template>
         </div>
-        <!-- Settings always shown -->
-        <button
-          class="btn"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#settingsOffcanvas"
-          aria-controls="settingsOffcanvas"
-          aria-label="Open Settings"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
       </div>
 
       <!-- Tab navigation -->
@@ -64,7 +66,7 @@
     </div>
 
     <!-- Offcanvas always mounted -->
-    <SettingsOffcanvas :leagues="leagues" />
+    <SettingsOffcanvas />
   </nav>
 
   <!-- Spacer pushes content down based on navbar height -->
