@@ -16,10 +16,10 @@
   import { ref } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import Schedule from './views/Schedule.vue';
-  import Results from './views/Results.vue';
-  import Standings from './views/Standings.vue';
-  import FixtureView from './views/Fixture.vue';
+  import FixturesListView from './views/FixturesListView.vue';
+  import ResultsListView from './views/ResultsListView.vue';
+  import StandingsView from './views/StandingsView.vue';
+  import FixtureView from './views/FixtureView.vue';
 
   import ClubFixtures from './views/club/Fixtures.vue';
   import ClubStats from './views/club/Stats.vue';
@@ -54,9 +54,9 @@
     scrollBehavior: () => ({ top: 0 }),
     routes: [
       { path: '/', redirect: '/fixtures' },
-      { path: '/fixtures', component: Schedule },
-      { path: '/results', component: Results },
-      { path: '/standings', component: Standings },
+      { path: '/fixtures', component: FixturesListView },
+      { path: '/results', component: ResultsListView },
+      { path: '/standings', component: StandingsView },
       {
         path: '/fixture/:fixture_id',
         component: FixtureView,
@@ -85,6 +85,31 @@
           {
             path: '',
             redirect: (to) => `/club/${to.params.club_id}/fixtures`,
+          },
+        ],
+      },
+      {
+        path: '/league/:league_id',
+        component: TeamLayout,
+        children: [
+          {
+            path: 'fixtures',
+            component: FixturesListView,
+            props: (route) => ({ league_id: route.params.league_id }),
+          },
+          {
+            path: 'results',
+            component: ResultsListView,
+            props: (route) => ({ league_id: route.params.league_id }),
+          },
+          {
+            path: 'standings',
+            component: StandingsView,
+            props: (route) => ({ league_id: route.params.league_id }),
+          },
+          {
+            path: '',
+            redirect: (to) => `/league/${to.params.league_id}/fixtures`,
           },
         ],
       },

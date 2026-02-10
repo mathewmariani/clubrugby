@@ -17,7 +17,7 @@
       />
 
       <CalendarButton
-         v-if="!isResult" 
+        v-if="!isResult"
         :fixture="fixture"
         :home="homeTeamName"
         :away="awayTeamName"

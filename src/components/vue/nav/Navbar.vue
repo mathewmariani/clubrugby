@@ -17,6 +17,11 @@
           <template v-if="isTeamView">
             <a class="navbar-brand mb-0 ms-2">{{ team?.name }}</a>
           </template>
+          <template v-if="isLeagueView">
+            <a class="navbar-brand mb-0 ms-2"
+              >{{ league }} | {{ union.slug.toUpperCase() }}</a
+            >
+          </template>
           <template v-else>
             <a class="navbar-brand mb-0">
               {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}
@@ -38,14 +43,23 @@
 
       <!-- Tab navigation -->
       <TabScroller
-        v-if="isLeagueView"
+        v-if="isDefaultView"
         :titles="['Fixtures', 'Results', 'Standings']"
         :routes="['/fixtures', '/results', '/standings']"
       />
       <TabScroller
         v-else-if="isTeamView"
-        :titles="['Schedule', 'Stats']"
+        :titles="['Fixtures', 'Stats']"
         :routes="[`/club/${teamId}/fixtures`, `/club/${teamId}/stats`]"
+      />
+      <TabScroller
+        v-else-if="isLeagueView"
+        :titles="['Fixtures', 'Results', 'Standings']"
+        :routes="[
+          `/league/${leagueId}/fixtures`,
+          `/league/${leagueId}/results`,
+          `/league/${leagueId}/standings`,
+        ]"
       />
     </div>
 
@@ -71,9 +85,8 @@
   const { union, clubs, leagues } = useAppData();
 
   const route = useRoute();
-  const router = useRouter();
 
-  const isLeagueView = computed(() =>
+  const isDefaultView = computed(() =>
     ['/fixtures', '/results', '/standings'].some((v) =>
       route.path.startsWith(v)
     )
@@ -81,13 +94,20 @@
 
   const isTeamView = computed(() => route.path.startsWith('/club/'));
   const isEventView = computed(() => route.path.startsWith('/fixture/'));
+  const isLeagueView = computed(() => route.path.startsWith('/league/'));
 
   const teamId = computed(() => route.params.club_id as string | undefined);
   const team = computed(() =>
     teamId.value && clubs ? clubs[teamId.value] : null
   );
 
+  const leagueId = computed(() => route.params.league_id as string | undefined);
+  const league = computed(() =>
+    leagueId.value && leagues ? leagues[leagueId.value] : null
+  );
+
   // Navigation handler
+  const router = useRouter();
   function goBack() {
     router.push({ path: '/fixtures' });
   }
