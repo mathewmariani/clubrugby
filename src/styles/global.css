@@ -91,6 +91,13 @@ tbody tr:not(:last-child) {
   background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
 }
 
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+}
+
 /*  Match Day Group */
 
 .sticky-date {

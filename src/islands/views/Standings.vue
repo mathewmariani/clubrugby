@@ -1,21 +1,25 @@
 <template>
-  <template v-if="hasStandings">
-    <template v-for="(standing, leagueId) in standings" :key="leagueId">
-      <StandingsTable
-        :title="getLeagueName(leagueId.toString(), leagues)"
-        :standings="standing"
-        :columns="sortableColumns"
-      />
+  <div>
+    <template v-if="hasStandings">
+      <template v-for="(standing, leagueId) in standings" :key="leagueId">
+        <div>
+          <StandingsTable
+            :title="getLeagueName(leagueId.toString(), leagues)"
+            :standings="standing"
+            :columns="sortableColumns"
+          />
+        </div>
+      </template>
     </template>
-  </template>
 
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No standings available.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
-    </div>
-  </template>
+    <template v-else>
+      <div class="container-fluid text-center text-muted pt-3">
+        <p>No standings available.</p>
+        <hr />
+        <p>Ensure your preferences are set.</p>
+      </div>
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">
