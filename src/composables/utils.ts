@@ -141,21 +141,27 @@ export function groupByMonthDay(matches: Fixture[]) {
 // Group by month/day/league, preserving league information
 export function groupByMonthDayLeague(
   fixturesByLeague: Record<string, Fixture[]>,
-  club_id: string,
-  status: 'fixture' | 'result'
+  options?: {
+    clubId?: string;
+    status?: 'fixture' | 'result';
+  }
 ) {
   const grouped: Record<string, Record<string, Record<string, Fixture[]>>> = {};
 
   for (const [leagueId, fixtures] of Object.entries(fixturesByLeague)) {
-    // Filter fixtures for the club and status
     const filtered = fixtures.filter((f) => {
-      return (
-        (f.home.club_id === club_id || f.away.club_id === club_id) &&
-        f.fixtureStatus === status
-      );
+      if (options?.status && f.fixtureStatus !== options.status) return false;
+
+      if (
+        options?.clubId &&
+        f.home.club_id !== options.clubId &&
+        f.away.club_id !== options.clubId
+      )
+        return false;
+
+      return true;
     });
 
-    // Sort by date
     const sorted = [...filtered].sort((a, b) => a.fixtureDate - b.fixtureDate);
 
     for (const fixture of sorted) {
@@ -163,10 +169,9 @@ export function groupByMonthDayLeague(
       const monthKey = format(date, 'yyyy-MM');
       const dayKey = format(date, 'yyyy-MM-dd');
 
-      if (!grouped[monthKey]) grouped[monthKey] = {};
-      if (!grouped[monthKey][dayKey]) grouped[monthKey][dayKey] = {};
-      if (!grouped[monthKey][dayKey][leagueId])
-        grouped[monthKey][dayKey][leagueId] = [];
+      grouped[monthKey] ??= {};
+      grouped[monthKey][dayKey] ??= {};
+      grouped[monthKey][dayKey][leagueId] ??= [];
 
       grouped[monthKey][dayKey][leagueId].push(fixture);
     }

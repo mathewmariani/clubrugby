@@ -1,175 +1,96 @@
-import { computed, type Ref } from 'vue';
+// composables/useFixtureFilters.ts
+import { computed } from 'vue';
 import type { Fixture } from '@/utils/types';
-import { flattenFixturesForClub, groupByMonthDay } from './utils';
+import { groupFixtures } from '@/utils/fixtures';
 
 /**
- * Composable for filtering and organizing fixtures
- * Provides multiple filtering patterns commonly used across components
+ * Provides filtered and grouped fixtures for use in components
  */
 export function useFixtureFilters(
-  fixtures: Ref<Record<string, Fixture[]>>,
+  fixtures: Record<string, Fixture[]>,
   options?: {
     clubId?: string;
-    savedLeagues?: Ref<string[]>;
+    savedLeagues?: string[];
   }
 ) {
-  // ========== Basic Status Filters ==========
-
-  /**
-   * Group fixtures by league, filtering to only upcoming matches
-   */
-  const leaguesWithFixtures = computed(() =>
-    Object.fromEntries(
-      Object.entries(fixtures.value)
-        .map(([leagueId, fixtureList]) => [
+  // --- basic league filters ---
+  const leaguesWithFixtures = computed(() => {
+    return Object.fromEntries(
+      Object.entries(fixtures)
+        .map(([leagueId, list]) => [
           leagueId,
-          fixtureList.filter((f) => f.fixtureStatus === 'fixture'),
+          list.filter((f) => f.fixtureStatus === 'fixture'),
         ])
-        .filter(([_, fixtureList]) => fixtureList.length > 0)
-    )
+        .filter(([_, list]) => list.length > 0)
+    );
+  });
+
+  const leaguesWithResults = computed(() => {
+    return Object.fromEntries(
+      Object.entries(fixtures)
+        .map(([leagueId, list]) => [
+          leagueId,
+          list.filter((f) => f.fixtureStatus === 'result'),
+        ])
+        .filter(([_, list]) => list.length > 0)
+    );
+  });
+
+  // --- grouped by month/day/league ---
+  const fixturesByMonthDay = computed(() =>
+    groupFixtures(leaguesWithFixtures.value, { status: 'fixture' })
   );
 
-  /**
-   * Check if there are any upcoming fixtures
-   */
+  const resultsByMonthDay = computed(() =>
+    groupFixtures(leaguesWithResults.value, { status: 'result' })
+  );
+
+  // --- club-specific ---
+  const clubFixturesByMonthDay = computed(() => {
+    if (!options?.clubId) return {};
+    return groupFixtures(fixtures, {
+      clubId: options.clubId,
+      status: 'fixture',
+    });
+  });
+
+  const clubResultsByMonthDay = computed(() => {
+    if (!options?.clubId) return {};
+    return groupFixtures(fixtures, {
+      clubId: options.clubId,
+      status: 'result',
+    });
+  });
+
+  // --- checks ---
   const hasFixtures = computed(
     () => Object.keys(leaguesWithFixtures.value).length > 0
   );
-
-  /**
-   * Group fixtures by league, filtering to only results
-   */
-  const leaguesWithResults = computed(() =>
-    Object.fromEntries(
-      Object.entries(fixtures.value)
-        .map(([leagueId, fixtureList]) => [
-          leagueId,
-          fixtureList.filter((f) => f.fixtureStatus === 'result'),
-        ])
-        .filter(([_, fixtureList]) => fixtureList.length > 0)
-    )
-  );
-
-  /**
-   * Check if there are any results
-   */
   const hasResults = computed(
     () => Object.keys(leaguesWithResults.value).length > 0
   );
-
-  // ========== Club-Specific Filters ==========
-
-  /**
-   * Upcoming matches for a specific club, grouped by month/day
-   */
-  const upcomingByMonthDay = computed(() => {
-    if (!options?.clubId) return {};
-    return groupByMonthDay(
-      flattenFixturesForClub(fixtures.value, options.clubId, 'fixture')
-    );
-  });
-
-  /**
-   * Results for a specific club, grouped by month/day
-   */
-  const resultsByMonthDay = computed(() => {
-    if (!options?.clubId) return {};
-    return groupByMonthDay(
-      flattenFixturesForClub(fixtures.value, options.clubId, 'result')
-    );
-  });
-
-  /**
-   * Check if club has upcoming fixtures
-   */
   const clubHasFixtures = computed(
-    () => Object.keys(upcomingByMonthDay.value).length > 0
+    () => Object.keys(clubFixturesByMonthDay.value).length > 0
   );
-
-  /**
-   * Check if club has results
-   */
   const clubHasResults = computed(
-    () => Object.keys(resultsByMonthDay.value).length > 0
-  );
-
-  // ========== Saved Leagues Filter ==========
-
-  /**
-   * Fixtures filtered by saved leagues
-   */
-  const filteredByLeagues = computed(() => {
-    if (!options?.savedLeagues) return fixtures.value;
-
-    const result: Record<string, Fixture[]> = {};
-    for (const [leagueId, fixtureList] of Object.entries(fixtures.value)) {
-      if (!options.savedLeagues.value.includes(leagueId)) {
-        result[leagueId] = fixtureList;
-      }
-    }
-    return result;
-  });
-
-  /**
-   * Upcoming fixtures filtered by saved leagues
-   */
-  const filteredFixturesByLeagues = computed(() =>
-    Object.fromEntries(
-      Object.entries(filteredByLeagues.value)
-        .map(([leagueId, fixtureList]) => [
-          leagueId,
-          fixtureList.filter((f) => f.fixtureStatus === 'fixture'),
-        ])
-        .filter(([_, fixtureList]) => fixtureList.length > 0)
-    )
-  );
-
-  /**
-   * Results filtered by saved leagues
-   */
-  const filteredResultsByLeagues = computed(() =>
-    Object.fromEntries(
-      Object.entries(filteredByLeagues.value)
-        .map(([leagueId, fixtureList]) => [
-          leagueId,
-          fixtureList.filter((f) => f.fixtureStatus === 'result'),
-        ])
-        .filter(([_, fixtureList]) => fixtureList.length > 0)
-    )
-  );
-
-  /**
-   * Check if there are any filtered fixtures
-   */
-  const hasFilteredFixtures = computed(
-    () => Object.keys(filteredFixturesByLeagues.value).length > 0
-  );
-
-  /**
-   * Check if there are any filtered results
-   */
-  const hasFilteredResults = computed(
-    () => Object.keys(filteredResultsByLeagues.value).length > 0
+    () => Object.keys(clubResultsByMonthDay.value).length > 0
   );
 
   return {
-    // Basic status filters
+    // league filters
     leaguesWithFixtures,
-    hasFixtures,
     leaguesWithResults,
+    hasFixtures,
     hasResults,
 
-    // Club-specific filters
-    upcomingByMonthDay,
+    // grouped
+    fixturesByMonthDay,
     resultsByMonthDay,
+
+    // club-specific
+    clubFixturesByMonthDay,
+    clubResultsByMonthDay,
     clubHasFixtures,
     clubHasResults,
-
-    // Saved leagues filters
-    filteredByLeagues,
-    filteredFixturesByLeagues,
-    filteredResultsByLeagues,
-    hasFilteredFixtures,
-    hasFilteredResults,
   };
 }

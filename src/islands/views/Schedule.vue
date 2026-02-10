@@ -1,58 +1,30 @@
 <template>
-  {{ hasFixtures }}
-  {{ fixturesByMonthDay }}
-  <template v-if="hasFixtures">
-    <template
-      v-for="(daysInMonth, monthId) in fixturesByMonthDay"
-      :key="monthId"
-    >
+  <div v-if="hasFixtures">
+    <template v-for="(daysInMonth, month) in fixturesByMonthDay" :key="month">
       <DayMatchGroup
-        v-for="(leaguesForDay, dayId) in fixturesByMonthDay"
-        :key="dayId"
-        :day="dayId"
+        v-for="(leaguesForDay, day) in daysInMonth"
+        :key="day"
+        :day="day"
         :leaguesForDay="leaguesForDay"
         matchComponent="FixtureListItem"
       />
     </template>
-  </template>
-  <template v-else>
-    <div class="container-fluid text-center text-muted pt-3">
-      <p>No fixtures available.</p>
-      <hr />
-      <p>Ensure your preferences are set.</p>
-    </div>
-  </template>
+  </div>
+
+  <div v-else class="text-center text-muted pt-3">
+    <p>No fixtures available.</p>
+    <hr />
+    <p>Ensure your preferences are set.</p>
+  </div>
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
-  import { useFixtureFilters } from '@/composables/useFixtureFilters';
-  import { groupByMonthDay } from '@/composables/utils';
-  import type { Club, Fixture } from '@/utils/types';
-
   import { useAppData } from '@/composables/useAppData';
-  const { unions, fixtures, clubs, leagues, standings } = useAppData();
+  import { useFixtureFilters } from '@/composables/useFixtureFilters';
+  import DayMatchGroup from '@/components/vue/items/DayMatchGroup.vue';
 
-  const { leaguesWithFixtures, hasFixtures } = useFixtureFilters(
-    computed(() => fixtures)
-  );
+  const { fixtures } = useAppData();
 
-  const fixturesByMonthDay = computed(() => {
-    const all = Object.values(leaguesWithFixtures.value).flat();
-
-    const byDay = groupByMonthDay(all);
-
-    const result: Record<string, Record<string, Fixture[]>> = {};
-
-    for (const [day, items] of Object.entries(byDay)) {
-      result[day] = {};
-
-      for (const f of items) {
-        if (!result[day][f.league_id]) result[day][f.league_id] = [];
-        result[day][f.league_id].push(f);
-      }
-    }
-
-    return result;
-  });
+  // optional: pass clubId if needed
+  const { fixturesByMonthDay, hasFixtures } = useFixtureFilters(fixtures);
 </script>
