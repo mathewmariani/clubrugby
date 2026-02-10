@@ -17,6 +17,7 @@
       />
 
       <CalendarButton
+         v-if="!isResult" 
         :fixture="fixture"
         :home="homeTeamName"
         :away="awayTeamName"
@@ -136,7 +137,7 @@
     fixtureId.value
   );
   const { home: homeClub, away: awayClub } = useMatchClubs(fixture, clubs);
-  const isResult = computed(() => fixture?.fixtureStatus === 'result');
+  const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
 
   // League name
   const leagueName = computed(() => getLeagueName(league_id.value, leagues));
