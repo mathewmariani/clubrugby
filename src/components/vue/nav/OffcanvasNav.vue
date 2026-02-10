@@ -1,6 +1,6 @@
 <template>
   <div
-    class="offcanvas offcanvas-end"
+    class="offcanvas offcanvas-start"
     id="settingsOffcanvas"
     tabindex="-1"
     ref="offcanvasRef"
@@ -14,18 +14,14 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <SettingsComponent :leagues="leagues" />
+      <Navigation />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import SettingsComponent from './Settings.vue';
-
-  const props = defineProps<{
-    leagues: Record<string, string>;
-  }>();
+  import Navigation from './Navigation.vue';
 
   const offcanvasRef = ref<HTMLElement | null>(null);
 
@@ -38,7 +34,7 @@
 </script>
 
 <style scoped>
-  .offcanvas.offcanvas-end {
+  .offcanvas.offcanvas-start {
     width: 75vw;
   }
 </style>

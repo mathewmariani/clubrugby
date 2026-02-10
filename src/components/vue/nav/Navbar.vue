@@ -14,8 +14,26 @@
               <span style="cursor: pointer; font-size: 1rem">❮</span>
             </button>
           </template>
+          <template v-else>
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#settingsOffcanvas"
+              aria-controls="settingsOffcanvas"
+              aria-label="Open Settings"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </template>
+
           <template v-if="isTeamView">
             <a class="navbar-brand mb-0 ms-2">{{ team?.name }}</a>
+          </template>
+          <template v-else-if="isLeagueView">
+            <a class="navbar-brand mb-0 ms-2">
+              {{ league }} | {{ union.slug.toUpperCase() }}
+            </a>
           </template>
           <template v-else>
             <a class="navbar-brand mb-0">
@@ -23,34 +41,32 @@
             </a>
           </template>
         </div>
-        <!-- Settings always shown -->
-        <button
-          class="btn"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#settingsOffcanvas"
-          aria-controls="settingsOffcanvas"
-          aria-label="Open Settings"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
       </div>
 
       <!-- Tab navigation -->
       <TabScroller
-        v-if="isLeagueView"
+        v-if="isDefaultView"
         :titles="['Fixtures', 'Results', 'Standings']"
         :routes="['/fixtures', '/results', '/standings']"
       />
       <TabScroller
         v-else-if="isTeamView"
-        :titles="['Schedule', 'Stats']"
+        :titles="['Fixtures', 'Stats']"
         :routes="[`/club/${teamId}/fixtures`, `/club/${teamId}/stats`]"
+      />
+      <TabScroller
+        v-else-if="isLeagueView"
+        :titles="['Fixtures', 'Results', 'Standings']"
+        :routes="[
+          `/league/${leagueId}/fixtures`,
+          `/league/${leagueId}/results`,
+          `/league/${leagueId}/standings`,
+        ]"
       />
     </div>
 
     <!-- Offcanvas always mounted -->
-    <SettingsOffcanvas :leagues="leagues" />
+    <OffcanvasNav />
   </nav>
 
   <!-- Spacer pushes content down based on navbar height -->
@@ -63,7 +79,7 @@
   import { useLayout } from '@/composables/useLayout';
 
   import TabScroller from './TabScroller.vue';
-  import SettingsOffcanvas from './SettingsOffcanvas.vue';
+  import OffcanvasNav from './OffcanvasNav.vue';
 
   import { SITE_TITLE } from '@/consts.ts';
 
@@ -71,9 +87,8 @@
   const { union, clubs, leagues } = useAppData();
 
   const route = useRoute();
-  const router = useRouter();
 
-  const isLeagueView = computed(() =>
+  const isDefaultView = computed(() =>
     ['/fixtures', '/results', '/standings'].some((v) =>
       route.path.startsWith(v)
     )
@@ -81,13 +96,20 @@
 
   const isTeamView = computed(() => route.path.startsWith('/club/'));
   const isEventView = computed(() => route.path.startsWith('/fixture/'));
+  const isLeagueView = computed(() => route.path.startsWith('/league/'));
 
   const teamId = computed(() => route.params.club_id as string | undefined);
   const team = computed(() =>
     teamId.value && clubs ? clubs[teamId.value] : null
   );
 
+  const leagueId = computed(() => route.params.league_id as string | undefined);
+  const league = computed(() =>
+    leagueId.value && leagues ? leagues[leagueId.value] : null
+  );
+
   // Navigation handler
+  const router = useRouter();
   function goBack() {
     router.push({ path: '/fixtures' });
   }
