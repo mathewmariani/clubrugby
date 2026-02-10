@@ -101,3 +101,19 @@ tbody tr:not(:last-child) {
   position: sticky;
   z-index: 9;
 }
+
+/* club-fixtures */
+.sticky-month {
+  position: sticky;
+  z-index: 10;
+}
+
+/* Fixture */
+
+.progress-stacked {
+  height: 8px;
+}
+.sticky-match-header {
+  position: sticky;
+  z-index: 10;
+}

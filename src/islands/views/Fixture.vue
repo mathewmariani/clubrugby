@@ -226,11 +226,4 @@
     height: 64px;
     object-fit: contain;
   }
-  .progress-stacked {
-    height: 8px;
-  }
-  .sticky-match-header {
-    position: sticky;
-    z-index: 10;
-  }
 </style>

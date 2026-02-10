@@ -64,34 +64,30 @@
           fixture_id: route.params.fixture_id,
         }),
       },
-      // {
-      //   path: '/club/:club_id',
-      //   component: TeamLayout,
-      //   props: {
-      //     clubs: props.clubs,
-      //     leagues: props.leagues,
-      //   },
-      //   children: [
-      //     {
-      //       path: 'schedule',
-      //       component: ClubFixtures,
-      //       props: (route) => ({
-      //         club_id: route.params.club_id,
-      //       }),
-      //     },
-      //     {
-      //       path: 'stats',
-      //       component: ClubStats,
-      //       props: (route) => ({
-      //         club_id: route.params.club_id,
-      //       }),
-      //     },
-      //     {
-      //       path: '',
-      //       redirect: (to) => `/club/${to.params.club_id}/schedule`,
-      //     },
-      //   ],
-      // },
+      {
+        path: '/club/:club_id',
+        component: TeamLayout,
+        children: [
+          {
+            path: 'fixtures',
+            component: ClubFixtures,
+            props: (route) => ({
+              club_id: route.params.club_id,
+            }),
+          },
+          {
+            path: 'stats',
+            component: ClubStats,
+            props: (route) => ({
+              club_id: route.params.club_id,
+            }),
+          },
+          {
+            path: '',
+            redirect: (to) => `/club/${to.params.club_id}/fixtures`,
+          },
+        ],
+      },
     ],
   });
 

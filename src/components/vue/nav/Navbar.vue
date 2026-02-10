@@ -84,7 +84,7 @@
 
   const teamId = computed(() => route.params.club_id as string | undefined);
   const team = computed(() =>
-    teamId.value && clubs.value ? clubs.value[teamId.value] : null
+    teamId.value && clubs ? clubs[teamId.value] : null
   );
 
   // Navigation handler

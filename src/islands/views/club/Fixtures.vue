@@ -1,5 +1,4 @@
 <template>
-  <!-- FIXME: this div is not needed, it only suppresses the warnings -->
   <div>
     <!-- Empty state -->
     <template v-if="!hasFixtures && !hasResults">
@@ -66,38 +65,33 @@
   import { computed } from 'vue';
   import type { Club, Fixture } from '@/utils/types';
   import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
-  import { groupByMonthDayLeague } from '@/composables/utils';
+  import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useLayout } from '@/composables/useLayout';
+
+  import { useAppData } from '@/composables/useAppData';
+  const { fixtures, clubs, leagues } = useAppData();
 
   const props = defineProps<{
     club_id: string;
-    fixtures: Record<string, Fixture[]>;
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
   }>();
 
   const { navbarHeight } = useLayout();
 
-  // --- Computed fixtures/results ---
-  const fixturesByMonthDay = computed(() =>
-    groupByMonthDayLeague(props.fixtures, props.club_id, 'fixture')
-  );
+  // --- Use composable for all filtering/grouping ---
+  const {
+    fixturesByMonthDay: allFixturesByMonthDay,
+    resultsByMonthDay: allResultsByMonthDay,
+    hasFixtures: hasAllFixtures,
+    hasResults: hasAllResults,
+    clubFixturesByMonthDay,
+    clubResultsByMonthDay,
+    clubHasFixtures,
+    clubHasResults,
+  } = useFixtureFilters(fixtures, { clubId: props.club_id });
 
-  const resultsByMonthDay = computed(() =>
-    groupByMonthDayLeague(props.fixtures, props.club_id, 'result')
-  );
-
-  const hasFixtures = computed(
-    () => Object.keys(fixturesByMonthDay.value).length > 0
-  );
-  const hasResults = computed(
-    () => Object.keys(resultsByMonthDay.value).length > 0
-  );
+  // Use club-specific grouped data
+  const fixturesByMonthDay = computed(() => clubFixturesByMonthDay.value);
+  const resultsByMonthDay = computed(() => clubResultsByMonthDay.value);
+  const hasFixtures = computed(() => clubHasFixtures.value);
+  const hasResults = computed(() => clubHasResults.value);
 </script>
-
-<style scoped>
-  .sticky-month {
-    position: sticky;
-    z-index: 10;
-  }
-</style>
