@@ -66,7 +66,7 @@
     </div>
 
     <!-- Offcanvas always mounted -->
-    <SettingsOffcanvas />
+    <OffcanvasNav />
   </nav>
 
   <!-- Spacer pushes content down based on navbar height -->
@@ -79,7 +79,7 @@
   import { useLayout } from '@/composables/useLayout';
 
   import TabScroller from './TabScroller.vue';
-  import SettingsOffcanvas from './SettingsOffcanvas.vue';
+  import OffcanvasNav from './OffcanvasNav.vue';
 
   import { SITE_TITLE } from '@/consts.ts';
 
