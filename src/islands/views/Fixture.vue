@@ -172,7 +172,7 @@
 
   // Officials
   const hasMatchOfficials = computed(
-    () => (fixture?.matchOfficials?.length ?? 0) > 0
+    () => (fixture.value?.matchOfficials?.length ?? 0) > 0
   );
 
   // Stats
