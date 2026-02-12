@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260212T113617Z
+DESCRIPTION:Age Grade Exhibition \nCastaway Wanderers vs Team TBC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6812686
+DTEND:20260214T171500Z
+GEO:48.421900;-123.307000
+LOCATION:Windsor Park
+DTSTART:20260214T151500Z
+SUMMARY:Castaway Wanderers vs Team TBC
+UID:6812686@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6812686
+END:VEVENT
+END:VCALENDAR
