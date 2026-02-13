@@ -1,5 +1,22 @@
 <template>
-  <Navbar />
+  <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+    <template #left>
+      <button
+        class="btn btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#settingsOffcanvas"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+    </template>
+
+    <template #tabs>
+      <TabScroller
+        :titles="['Fixtures','Stats']"
+        :routes="['/fixtures','/stats']"
+      />
+    </template>
+  </Navbar>
 
   <div class="view-container">
     <router-view v-slot="{ Component }">
@@ -25,6 +42,7 @@
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
   import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
 
@@ -56,7 +74,7 @@
     history: createMemoryHistory(),
     scrollBehavior: () => ({ top: 0 }),
     routes: [
-      { path: '/', redirect: '/stats' },
+      { path: '/', redirect: '/fixtures' },
       {
         path: '/fixtures',
         component: ClubFixturesList,

@@ -1,5 +1,22 @@
 <template>
-  <Navbar />
+  <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+    <template #left>
+      <button
+        class="btn btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#settingsOffcanvas"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+    </template>
+
+    <template #tabs>
+      <TabScroller
+        :titles="['Fixtures','Results','Standings']"
+        :routes="['/fixtures','/results','/standings']"
+      />
+    </template>
+  </Navbar>
 
   <div class="view-container">
     <router-view v-slot="{ Component }">
@@ -25,6 +42,7 @@
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import FixturesList from '../components/vue/lists/FixturesList.vue';
   import ResultsList from '../components/vue/lists/ResultsList.vue';
   import Standings from '../components/vue/lists/Standings.vue';

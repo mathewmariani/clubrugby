@@ -1,4 +1,16 @@
 <template>
+    <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+    <template #left>
+      <button
+        class="btn btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#settingsOffcanvas"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+    </template>
+  </Navbar>
+
   <template v-if="fixture">
     <div class="list-group list-group-flush">
       <MatchHeader
@@ -129,6 +141,8 @@
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
+  import Navbar from '@/components/vue/nav/Navbar.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
   import CalendarButton from '@/components/vue/event/CalendarButton.vue';
@@ -140,6 +154,7 @@
   import type { Union, Fixture, Standing, Club } from '@/utils/types';
 
   const props = defineProps<{
+    fixtureId: string;
     union: Union;
     clubs: Record<string, Club>;
     leagues: Record<string, string>;
@@ -158,21 +173,11 @@
     })
   );
 
-  // const route = useRoute();
-  // const fixtureId = computed(
-  //   () => route.params.fixture_id as string | undefined
-  // );
-  function getFixtureIdFromUrl() {
-    if (typeof window === 'undefined') return undefined;
-    return window.location.pathname.split('/').pop();
-  }
-
-  const fixtureId = computed(getFixtureIdFromUrl);
 
   // --- Composables ---
   const { fixture, league_id } = useFixtureFilters(
     props.fixtures
-  ).useFixtureById(fixtureId.value);
+  ).useFixtureById(props.fixtureId);
   const { home: homeClub, away: awayClub } = useMatchClubs(
     fixture,
     props.clubs
@@ -181,12 +186,12 @@
 
   // League name
   const leagueName = computed(() =>
-    getLeagueName(league_id.value, props.leagues)
+    getLeagueName(props.fixtureId, props.leagues)
   );
 
   // Standings for this league (ensure array)
   const standingsForLeague = computed(() => {
-    const leagueStandings = props.standings[league_id.value] ?? [];
+    const leagueStandings = props.standings[props.fixtureId] ?? [];
     return Array.isArray(leagueStandings)
       ? leagueStandings
       : Object.values(leagueStandings);
