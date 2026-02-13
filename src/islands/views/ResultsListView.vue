@@ -19,16 +19,17 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router';
-
   import { useAppData } from '@/composables/useAppData';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import DayMatchGroup from '@/components/vue/items/DayMatchGroup.vue';
 
-  const route = useRoute();
+  const props = defineProps<{
+    leagueId?: string;
+  }>();
+
   const { fixtures } = useAppData();
 
   const { resultsByMonthDay, hasResults } = useFixtureFilters(fixtures, {
-    leagueId: route.params.league_id as string | undefined,
+    leagueId: props.leagueId,
   });
 </script>

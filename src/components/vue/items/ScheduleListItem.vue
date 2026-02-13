@@ -91,11 +91,8 @@
   import type { Club, Fixture } from '@/utils/types';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
-  const route = useRoute();
-  const router = useRouter();
-  const clubId = route.params.club_id as string;
-
   const props = defineProps<{
+    clubId: string;
     clubs: Record<string, Club>;
     leagues: Record<string, string>;
     fixturesByLeague: Record<string, Fixture[]>;
@@ -125,11 +122,11 @@
   }
 
   function isHome(fixture: Fixture) {
-    return fixture.home.club_id === clubId;
+    return fixture.home.club_id === props.clubId;
   }
 
   function isAway(fixture: Fixture) {
-    return fixture.away.club_id === clubId;
+    return fixture.away.club_id === props.clubId;
   }
 
   function getOpponent(fixture: Fixture) {
@@ -148,7 +145,7 @@
   }
 
   function goToEvent(fixture: Fixture) {
-    router.push({ path: `/fixture/${fixture.fixtureId}` });
+    // router.push({ path: `/fixture/${fixture.fixtureId}` });
   }
 </script>
 

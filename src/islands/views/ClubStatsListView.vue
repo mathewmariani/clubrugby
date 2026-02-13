@@ -55,7 +55,7 @@
   const { savedLeagues } = useSavedLeagues();
 
   const props = defineProps<{
-    club_id: string;
+    clubId: string;
   }>();
 
   /* ---------------- constants ---------------- */
@@ -114,7 +114,7 @@
     return Object.entries(standings)
       .map(([leagueId, standings]) => {
         const league = leagues[leagueId];
-        const team = standings.find((s) => s.club_id === props.club_id);
+        const team = standings.find((s) => s.club_id === props.clubId);
 
         if (!league || !team) return null;
 

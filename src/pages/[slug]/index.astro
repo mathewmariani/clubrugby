@@ -1,6 +1,7 @@
 ---
 import Page from '@/layouts/astro/Page.astro';
-import App from '@/islands/App.vue';
+import OverView from '@/islands/OverView.vue';
+import { getUnionData } from '@/utils/data.ts';
 
 const { union } = Astro.props;
 
@@ -12,14 +13,12 @@ export async function getStaticPaths() {
   }));
 }
 
-import { getUnionData } from '@/utils/data.ts';
-
 const year = new Date().getFullYear().toString();
 const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug, year);
 ---
 
 <Page>
-  <App
+  <OverView
     client:only="vue"
     union={union}
     clubs={clubs}
