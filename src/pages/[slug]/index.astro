@@ -1,6 +1,6 @@
 ---
 import Page from '@/layouts/astro/Page.astro';
-import OverView from '@/islands/OverView.vue';
+import UnionView from '@/islands/UnionView.vue';
 import { getUnionData } from '@/utils/data.ts';
 
 const { union } = Astro.props;
@@ -18,7 +18,7 @@ const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug, y
 ---
 
 <Page>
-  <OverView
+  <UnionView
     client:only="vue"
     union={union}
     clubs={clubs}
