@@ -1,5 +1,5 @@
 <template>
-  <!-- <Navbar /> -->
+  <Navbar />
 
   <div class="view-container">
     <router-view v-slot="{ Component }">
@@ -25,8 +25,8 @@
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import ClubFixturesListView from '@/islands/views/ClubFixturesListView.vue';
-  import ClubStatsView from '@/islands/views/ClubStatsListView.vue';
+  import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
+  import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
 
   import type { Union } from '@/utils/unions';
   import type { Fixture, Standing, Club } from '@/utils/types';
@@ -59,14 +59,14 @@
       { path: '/', redirect: '/stats' },
       {
         path: '/fixtures',
-        component: ClubFixturesListView,
+        component: ClubFixturesList,
         props: () => ({
           clubId: props.club_id,
         }),
       },
       {
         path: '/stats',
-        component: ClubStatsView,
+        component: ClubStatsList,
         props: () => ({
           clubId: props.club_id,
         }),

@@ -25,9 +25,9 @@
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import FixturesListView from './views/FixturesListView.vue';
-  import ResultsListView from './views/ResultsListView.vue';
-  import StandingsView from './views/StandingsView.vue';
+  import FixturesList from '../components/vue/lists/FixturesList.vue';
+  import ResultsList from '../components/vue/lists/ResultsList.vue';
+  import Standings from '../components/vue/lists/Standings.vue';
 
   import type { Union } from '@/utils/unions';
   import type { Fixture, Standing, Club } from '@/utils/types';
@@ -60,21 +60,21 @@
       { path: '/', redirect: '/fixtures' },
       {
         path: '/fixtures',
-        component: FixturesListView,
+        component: FixturesList,
         props: () => ({
           leagueId: props.league_id,
         }),
       },
       {
         path: '/results',
-        component: ResultsListView,
+        component: ResultsList,
         props: () => ({
           leagueId: props.league_id,
         }),
       },
       {
         path: '/standings',
-        component: StandingsView,
+        component: Standings,
         props: () => ({
           leagueId: props.league_id,
         }),
