@@ -145,7 +145,7 @@
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
-  import CalendarButton from '@/components/vue/event/CalendarButton.vue';
+  import CalendarButton from '@/components/vue/buttons/CalendarButton.vue';
   import BoxScore from '@/components/vue/event/BoxScore.vue';
   import MatchOfficials from '@/components/vue/event/MatchOfficials.vue';
   import GameDetails from '@/components/vue/event/GameDetails.vue';
