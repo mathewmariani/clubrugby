@@ -3,6 +3,14 @@
     <h6 class="mt-0">Leagues</h6>
     <ul class="list-group">
       <a
+        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        :href="`/${union.slug}`"
+        style="cursor: pointer"
+      >
+        <span class="fw-semibold">{{ union.slug.toUpperCase() }}</span>
+        <span style="font-size: 1rem">❯</span>
+      </a>
+      <a
         v-for="(league, league_id) in leagues"
         :key="league_id"
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
