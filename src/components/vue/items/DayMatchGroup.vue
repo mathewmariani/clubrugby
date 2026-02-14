@@ -33,7 +33,7 @@
   import ResultListItem from '@/components/vue/items/ResultListItem.vue';
   import { getLeagueName } from '@/composables/utils';
   import { useLayout } from '@/composables/useLayout';
-  import type { Club, Fixture } from '@/utils/types';
+  import type { Club, Fixture } from '@/types/appData';
 
   import { useAppData } from '@/composables/useAppData';
   const { clubs, leagues } = useAppData();

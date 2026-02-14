@@ -10,9 +10,7 @@
         <span class="text-muted">Venue</span>
         <p>{{ venue }}</p>
       </template>
-      <MapsButton
-        :venueLong="venueLong"
-        :venueLat="venueLat"/>
+      <MapsButton :venueLong="venueLong" :venueLat="venueLat" />
     </div>
   </div>
 </template>

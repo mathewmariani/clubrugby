@@ -12,11 +12,7 @@
       </button>
     </template>
     <template #right>
-      <ShareButton
-        :fixture="fixture"
-        :home="homeTeamName"
-        :away="awayTeamName"
-      />
+      <ShareButton />
     </template>
   </Navbar>
 
@@ -151,7 +147,7 @@
   import GameDetails from '@/components/vue/event/GameDetails.vue';
   import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
-  import type { Union, Fixture, Standing, Club } from '@/utils/types';
+  import type { Union, Fixture, Standing, Club } from '@/types/appData';
 
   const props = defineProps<{
     fixtureId: string;
@@ -162,15 +158,17 @@
     fixtures: Record<string, Fixture[]>;
   }>();
 
+  import { type AppData, appDataKey } from '@/types/appData';
+
   provide(
-    'appData',
+    appDataKey,
     readonly({
       union: props.union,
       clubs: props.clubs,
       leagues: props.leagues,
       fixtures: props.fixtures,
       standings: props.standings,
-    })
+    }) as AppData
   );
 
   // --- Composables ---

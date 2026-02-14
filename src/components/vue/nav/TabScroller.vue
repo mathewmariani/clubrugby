@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
+  import { ref, watch, type ComponentPublicInstance } from 'vue';
   import { useRoute } from 'vue-router';
 
   const props = defineProps<{
@@ -42,7 +42,12 @@
     { immediate: true }
   );
 
-  const setButtonRef = (el: HTMLElement | null, index: number) => {
-    if (el) tabButtons.value[index] = el;
+  const setButtonRef = (
+    el: Element | ComponentPublicInstance | null,
+    index: number
+  ) => {
+    if (el instanceof HTMLElement) {
+      tabButtons.value[index] = el;
+    }
   };
 </script>

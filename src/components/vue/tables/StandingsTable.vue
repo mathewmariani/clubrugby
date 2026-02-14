@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Standing } from '@/utils/types';
+  import type { Standing } from '@/types/appData';
   import { useAppData } from '@/composables/useAppData';
 
   const { clubs } = useAppData();

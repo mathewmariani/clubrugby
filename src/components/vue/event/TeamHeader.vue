@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, FixtureResultSummary } from '@/utils/types';
+  import type { Club, FixtureResultSummary } from '@/types/appData';
   import EventScore from './EventScore.vue';
 
   const props = defineProps<{

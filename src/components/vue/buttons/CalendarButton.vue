@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Fixture } from '@/utils/types';
+  import type { Fixture } from '@/types/appData';
   import { formattedDate, formattedTime } from '@/composables/utils';
   import {
     google,

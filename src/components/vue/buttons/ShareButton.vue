@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Fixture } from '@/utils/types';
+  import type { Fixture } from '@/types/appData';
 
   const props = defineProps<{
     fixture?: Fixture;

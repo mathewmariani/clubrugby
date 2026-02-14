@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
   import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
-  import type { FixtureResultSummary } from '@/utils/types';
+  import type { FixtureResultSummary } from '@/types/appData';
 
   const props = defineProps<{
     home: FixtureResultSummary;

@@ -1,30 +1,32 @@
 <template>
-  <template v-if="entries.length">
+  <template v-if="enrichedEntries.length">
     <div>
       <div
-        v-for="entry in entries"
-        :key="entry.league"
+        v-for="entry in enrichedEntries"
+        :key="entry.leagueId"
         class="list-group list-group-flush"
       >
         <!-- Sticky league header -->
         <div class="sticky-league-name" :style="{ top: navbarHeight + 'px' }">
           <div class="list-group-header list-group-item bg-body-tertiary">
-            {{ entry?.league }}
+            {{ entry.league }}
           </div>
         </div>
 
         <!-- Stats -->
         <div class="list-group-item">
-          <div v-for="stat in PER_GAME_STATS" :key="stat.key" class="mb-3">
+          <div v-for="stat in entry.stats" :key="stat.key" class="mb-3">
             <div class="d-flex mb-1">
               <small>{{ stat.label }}</small>
+
               <small class="ms-auto">
-                {{ getStatValue(entry?.team, stat.key) }}
+                {{ stat.value.toFixed(1) }}
                 <small class="text-body-secondary fw-light">
-                  ()<!-- ({{ getOrdinalSuffix(stat.rank) }}) -->
+                  ({{ stat.rank ? getOrdinalSuffix(stat.rank) : '' }})
                 </small>
               </small>
             </div>
+
             <div class="progress-stacked">
               <div
                 class="progress"
@@ -42,21 +44,26 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
+
   import { getOrdinalSuffix } from '@/composables/utils';
   import { useSavedLeagues } from '@/composables/useSavedLeagues';
   import { useLayout } from '@/composables/useLayout';
-
-  import type { Standing } from '@/utils/types';
-
   import { useAppData } from '@/composables/useAppData';
-  const { leagues, standings } = useAppData();
 
-  const { navbarHeight } = useLayout();
-  const { savedLeagues } = useSavedLeagues();
+  import type { Standing } from '@/types/appData';
+
+  /* ---------------- props ---------------- */
 
   const props = defineProps<{
     clubId: string;
   }>();
+
+  /* ---------------- app data ---------------- */
+
+  const { leagues, standings } = useAppData();
+
+  const { navbarHeight } = useLayout();
+  const { savedLeagues } = useSavedLeagues();
 
   /* ---------------- constants ---------------- */
 
@@ -70,26 +77,22 @@
     { key: 'Conv', label: 'Conversions' },
   ] as const;
 
-  function getStatValue(
-    team: Standing | undefined,
-    key: keyof Standing
-  ): number {
-    return Number(team?.[key] ?? 0);
-  }
-
   /* ---------------- helpers ---------------- */
 
   function perGame(team: Standing, key: keyof Standing): number {
-    return team.pld > 0 ? Number(team[key]) / team.pld : 0;
+    return team.played > 0 ? Number(team[key]) / team.played : 0;
   }
 
   function rankByPerGame(
-    standings: Standing[],
+    leagueStandings: Readonly<Standing[]>,
     teamId: string,
     key: keyof Standing
   ): number | null {
-    const ranked = standings
-      .map((s) => ({ id: s.club_id, value: perGame(s, key) }))
+    const ranked = leagueStandings
+      .map((s) => ({
+        id: s.club_id,
+        value: perGame(s, key),
+      }))
       .sort((a, b) => b.value - a.value);
 
     const index = ranked.findIndex((t) => t.id === teamId);
@@ -97,33 +100,63 @@
   }
 
   function relativeWidth(
-    standings: Standing[],
+    leagueStandings: Readonly<Standing[]>,
     team: Standing,
     key: keyof Standing
   ): number {
-    const values = standings.map((s) => perGame(s, key));
+    const values = leagueStandings.map((s) => perGame(s, key));
     const min = Math.min(...values);
     const max = Math.max(...values);
+
     const range = max - min;
+
     return range > 0 ? ((perGame(team, key) - min) / range) * 100 : 100;
   }
 
+  /* ---------------- types ---------------- */
+
+  type EnrichedStat = {
+    key: keyof Standing;
+    label: string;
+    value: number;
+    rank: number | null;
+    relativeWidth: number;
+  };
+
+  type EnrichedEntry = {
+    leagueId: string;
+    league: string;
+    team: Standing;
+    stats: EnrichedStat[];
+  };
+
   /* ---------------- computed ---------------- */
 
-  const entries = computed(() => {
+  const enrichedEntries = computed<EnrichedEntry[]>(() => {
     return Object.entries(standings)
-      .map(([leagueId, standings]) => {
-        const league = leagues[leagueId];
-        const team = standings.find((s) => s.club_id === props.clubId);
+      .map(([leagueId, leagueStandings]) => {
+        const leagueName = leagues[leagueId];
+        if (!leagueName) return null;
 
-        if (!league || !team) return null;
+        const team = leagueStandings.find((s) => s.club_id === props.clubId);
+        if (!team) return null;
+
+        const stats: EnrichedStat[] = PER_GAME_STATS.map((stat) => ({
+          key: stat.key,
+          label: stat.label,
+          value: perGame(team, stat.key),
+          rank: rankByPerGame(leagueStandings, team.club_id, stat.key),
+          relativeWidth: relativeWidth(leagueStandings, team, stat.key),
+        }));
 
         return {
-          league,
+          leagueId,
+          league: leagueName,
           team,
+          stats,
         };
       })
-      .filter(Boolean);
+      .filter((e): e is EnrichedEntry => e !== null);
   });
 </script>
 

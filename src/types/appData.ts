@@ -1,3 +1,5 @@
+import type { InjectionKey } from 'vue';
+
 export type UnionSlug =
   | 'ab' // Alberta
   | 'bc' // British Columbia
@@ -82,3 +84,70 @@ export const unions: Union[] = [
   //   url: 'https://rugbysaskatchewan.com',
   // },
 ];
+
+export interface Club {
+  name: string;
+  logo: string;
+}
+
+export interface Standing {
+  league_id: string;
+  club_id: string;
+  team_id: number;
+  pos: number;
+  played: number;
+  gamesWon: number;
+  gamesDraw: number;
+  gameLost: number;
+  pointsFor: number;
+  pointsAgainst: number;
+  pointsDifference: number;
+  bonusPoints: number;
+  points: number;
+  triesFor: number;
+  triesAgainst: number;
+  triesDifference: number;
+  Pen: number;
+  Conv: number;
+  Drop: number;
+}
+
+export interface MatchOfficial {
+  role: string;
+  name: string;
+}
+
+export interface FixtureResultSummary {
+  team_id: string;
+  club_id: string;
+  score: string;
+  drop: string;
+  pen: string;
+  conv: string;
+  result: 'win' | 'lose' | 'draw' | null;
+}
+
+export interface Fixture {
+  fixtureId: string;
+  fixtureDate: number;
+  fixtureStatus: 'fixture' | 'result';
+  seasonId: string;
+  compYear: string;
+  venue: string;
+  venuePostalCode: string;
+  venuelat: string;
+  venuelng: string;
+  home: FixtureResultSummary;
+  away: FixtureResultSummary;
+  matchOfficials: MatchOfficial[];
+}
+
+export interface AppData {
+  readonly union: Union;
+  readonly clubs: Readonly<Record<string, Club>>;
+  readonly leagues: Readonly<Record<string, string>>;
+  readonly fixtures: Readonly<Record<string, readonly Fixture[]>>;
+  readonly standings: Readonly<Record<string, readonly Standing[]>>;
+}
+
+export const appDataKey: InjectionKey<AppData> = Symbol('appData');

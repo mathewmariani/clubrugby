@@ -84,7 +84,7 @@
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
   import { format } from 'date-fns';
-  import type { Fixture } from '@/utils/types';
+  import type { Fixture } from '@/types/appData';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
   import { useAppData } from '@/composables/useAppData';
 

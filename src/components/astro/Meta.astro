@@ -21,6 +21,22 @@ const structuredData = {
   ],
   description: SITE_DESCRIPTION,
 };
+
+function getOgImageUrl(home: string, away: string, score?: string) {
+  // replace spaces with + for URL
+  const teams = `${home} vs ${away}`;
+  const scoreText = score ? `\n${score}` : "";
+  
+  // encode newline as %0A
+  // const text = encodeURIComponent(`${teams}${scoreText}`);
+  const text = encodeURIComponent(SITE_TITLE);
+  
+  // example: 600x400 red bg (#c8102e), white text (#ffffff)
+  return `https://placehold.co/600x400/c8102e/ffffff/?text=${text}`;
+}
+
+// Build placeholder OG image
+const ogImage = getOgImageUrl("Montreal", "Toronto", "24-17");
 ---
 
 <html lang="en">
@@ -59,10 +75,12 @@ const structuredData = {
     />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <!-- <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={SITE_TITLE} />
-    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta property="og:description" content={SITE_DESCRIPTION} /> -->
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
     <!-- <meta property="og:image" content={new URL('/og-image.png', Astro.site).href} /> -->
 
     <!-- Twitter Card -->
@@ -79,6 +97,7 @@ const structuredData = {
 
     <!-- structured data -->
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(structuredData)}
     />

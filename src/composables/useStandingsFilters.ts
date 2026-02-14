@@ -1,5 +1,5 @@
 import { computed, unref, type MaybeRef } from 'vue';
-import type { Standing } from '@/utils/types';
+import type { Standing } from '@/types/appData';
 
 export function useStandingsFilters(
   standings: Record<string, Standing[]>,

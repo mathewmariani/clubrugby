@@ -11,11 +11,7 @@
     </template>
 
     <template #right>
-      <ShareButton
-        :fixture="fixture"
-        :home="homeTeamName"
-        :away="awayTeamName"
-      />
+      <ShareButton />
     </template>
 
     <template #tabs>
@@ -57,8 +53,8 @@
   import ResultsList from '@/components/vue/lists/ResultsList.vue';
   import Standings from '@/components/vue/lists/Standings.vue';
 
-  import type { Union } from '@/utils/unions';
-  import type { Fixture, Standing, Club } from '@/utils/types';
+  import type { Union } from '@/types/appData';
+  import type { Fixture, Standing, Club } from '@/types/appData';
 
   const props = defineProps<{
     league_id: string;
@@ -69,15 +65,17 @@
     fixtures: Record<string, Fixture[]>;
   }>();
 
+  import { type AppData, appDataKey } from '@/types/appData';
+
   provide(
-    'appData',
+    appDataKey,
     readonly({
       union: props.union,
       clubs: props.clubs,
       leagues: props.leagues,
       fixtures: props.fixtures,
       standings: props.standings,
-    })
+    }) as AppData
   );
 
   const leagueName = computed(
@@ -135,7 +133,7 @@
   // install router
   onBeforeMount(() => {
     const app = getCurrentInstance()?.appContext.app;
-    if (app && !app._installedPlugins?.has(router)) {
+    if (app) {
       app.use(router);
     }
   });

@@ -5,7 +5,7 @@ import { getUnionData } from '@/utils/data.ts';
 
 const { union } = Astro.props;
 
-import { unions } from '@/utils/unions';
+import { unions } from '@/types/appData';
 export async function getStaticPaths() {
   return unions.map((union) => ({
     params: { slug: union.slug },

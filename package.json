@@ -9,16 +9,21 @@
         "astro": "astro"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.6",
         "@astrojs/vue": "^5.1.4",
         "astro": "^5.16.12",
         "bootstrap": "^5.3.8",
         "calendar-link": "^2.11.0",
         "date-fns": "^4.1.0",
+        "typescript": "^5.9.3",
         "vue-router": "^4.6.4"
     },
     "devDependencies": {
         "@types/bootstrap": "^5.2.10",
+        "@types/node": "^25.2.3",
+        "knip": "^5.83.1",
         "prettier": "^3.8.0",
-        "prettier-plugin-astro": "^0.14.1"
+        "prettier-plugin-astro": "^0.14.1",
+        "vue-tsc": "^3.2.4"
     }
 }

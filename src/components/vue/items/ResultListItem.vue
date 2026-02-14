@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, Fixture } from '@/utils/types';
+  import type { Club, Fixture } from '@/types/appData';
   import { formattedTime } from '@/composables/utils';
   import { useAppData } from '@/composables/useAppData';
 

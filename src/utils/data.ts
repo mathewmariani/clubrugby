@@ -1,4 +1,4 @@
-import type { Fixture, Standing, Club } from './types';
+import type { Fixture, Standing, Club } from '@/types/appData';
 
 const jsonModules = import.meta.glob('/src/data/*/*/*.json', {
   eager: true,

@@ -1,5 +1,5 @@
 import { computed, type Ref } from 'vue';
-import type { Club, Fixture, Standing } from '@/utils/types';
+import type { Club, Fixture, Standing } from '@/types/appData';
 
 // Convert unix timestamp to human-readable "h:mm a"
 export function formattedTime(timestamp: number): string {
