@@ -1,34 +1,35 @@
 <template>
-  <div v-if="hasFixtures">
-    <template v-for="(daysInMonth, month) in fixturesByMonthDay" :key="month">
+  <div v-if="hasResults">
+    <template v-for="(daysInMonth, month) in resultsByMonthDay" :key="month">
       <DayMatchGroup
         v-for="(leaguesForDay, day) in daysInMonth"
         :key="day"
         :day="day"
         :leaguesForDay="leaguesForDay"
-        matchComponent="FixtureListItem"
+        matchComponent="ResultListItem"
       />
     </template>
   </div>
 
   <div v-else class="text-center text-muted pt-3">
-    <p>No fixtures available.</p>
+    <p>No results available.</p>
     <hr />
     <p>Ensure your preferences are set.</p>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router';
-
   import { useAppData } from '@/composables/useAppData';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import DayMatchGroup from '@/components/vue/items/DayMatchGroup.vue';
 
-  const route = useRoute();
+  const props = defineProps<{
+    leagueId?: string;
+  }>();
+
   const { fixtures } = useAppData();
 
-  const { fixturesByMonthDay, hasFixtures } = useFixtureFilters(fixtures, {
-    leagueId: route.params.league_id as string | undefined,
+  const { resultsByMonthDay, hasResults } = useFixtureFilters(fixtures, {
+    leagueId: props.leagueId,
   });
 </script>

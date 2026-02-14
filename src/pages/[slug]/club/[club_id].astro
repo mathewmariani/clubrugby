@@ -1,0 +1,50 @@
+---
+import Page from '@/layouts/astro/Page.astro';
+import ClubView from '@/islands/ClubView.vue';
+
+import { unions } from '@/utils/unions';
+import { getUnionData } from '@/utils/data.ts';
+
+const year = new Date().getFullYear().toString();
+const { union } = Astro.props;
+
+export async function getStaticPaths() {
+  const year = new Date().getFullYear().toString();
+  const paths = [];
+
+  for (const union of unions) {
+    const { clubs } = await getUnionData(union.slug, year);
+
+    // clubs: Record<club_id, Club>
+    for (const club_id of Object.keys(clubs)) {
+      paths.push({
+        params: {
+          slug: union.slug,
+          club_id:club_id,
+        },
+        props: {
+          union,
+          club_id:club_id,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug, year);
+const { club_id } = Astro.params
+---
+
+<Page>
+  <ClubView
+    client:only="vue"
+    club_id={club_id}
+    union={union}
+    clubs={clubs}
+    leagues={leagues}
+    standings={standings}
+    fixtures={fixtures}
+  />
+</Page>

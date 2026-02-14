@@ -1,4 +1,25 @@
 <template>
+  <Navbar
+    :defaultTitle="`${SITE_TITLE.toLocaleUpperCase()} | ${union.slug.toUpperCase()}`"
+  >
+    <template #left>
+      <button
+        class="btn btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#settingsOffcanvas"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+    </template>
+    <template #right>
+      <ShareButton
+        :fixture="fixture"
+        :home="homeTeamName"
+        :away="awayTeamName"
+      />
+    </template>
+  </Navbar>
+
   <template v-if="fixture">
     <div class="list-group list-group-flush">
       <MatchHeader
@@ -110,12 +131,18 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { useRoute } from 'vue-router';
+
+  import { provide, readonly } from 'vue';
+
+  import { SITE_TITLE } from '@/consts';
 
   import { useAppData } from '@/composables/useAppData';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
+  import Navbar from '@/components/vue/nav/Navbar.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
   import CalendarButton from '@/components/vue/event/CalendarButton.vue';
@@ -124,27 +151,46 @@
   import GameDetails from '@/components/vue/event/GameDetails.vue';
   import MatchStatComparison from '@/components/vue/event/MatchStatComparison.vue';
 
-  import type { Fixture, Standing, Club } from '@/utils/types';
+  import type { Union, Fixture, Standing, Club } from '@/utils/types';
 
-  const { fixtures, clubs, leagues, standings } = useAppData();
-  const route = useRoute();
-  const fixtureId = computed(
-    () => route.params.fixture_id as string | undefined
+  const props = defineProps<{
+    fixtureId: string;
+    union: Union;
+    clubs: Record<string, Club>;
+    leagues: Record<string, string>;
+    standings: Record<string, Standing[]>;
+    fixtures: Record<string, Fixture[]>;
+  }>();
+
+  provide(
+    'appData',
+    readonly({
+      union: props.union,
+      clubs: props.clubs,
+      leagues: props.leagues,
+      fixtures: props.fixtures,
+      standings: props.standings,
+    })
   );
 
   // --- Composables ---
-  const { fixture, league_id } = useFixtureFilters(fixtures).useFixtureById(
-    fixtureId.value
+  const { fixture, league_id } = useFixtureFilters(
+    props.fixtures
+  ).useFixtureById(props.fixtureId);
+  const { home: homeClub, away: awayClub } = useMatchClubs(
+    fixture,
+    props.clubs
   );
-  const { home: homeClub, away: awayClub } = useMatchClubs(fixture, clubs);
   const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
 
   // League name
-  const leagueName = computed(() => getLeagueName(league_id.value, leagues));
+  const leagueName = computed(() =>
+    getLeagueName(league_id.value, props.leagues)
+  );
 
   // Standings for this league (ensure array)
   const standingsForLeague = computed(() => {
-    const leagueStandings = standings[league_id.value] ?? [];
+    const leagueStandings = props.standings[props.fixtureId] ?? [];
     return Array.isArray(leagueStandings)
       ? leagueStandings
       : Object.values(leagueStandings);

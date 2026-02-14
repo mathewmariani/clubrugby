@@ -17,18 +17,19 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router';
-
   import StandingsTable from '@/components/vue/tables/StandingsTable.vue';
   import { getLeagueName } from '@/composables/utils';
   import { useAppData } from '@/composables/useAppData';
   import { useStandingsFilters } from '@/composables/useStandingsFilters';
 
-  const route = useRoute();
   const { standings: allStandings, leagues } = useAppData();
 
+  const props = defineProps<{
+    leagueId?: string;
+  }>();
+
   const { standings, hasStandings } = useStandingsFilters(allStandings, {
-    leagueId: route.params.league_id as string | undefined,
+    leagueId: props.leagueId,
   });
 
   const sortableColumns = [

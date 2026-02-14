@@ -24,9 +24,8 @@
             </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
+                :clubId="clubId"
                 :fixturesByLeague="matchesForDay"
-                :clubs="clubs"
-                :leagues="leagues"
               />
             </template>
           </div>
@@ -49,9 +48,8 @@
             </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
+                :clubId="clubId"
                 :fixturesByLeague="matchesForDay"
-                :clubs="clubs"
-                :leagues="leagues"
               />
             </template>
           </div>
@@ -63,33 +61,36 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import type { Club, Fixture } from '@/utils/types';
   import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useLayout } from '@/composables/useLayout';
-
   import { useAppData } from '@/composables/useAppData';
+
   const { fixtures, clubs, leagues } = useAppData();
-
-  const props = defineProps<{
-    club_id: string;
-  }>();
-
   const { navbarHeight } = useLayout();
 
-  // --- Use composable for all filtering/grouping ---
+  /* ---------------------------------
+   Get club_id from URL (Astro-safe)
+---------------------------------- */
+  const props = defineProps<{
+    clubId: string;
+  }>();
+
+  /* ---------------------------------
+   Fixture filtering
+---------------------------------- */
   const {
-    fixturesByMonthDay: allFixturesByMonthDay,
-    resultsByMonthDay: allResultsByMonthDay,
-    hasFixtures: hasAllFixtures,
-    hasResults: hasAllResults,
     clubFixturesByMonthDay,
     clubResultsByMonthDay,
     clubHasFixtures,
     clubHasResults,
-  } = useFixtureFilters(fixtures, { clubId: props.club_id });
+  } = useFixtureFilters(fixtures, {
+    clubId: props.clubId,
+  });
 
-  // Use club-specific grouped data
+  /* ---------------------------------
+   Exposed values for template
+---------------------------------- */
   const fixturesByMonthDay = computed(() => clubFixturesByMonthDay.value);
   const resultsByMonthDay = computed(() => clubResultsByMonthDay.value);
   const hasFixtures = computed(() => clubHasFixtures.value);

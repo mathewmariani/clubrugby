@@ -1,5 +1,8 @@
 <template>
-  <a class="list-group-item" @click.prevent="goToEvent">
+  <a
+    class="list-group-item"
+    :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
+  >
     <div class="d-flex align-items-center gap-2 mb-1">
       <img v-if="home?.logo" :src="home.logo" :alt="home.name" />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
@@ -23,8 +26,12 @@
 </template>
 
 <script setup lang="ts">
-  import { useRouter } from 'vue-router';
+  import { computed } from 'vue';
   import type { Club, Fixture } from '@/utils/types';
+  import { formattedTime } from '@/composables/utils';
+  import { useAppData } from '@/composables/useAppData';
+
+  const { union } = useAppData();
 
   const props = defineProps<{
     home: Club;
@@ -35,11 +42,6 @@
   function scoreClass(result: string | null): string {
     if (result == null) return '';
     return result === 'win' ? 'text-success' : 'text-danger';
-  }
-
-  const router = useRouter();
-  function goToEvent() {
-    router.push({ path: `/fixture/${props.fixture.fixtureId}` });
   }
 </script>
 

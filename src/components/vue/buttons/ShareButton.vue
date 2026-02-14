@@ -24,9 +24,9 @@
   import type { Fixture } from '@/utils/types';
 
   const props = defineProps<{
-    fixture: Fixture;
-    home: string;
-    away: string;
+    fixture?: Fixture;
+    home?: string;
+    away?: string;
   }>();
 
   function handleShare() {

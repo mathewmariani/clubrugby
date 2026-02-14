@@ -2,32 +2,36 @@
   <div class="list-group-item">
     <template v-if="isResult">
       <div class="d-flex align-items-center justify-content-between my-3">
-        <router-link v-if="home" :to="`/club/${homeSummary.club_id}`">
+        <a v-if="home && homeHref" :href="homeHref">
           <img :src="home.logo" alt="" />
-        </router-link>
+        </a>
+
         <EventScore :home="homeSummary.score" :away="awaySummary.score" />
-        <router-link v-if="away" :to="`/club/${awaySummary.club_id}`">
+
+        <a v-if="away && awayHref" :href="awayHref">
           <img :src="away.logo" alt="" />
-        </router-link>
+        </a>
       </div>
     </template>
+
     <template v-else>
       <div class="d-flex gap-3 my-3">
-        <router-link v-if="home" :to="`/club/${homeSummary.club_id}`">
+        <a v-if="home && homeHref" :href="homeHref">
           <img :src="home.logo" alt="" />
-        </router-link>
+        </a>
+
         <div class="d-flex flex-column justify-content-center">
-          <h6>{{ away?.name }}</h6>
-          <!-- <span class="text-muted">{{ homeRecord }}</span> -->
+          <h6>{{ home?.name }}</h6>
         </div>
       </div>
+
       <div class="d-flex gap-3 mb-3 my-3">
-        <router-link v-if="away" :to="`/club/${awaySummary.club_id}`">
+        <a v-if="away && awayHref" :href="awayHref">
           <img :src="away.logo" alt="" />
-        </router-link>
+        </a>
+
         <div class="d-flex flex-column justify-content-center">
           <h6>{{ away?.name }}</h6>
-          <!-- <span class="text-muted">{{ awayRecord }}</span> -->
         </div>
       </div>
     </template>
@@ -35,15 +39,29 @@
 </template>
 
 <script setup lang="ts">
+  import { computed } from 'vue';
   import type { Club, FixtureResultSummary } from '@/utils/types';
   import EventScore from './EventScore.vue';
-  defineProps<{
+
+  const props = defineProps<{
     home?: Club;
     away?: Club;
     isResult: boolean;
     homeSummary: FixtureResultSummary;
     awaySummary: FixtureResultSummary;
   }>();
+
+  const homeHref = computed(() =>
+    props.homeSummary?.club_id
+      ? `/qc/club/${props.homeSummary.club_id}`
+      : undefined
+  );
+
+  const awayHref = computed(() =>
+    props.awaySummary?.club_id
+      ? `/qc/club/${props.awaySummary.club_id}`
+      : undefined
+  );
 </script>
 
 <style scoped>
@@ -51,5 +69,10 @@
     width: 64px;
     height: 64px;
     object-fit: contain;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>
