@@ -2,16 +2,16 @@
   <template v-if="Object.keys(leagues).length">
     <h6 class="mt-0">Leagues</h6>
     <ul class="list-group">
-      <li
+      <a
         v-for="(league, league_id) in leagues"
         :key="league_id"
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        @click="goToLeague(league_id)"
+        :href="`/${union.slug}/league/${league_id}`"
         style="cursor: pointer"
       >
         <span class="fw-semibold">{{ league }}</span>
         <span style="font-size: 1rem">❯</span>
-      </li>
+      </a>
     </ul>
   </template>
 
@@ -38,10 +38,8 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import { useAppData } from '@/composables/useAppData';
-  import { useRouter } from 'vue-router';
 
-  const { leagues } = useAppData();
-  const router = useRouter();
+  const { union, leagues } = useAppData();
 
   const isDarkMode = ref(false);
 
@@ -62,9 +60,4 @@
       applyDarkMode();
     }
   });
-
-  // Navigate to league page when item is clicked
-  const goToLeague = (league_id: string) => {
-    router.push(`/league/${league_id}`);
-  };
 </script>

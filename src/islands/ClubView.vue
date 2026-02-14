@@ -1,5 +1,5 @@
 <template>
-  <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+  <Navbar :defaultTitle="`${clubName} | ${union.slug.toUpperCase()}`">
     <template #left>
       <button
         class="btn btn-sm"
@@ -10,10 +10,14 @@
       </button>
     </template>
 
+    <template #right>
+      <ShareButton />
+    </template>
+
     <template #tabs>
       <TabScroller
-        :titles="['Fixtures','Stats']"
-        :routes="['/fixtures','/stats']"
+        :titles="['Fixtures', 'Stats']"
+        :routes="['/fixtures', '/stats']"
       />
     </template>
   </Navbar>
@@ -39,9 +43,11 @@
     ref,
     provide,
     readonly,
+    computed,
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
   import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
@@ -94,6 +100,10 @@
 
   // transition direction logic stays identical
   const direction = ref<'forward' | 'back'>('forward');
+
+  const clubName = computed(
+    () => props.clubs[props.club_id]?.name ?? 'Unknown'
+  );
 
   router.beforeEach((to, from, next) => {
     const mainPages = ['/fixtures', '/stats'];

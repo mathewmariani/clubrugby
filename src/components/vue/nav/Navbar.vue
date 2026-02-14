@@ -1,11 +1,6 @@
 <template>
-  <nav
-    ref="navbarRef"
-    class="navbar bg-body-tertiary fixed-top border-bottom"
-  >
-    <div
-      class="container-fluid d-flex align-items-center gap-2"
-    >
+  <nav ref="navbarRef" class="navbar bg-body-tertiary fixed-top border-bottom">
+    <div class="container-fluid d-flex align-items-center gap-2">
       <!-- LEFT -->
       <div class="d-flex align-items-center gap-1">
         <slot name="left" />
@@ -25,8 +20,10 @@
     </div>
 
     <!-- TABS -->
-    <div v-if="$slots.tabs" class="tabs-wrapper">
-      <slot name="tabs" />
+    <div class="container-fluid d-flex align-items-center gap-2">
+      <div v-if="$slots.tabs" class="tabs-wrapper">
+        <slot name="tabs" />
+      </div>
     </div>
 
     <OffcanvasNav />
@@ -37,32 +34,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useLayout } from '@/composables/useLayout';
-import OffcanvasNav from './OffcanvasNav.vue';
+  import { ref, onMounted } from 'vue';
+  import { useLayout } from '@/composables/useLayout';
+  import OffcanvasNav from './OffcanvasNav.vue';
 
-defineProps<{
-  defaultTitle?: string;
-}>();
+  defineProps<{
+    defaultTitle?: string;
+  }>();
 
-const navbarRef = ref<HTMLElement | null>(null);
-const { navbarHeight } = useLayout();
+  const navbarRef = ref<HTMLElement | null>(null);
+  const { navbarHeight } = useLayout();
 
-onMounted(() => {
-  if (!navbarRef.value) return;
+  onMounted(() => {
+    if (!navbarRef.value) return;
 
-  const observer = new ResizeObserver(() => {
-    navbarHeight.value = navbarRef.value!.offsetHeight;
+    const observer = new ResizeObserver(() => {
+      navbarHeight.value = navbarRef.value!.offsetHeight;
+    });
+
+    observer.observe(navbarRef.value);
   });
-
-  observer.observe(navbarRef.value);
-});
 </script>
 
 <style scoped>
-.tabs-wrapper {
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
+  .tabs-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 </style>

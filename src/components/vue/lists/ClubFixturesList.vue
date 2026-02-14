@@ -26,8 +26,6 @@
               <ScheduleListItem
                 :clubId="clubId"
                 :fixturesByLeague="matchesForDay"
-                :clubs="clubs"
-                :leagues="leagues"
               />
             </template>
           </div>
@@ -52,8 +50,6 @@
               <ScheduleListItem
                 :clubId="clubId"
                 :fixturesByLeague="matchesForDay"
-                :clubs="clubs"
-                :leagues="leagues"
               />
             </template>
           </div>

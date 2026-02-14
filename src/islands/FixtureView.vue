@@ -1,5 +1,7 @@
 <template>
-    <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+  <Navbar
+    :defaultTitle="`${SITE_TITLE.toLocaleUpperCase()} | ${union.slug.toUpperCase()}`"
+  >
     <template #left>
       <button
         class="btn btn-sm"
@@ -8,6 +10,13 @@
       >
         <span class="navbar-toggler-icon" />
       </button>
+    </template>
+    <template #right>
+      <ShareButton
+        :fixture="fixture"
+        :home="homeTeamName"
+        :away="awayTeamName"
+      />
     </template>
   </Navbar>
 
@@ -122,25 +131,16 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { useRoute } from 'vue-router';
 
-  import {
-    createRouter,
-    createMemoryHistory, // ✅ changed
-  } from 'vue-router';
+  import { provide, readonly } from 'vue';
 
-  import {
-    onBeforeMount,
-    getCurrentInstance,
-    ref,
-    provide,
-    readonly,
-  } from 'vue';
+  import { SITE_TITLE } from '@/consts';
 
   import { useAppData } from '@/composables/useAppData';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
 
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
   import Navbar from '@/components/vue/nav/Navbar.vue';
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
@@ -173,7 +173,6 @@
     })
   );
 
-
   // --- Composables ---
   const { fixture, league_id } = useFixtureFilters(
     props.fixtures
@@ -186,7 +185,7 @@
 
   // League name
   const leagueName = computed(() =>
-    getLeagueName(props.fixtureId, props.leagues)
+    getLeagueName(league_id.value, props.leagues)
   );
 
   // Standings for this league (ensure array)

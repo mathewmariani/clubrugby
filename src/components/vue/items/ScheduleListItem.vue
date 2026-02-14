@@ -20,9 +20,9 @@
           <a
             v-for="fixture in fixtures"
             :key="fixture.fixtureId"
+            :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
             class="list-group-item-action text-decoration-none"
             role="button"
-            @click.prevent="goToEvent(fixture)"
           >
             <div class="d-flex justify-content-between align-items-center">
               <!-- Opponent -->
@@ -47,9 +47,7 @@
                     {{ getOpponent(fixture)?.name || 'Unknown' }}
                   </span>
                   <small class="text-body-secondary d-block">
-                    {{
-                      getLeagueName(leagueId, props.leagues) || 'Unknown league'
-                    }}
+                    {{ getLeagueName(leagueId, leagues) || 'Unknown league' }}
                   </small>
                 </div>
               </div>
@@ -85,16 +83,15 @@
 
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
   import { format } from 'date-fns';
-
-  import type { Club, Fixture } from '@/utils/types';
+  import type { Fixture } from '@/utils/types';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
+  import { useAppData } from '@/composables/useAppData';
+
+  const { union, clubs, leagues } = useAppData();
 
   const props = defineProps<{
     clubId: string;
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
     fixturesByLeague: Record<string, Fixture[]>;
   }>();
 
@@ -131,7 +128,7 @@
 
   function getOpponent(fixture: Fixture) {
     const fixtureRef = toRef({ value: fixture }, 'value');
-    const { home, away } = useMatchClubs(fixtureRef, props.clubs);
+    const { home, away } = useMatchClubs(fixtureRef, clubs);
     if (isHome(fixture)) return away?.value ?? null;
     if (isAway(fixture)) return home?.value ?? null;
     return null;
@@ -142,10 +139,6 @@
     const home = fixture.home.result;
     const away = fixture.away.result;
     return isHome(fixture) ? home === 'win' : away === 'win';
-  }
-
-  function goToEvent(fixture: Fixture) {
-    // router.push({ path: `/fixture/${fixture.fixtureId}` });
   }
 </script>
 

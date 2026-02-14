@@ -2,7 +2,7 @@
   <!-- clickable event card -->
   <a
     class="list-group-item"
-    :href="`${union.slug}/fixture/${fixture.fixtureId}`"
+    :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
   >
     <!-- top info: venue and time -->
     <div class="d-flex justify-content-between w-100 mb-2">

@@ -1,5 +1,30 @@
 <template>
-  <Navbar />
+  <Navbar :defaultTitle="`${leagueName} | ${union.slug.toUpperCase()}`">
+    <template #left>
+      <button
+        class="btn btn-sm"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#settingsOffcanvas"
+      >
+        <span class="navbar-toggler-icon" />
+      </button>
+    </template>
+
+    <template #right>
+      <ShareButton
+        :fixture="fixture"
+        :home="homeTeamName"
+        :away="awayTeamName"
+      />
+    </template>
+
+    <template #tabs>
+      <TabScroller
+        :titles="['Fixtures', 'Results', 'Standings']"
+        :routes="['/fixtures', '/results', '/standings']"
+      />
+    </template>
+  </Navbar>
 
   <div class="view-container">
     <router-view v-slot="{ Component }">
@@ -22,12 +47,15 @@
     ref,
     provide,
     readonly,
+    computed,
   } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import FixturesList from '../components/vue/lists/FixturesList.vue';
-  import ResultsList from '../components/vue/lists/ResultsList.vue';
-  import Standings from '../components/vue/lists/Standings.vue';
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
+  import FixturesList from '@/components/vue/lists/FixturesList.vue';
+  import ResultsList from '@/components/vue/lists/ResultsList.vue';
+  import Standings from '@/components/vue/lists/Standings.vue';
 
   import type { Union } from '@/utils/unions';
   import type { Fixture, Standing, Club } from '@/utils/types';
@@ -50,6 +78,10 @@
       fixtures: props.fixtures,
       standings: props.standings,
     })
+  );
+
+  const leagueName = computed(
+    () => props.leagues[props.league_id] ?? 'Unknown League'
   );
 
   // ✅ memory history (NO URL CHANGES)

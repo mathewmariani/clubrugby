@@ -1,7 +1,7 @@
 <template>
   <a
     class="list-group-item"
-    :href="`${union.slug}/fixture/${fixture.fixtureId}`"
+    :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
   >
     <div class="d-flex align-items-center gap-2 mb-1">
       <img v-if="home?.logo" :src="home.logo" :alt="home.name" />

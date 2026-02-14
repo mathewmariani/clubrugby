@@ -1,5 +1,7 @@
 <template>
-  <Navbar :defaultTitle="`TESTING | ${union.slug.toUpperCase()}`">
+  <Navbar
+    :defaultTitle="`${SITE_TITLE.toUpperCase()} | ${union.slug.toUpperCase()}`"
+  >
     <template #left>
       <button
         class="btn btn-sm"
@@ -12,8 +14,8 @@
 
     <template #tabs>
       <TabScroller
-        :titles="['Fixtures','Results','Standings']"
-        :routes="['/fixtures','/results','/standings']"
+        :titles="['Fixtures', 'Results', 'Standings']"
+        :routes="['/fixtures', '/results', '/standings']"
       />
     </template>
   </Navbar>
@@ -28,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+  import { SITE_TITLE } from '@/consts';
   import {
     createRouter,
     createMemoryHistory, // ✅ changed
@@ -43,9 +46,9 @@
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
-  import FixturesList from '../components/vue/lists/FixturesList.vue';
-  import ResultsList from '../components/vue/lists/ResultsList.vue';
-  import Standings from '../components/vue/lists/Standings.vue';
+  import FixturesList from '@/components/vue/lists/FixturesList.vue';
+  import ResultsList from '@/components/vue/lists/ResultsList.vue';
+  import Standings from '@/components/vue/lists/Standings.vue';
 
   import type { Union } from '@/utils/unions';
   import type { Fixture, Standing, Club } from '@/utils/types';
