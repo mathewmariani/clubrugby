@@ -1,3 +1,9 @@
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .list-group-header {
   border: 0px;
   padding-top: 0.25rem;
@@ -96,6 +102,12 @@ tbody tr:not(:last-child) {
   top: 0;
   background-color: #fff;
   z-index: 10;
+}
+
+.sticky-league-name {
+  position: sticky;
+  z-index: 10;
+  background-color: var(--bs-body-bg);
 }
 
 /*  Match Day Group */

@@ -93,23 +93,25 @@ export interface Club {
 export interface Standing {
   league_id: string;
   club_id: string;
-  team_id: number;
-  pos: number;
-  played: number;
-  gamesWon: number;
-  gamesDraw: number;
-  gameLost: number;
-  pointsFor: number;
-  pointsAgainst: number;
-  pointsDifference: number;
-  bonusPoints: number;
-  points: number;
-  triesFor: number;
-  triesAgainst: number;
-  triesDifference: number;
-  Pen: number;
-  Conv: number;
-  Drop: number;
+  team_id: string;
+  pos: string;
+  played: string;
+  gamesWon: string;
+  gamesDraw: string;
+  gameLost: string;
+  pointsFor: string;
+  pointsAgainst: string;
+  pointsDifference: string;
+  bonusPoints: string;
+  bonusPointsW: string;
+  bonusPointsL: string;
+  points: string;
+  triesFor: string;
+  triesAgainst: string;
+  triesDifference: string;
+  Pen: string;
+  Conv: string;
+  Drop: string;
 }
 
 export interface MatchOfficial {

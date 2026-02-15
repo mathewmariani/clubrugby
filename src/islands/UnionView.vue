@@ -49,6 +49,7 @@
   import FixturesList from '@/components/vue/lists/FixturesList.vue';
   import ResultsList from '@/components/vue/lists/ResultsList.vue';
   import Standings from '@/components/vue/lists/Standings.vue';
+  import StatsList from '@/components/vue/lists/StatsList.vue';
 
   import type { Union } from '@/types/appData';
   import type { Fixture, Standing, Club } from '@/types/appData';
@@ -82,6 +83,7 @@
       { path: '/', redirect: '/fixtures' },
       { path: '/fixtures', component: FixturesList },
       { path: '/results', component: ResultsList },
+      { path: '/stats', component: StatsList },
       { path: '/standings', component: Standings },
     ],
   });

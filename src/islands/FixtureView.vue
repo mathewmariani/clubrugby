@@ -33,12 +33,7 @@
         :isResult="isResult"
       />
 
-      <CalendarButton
-        v-if="!isResult"
-        :fixture="fixture"
-        :home="homeTeamName"
-        :away="awayTeamName"
-      />
+      <CalendarButton v-if="!isResult" :fixture="fixture" />
 
       <!-- Pre-game comparison -->
       <template v-if="!isResult">
@@ -109,8 +104,8 @@
         :fixtureDate="fixture.fixtureDate"
         :league="leagueName"
         :venue="fixture.venue"
-        :venueLong="fixture.venuelng || 0"
-        :venueLat="fixture.venuelat || 0"
+        :venueLong="fixture.venuelng || ''"
+        :venueLat="fixture.venuelat || ''"
         :isResult="isResult"
       />
     </div>
@@ -126,19 +121,25 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue';
+  import { computed, type ComputedRef } from 'vue';
 
   import { provide, readonly } from 'vue';
 
   import { SITE_TITLE } from '@/consts';
 
-  import { useAppData } from '@/composables/useAppData';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
-  import { useMatchClubs, getLeagueName } from '@/composables/utils';
+  import { useStandingsFilters } from '@/composables/useStandingsFilters';
+  import {
+    useMatchClubs,
+    getLeagueName,
+    getClubStandings,
+    getStatValuePerGame,
+    rankByPerGame,
+    getStatValue,
+  } from '@/composables/utils';
 
   import ShareButton from '@/components/vue/buttons/ShareButton.vue';
   import Navbar from '@/components/vue/nav/Navbar.vue';
-  import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
   import CalendarButton from '@/components/vue/buttons/CalendarButton.vue';
@@ -186,34 +187,25 @@
     getLeagueName(league_id.value, props.leagues)
   );
 
-  // Standings for this league (ensure array)
-  const standingsForLeague = computed(() => {
-    const leagueStandings = props.standings[props.fixtureId] ?? [];
-    return Array.isArray(leagueStandings)
-      ? leagueStandings
-      : Object.values(leagueStandings);
+  const { getClubInLeague } = useStandingsFilters(props.standings);
+
+  const homeStanding = computed(() => {
+    const league = league_id.value;
+    const club = fixture.value?.home.club_id;
+
+    return league && club
+      ? getClubInLeague(league, club)
+      : null;
   });
 
-  // Home / Away standings
-  const homeStanding = computed(() =>
-    fixture.value
-      ? (standingsForLeague.value.find(
-          (s) => s.club_id === fixture.value.home.club_id
-        ) ?? null)
-      : null
-  );
+  const awayStanding = computed(() => {
+    const league = league_id.value;
+    const club = fixture.value?.away.club_id;
 
-  const awayStanding = computed(() =>
-    fixture.value
-      ? (standingsForLeague.value.find(
-          (s) => s.club_id === fixture.value.away.club_id
-        ) ?? null)
-      : null
-  );
-
-  // Team names
-  const homeTeamName = computed(() => homeStanding.value?.name ?? 'Unknown');
-  const awayTeamName = computed(() => awayStanding.value?.name ?? 'Unknown');
+    return league && club
+      ? getClubInLeague(league, club)
+      : null;
+  });
 
   // Officials
   const hasMatchOfficials = computed(
@@ -248,21 +240,6 @@
     { key: 'Pen', label: 'Penalties' },
     { key: 'Drop', label: 'Drop Kicks' },
   ] as const;
-
-  // Stat helpers
-  function getStatValue(
-    team: Standing | undefined,
-    key: keyof Standing
-  ): number {
-    return team ? Number(team[key]) : 0;
-  }
-
-  function getStatValuePerGame(
-    team: Standing | undefined,
-    key: keyof Standing
-  ): number {
-    return team?.played ? Number(team[key]) / Number(team.played) : 0;
-  }
 </script>
 
 <style scoped>

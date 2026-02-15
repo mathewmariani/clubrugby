@@ -39,54 +39,13 @@
   import { computed } from 'vue';
   import type { Fixture } from '@/types/appData';
   import { formattedDate, formattedTime } from '@/composables/utils';
-  import {
-    google,
-    outlook,
-    office365,
-    yahoo,
-    ics,
-    type CalendarEvent,
-  } from 'calendar-link';
 
   const props = defineProps<{
     fixture: Fixture;
-    home: string;
-    away: string;
   }>();
 
   const date = computed(() => formattedDate(props.fixture.fixtureDate));
   const time = computed(() => formattedTime(props.fixture.fixtureDate));
-
-  type CalendarProvider = 'google' | 'outlook' | 'office365' | 'yahoo' | 'ics';
-
-  function getDefaultCalendar(): CalendarProvider {
-    const ua = navigator.userAgent.toLowerCase();
-
-    if (/iphone|ipad|ipod/.test(ua)) return 'ics';
-    if (ua.includes('android')) return 'google';
-    if (ua.includes('mac')) return 'ics';
-    if (ua.includes('win')) return 'outlook';
-    return 'google';
-  }
-
-  const calendarHandlers: Record<
-    CalendarProvider,
-    (event: CalendarEvent) => string
-  > = {
-    google,
-    outlook,
-    office365,
-    yahoo,
-    ics,
-  };
-
-  const event = computed<CalendarEvent>(() => ({
-    uid: String(props.fixture.fixtureId),
-    title: `${props.home} vs ${props.away}`,
-    description: props.fixture.venue,
-    start: new Date(props.fixture.fixtureDate),
-    duration: [3, 'hour'],
-  }));
 
   const calendarLink = computed(() => {
     return `/calendar/${props.fixture.fixtureId}.ics`;

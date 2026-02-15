@@ -52,15 +52,15 @@
 
   const props = defineProps<{
     title: string;
-    standings: Standing[];
-    columns: { key: keyof Standing | 'w-d-l'; label: string }[];
+    standings: readonly Standing[];
   }>();
-</script>
 
-<style scoped>
-  .text-truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-</style>
+  const columns = [
+    { key: 'played', label: 'PLD' },
+    { key: 'w-d-l', label: 'W-D-L' },
+    { key: 'points', label: 'PTS' },
+    { key: 'pointsFor', label: 'PF' },
+    { key: 'pointsAgainst', label: 'PA' },
+    { key: 'pointsDifference', label: 'PD' },
+  ];
+</script>

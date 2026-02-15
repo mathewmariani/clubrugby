@@ -32,15 +32,12 @@ const props = defineProps<{
   clubId?: string;
 }>();
 
-const { hasStandings, getStandingsForLeague, getStandingsWithClub } = useStandingsFilters(standings);
+const { query, hasStandings } = useStandingsFilters(standings);
 
-const filteredStandings = computed(() => {
-  if (props.clubId) {
-    return getStandingsWithClub(props.clubId)
-  }
-  if (props.leagueId) {
-    return getStandingsForLeague(props.leagueId)
-  }
-  return standings;
-});
+const filteredStandings = computed(() =>
+  query({
+    leagueId: props.leagueId,
+    clubId: props.clubId,
+  })
+);
 </script>

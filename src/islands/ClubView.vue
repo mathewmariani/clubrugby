@@ -16,8 +16,8 @@
 
     <template #tabs>
       <TabScroller
-        :titles="['Fixtures', 'Stats']"
-        :routes="['/fixtures', '/stats']"
+        :titles="['Fixtures', 'Stats', 'Standings']"
+        :routes="['/fixtures', '/stats', '/Standings']"
       />
     </template>
   </Navbar>
@@ -51,6 +51,7 @@
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
   import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
   import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
+  import Standings from '@/components/vue/lists/Standings.vue';
 
   import type { Union } from '@/types/appData';
   import type { Fixture, Standing, Club } from '@/types/appData';
@@ -93,6 +94,13 @@
       {
         path: '/stats',
         component: ClubStatsList,
+        props: () => ({
+          clubId: props.club_id,
+        }),
+      },
+      {
+        path: '/standings',
+        component: Standings,
         props: () => ({
           clubId: props.club_id,
         }),

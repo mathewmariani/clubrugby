@@ -26,15 +26,6 @@
                 </small>
               </small>
             </div>
-
-            <div class="progress-stacked">
-              <div
-                class="progress"
-                :style="{ width: stat.relativeWidth + '%' }"
-              >
-                <div class="progress-bar bg-primary"></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -46,9 +37,9 @@
   import { computed } from 'vue';
 
   import { getOrdinalSuffix } from '@/composables/utils';
-  import { useSavedLeagues } from '@/composables/useSavedLeagues';
   import { useLayout } from '@/composables/useLayout';
   import { useAppData } from '@/composables/useAppData';
+  import { getStatValuePerGame, rankByPerGame} from '@/composables/utils'
 
   import type { Standing } from '@/types/appData';
 
@@ -63,7 +54,6 @@
   const { leagues, standings } = useAppData();
 
   const { navbarHeight } = useLayout();
-  const { savedLeagues } = useSavedLeagues();
 
   /* ---------------- constants ---------------- */
 
@@ -77,42 +67,6 @@
     { key: 'Conv', label: 'Conversions' },
   ] as const;
 
-  /* ---------------- helpers ---------------- */
-
-  function perGame(team: Standing, key: keyof Standing): number {
-    return team.played > 0 ? Number(team[key]) / team.played : 0;
-  }
-
-  function rankByPerGame(
-    leagueStandings: Readonly<Standing[]>,
-    teamId: string,
-    key: keyof Standing
-  ): number | null {
-    const ranked = leagueStandings
-      .map((s) => ({
-        id: s.club_id,
-        value: perGame(s, key),
-      }))
-      .sort((a, b) => b.value - a.value);
-
-    const index = ranked.findIndex((t) => t.id === teamId);
-    return index >= 0 ? index + 1 : null;
-  }
-
-  function relativeWidth(
-    leagueStandings: Readonly<Standing[]>,
-    team: Standing,
-    key: keyof Standing
-  ): number {
-    const values = leagueStandings.map((s) => perGame(s, key));
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-
-    const range = max - min;
-
-    return range > 0 ? ((perGame(team, key) - min) / range) * 100 : 100;
-  }
-
   /* ---------------- types ---------------- */
 
   type EnrichedStat = {
@@ -120,7 +74,6 @@
     label: string;
     value: number;
     rank: number | null;
-    relativeWidth: number;
   };
 
   type EnrichedEntry = {
@@ -144,9 +97,8 @@
         const stats: EnrichedStat[] = PER_GAME_STATS.map((stat) => ({
           key: stat.key,
           label: stat.label,
-          value: perGame(team, stat.key),
+          value: getStatValuePerGame(team, stat.key),
           rank: rankByPerGame(leagueStandings, team.club_id, stat.key),
-          relativeWidth: relativeWidth(leagueStandings, team, stat.key),
         }));
 
         return {
@@ -159,11 +111,3 @@
       .filter((e): e is EnrichedEntry => e !== null);
   });
 </script>
-
-<style scoped>
-  .sticky-league-name {
-    position: sticky;
-    z-index: 10;
-    background-color: var(--bs-body-bg);
-  }
-</style>

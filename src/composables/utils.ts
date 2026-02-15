@@ -1,4 +1,4 @@
-import { computed, type Ref } from 'vue';
+import { computed, type Ref, type ComputedRef } from 'vue';
 import type { Club, Fixture, Standing } from '@/types/appData';
 
 // Convert unix timestamp to human-readable "h:mm a"
@@ -36,12 +36,19 @@ export function useMatchClubs(
   return { home, away };
 }
 
+export function getClubStandings(
+  standings: ComputedRef<readonly Standing[] | undefined>,
+  club_id: string | undefined
+): Standing | undefined {
+  return standings.value?.find((s) => s.club_id === club_id);
+}
+
 export function getRecordString(table?: Standing): string {
   return `${table?.gamesWon ?? 0}-${table?.gamesDraw ?? 0}-${table?.gameLost ?? 0}`;
 }
 
 export function getLeagueName(
-  league_id: string,
+  league_id: string | number | null,
   leagues: Record<string, string>
 ): string {
   return league_id && leagues[league_id]
@@ -65,4 +72,34 @@ export function getOrdinalSuffix(n: number): string {
     default:
       return n + 'th';
   }
+}
+
+  export function getStatValue(
+    team: Standing | undefined | null,
+    key: keyof Standing
+  ): number {
+    return team ? Number(team[key]) : 0;
+  }
+
+export function getStatValuePerGame(
+  team: Standing | undefined | null,
+  key: keyof Standing
+): number {
+  return team?.played ? Number(team?.[key]) / Number(team?.played) : 0;
+}
+
+export function rankByPerGame(
+  leagueStandings: Readonly<Standing[]>,
+  teamId: string,
+  key: keyof Standing
+): number | null {
+  const ranked = leagueStandings
+    .map((s) => ({
+      id: s.club_id,
+      value: getStatValuePerGame(s, key),
+    }))
+    .sort((a, b) => b.value - a.value);
+
+  const index = ranked.findIndex((t) => t.id === teamId);
+  return index >= 0 ? index + 1 : null;
 }
