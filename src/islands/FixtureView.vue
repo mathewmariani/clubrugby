@@ -193,18 +193,14 @@
     const league = league_id.value;
     const club = fixture.value?.home.club_id;
 
-    return league && club
-      ? getClubInLeague(league, club)
-      : null;
+    return league && club ? getClubInLeague(league, club) : null;
   });
 
   const awayStanding = computed(() => {
     const league = league_id.value;
     const club = fixture.value?.away.club_id;
 
-    return league && club
-      ? getClubInLeague(league, club)
-      : null;
+    return league && club ? getClubInLeague(league, club) : null;
   });
 
   // Officials

@@ -13,8 +13,8 @@
 .list-group-header {
   border: 0;
   padding-block: 0.25rem;
+  background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
 }
-
 
 /* ================================
    Page transitions
@@ -24,7 +24,9 @@
 .slide-forward-leave-active,
 .slide-back-enter-active,
 .slide-back-leave-active {
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 /* shared visible state */
@@ -55,7 +57,6 @@
   transform: translateX(100%);
   opacity: 0;
 }
-
 
 /* ================================
    Standings table
@@ -89,7 +90,6 @@ tbody tr:not(:last-child) {
   width: 8.75%;
   text-align: center;
 }
-
 
 /* ================================
    Sticky helpers

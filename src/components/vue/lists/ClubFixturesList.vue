@@ -17,11 +17,7 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky" :style="{ top: navbarHeight + 'px' }">
-              <div class="list-group-header list-group-item bg-body-tertiary">
-                {{ month }}
-              </div>
-            </div>
+            <StickyListGroupHeader :str="month" />
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
                 :clubId="clubId"
@@ -41,11 +37,7 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky" :style="{ top: navbarHeight + 'px' }">
-              <div class="list-group-header list-group-item bg-body-tertiary">
-                {{ month }}
-              </div>
-            </div>
+            <StickyListGroupHeader :str="month" />
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
                 :clubId="clubId"
@@ -62,12 +54,11 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import ScheduleListItem from '@/components/vue/items/ScheduleListItem.vue';
+  import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
-  import { useLayout } from '@/composables/useLayout';
   import { useAppData } from '@/composables/useAppData';
 
-  const { fixtures, clubs, leagues } = useAppData();
-  const { navbarHeight } = useLayout();
+  const { fixtures } = useAppData();
 
   /* ---------------------------------
    Get club_id from URL (Astro-safe)

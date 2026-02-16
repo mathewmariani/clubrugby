@@ -6,12 +6,7 @@
         :key="entry.leagueId"
         class="list-group list-group-flush"
       >
-        <!-- Sticky league header -->
-        <div class="sticky" :style="{ top: navbarHeight + 'px' }">
-          <div class="list-group-header list-group-item bg-body-tertiary">
-            {{ entry.league }}
-          </div>
-        </div>
+        <StickyListGroupHeader :str="entry.league" />
 
         <!-- Stats -->
         <div class="list-group-item">
@@ -36,10 +31,11 @@
 <script setup lang="ts">
   import { computed } from 'vue';
 
+  import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue'
   import { getOrdinalSuffix } from '@/composables/utils';
   import { useLayout } from '@/composables/useLayout';
   import { useAppData } from '@/composables/useAppData';
-  import { getStatValuePerGame, rankByPerGame} from '@/composables/utils'
+  import { getStatValuePerGame, rankByPerGame } from '@/composables/utils';
 
   import type { Standing } from '@/types/appData';
 

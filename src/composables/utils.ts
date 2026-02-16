@@ -74,12 +74,12 @@ export function getOrdinalSuffix(n: number): string {
   }
 }
 
-  export function getStatValue(
-    team: Standing | undefined | null,
-    key: keyof Standing
-  ): number {
-    return team ? Number(team[key]) : 0;
-  }
+export function getStatValue(
+  team: Standing | undefined | null,
+  key: keyof Standing
+): number {
+  return team ? Number(team[key]) : 0;
+}
 
 export function getStatValuePerGame(
   team: Standing | undefined | null,
