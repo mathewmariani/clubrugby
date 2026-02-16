@@ -7,7 +7,7 @@
         class="list-group list-group-flush"
       >
         <!-- Sticky league header -->
-        <div class="sticky-league-name" :style="{ top: navbarHeight + 'px' }">
+        <div class="sticky" :style="{ top: navbarHeight + 'px' }">
           <div class="list-group-header list-group-item bg-body-tertiary">
             {{ entry.league }}
           </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="list-group list-group-flush">
-    <div class="sticky-date" :style="{ top: navbarHeight + 'px' }">
+    <div class="sticky" :style="{ top: navbarHeight + 'px' }">
       <div class="list-group-header list-group-item bg-body-tertiary">
         {{ day }}
       </div>
@@ -8,7 +8,7 @@
 
     <template v-for="(fixtures, leagueId) in leaguesForDay" :key="leagueId">
       <div class="list-group list-group-flush">
-        <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
+        <div class="sticky" :style="{ top: leagueTopOffset + 'px' }">
           <div class="list-group-header list-group-item bg-body-tertiary">
             <small>{{ getLeagueName(leagueId.toString(), leagues) }}</small>
           </div>

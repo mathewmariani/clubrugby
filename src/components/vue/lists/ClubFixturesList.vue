@@ -17,7 +17,7 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="sticky" :style="{ top: navbarHeight + 'px' }">
               <div class="list-group-header list-group-item bg-body-tertiary">
                 {{ month }}
               </div>
@@ -41,7 +41,7 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky-month" :style="{ top: navbarHeight + 'px' }">
+            <div class="sticky" :style="{ top: navbarHeight + 'px' }">
               <div class="list-group-header list-group-item bg-body-tertiary">
                 {{ month }}
               </div>

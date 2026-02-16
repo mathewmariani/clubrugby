@@ -1,6 +1,6 @@
 <template>
   <table class="table table-borderless table-fixed">
-    <thead class="sticky-thead">
+    <thead class="sticky">
       <tr>
         <th>{{ title }}</th>
         <th v-for="col in columns" :key="col.key">
