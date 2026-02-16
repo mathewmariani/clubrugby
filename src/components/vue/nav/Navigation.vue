@@ -4,7 +4,7 @@
     <ul class="list-group">
       <a
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        :href="`/${union.slug}`"
+        :href="unionHref()"
         style="cursor: pointer"
       >
         <span class="fw-semibold">{{ union.slug.toUpperCase() }}</span>
@@ -14,7 +14,7 @@
         v-for="(league, league_id) in leagues"
         :key="league_id"
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        :href="`/${union.slug}/league/${league_id}`"
+        :href="leagueHref(league_id)"
         style="cursor: pointer"
       >
         <span class="fw-semibold">{{ league }}</span>
@@ -60,6 +60,14 @@
     applyDarkMode();
     localStorage.setItem('darkMode', isDarkMode.value ? 'true' : 'false');
   };
+
+  function unionHref() {
+    return `/${union.slug}`;
+  }
+
+  function leagueHref(league_id: string) {
+    return `/${union.slug}/league/${league_id}`;
+  }
 
   onMounted(() => {
     const saved = localStorage.getItem('darkMode');

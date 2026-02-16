@@ -31,7 +31,7 @@
 <script setup lang="ts">
   import { computed } from 'vue';
 
-  import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue'
+  import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue';
   import { getOrdinalSuffix } from '@/composables/utils';
   import { useLayout } from '@/composables/useLayout';
   import { useAppData } from '@/composables/useAppData';

@@ -20,7 +20,7 @@
           <a
             v-for="fixture in fixtures"
             :key="fixture.fixtureId"
-            :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
+            :href="fixtureHref(fixture)"
             class="list-group-item-action text-decoration-none"
             role="button"
           >
@@ -114,6 +114,9 @@
 
   /* --- Match helpers --- */
 
+  function fixtureHref(fixture: Fixture) {
+    return `/${union.slug}/fixture/${fixture.fixtureId}`;
+  }
   function isResult(fixture: Fixture) {
     return fixture.fixtureStatus === 'result';
   }

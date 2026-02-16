@@ -41,7 +41,10 @@
 <script setup lang="ts">
   import { computed } from 'vue';
   import type { Club, FixtureResultSummary } from '@/types/appData';
-  import EventScore from './EventScore.vue';
+  import EventScore from '@/components/vue/event/EventScore.vue';
+  import { useAppData } from '@/composables/useAppData';
+
+  const { union } = useAppData();
 
   const props = defineProps<{
     home?: Club;
@@ -51,16 +54,11 @@
     awaySummary: FixtureResultSummary;
   }>();
 
-  const homeHref = computed(() =>
-    props.homeSummary?.club_id
-      ? `/qc/club/${props.homeSummary.club_id}`
-      : undefined
+  const homeHref = computed(
+    () => `/${union.slug}/club/${props.homeSummary.club_id}`
   );
-
-  const awayHref = computed(() =>
-    props.awaySummary?.club_id
-      ? `/qc/club/${props.awaySummary.club_id}`
-      : undefined
+  const awayHref = computed(
+    () => `/${union.slug}/club/${props.awaySummary.club_id}`
   );
 </script>
 

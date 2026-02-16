@@ -1,9 +1,6 @@
 <template>
   <!-- clickable event card -->
-  <a
-    class="list-group-item"
-    :href="`/${union.slug}/fixture/${fixture.fixtureId}`"
-  >
+  <a class="list-group-item" :href="fixtureHref">
     <!-- top info: venue and time -->
     <div class="d-flex justify-content-between w-100 mb-2">
       <small class="text-body-secondary">{{ fixture.venue }}</small>
@@ -50,6 +47,10 @@
   const time = computed(() => {
     return formattedTime(props.fixture.fixtureDate);
   });
+
+  const fixtureHref = computed(
+    () => `/${union.slug}/fixture/${props.fixture.fixtureId}`
+  );
 </script>
 
 <style scoped>
