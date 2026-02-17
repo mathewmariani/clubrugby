@@ -17,12 +17,11 @@
           v-for="(fixtures, leagueId) in fixturesByLeague"
           :key="leagueId"
         >
-          <a
+          <router-link
             v-for="fixture in fixtures"
             :key="fixture.fixtureId"
+            :to="fixtureLink(fixture)"
             class="list-group-item-action text-decoration-none"
-            role="button"
-            @click.prevent="goToEvent(fixture)"
           >
             <div class="d-flex justify-content-between align-items-center">
               <!-- Opponent -->
@@ -47,9 +46,7 @@
                     {{ getOpponent(fixture)?.name || 'Unknown' }}
                   </span>
                   <small class="text-body-secondary d-block">
-                    {{
-                      getLeagueName(leagueId, props.leagues) || 'Unknown league'
-                    }}
+                    {{ getLeagueName(leagueId, leagues) || 'Unknown league' }}
                   </small>
                 </div>
               </div>
@@ -76,7 +73,7 @@
                 </template>
               </div>
             </div>
-          </a>
+          </router-link>
         </template>
       </div>
     </div>
@@ -85,26 +82,23 @@
 
 <script setup lang="ts">
   import { computed, toRef } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
   import { format } from 'date-fns';
-
-  import type { Club, Fixture } from '@/utils/types';
+  import type { Fixture } from '@/types/appData';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
+  import { useAppData } from '@/composables/useAppData';
+  import { useRouting } from '@/composables/useRouting';
 
-  const route = useRoute();
-  const router = useRouter();
-  const clubId = route.params.club_id as string;
+  const { clubs, leagues } = useAppData();
+  const r = useRouting();
 
   const props = defineProps<{
-    clubs: Record<string, Club>;
-    leagues: Record<string, string>;
+    clubId: string;
     fixturesByLeague: Record<string, Fixture[]>;
   }>();
 
   const fixturesByLeague = computed(() => props.fixturesByLeague ?? {});
 
   /* --- Date helpers --- */
-
   const firstMatchDate = computed(() => {
     const allFixtures = Object.values(fixturesByLeague.value).flat();
     if (!allFixtures.length) return new Date();
@@ -119,22 +113,25 @@
   }
 
   /* --- Match helpers --- */
+  function fixtureLink(fixture: Fixture) {
+    return r.fixture(fixture.fixtureId);
+  }
 
   function isResult(fixture: Fixture) {
     return fixture.fixtureStatus === 'result';
   }
 
   function isHome(fixture: Fixture) {
-    return fixture.home.club_id === clubId;
+    return fixture.home.club_id === props.clubId;
   }
 
   function isAway(fixture: Fixture) {
-    return fixture.away.club_id === clubId;
+    return fixture.away.club_id === props.clubId;
   }
 
   function getOpponent(fixture: Fixture) {
     const fixtureRef = toRef({ value: fixture }, 'value');
-    const { home, away } = useMatchClubs(fixtureRef, props.clubs);
+    const { home, away } = useMatchClubs(fixtureRef, clubs);
     if (isHome(fixture)) return away?.value ?? null;
     if (isAway(fixture)) return home?.value ?? null;
     return null;
@@ -145,10 +142,6 @@
     const home = fixture.home.result;
     const away = fixture.away.result;
     return isHome(fixture) ? home === 'win' : away === 'win';
-  }
-
-  function goToEvent(fixture: Fixture) {
-    router.push({ path: `/fixture/${fixture.fixtureId}` });
   }
 </script>
 

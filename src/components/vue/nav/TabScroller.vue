@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="d-flex gap-2">
     <router-link
       v-for="(title, index) in titles"
       :key="index"
-      :to="routes[index]"
+      :to="resolvedRoutes[index]"
       class="btn btn-sm"
       :class="{ 'btn-primary': selectedIndex === index }"
       :ref="(el) => setButtonRef(el, index)"
@@ -14,35 +14,41 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
-  import { useRoute } from 'vue-router';
+  import { ref, watch, computed, type ComponentPublicInstance } from 'vue';
+  import { useRoute, useRouter, type RouteLocationRaw } from 'vue-router';
 
   const props = defineProps<{
     titles: string[];
-    routes: string[];
+    routes: RouteLocationRaw[];
   }>();
 
   const tabButtons = ref<HTMLElement[]>([]);
   const route = useRoute();
-
+  const router = useRouter();
   const selectedIndex = ref(0);
 
-  // Determine active route
-  watch(
-    () => route.path,
-    (path) => {
-      if (!props.routes || !Array.isArray(props.routes)) {
-        selectedIndex.value = -1;
-        return;
-      }
+  // Precompute resolved hrefs for router-link
+  const resolvedRoutes = computed(() =>
+    props.routes.map((r) => router.resolve(r))
+  );
 
-      const idx = props.routes.findIndex((r) => r === path);
-      selectedIndex.value = idx; // -1 means no match
+  // Determine active tab based on route name & params
+  watch(
+    () => route.fullPath,
+    () => {
+      const idx = props.routes.findIndex((r) => {
+        const resolved = router.resolve(r);
+        return resolved.href === router.resolve(route.fullPath).href;
+      });
+      selectedIndex.value = idx >= 0 ? idx : 0;
     },
     { immediate: true }
   );
 
-  const setButtonRef = (el: HTMLElement | null, index: number) => {
-    if (el) tabButtons.value[index] = el;
+  const setButtonRef = (
+    el: Element | ComponentPublicInstance | null,
+    index: number
+  ) => {
+    if (el instanceof HTMLElement) tabButtons.value[index] = el;
   };
 </script>

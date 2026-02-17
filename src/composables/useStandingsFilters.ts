@@ -1,28 +1,42 @@
-import { computed, unref, type MaybeRef } from 'vue';
-import type { Standing } from '@/utils/types';
+import { computed } from 'vue';
+import type { Standing } from '@/types/appData';
 
 export function useStandingsFilters(
-  standings: Record<string, Standing[]>,
-  options?: {
-    leagueId?: MaybeRef<string | undefined>;
-  }
+  standings: Readonly<Record<string, readonly Standing[]>>
 ) {
-  const filteredStandings = computed(() => {
-    const leagueId = unref(options?.leagueId);
+  // always work from plain object
+  const allStandings = computed(() => standings);
 
-    if (!leagueId) return standings;
+  function getStandingsForLeague(leagueId: string) {
+    return {
+      [leagueId]: standings[leagueId] ?? [],
+    };
+  }
 
-    const leagueStandings = standings[leagueId];
+  function getStandingsWithClub(clubId: string) {
+    const standings: Record<string, readonly Standing[]> = {};
 
-    return leagueStandings ? { [leagueId]: leagueStandings } : {};
-  });
+    for (const [leagueId, list] of Object.entries(allStandings.value)) {
+      if (list.some((s) => s.club_id === clubId)) {
+        standings[leagueId] = list;
+      }
+    }
+
+    return standings;
+  }
+
+  function getClubInLeague(leagueId: string, clubId: string) {
+    return standings[leagueId]?.find((s) => s.club_id === clubId) ?? null;
+  }
 
   const hasStandings = computed(
-    () => Object.keys(filteredStandings.value).length > 0
+    () => Object.keys(allStandings.value).length > 0
   );
 
   return {
-    standings: filteredStandings,
+    getClubInLeague,
+    getStandingsWithClub,
+    getStandingsForLeague,
     hasStandings,
   };
 }

@@ -1,18 +1,17 @@
 ---
 import Page from '@/layouts/astro/Page.astro';
 import App from '@/islands/App.vue';
+import { getUnionData } from '@/utils/data.ts';
 
 const { union } = Astro.props;
 
-import { unions } from '@/utils/unions';
+import { unions } from '@/types/appData';
 export async function getStaticPaths() {
   return unions.map((union) => ({
     params: { slug: union.slug },
     props: { union },
   }));
 }
-
-import { getUnionData } from '@/utils/data.ts';
 
 const year = new Date().getFullYear().toString();
 const { clubs, leagues, fixtures, standings } = await getUnionData(union.slug, year);

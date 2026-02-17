@@ -2,16 +2,23 @@
   <template v-if="Object.keys(leagues).length">
     <h6 class="mt-0">Leagues</h6>
     <ul class="list-group">
-      <li
-        v-for="(league, league_id) in leagues"
-        :key="league_id"
+      <router-link
         class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        @click="goToLeague(league_id)"
-        style="cursor: pointer"
+        :to="unionLink"
       >
-        <span class="fw-semibold">{{ league }}</span>
+        <span class="fw-semibold">{{ union.slug.toUpperCase() }}</span>
         <span style="font-size: 1rem">❯</span>
-      </li>
+      </router-link>
+
+      <router-link
+        v-for="(leagueName, leagueId) in leagues"
+        :key="leagueId"
+        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+        :to="leagueLink(leagueId)"
+      >
+        <span class="fw-semibold">{{ leagueName }}</span>
+        <span style="font-size: 1rem">❯</span>
+      </router-link>
     </ul>
   </template>
 
@@ -36,24 +43,30 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed } from 'vue';
   import { useAppData } from '@/composables/useAppData';
-  import { useRouter } from 'vue-router';
+  import { useRouting } from '@/composables/useRouting';
 
-  const { leagues } = useAppData();
-  const router = useRouter();
+  const { union, leagues } = useAppData();
+  const r = useRouting();
 
   const isDarkMode = ref(false);
 
   const applyDarkMode = () => {
-    const html = document.documentElement;
-    html.setAttribute('data-bs-theme', isDarkMode.value ? 'dark' : 'light');
+    document.documentElement.setAttribute(
+      'data-bs-theme',
+      isDarkMode.value ? 'dark' : 'light'
+    );
   };
 
   const toggleDarkMode = () => {
     applyDarkMode();
     localStorage.setItem('darkMode', isDarkMode.value ? 'true' : 'false');
   };
+
+  // Vue Router links
+  const unionLink = computed(() => r.union());
+  const leagueLink = (leagueId: string) => r.league(leagueId);
 
   onMounted(() => {
     const saved = localStorage.getItem('darkMode');
@@ -62,9 +75,4 @@
       applyDarkMode();
     }
   });
-
-  // Navigate to league page when item is clicked
-  const goToLeague = (league_id: string) => {
-    router.push(`/league/${league_id}`);
-  };
 </script>
