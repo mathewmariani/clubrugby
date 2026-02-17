@@ -1,22 +1,5 @@
 <template>
   <div style="display: contents">
-    <Navbar
-      :defaultTitle="`${SITE_TITLE.toLocaleUpperCase()} | ${union.slug.toUpperCase()}`"
-    >
-      <template #left>
-        <button
-          class="btn btn-sm"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#settingsOffcanvas"
-        >
-          <span class="navbar-toggler-icon" />
-        </button>
-      </template>
-      <template #right>
-        <ShareButton />
-      </template>
-    </Navbar>
-
     <template v-if="fixture">
       <div class="list-group list-group-flush">
         <MatchHeader
@@ -137,8 +120,6 @@
     getStatValue,
   } from '@/composables/utils';
 
-  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
-  import Navbar from '@/components/vue/nav/Navbar.vue';
   import MatchHeader from '@/components/vue/event/MatchHeader.vue';
   import TeamHeader from '@/components/vue/event/TeamHeader.vue';
   import CalendarButton from '@/components/vue/buttons/CalendarButton.vue';
@@ -155,19 +136,14 @@
   }>();
 
   // --- Composables ---
-  const { fixture, league_id } = useFixtureFilters(
-    fixtures
-  ).useFixtureById(props.fixtureId);
-  const { home: homeClub, away: awayClub } = useMatchClubs(
-    fixture,
-    clubs
+  const { fixture, league_id } = useFixtureFilters(fixtures).useFixtureById(
+    props.fixtureId
   );
+  const { home: homeClub, away: awayClub } = useMatchClubs(fixture, clubs);
   const isResult = computed(() => fixture.value?.fixtureStatus === 'result');
 
   // League name
-  const leagueName = computed(() =>
-    getLeagueName(league_id.value, leagues)
-  );
+  const leagueName = computed(() => getLeagueName(league_id.value, leagues));
 
   const { getClubInLeague } = useStandingsFilters(standings);
 

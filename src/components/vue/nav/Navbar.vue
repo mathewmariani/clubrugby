@@ -1,28 +1,27 @@
 <template>
   <nav ref="navbarRef" class="navbar bg-body-tertiary fixed-top border-bottom">
     <div class="container-fluid d-flex align-items-center gap-2">
-      <!-- LEFT -->
-      <div class="d-flex align-items-center gap-1">
-        <slot name="left" />
+      <!-- Left slot (optional) -->
+      <div class="d-flex align-items-center gap-1" v-if="nav.left">
+        <component :is="nav.left" />
       </div>
 
-      <!-- TITLE -->
+      <!-- Title -->
       <div class="navbar-brand text-truncate flex-grow-1 mb-0">
-        <slot name="title">
-          {{ defaultTitle }}
-        </slot>
+        {{ nav.title }}
       </div>
 
-      <!-- RIGHT -->
-      <div class="d-flex align-items-center gap-1">
-        <slot name="right" />
+      <!-- Right slot (optional) -->
+      <div class="d-flex align-items-center gap-1" v-if="nav.right">
+        <component :is="nav.right" />
       </div>
-    </div>
 
-    <!-- TABS -->
-    <div class="container-fluid d-flex align-items-center gap-2">
-      <div v-if="$slots.tabs" class="tabs-wrapper">
-        <slot name="tabs" />
+      <!-- Tabs slot (optional) -->
+      <div
+        class="container-fluid d-flex align-items-center gap-2"
+        v-if="nav.tabs"
+      >
+        <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
       </div>
     </div>
 
@@ -30,17 +29,29 @@
   </nav>
 
   <!-- spacer -->
-  <div :style="{ height: navbarHeight + 'px' }" />
+  <div :style="{ height: navbarHeight + 'px' }"></div>
 </template>
 
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
+  import { computed, onMounted, ref } from 'vue';
+  import { useRoute } from 'vue-router';
   import { useLayout } from '@/composables/useLayout';
-  import OffcanvasNav from './OffcanvasNav.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
+  import OffcanvasNav from '@/components/vue/nav/OffcanvasNav.vue';
 
-  defineProps<{
-    defaultTitle?: string;
-  }>();
+  const route = useRoute();
+
+  const props = defineProps({
+    defaultTitle: String,
+  });
+
+  const nav = computed(() => {
+    const meta = route.meta.nav;
+
+    if (!meta) return {};
+
+    return typeof meta === 'function' ? meta(route) : meta;
+  });
 
   const navbarRef = ref<HTMLElement | null>(null);
   const { navbarHeight } = useLayout();

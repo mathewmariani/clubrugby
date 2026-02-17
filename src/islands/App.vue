@@ -1,6 +1,22 @@
 <template>
-  <Navbar />
+  <Navbar :defaultTitle="nav.title">
+    <!-- left slot -->
+    <template #left v-if="nav.left">
+      <component :is="nav.left" />
+    </template>
 
+    <!-- right slot -->
+    <template #right v-if="nav.right">
+      <component :is="nav.right" />
+    </template>
+
+    <!-- tabs slot -->
+    <template #tabs v-if="nav.tabs">
+      <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
+    </template>
+  </Navbar>
+
+  <!-- Animated routed pages -->
   <div class="view-container">
     <router-view v-slot="{ Component }">
       <transition :name="`slide-${direction}`" mode="out-in">
@@ -11,21 +27,20 @@
 </template>
 
 <script setup lang="ts">
-  import { createRouter, createWebHashHistory } from 'vue-router';
-  import { onBeforeMount, getCurrentInstance } from 'vue';
-  import { provide, readonly, ref } from 'vue';
+  import { createRouter, createWebHashHistory, useRoute } from 'vue-router';
+  import { computed, provide, readonly, ref, getCurrentInstance } from 'vue';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
+
   import FixturesList from '@/components/vue/lists/FixturesList.vue';
   import Standings from '@/components/vue/lists/Standings.vue';
-
   import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
   import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
 
-  import FixtureLayout from '@/layouts/vue/FixtureLayout.vue';
+  import UnionLayout from '@/layouts/vue/UnionLayout.vue';
   import ClubLayout from '@/layouts/vue/ClubLayout.vue';
   import LeagueLayout from '@/layouts/vue/LeagueLayout.vue';
-  import UnionLayout from '@/layouts/vue/UnionLayout.vue';
 
   import type {
     AppData,
@@ -35,6 +50,13 @@
     Fixture,
   } from '@/types/appData';
   import { appDataKey } from '@/types/appData';
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
+  import NavbarToggler from '@/components/vue/buttons/NavbarToggler.vue';
+  import { SITE_TITLE } from '@/consts';
+
+  /* --------------------------------------------------
+   Props from Astro island
+-------------------------------------------------- */
 
   const props = defineProps<{
     union: Union;
@@ -43,6 +65,10 @@
     standings: Record<string, Standing[]>;
     fixtures: Record<string, Fixture[]>;
   }>();
+
+  /* --------------------------------------------------
+   Provide app data globally
+-------------------------------------------------- */
 
   provide(
     appDataKey,
@@ -55,7 +81,10 @@
     }) as AppData
   );
 
-  // Setup router
+  /* --------------------------------------------------
+   Router
+-------------------------------------------------- */
+
   const router = createRouter({
     history: createWebHashHistory(),
     scrollBehavior: () => ({ top: 0 }),
@@ -63,47 +92,70 @@
       {
         path: '/',
         component: UnionLayout,
+        meta: {
+          nav: (route: any) => ({
+            title: `${SITE_TITLE.toUpperCase()} | ${props.union.slug.toUpperCase()}`,
+            left: NavbarToggler,
+            tabs: {
+              titles: ['Fixtures', 'Results', 'Standings'],
+              routes: [`/fixtures`, `/results`, `/standings`],
+            },
+          }),
+        },
         children: [
-          { path: '', redirect: (to) => `/` },
+          { path: '', redirect: { name: 'fixtures' } },
           {
             path: 'fixtures',
+            name: 'fixtures',
             component: FixturesList,
           },
           {
             path: 'results',
+            name: 'results',
             component: FixturesList,
           },
           {
             path: 'standings',
+            name: 'standings',
             component: Standings,
           },
         ],
       },
       {
-        path: '/fixture/:fixtureId',
-        component: FixtureLayout,
-        props: true,
-      },
-      {
         path: '/club/:clubId',
         component: ClubLayout,
+        meta: {
+          nav: (route: any) => ({
+            title: `Club ${route.params.clubId}`,
+            left: NavbarToggler,
+            right: ShareButton,
+            tabs: {
+              titles: ['Fixtures', 'Stats', 'Standings'],
+              routes: [
+                `/club/${route.params.clubId}/fixtures`,
+                `/club/${route.params.clubId}/stats`,
+                `/club/${route.params.clubId}/standings`,
+              ],
+            },
+          }),
+        },
         children: [
-          {
-            path: '',
-            redirect: (to) => `/club/${to.params.clubId}/fixtures`,
-          },
+          { path: '', redirect: { name: 'club-fixtures' } },
           {
             path: 'fixtures',
+            name: 'club-fixtures',
             component: ClubFixturesList,
             props: true,
           },
           {
             path: 'stats',
+            name: 'club-stats',
             component: ClubStatsList,
             props: true,
           },
           {
             path: 'standings',
+            name: 'club-standings',
             component: Standings,
             props: true,
           },
@@ -112,23 +164,38 @@
       {
         path: '/league/:leagueId',
         component: LeagueLayout,
+        meta: {
+          nav: (route: any) => ({
+            title: `Club ${route.params.leagueId}`,
+            left: NavbarToggler,
+            right: ShareButton,
+            tabs: {
+              titles: ['Fixtures', 'Results', 'Standings'],
+              routes: [
+                `/league/${route.params.leagueId}/fixtures`,
+                `/league/${route.params.leagueId}/results`,
+                `/league/${route.params.leagueId}/standings`,
+              ],
+            },
+          }),
+        },
         children: [
-          {
-            path: '',
-            redirect: (to) => `/league/${to.params.leagueId}/fixtures`,
-          },
+          { path: '', redirect: { name: 'league-fixtures' } },
           {
             path: 'fixtures',
+            name: 'league-fixtures',
             component: FixturesList,
             props: true,
           },
           {
             path: 'results',
+            name: 'league-results',
             component: FixturesList,
             props: true,
           },
           {
             path: 'standings',
+            name: 'league-standings',
             component: Standings,
             props: true,
           },
@@ -137,71 +204,44 @@
     ],
   });
 
-  // Navigation direction tracking logic
+  /* --------------------------------------------------
+   Install router
+-------------------------------------------------- */
+
+  getCurrentInstance()!.appContext.app.use(router);
+
+  /* --------------------------------------------------
+   Dynamic Navbar config
+-------------------------------------------------- */
+
+  const route = useRoute();
+
+  const nav = computed(() => {
+    const meta = route.meta.nav;
+
+    if (!meta) return {};
+
+    return typeof meta === 'function' ? meta(route) : meta;
+  });
+
+  /* --------------------------------------------------
+   Slide transition direction
+-------------------------------------------------- */
+
   const direction = ref<'forward' | 'back'>('forward');
 
   router.beforeEach((to, from, next) => {
-    const mainPages = ['/fixtures', '/results', '/standings'];
+    const order = ['fixtures', 'standings'];
 
-    const isMainFrom = mainPages.some((p) => from.path.startsWith(p));
-    const isMainTo = mainPages.some((p) => to.path.startsWith(p));
-    const isDetailFrom =
-      to.path.startsWith('/fixture') ||
-      from.path.startsWith('/fixture') ||
-      from.path.startsWith('/club') ||
-      to.path.startsWith('/club');
-
-    // 1. Handle main page linear order
-    const fromIndex = mainPages.findIndex((p) => from.path.startsWith(p));
-    const toIndex = mainPages.findIndex((p) => to.path.startsWith(p));
+    const fromIndex = order.indexOf(from.name as string);
+    const toIndex = order.indexOf(to.name as string);
 
     if (fromIndex !== -1 && toIndex !== -1) {
       direction.value = toIndex > fromIndex ? 'forward' : 'back';
-    }
-    // 2. From main page to detail page => forward
-    else if (isMainFrom && isDetailFrom) {
-      direction.value = 'forward';
-    }
-    // 3. From detail page to main page => back
-    else if (isDetailFrom && isMainTo) {
-      direction.value = 'back';
-    }
-    // 4. Team schedule/stats for same club (detailed)
-    else if (from.path.startsWith('/club/') && to.path.startsWith('/club/')) {
-      const fromMatch = from.path.match(/^\/club\/([^/]+)\/(schedule|stats)$/);
-      const toMatch = to.path.match(/^\/club\/([^/]+)\/(schedule|stats)$/);
-
-      if (fromMatch && toMatch) {
-        const [_, fromClub, fromSub] = fromMatch;
-        const [__, toClub, toSub] = toMatch;
-
-        if (fromClub === toClub) {
-          if (fromSub === 'schedule' && toSub === 'stats') {
-            direction.value = 'forward';
-          } else if (fromSub === 'stats' && toSub === 'schedule') {
-            direction.value = 'back';
-          } else {
-            direction.value = 'forward';
-          }
-          next();
-          return;
-        }
-      }
-      direction.value = 'forward';
-    }
-    // default fallback
-    else {
+    } else {
       direction.value = 'forward';
     }
 
     next();
-  });
-
-  // install router
-  onBeforeMount(() => {
-    const app = getCurrentInstance()?.appContext.app;
-    if (app) {
-      app.use(router);
-    }
   });
 </script>
