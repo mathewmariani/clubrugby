@@ -1,15 +1,18 @@
 <template>
   <div class="list-group list-group-flush">
-    <div class="sticky-date" :style="{ top: navbarHeight + 'px' }">
-      <div class="list-group-header list-group-item bg-body-tertiary">
-        {{ day }}
-      </div>
+    <div
+      class="sticky sticky-day list-group-header list-group-item"
+      :style="{ top: navbarHeight + 'px' }"
+    >
+      {{ day }}
     </div>
-
     <template v-for="(fixtures, leagueId) in leaguesForDay" :key="leagueId">
       <div class="list-group list-group-flush">
-        <div class="sticky-league" :style="{ top: leagueTopOffset + 'px' }">
-          <div class="list-group-header list-group-item bg-body-tertiary">
+        <div
+          class="sticky sticky-league"
+          :style="{ top: leagueTopOffset + 'px' }"
+        >
+          <div class="list-group-header list-group-item">
             <small>{{ getLeagueName(leagueId.toString(), leagues) }}</small>
           </div>
         </div>
@@ -33,7 +36,8 @@
   import ResultListItem from '@/components/vue/items/ResultListItem.vue';
   import { getLeagueName } from '@/composables/utils';
   import { useLayout } from '@/composables/useLayout';
-  import type { Club, Fixture } from '@/utils/types';
+  import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue';
+  import type { Fixture } from '@/types/appData';
 
   import { useAppData } from '@/composables/useAppData';
   const { clubs, leagues } = useAppData();

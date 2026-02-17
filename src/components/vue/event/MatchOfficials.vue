@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { MatchOfficial } from '@/utils/types';
+  import type { MatchOfficial } from '@/types/appData';
 
   const props = defineProps<{
     matchOfficial: MatchOfficial[];

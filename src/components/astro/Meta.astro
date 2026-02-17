@@ -21,6 +21,13 @@ const structuredData = {
   ],
   description: SITE_DESCRIPTION,
 };
+
+function getOgImageUrl() {
+  const text = encodeURIComponent(SITE_TITLE);
+  return `https://placehold.co/600x400/c8102e/ffffff/?text=${text}`;
+}
+
+const ogImage = getOgImageUrl();
 ---
 
 <html lang="en">
@@ -59,10 +66,12 @@ const structuredData = {
     />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <!-- <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={SITE_TITLE} />
-    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta property="og:description" content={SITE_DESCRIPTION} /> -->
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
     <!-- <meta property="og:image" content={new URL('/og-image.png', Astro.site).href} /> -->
 
     <!-- Twitter Card -->
@@ -79,6 +88,7 @@ const structuredData = {
 
     <!-- structured data -->
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(structuredData)}
     />

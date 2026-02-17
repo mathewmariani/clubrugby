@@ -1,131 +1,65 @@
 <template>
-  <!-- Dynamic navbar -->
   <nav ref="navbarRef" class="navbar bg-body-tertiary fixed-top border-bottom">
-    <div class="container-fluid">
-      <div class="d-flex w-100 justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <template v-if="isTeamView || isEventView">
-            <button
-              class="btn"
-              type="button"
-              @click="goBack"
-              aria-label="Go Back"
-            >
-              <span style="cursor: pointer; font-size: 1rem">❮</span>
-            </button>
-          </template>
-          <template v-else>
-            <button
-              class="btn"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#settingsOffcanvas"
-              aria-controls="settingsOffcanvas"
-              aria-label="Open Settings"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </template>
+    <div class="container-fluid d-flex flex-nowrap align-items-center">
+      <!-- Left -->
+      <component v-if="nav.left" :is="nav.left" />
 
-          <template v-if="isTeamView">
-            <a class="navbar-brand mb-0 ms-2">{{ team?.name }}</a>
-          </template>
-          <template v-else-if="isLeagueView">
-            <a class="navbar-brand mb-0 ms-2">
-              {{ league }} | {{ union.slug.toUpperCase() }}
-            </a>
-          </template>
-          <template v-else>
-            <a class="navbar-brand mb-0">
-              {{ SITE_TITLE }} | {{ union.slug.toUpperCase() }}
-            </a>
-          </template>
-        </div>
+      <!-- Title -->
+      <div class="navbar-brand flex-grow-1 text-truncate">
+        {{ $props.title }}
       </div>
 
-      <!-- Tab navigation -->
-      <TabScroller
-        v-if="isDefaultView"
-        :titles="['Fixtures', 'Results', 'Standings']"
-        :routes="['/fixtures', '/results', '/standings']"
-      />
-      <TabScroller
-        v-else-if="isTeamView"
-        :titles="['Fixtures', 'Stats']"
-        :routes="[`/club/${teamId}/fixtures`, `/club/${teamId}/stats`]"
-      />
-      <TabScroller
-        v-else-if="isLeagueView"
-        :titles="['Fixtures', 'Results', 'Standings']"
-        :routes="[
-          `/league/${leagueId}/fixtures`,
-          `/league/${leagueId}/results`,
-          `/league/${leagueId}/standings`,
-        ]"
-      />
+      <!-- Right -->
+      <component v-if="nav.right" :is="nav.right" />
     </div>
 
-    <!-- Offcanvas always mounted -->
+    <!-- Tabs row (optional) -->
+    <div
+      v-if="nav.tabs"
+      class="container-fluid d-flex align-items-center gap-2 mt-1"
+    >
+      <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
+    </div>
+
+    <!-- Offcanvas -->
     <OffcanvasNav />
   </nav>
 
-  <!-- Spacer pushes content down based on navbar height -->
+  <!-- spacer -->
   <div :style="{ height: navbarHeight + 'px' }"></div>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onUpdated, watch } from 'vue';
-  import { useRoute, useRouter } from 'vue-router';
+  import { computed, onMounted, ref } from 'vue';
+  import { useRoute } from 'vue-router';
   import { useLayout } from '@/composables/useLayout';
-
-  import TabScroller from './TabScroller.vue';
-  import OffcanvasNav from './OffcanvasNav.vue';
-
-  import { SITE_TITLE } from '@/consts.ts';
-
-  import { useAppData } from '@/composables/useAppData';
-  const { union, clubs, leagues } = useAppData();
+  import TabScroller from '@/components/vue/nav/TabScroller.vue';
+  import OffcanvasNav from '@/components/vue/nav/OffcanvasNav.vue';
 
   const route = useRoute();
 
-  const isDefaultView = computed(() =>
-    ['/fixtures', '/results', '/standings'].some((v) =>
-      route.path.startsWith(v)
-    )
-  );
+  const props = defineProps({
+    title: String,
+  });
 
-  const isTeamView = computed(() => route.path.startsWith('/club/'));
-  const isEventView = computed(() => route.path.startsWith('/fixture/'));
-  const isLeagueView = computed(() => route.path.startsWith('/league/'));
+  const nav = computed(() => {
+    const meta = route.meta.nav;
 
-  const teamId = computed(() => route.params.club_id as string | undefined);
-  const team = computed(() =>
-    teamId.value && clubs ? clubs[teamId.value] : null
-  );
+    if (!meta) return {};
 
-  const leagueId = computed(() => route.params.league_id as string | undefined);
-  const league = computed(() =>
-    leagueId.value && leagues ? leagues[leagueId.value] : null
-  );
+    return typeof meta === 'function' ? meta(route) : meta;
+  });
 
-  // Navigation handler
-  const router = useRouter();
-  function goBack() {
-    router.push({ path: '/fixtures' });
-  }
-
-  // Dynamic navbar height
   const navbarRef = ref<HTMLElement | null>(null);
   const { navbarHeight } = useLayout();
 
-  function updateNavbarHeight() {
-    navbarHeight.value = navbarRef.value?.offsetHeight || 0;
-  }
+  onMounted(() => {
+    if (!navbarRef.value) return;
 
-  // Ensure the height updates on mount and when route changes (e.g., new tab)
-  onMounted(updateNavbarHeight);
-  onUpdated(updateNavbarHeight);
-  watch([isTeamView, teamId], updateNavbarHeight);
+    const observer = new ResizeObserver(() => {
+      navbarHeight.value = navbarRef.value!.offsetHeight;
+    });
+
+    observer.observe(navbarRef.value);
+  });
 </script>
-
-<style scoped></style>

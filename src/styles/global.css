@@ -1,10 +1,25 @@
-.list-group-header {
-  border: 0px;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+/* ================================
+   Utilities
+================================ */
+
+.text-truncate,
+.table-fixed th,
+.table-fixed td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Shared transition styles */
+.list-group-header {
+  border: 0;
+  padding-block: 0.25rem;
+  background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
+}
+
+/* ================================
+   Page transitions
+================================ */
+
 .slide-forward-enter-active,
 .slide-forward-leave-active,
 .slide-back-enter-active,
@@ -14,57 +29,49 @@
     opacity 0.25s ease;
 }
 
-/* Forward navigation: new page slides in from right */
+/* shared visible state */
+.slide-forward-enter-to,
+.slide-forward-leave-from,
+.slide-back-enter-to,
+.slide-back-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* forward */
 .slide-forward-enter-from {
   transform: translateX(100%);
   opacity: 0;
-}
-.slide-forward-enter-to {
-  transform: translateX(0);
-  opacity: 1;
-}
-.slide-forward-leave-from {
-  transform: translateX(0);
-  opacity: 1;
 }
 .slide-forward-leave-to {
   transform: translateX(-30%);
   opacity: 0;
 }
 
-/* Back navigation: new page slides in from left */
+/* back */
 .slide-back-enter-from {
   transform: translateX(-30%);
   opacity: 0;
-}
-.slide-back-enter-to {
-  transform: translateX(0);
-  opacity: 1;
-}
-.slide-back-leave-from {
-  transform: translateX(0);
-  opacity: 1;
 }
 .slide-back-leave-to {
   transform: translateX(100%);
   opacity: 0;
 }
 
-/* standings table */
+/* ================================
+   Standings table
+================================ */
 
 .table-fixed {
   table-layout: fixed;
   width: 100%;
   min-width: 700px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .table-fixed th,
 .table-fixed td {
   vertical-align: middle;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   background-color: var(--bs-body-bg);
 }
 
@@ -84,10 +91,26 @@ tbody tr:not(:last-child) {
   text-align: center;
 }
 
+/* ================================
+   Sticky helpers
+================================ */
+
+/* shared sticky behavior */
+.sticky {
+  position: sticky;
+}
+
+.sticky-day {
+  z-index: 20;
+}
+
+.sticky-league {
+  z-index: 10;
+}
+
 .sticky-thead th {
   position: sticky;
   z-index: 5;
-  top: 88px;
   background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
 }
 
@@ -98,29 +121,10 @@ tbody tr:not(:last-child) {
   z-index: 10;
 }
 
-/*  Match Day Group */
-
-.sticky-date {
-  position: sticky;
-  z-index: 10;
-}
-.sticky-league {
-  position: sticky;
-  z-index: 9;
-}
-
-/* club-fixtures */
-.sticky-month {
-  position: sticky;
-  z-index: 10;
-}
-
-/* Fixture */
+/* ================================
+   Fixture
+================================ */
 
 .progress-stacked {
   height: 8px;
-}
-.sticky-match-header {
-  position: sticky;
-  z-index: 10;
 }
