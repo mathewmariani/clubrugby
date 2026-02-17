@@ -88,7 +88,6 @@
           nav: (route: any) => ({
             title: `${SITE_TITLE.toUpperCase()} | ${props.union.slug.toUpperCase()}`,
             left: NavbarToggler,
-            right: ShareButton,
             tabs: {
               titles: ['Fixtures', 'Results', 'Standings'],
               routes: [

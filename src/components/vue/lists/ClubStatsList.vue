@@ -6,7 +6,10 @@
         :key="entry.leagueId"
         class="list-group list-group-flush"
       >
-        <div class="sticky sticky-league list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+        <div
+          class="sticky sticky-league list-group-header list-group-item"
+          :style="{ top: navbarHeight + 'px' }"
+        >
           {{ entry.league }}
         </div>
 

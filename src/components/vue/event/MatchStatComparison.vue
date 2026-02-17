@@ -2,7 +2,7 @@
   <div class="mb-3">
     <div class="d-flex justify-content-between mb-1">
       <small class="text-body-primary">
-        {{ leftValue }}
+        {{ leftValue.toFixed(1) }}
         <small v-if="leftRank" class="text-body-secondary fw-light">
           ({{ leftRank }})
         </small>
@@ -14,7 +14,7 @@
         <small v-if="rightRank" class="text-body-secondary fw-light">
           ({{ rightRank }})
         </small>
-        {{ rightValue }}
+        {{ rightValue.toFixed(1) }}
       </small>
     </div>
 

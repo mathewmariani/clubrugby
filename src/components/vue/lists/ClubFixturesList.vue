@@ -17,7 +17,10 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky sticky-day list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+            <div
+              class="sticky sticky-day list-group-header list-group-item"
+              :style="{ top: navbarHeight + 'px' }"
+            >
               {{ month }}
             </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
@@ -37,7 +40,10 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <div class="sticky sticky-day list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+            <div
+              class="sticky sticky-day list-group-header list-group-item"
+              :style="{ top: navbarHeight + 'px' }"
+            >
               {{ month }}
             </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
