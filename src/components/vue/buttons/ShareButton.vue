@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" type="button"  @click="handleShare">
+  <button class="btn" type="button" @click="handleShare">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1.5rem"

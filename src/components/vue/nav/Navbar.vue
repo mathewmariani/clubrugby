@@ -2,27 +2,23 @@
   <nav ref="navbarRef" class="navbar bg-body-tertiary fixed-top border-bottom">
     <div class="container-fluid d-flex align-items-center gap-2">
       <!-- Left slot (optional) -->
-      <div class="d-flex align-items-center gap-1" v-if="nav.left">
-        <component :is="nav.left" />
-      </div>
+      <component v-if="nav.left" :is="nav.left" />
 
       <!-- Title -->
-      <div class="navbar-brand text-truncate flex-grow-1 mb-0">
+      <div class="navbar-brand flex-grow-1 text-truncate">
         {{ $props.title }}
       </div>
 
       <!-- Right slot (optional) -->
-      <div class="d-flex align-items-center gap-1" v-if="nav.right">
-        <component :is="nav.right" />
-      </div>
+      <component v-if="nav.right" :is="nav.right" />
+    </div>
 
-      <!-- Tabs slot (optional) -->
-      <div
-        class="container-fluid d-flex align-items-center gap-2"
-        v-if="nav.tabs"
-      >
-        <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
-      </div>
+    <!-- Tabs slot (optional) -->
+    <div
+      class="container-fluid d-flex align-items-center gap-2"
+      v-if="nav.tabs"
+    >
+      <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
     </div>
 
     <OffcanvasNav />
@@ -66,11 +62,3 @@
     observer.observe(navbarRef.value);
   });
 </script>
-
-<style scoped>
-  .tabs-wrapper {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-</style>
