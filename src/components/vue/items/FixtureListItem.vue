@@ -1,6 +1,6 @@
 <template>
   <!-- clickable event card -->
-  <a class="list-group-item" :href="fixtureHref">
+  <router-link class="list-group-item" :to="fixtureLink">
     <!-- top info: venue and time -->
     <div class="d-flex justify-content-between w-100 mb-2">
       <small class="text-body-secondary">{{ fixture.venue }}</small>
@@ -27,16 +27,13 @@
         {{ away?.name || 'Unknown' }}
       </span>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue';
   import type { Club, Fixture } from '@/types/appData';
   import { formattedTime } from '@/composables/utils';
-  import { useAppData } from '@/composables/useAppData';
-
-  const { union } = useAppData();
 
   const props = defineProps<{
     home: Club;
@@ -44,13 +41,12 @@
     fixture: Fixture;
   }>();
 
-  const time = computed(() => {
-    return formattedTime(props.fixture.fixtureDate);
-  });
+  const time = computed(() => formattedTime(props.fixture.fixtureDate));
 
-  const fixtureHref = computed(
-    () => `/${union.slug}/fixture/${props.fixture.fixtureId}`
-  );
+  const fixtureLink = computed(() => ({
+    name: 'fixture-details',
+    params: { fixtureId: props.fixture.fixtureId },
+  }));
 </script>
 
 <style scoped>

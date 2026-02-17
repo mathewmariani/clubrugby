@@ -1,5 +1,6 @@
 <template>
-  <a class="list-group-item" :href="fixtureHref">
+  <!-- clickable event card -->
+  <router-link class="list-group-item" :to="fixtureLink">
     <div class="d-flex align-items-center gap-2 mb-1">
       <img v-if="home?.logo" :src="home.logo" :alt="home.name" />
       <!-- <small>{{ home?.name || 'Unknown' }}</small> -->
@@ -19,16 +20,12 @@
         {{ props.fixture.away.score }}
       </strong>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
   import { computed } from 'vue';
   import type { Club, Fixture } from '@/types/appData';
-  import { formattedTime } from '@/composables/utils';
-  import { useAppData } from '@/composables/useAppData';
-
-  const { union } = useAppData();
 
   const props = defineProps<{
     home: Club;
@@ -41,9 +38,10 @@
     return result === 'win' ? 'text-success' : 'text-danger';
   }
 
-  const fixtureHref = computed(
-    () => `/${union.slug}/fixture/${props.fixture.fixtureId}`
-  );
+  const fixtureLink = computed(() => ({
+    name: 'fixture-details',
+    params: { fixtureId: props.fixture.fixtureId },
+  }));
 </script>
 
 <style scoped>

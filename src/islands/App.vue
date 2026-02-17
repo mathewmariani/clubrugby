@@ -1,4 +1,5 @@
 <template>
+  <!-- Dynamic Navbar -->
   <Navbar :defaultTitle="nav.title">
     <!-- left slot -->
     <template #left v-if="nav.left">
@@ -27,20 +28,22 @@
 </template>
 
 <script setup lang="ts">
-  import { createRouter, createWebHashHistory, useRoute } from 'vue-router';
   import { computed, provide, readonly, ref, getCurrentInstance } from 'vue';
+  import { createRouter, createWebHashHistory, useRoute } from 'vue-router';
 
   import Navbar from '@/components/vue/nav/Navbar.vue';
   import TabScroller from '@/components/vue/nav/TabScroller.vue';
-
   import FixturesList from '@/components/vue/lists/FixturesList.vue';
+  import ResultsList from '@/components/vue/lists/ResultsList.vue';
   import Standings from '@/components/vue/lists/Standings.vue';
   import ClubFixturesList from '@/components/vue/lists/ClubFixturesList.vue';
   import ClubStatsList from '@/components/vue/lists/ClubStatsList.vue';
+  import FixtureDetailsList from '@/components/vue/lists/FixtureDetailsList.vue';
+  import FixtureStatsList from '@/components/vue/lists/FixtureStatsList.vue';
 
-  import UnionLayout from '@/layouts/vue/UnionLayout.vue';
-  import ClubLayout from '@/layouts/vue/ClubLayout.vue';
-  import LeagueLayout from '@/layouts/vue/LeagueLayout.vue';
+  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
+  import NavbarToggler from '@/components/vue/buttons/NavbarToggler.vue';
+  import { SITE_TITLE } from '@/consts';
 
   import type {
     AppData,
@@ -50,14 +53,8 @@
     Fixture,
   } from '@/types/appData';
   import { appDataKey } from '@/types/appData';
-  import ShareButton from '@/components/vue/buttons/ShareButton.vue';
-  import NavbarToggler from '@/components/vue/buttons/NavbarToggler.vue';
-  import { SITE_TITLE } from '@/consts';
 
-  /* --------------------------------------------------
-   Props from Astro island
--------------------------------------------------- */
-
+  /* Props from Astro island */
   const props = defineProps<{
     union: Union;
     clubs: Record<string, Club>;
@@ -66,10 +63,7 @@
     fixtures: Record<string, Fixture[]>;
   }>();
 
-  /* --------------------------------------------------
-   Provide app data globally
--------------------------------------------------- */
-
+  /* Provide global app data */
   provide(
     appDataKey,
     readonly({
@@ -81,49 +75,71 @@
     }) as AppData
   );
 
-  /* --------------------------------------------------
-   Router
--------------------------------------------------- */
-
+  /* ------------------------
+   Router setup
+------------------------ */
   const router = createRouter({
     history: createWebHashHistory(),
     scrollBehavior: () => ({ top: 0 }),
     routes: [
       {
         path: '/',
-        component: UnionLayout,
         meta: {
           nav: (route: any) => ({
             title: `${SITE_TITLE.toUpperCase()} | ${props.union.slug.toUpperCase()}`,
             left: NavbarToggler,
+            right: ShareButton,
             tabs: {
               titles: ['Fixtures', 'Results', 'Standings'],
-              routes: [`/fixtures`, `/results`, `/standings`],
+              routes: [
+                { name: 'fixtures' },
+                { name: 'results' },
+                { name: 'standings' },
+              ],
             },
           }),
         },
         children: [
           { path: '', redirect: { name: 'fixtures' } },
+          { path: 'fixtures', name: 'fixtures', component: FixturesList },
+          { path: 'results', name: 'results', component: ResultsList },
+          { path: 'standings', name: 'standings', component: Standings },
+        ],
+      },
+      {
+        path: '/fixture/:fixtureId',
+        meta: {
+          nav: (route: any) => ({
+            title: `${SITE_TITLE.toUpperCase()} | ${props.union.slug.toUpperCase()}`,
+            left: NavbarToggler,
+            right: ShareButton,
+            tabs: {
+              titles: ['Details', 'Stats'],
+              routes: [
+                { name: 'fixture-details', params: route.params },
+                { name: 'fixture-stats', params: route.params },
+              ],
+            },
+          }),
+        },
+        children: [
+          { path: '', redirect: { name: 'fixture-details' } },
           {
-            path: 'fixtures',
-            name: 'fixtures',
-            component: FixturesList,
+            path: 'details',
+            name: 'fixture-details',
+            component: FixtureDetailsList,
+            props: true,
           },
           {
-            path: 'results',
-            name: 'results',
-            component: FixturesList,
-          },
-          {
-            path: 'standings',
-            name: 'standings',
-            component: Standings,
+            path: 'stats',
+            name: 'fixture-stats',
+            component: FixtureStatsList,
+            props: true,
           },
         ],
       },
       {
         path: '/club/:clubId',
-        component: ClubLayout,
         meta: {
           nav: (route: any) => ({
             title: `Club ${route.params.clubId}`,
@@ -132,9 +148,9 @@
             tabs: {
               titles: ['Fixtures', 'Stats', 'Standings'],
               routes: [
-                `/club/${route.params.clubId}/fixtures`,
-                `/club/${route.params.clubId}/stats`,
-                `/club/${route.params.clubId}/standings`,
+                { name: 'club-fixtures', params: route.params },
+                { name: 'club-stats', params: route.params },
+                { name: 'club-standings', params: route.params },
               ],
             },
           }),
@@ -163,18 +179,17 @@
       },
       {
         path: '/league/:leagueId',
-        component: LeagueLayout,
         meta: {
           nav: (route: any) => ({
-            title: `Club ${route.params.leagueId}`,
+            title: `League ${route.params.leagueId}`,
             left: NavbarToggler,
             right: ShareButton,
             tabs: {
               titles: ['Fixtures', 'Results', 'Standings'],
               routes: [
-                `/league/${route.params.leagueId}/fixtures`,
-                `/league/${route.params.leagueId}/results`,
-                `/league/${route.params.leagueId}/standings`,
+                { name: 'league-fixtures', params: route.params },
+                { name: 'league-results', params: route.params },
+                { name: 'league-standings', params: route.params },
               ],
             },
           }),
@@ -190,7 +205,7 @@
           {
             path: 'results',
             name: 'league-results',
-            component: FixturesList,
+            component: ResultsList,
             props: true,
           },
           {
@@ -204,44 +219,31 @@
     ],
   });
 
-  /* --------------------------------------------------
-   Install router
--------------------------------------------------- */
-
+  /* Install router */
   getCurrentInstance()!.appContext.app.use(router);
 
-  /* --------------------------------------------------
-   Dynamic Navbar config
--------------------------------------------------- */
-
+  /* ------------------------
+   Navbar meta
+------------------------ */
   const route = useRoute();
-
   const nav = computed(() => {
     const meta = route.meta.nav;
-
     if (!meta) return {};
-
     return typeof meta === 'function' ? meta(route) : meta;
   });
 
-  /* --------------------------------------------------
+  /* ------------------------
    Slide transition direction
--------------------------------------------------- */
-
+------------------------ */
   const direction = ref<'forward' | 'back'>('forward');
-
   router.beforeEach((to, from, next) => {
-    const order = ['fixtures', 'standings'];
-
+    const order = ['fixtures', 'standings']; // main pages order
     const fromIndex = order.indexOf(from.name as string);
     const toIndex = order.indexOf(to.name as string);
-
-    if (fromIndex !== -1 && toIndex !== -1) {
-      direction.value = toIndex > fromIndex ? 'forward' : 'back';
-    } else {
-      direction.value = 'forward';
-    }
-
+    direction.value =
+      fromIndex !== -1 && toIndex !== -1 && toIndex < fromIndex
+        ? 'back'
+        : 'forward';
     next();
   });
 </script>

@@ -28,8 +28,6 @@
         </template>
       </template>
 
-      <p v-else class="list-group-item text-muted">No upcoming fixtures.</p>
-
       <!-- Results -->
       <template v-if="hasResults">
         <template

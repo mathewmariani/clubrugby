@@ -17,12 +17,11 @@
           v-for="(fixtures, leagueId) in fixturesByLeague"
           :key="leagueId"
         >
-          <a
+          <router-link
             v-for="fixture in fixtures"
             :key="fixture.fixtureId"
-            :href="fixtureHref(fixture)"
+            :to="fixtureLink(fixture)"
             class="list-group-item-action text-decoration-none"
-            role="button"
           >
             <div class="d-flex justify-content-between align-items-center">
               <!-- Opponent -->
@@ -74,7 +73,7 @@
                 </template>
               </div>
             </div>
-          </a>
+          </router-link>
         </template>
       </div>
     </div>
@@ -87,8 +86,10 @@
   import type { Fixture } from '@/types/appData';
   import { useMatchClubs, getLeagueName } from '@/composables/utils';
   import { useAppData } from '@/composables/useAppData';
+  import { useRouting } from '@/composables/useRouting';
 
   const { union, clubs, leagues } = useAppData();
+  const r = useRouting(union.slug);
 
   const props = defineProps<{
     clubId: string;
@@ -98,7 +99,6 @@
   const fixturesByLeague = computed(() => props.fixturesByLeague ?? {});
 
   /* --- Date helpers --- */
-
   const firstMatchDate = computed(() => {
     const allFixtures = Object.values(fixturesByLeague.value).flat();
     if (!allFixtures.length) return new Date();
@@ -113,10 +113,10 @@
   }
 
   /* --- Match helpers --- */
-
-  function fixtureHref(fixture: Fixture) {
-    return `/${union.slug}/fixture/${fixture.fixtureId}`;
+  function fixtureLink(fixture: Fixture) {
+    return r.fixture(fixture.fixtureId);
   }
+
   function isResult(fixture: Fixture) {
     return fixture.fixtureStatus === 'result';
   }
