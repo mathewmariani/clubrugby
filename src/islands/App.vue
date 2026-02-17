@@ -1,6 +1,6 @@
 <template>
   <!-- Dynamic Navbar -->
-  <Navbar :defaultTitle="nav.title">
+  <Navbar :title="title">
     <!-- left slot -->
     <template #left v-if="nav.left">
       <component :is="nav.left" />
@@ -142,7 +142,6 @@
         path: '/club/:clubId',
         meta: {
           nav: (route: any) => ({
-            title: `Club ${route.params.clubId}`,
             left: NavbarToggler,
             right: ShareButton,
             tabs: {
@@ -181,7 +180,6 @@
         path: '/league/:leagueId',
         meta: {
           nav: (route: any) => ({
-            title: `League ${route.params.leagueId}`,
             left: NavbarToggler,
             right: ShareButton,
             tabs: {
@@ -230,6 +228,19 @@
     const meta = route.meta.nav;
     if (!meta) return {};
     return typeof meta === 'function' ? meta(route) : meta;
+  });
+
+  const title = computed(() => {
+    const { clubId, leagueId } = route.params as any;
+
+    if (clubId && props.clubs[clubId]) {
+      return props.clubs[clubId].name;
+    }
+    if (leagueId && props.leagues[leagueId]) {
+      return props.leagues[leagueId];
+    }
+    // fallback.
+    return nav.value?.title ?? 'Unknown';
   });
 
   /* ------------------------

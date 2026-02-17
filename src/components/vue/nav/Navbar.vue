@@ -8,7 +8,7 @@
 
       <!-- Title -->
       <div class="navbar-brand text-truncate flex-grow-1 mb-0">
-        {{ nav.title }}
+        {{ $props.title }}
       </div>
 
       <!-- Right slot (optional) -->
@@ -42,7 +42,7 @@
   const route = useRoute();
 
   const props = defineProps({
-    defaultTitle: String,
+    title: String,
   });
 
   const nav = computed(() => {
