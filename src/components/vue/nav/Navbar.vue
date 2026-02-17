@@ -63,15 +63,3 @@
     observer.observe(navbarRef.value);
   });
 </script>
-
-<style scoped>
-  .brand {
-    padding-top: var(--bs-navbar-brand-padding-y);
-    padding-bottom: var(--bs-navbar-brand-padding-y);
-    margin-right: var(--bs-navbar-brand-margin-end);
-    font-size: var(--bs-navbar-brand-font-size);
-    color: var(--bs-navbar-brand-color);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-</style>
