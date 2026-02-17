@@ -88,8 +88,8 @@
   import { useAppData } from '@/composables/useAppData';
   import { useRouting } from '@/composables/useRouting';
 
-  const { union, clubs, leagues } = useAppData();
-  const r = useRouting(union.slug);
+  const { clubs, leagues } = useAppData();
+  const r = useRouting();
 
   const props = defineProps<{
     clubId: string;

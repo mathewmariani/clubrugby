@@ -8,8 +8,5 @@ export function useAppData() {
     throw new Error('useAppData must be used after appData is provided');
   }
 
-  const getClub = (id: string) => data.clubs[id];
-  const getLeague = (id: string) => data.leagues[id];
-
   return data;
 }

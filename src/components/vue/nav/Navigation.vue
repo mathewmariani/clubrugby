@@ -48,7 +48,7 @@
   import { useRouting } from '@/composables/useRouting';
 
   const { union, leagues } = useAppData();
-  const r = useRouting(union.slug);
+  const r = useRouting();
 
   const isDarkMode = ref(false);
 

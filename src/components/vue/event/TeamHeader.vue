@@ -38,13 +38,11 @@
 
 <script setup lang="ts">
   import { computed } from 'vue';
-  import { useAppData } from '@/composables/useAppData';
   import { useRouting } from '@/composables/useRouting';
   import EventScore from '@/components/vue/event/EventScore.vue';
   import type { Club, FixtureResultSummary } from '@/types/appData';
 
-  const { union } = useAppData();
-  const r = useRouting(union.slug);
+  const r = useRouting();
 
   const props = defineProps<{
     home?: Club;
