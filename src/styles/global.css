@@ -98,11 +98,27 @@ tbody tr:not(:last-child) {
 /* shared sticky behavior */
 .sticky {
   position: sticky;
+}
+
+.sticky-day {
+  z-index: 20;
+}
+
+.sticky-league {
   z-index: 10;
 }
 
-.sticky th {
+.sticky-thead th {
+  position: sticky;
+  z-index: 5;
   background: var(--bs-body-tertiary-bg, var(--bs-tertiary-bg));
+}
+
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
 }
 
 /* ================================

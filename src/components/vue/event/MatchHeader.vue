@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky" :style="{ top: navbarHeight + 'px' }">
+  <div class="sticky sticky-league" :style="{ top: navbarHeight + 'px' }">
     <div class="list-group-header list-group-item">
       <div class="d-flex justify-content-between align-items-center">
         {{ leagueName }}

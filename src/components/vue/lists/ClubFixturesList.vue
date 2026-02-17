@@ -17,7 +17,9 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <StickyListGroupHeader :str="month" />
+            <div class="sticky sticky-day list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+              {{ month }}
+            </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
                 :clubId="clubId"
@@ -35,7 +37,9 @@
           :key="month"
         >
           <div class="list-group list-group-flush">
-            <StickyListGroupHeader :str="month" />
+            <div class="sticky sticky-day list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+              {{ month }}
+            </div>
             <template v-for="(matchesForDay, day) in daysForMonth" :key="day">
               <ScheduleListItem
                 :clubId="clubId"
@@ -55,8 +59,10 @@
   import StickyListGroupHeader from '@/components/vue/items/StickyListGroupHeader.vue';
   import { useFixtureFilters } from '@/composables/useFixtureFilters';
   import { useAppData } from '@/composables/useAppData';
+  import { useLayout } from '@/composables/useLayout';
 
   const { fixtures } = useAppData();
+  const { navbarHeight } = useLayout();
 
   /* ---------------------------------
    Get club_id from URL (Astro-safe)

@@ -1,9 +1,11 @@
 <template>
   <div class="list-group list-group-flush">
-    <StickyListGroupHeader :str="day" />
+    <div class="sticky sticky-day list-group-header list-group-item" :style="{ top: navbarHeight + 'px' }">
+      {{ day }}
+    </div>
     <template v-for="(fixtures, leagueId) in leaguesForDay" :key="leagueId">
       <div class="list-group list-group-flush">
-        <div class="sticky" :style="{ top: leagueTopOffset + 'px' }">
+        <div class="sticky sticky-league" :style="{ top: leagueTopOffset + 'px' }">
           <div class="list-group-header list-group-item">
             <small>{{ getLeagueName(leagueId.toString(), leagues) }}</small>
           </div>

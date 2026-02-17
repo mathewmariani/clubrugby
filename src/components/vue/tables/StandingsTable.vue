@@ -1,6 +1,6 @@
 <template>
   <table class="table table-borderless table-fixed">
-    <thead class="sticky">
+    <thead class="sticky-thead" :style="{ top: navbarHeight + 'px' }">
       <tr>
         <th>{{ title }}</th>
         <th v-for="col in columns" :key="col.key">
@@ -47,8 +47,10 @@
 <script setup lang="ts">
   import type { Standing } from '@/types/appData';
   import { useAppData } from '@/composables/useAppData';
+  import { useLayout } from '@/composables/useLayout';
 
   const { clubs } = useAppData();
+  const { navbarHeight } = useLayout();
 
   const props = defineProps<{
     title: string;
