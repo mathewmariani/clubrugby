@@ -1,7 +1,7 @@
 <template>
   <nav ref="navbarRef" class="navbar bg-body-tertiary fixed-top border-bottom">
-    <div class="container-fluid d-flex align-items-center gap-2">
-      <!-- Left slot (optional) -->
+    <div class="container-fluid d-flex flex-nowrap align-items-center">
+      <!-- Left -->
       <component v-if="nav.left" :is="nav.left" />
 
       <!-- Title -->
@@ -9,18 +9,19 @@
         {{ $props.title }}
       </div>
 
-      <!-- Right slot (optional) -->
+      <!-- Right -->
       <component v-if="nav.right" :is="nav.right" />
     </div>
 
-    <!-- Tabs slot (optional) -->
+    <!-- Tabs row (optional) -->
     <div
-      class="container-fluid d-flex align-items-center gap-2"
       v-if="nav.tabs"
+      class="container-fluid d-flex align-items-center gap-2 mt-1"
     >
       <TabScroller :titles="nav.tabs.titles" :routes="nav.tabs.routes" />
     </div>
 
+    <!-- Offcanvas -->
     <OffcanvasNav />
   </nav>
 
@@ -62,3 +63,15 @@
     observer.observe(navbarRef.value);
   });
 </script>
+
+<style scoped>
+  .brand {
+    padding-top: var(--bs-navbar-brand-padding-y);
+    padding-bottom: var(--bs-navbar-brand-padding-y);
+    margin-right: var(--bs-navbar-brand-margin-end);
+    font-size: var(--bs-navbar-brand-font-size);
+    color: var(--bs-navbar-brand-color);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+</style>
