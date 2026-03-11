@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260311T112919Z
+DESCRIPTION:Senior Exhibition\nAbbotsford RFC vs Western Washington\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6830364
+DTEND:20260314T131400Z
+GEO:49.040100;-122.340000
+LOCATION:Exhibition Park
+DTSTART:20260314T111400Z
+SUMMARY:Abbotsford RFC vs Western Washington
+UID:6830364@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6830364
+END:VEVENT
+END:VCALENDAR
