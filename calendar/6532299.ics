@@ -7,11 +7,11 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260311T112931Z
+DTSTAMP:20260312T112825Z
 DESCRIPTION:Mens Division 1 \nPort Alberni Black Sheep vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532299
 DTEND:20260328T150000Z
-GEO:48.421900;-123.307000
-LOCATION:Windsor Park
+GEO:49.235000;-124.788000
+LOCATION:Port Alberni- Black Sheep Rugby Park
 DTSTART:20260328T130000Z
 SUMMARY:Port Alberni Black Sheep vs Castaway Wanderers
 UID:6532299@clubrugby.ca
