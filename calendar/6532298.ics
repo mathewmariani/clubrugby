@@ -7,12 +7,12 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260324T114138Z
+DTSTAMP:20260325T113808Z
 DESCRIPTION:Mens Division 1 \nComox Valley Kickers vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532298
-DTEND:20260328T163000Z
+DTEND:20260328T153000Z
 GEO:49.624300;-125.021000
 LOCATION:Comox- Cumberland Village Park
-DTSTART:20260328T143000Z
+DTSTART:20260328T133000Z
 SUMMARY:Comox Valley Kickers vs Vancouver Rowing Club
 UID:6532298@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532298
