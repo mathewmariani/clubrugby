@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260420T115941Z
-DESCRIPTION:Age Grade Exhibition \nUnited vs Away Team\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851714
+DTSTAMP:20260421T115703Z
+DESCRIPTION:Age Grade Exhibition \nUnited vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851714
 DTEND:20260419T130000Z
 GEO:49.278600;-122.782000
 LOCATION:Maple Creek Middle School
 DTSTART:20260419T110000Z
-SUMMARY:United vs Away Team
+SUMMARY:United vs Axemen Rugby Club
 UID:6851714@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6851714
 END:VEVENT

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260421T115703Z
+DESCRIPTION:Age Grade Exhibition \nScribes vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852600
+DTEND:20260426T120000Z
+GEO:0.000000;0.000000
+LOCATION:Prince of Wales Secondary
+DTSTART:20260426T100000Z
+SUMMARY:Scribes vs Ridge Meadows
+UID:6852600@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6852600
+END:VEVENT
+END:VCALENDAR
