@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121804Z
-DESCRIPTION:Mens Division 2 \nKelowna Crows vs Winner QF 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854884
+DTSTAMP:20260428T122153Z
+DESCRIPTION:Mens Division 2 \nKelowna Crows vs Kats RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854884
 DTEND:20260502T134500Z
 GEO:49.898300;-119.380000
 LOCATION:Rutland Recreation Park
 DTSTART:20260502T114500Z
-SUMMARY:Kelowna Crows vs Winner QF 2
+SUMMARY:Kelowna Crows vs Kats RFC
 UID:6854884@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854884
 END:VEVENT

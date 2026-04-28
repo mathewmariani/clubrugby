@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121808Z
-DESCRIPTION:Mens Premier \nUBC RFC (Men's) vs Winner QF3\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854881
+DTSTAMP:20260428T122157Z
+DESCRIPTION:Mens Premier \nUBC RFC (Men's) vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854881
 DTEND:20260502T153000Z
 GEO:49.260200;-123.243000
 LOCATION:UBC- Gerald McGavin Centre
 DTSTART:20260502T133000Z
-SUMMARY:UBC RFC (Men's) vs Winner QF3
+SUMMARY:UBC RFC (Men's) vs University Of Victoria
 UID:6854881@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854881
 END:VEVENT

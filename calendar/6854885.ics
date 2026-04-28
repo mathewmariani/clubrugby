@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121804Z
-DESCRIPTION:Mens Division 2 \nWinner QF3 vs Winner QF4\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854885
+DTSTAMP:20260428T122153Z
+DESCRIPTION:Mens Division 2 \nKamloops vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854885
 DTEND:20260502T134500Z
-GEO:0.000000;0.000000
-LOCATION:Field 2
+GEO:50.675800;-120.311000
+LOCATION:Kamloops Exhibition Park
 DTSTART:20260502T114500Z
-SUMMARY:Winner QF3 vs Winner QF4
+SUMMARY:Kamloops vs United
 UID:6854885@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854885
 END:VEVENT

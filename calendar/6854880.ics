@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121808Z
-DESCRIPTION:Mens Premier \nUBCOB Ravens vs Winner QF 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854880
+DTSTAMP:20260428T122157Z
+DESCRIPTION:Mens Premier \nUBCOB Ravens vs James Bay AA\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854880
 DTEND:20260502T153000Z
 GEO:49.274100;-123.202000
 LOCATION:Jericho Beach Park
 DTSTART:20260502T133000Z
-SUMMARY:UBCOB Ravens vs Winner QF 2
+SUMMARY:UBCOB Ravens vs James Bay AA
 UID:6854880@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854880
 END:VEVENT

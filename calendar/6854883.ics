@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121807Z
-DESCRIPTION:Mens Division 1 \nWinner QF 1 vs Winner QF 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854883
-DTEND:20260502T010000Z
-GEO:0.000000;0.000000
-LOCATION:Island
-DTSTART:20260501T230000Z
-SUMMARY:Winner QF 1 vs Winner QF 2
+DTSTAMP:20260428T122156Z
+DESCRIPTION:Mens Division 1 \nUniversity Of Victoria vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854883
+DTEND:20260502T134500Z
+GEO:49.260200;-123.243000
+LOCATION:UBC- Gerald McGavin Centre
+DTSTART:20260502T114500Z
+SUMMARY:University Of Victoria vs Capilano
 UID:6854883@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854883
 END:VEVENT

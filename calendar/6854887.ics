@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121802Z
-DESCRIPTION:Mens Division 3 \nWinner QF3 vs Winner QF4\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854887
-DTEND:20260502T010000Z
-GEO:0.000000;0.000000
-LOCATION:Field 2
-DTSTART:20260501T230000Z
-SUMMARY:Winner QF3 vs Winner QF4
+DTSTAMP:20260428T122150Z
+DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854887
+DTEND:20260502T134500Z
+GEO:49.301000;-123.132000
+LOCATION:Brockton Oval
+DTSTART:20260502T114500Z
+SUMMARY:Vancouver Rowing Club vs Bayside
 UID:6854887@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854887
 END:VEVENT

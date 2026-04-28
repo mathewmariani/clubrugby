@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260427T121802Z
-DESCRIPTION:Mens Division 3 \nWinner QF 1 vs Winner QF 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854886
-DTEND:20260502T010000Z
-GEO:0.000000;0.000000
-LOCATION:Winner QF 1
-DTSTART:20260501T230000Z
-SUMMARY:Winner QF 1 vs Winner QF 2
+DTSTAMP:20260428T122150Z
+DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854886
+DTEND:20260502T121500Z
+GEO:49.250900;-122.961000
+LOCATION:Burnaby Lake Rugby Club
+DTSTART:20260502T101500Z
+SUMMARY:Burnaby Lake vs Langley RFC
 UID:6854886@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854886
 END:VEVENT
