@@ -7,11 +7,11 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260430T121124Z
+DTSTAMP:20260501T115457Z
 DESCRIPTION:Womens Division 2 Tier 1\nChilliwack Crusaders vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854890
 DTEND:20260502T121500Z
-GEO:49.071100;-122.071000
-LOCATION:Chilliwack- Yarrow Sportsfield
+GEO:49.131200;-121.960000
+LOCATION:Sardis Senior Secondary 
 DTSTART:20260502T101500Z
 SUMMARY:Chilliwack Crusaders vs Ridge Meadows
 UID:6854890@clubrugby.ca
