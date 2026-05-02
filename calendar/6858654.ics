@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260502T114016Z
+DESCRIPTION:Age Grade Exhibition \nAxemen Rugby Club vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858654
+DTEND:20260531T120000Z
+GEO:49.699000;-123.153000
+LOCATION:Howe Sound Secondary
+DTSTART:20260531T100000Z
+SUMMARY:Axemen Rugby Club vs UBCOB Ravens
+UID:6858654@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6858654
+END:VEVENT
+END:VCALENDAR
