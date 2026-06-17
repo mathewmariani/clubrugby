@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154947Z
-DESCRIPTION:Womens Division 1\nBayside vs Comox Valley Kickers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532761
+DTSTAMP:20260617T142412Z
+DESCRIPTION:Womens Division 1\nBayside B vs Comox Valley Kickers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532761
 DTEND:20251025T130000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251025T110000Z
-SUMMARY:Bayside vs Comox Valley Kickers
+SUMMARY:Bayside B vs Comox Valley Kickers
 UID:6532761@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532761
 END:VEVENT

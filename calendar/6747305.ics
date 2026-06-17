@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154921Z
-DESCRIPTION:Mainland U14 Girls\nLangley RFC vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6747305
+DTSTAMP:20260617T142423Z
+DESCRIPTION:Mainland U14 Girls\nLangley RFC 1 vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6747305
 DTEND:20251116T120000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251116T100000Z
-SUMMARY:Langley RFC vs United
+SUMMARY:Langley RFC 1 vs United
 UID:6747305@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6747305
 END:VEVENT

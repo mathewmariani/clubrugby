@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533198
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533198
 DTEND:20251115T144500Z
 GEO:49.276700;-122.925000
 LOCATION:Simon Fraser Field 4
 DTSTART:20251115T124500Z
-SUMMARY:Simon Fraser RC vs Langley RFC
+SUMMARY:Simon Fraser RC vs Langley RFC 1
 UID:6533198@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533198
 END:VEVENT

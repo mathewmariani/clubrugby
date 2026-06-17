@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154950Z
-DESCRIPTION:Mens Division 1 \nAbbotsford RFC vs UBC RFC (Men's)\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532319
+DTSTAMP:20260617T142410Z
+DESCRIPTION:Mens Division 1 \nAbbotsford RFC 2 vs UBC RFC (Men's)\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532319
 DTEND:20260207T120000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260207T100000Z
-SUMMARY:Abbotsford RFC vs UBC RFC (Men's)
+SUMMARY:Abbotsford RFC 2 vs UBC RFC (Men's)
 UID:6532319@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532319
 END:VEVENT

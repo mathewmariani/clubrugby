@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154941Z
-DESCRIPTION:2025 Junior 7s\nAbbotsford RFC vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6683621
+DTSTAMP:20260617T142420Z
+DESCRIPTION:2025 Junior 7s\nAbbotsford RFC 2 vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6683621
 DTEND:20250914T150000Z
 GEO:49.068300;-122.323000
 LOCATION:Abbotsford Exhibition Park
 DTSTART:20250914T130000Z
-SUMMARY:Abbotsford RFC vs United
+SUMMARY:Abbotsford RFC 2 vs United
 UID:6683621@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6683621
 END:VEVENT

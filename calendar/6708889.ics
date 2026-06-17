@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154938Z
-DESCRIPTION:Mainland U14 Boys\nAxemen Rugby Club vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708889
+DTSTAMP:20260617T142422Z
+DESCRIPTION:Mainland U14 Boys\nAxemen Rugby Club vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708889
 DTEND:20251026T130000Z
 GEO:49.726000;-123.144000
 LOCATION:Brennan Park field
 DTSTART:20251026T110000Z
-SUMMARY:Axemen Rugby Club vs Capilano
+SUMMARY:Axemen Rugby Club vs Capilano 2
 UID:6708889@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708889
 END:VEVENT

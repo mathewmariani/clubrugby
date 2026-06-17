@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154950Z
-DESCRIPTION:Mens Division 1 \nLangley RFC vs Nanaimo Hornets\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532287
+DTSTAMP:20260617T142410Z
+DESCRIPTION:Mens Division 1 \nLangley RFC 1 vs Nanaimo Hornets\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532287
 DTEND:20260221T163000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20260221T143000Z
-SUMMARY:Langley RFC vs Nanaimo Hornets
+SUMMARY:Langley RFC 1 vs Nanaimo Hornets
 UID:6532287@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532287
 END:VEVENT

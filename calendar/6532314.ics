@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154950Z
-DESCRIPTION:Mens Division 1 \nMeraloma vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532314
+DTSTAMP:20260617T142410Z
+DESCRIPTION:Mens Division 1 \nMeraloma vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532314
 DTEND:20260131T144500Z
 GEO:49.261700;-123.160000
 LOCATION:Connaught Park
 DTSTART:20260131T124500Z
-SUMMARY:Meraloma vs Langley RFC
+SUMMARY:Meraloma vs Langley RFC 1
 UID:6532314@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532314
 END:VEVENT

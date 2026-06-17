@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154945Z
-DESCRIPTION:Womens Pre Season\nAbbotsford RFC vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533134
+DTSTAMP:20260617T142415Z
+DESCRIPTION:Womens Pre Season\nAbbotsford RFC 2 vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533134
 DTEND:20250927T134500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20250927T114500Z
-SUMMARY:Abbotsford RFC vs Burnaby Lake
+SUMMARY:Abbotsford RFC 2 vs Burnaby Lake
 UID:6533134@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533134
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154951Z
-DESCRIPTION:Mens Premier \nCapilano vs Pacific Pride\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532165
+DTSTAMP:20260617T142409Z
+DESCRIPTION:Mens Premier \nCapilano 2 vs Pacific Pride\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532165
 DTEND:20260124T163000Z
 GEO:49.274100;-123.202000
 LOCATION:Jericho Beach Park
 DTSTART:20260124T143000Z
-SUMMARY:Capilano vs Pacific Pride
+SUMMARY:Capilano 2 vs Pacific Pride
 UID:6532165@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532165
 END:VEVENT

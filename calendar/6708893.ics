@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154938Z
-DESCRIPTION:Mainland U14 Boys\nAbbotsford RFC vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708893
+DTSTAMP:20260617T142422Z
+DESCRIPTION:Mainland U14 Boys\nAbbotsford RFC 2 vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708893
 DTEND:20251109T130000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251109T110000Z
-SUMMARY:Abbotsford RFC vs Kamloops
+SUMMARY:Abbotsford RFC 2 vs Kamloops
 UID:6708893@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708893
 END:VEVENT

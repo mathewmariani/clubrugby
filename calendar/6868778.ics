@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260617T142404Z
+DESCRIPTION:Okanagan League\nVernon vs Yeti Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6868778
+DTEND:20260425T140000Z
+GEO:50.246800;-119.303000
+LOCATION:Vernon- Grahame Park/Fulton Secondary
+DTSTART:20260425T120000Z
+SUMMARY:Vernon vs Yeti Rugby Club
+UID:6868778@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6868778
+END:VEVENT
+END:VCALENDAR

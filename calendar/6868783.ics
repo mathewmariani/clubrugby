@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260617T142404Z
+DESCRIPTION:Okanagan League\nVernon vs Penticton Harlequins\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6868783
+DTEND:20260620T140000Z
+GEO:50.246800;-119.303000
+LOCATION:Vernon- Grahame Park/Fulton Secondary
+DTSTART:20260620T120000Z
+SUMMARY:Vernon vs Penticton Harlequins
+UID:6868783@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6868783
+END:VEVENT
+END:VCALENDAR

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154933Z
-DESCRIPTION:Mainland U16 Girls\nLangley RFC vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708842
+DTSTAMP:20260617T142350Z
+DESCRIPTION:Mainland U16 Girls\nLangley RFC 1 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708842
 DTEND:20251116T141500Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251116T121500Z
-SUMMARY:Langley RFC vs Abbotsford RFC
+SUMMARY:Langley RFC 1 vs Abbotsford RFC 2
 UID:6708842@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708842
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nBayside vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554142
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nBayside B vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554142
 DTEND:20260328T144500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20260328T124500Z
-SUMMARY:Bayside vs Meraloma
+SUMMARY:Bayside B vs Meraloma
 UID:6554142@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554142
 END:VEVENT

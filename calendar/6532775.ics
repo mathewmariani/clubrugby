@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154947Z
-DESCRIPTION:Womens Division 1\nBayside vs James Bay AA\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532775
+DTSTAMP:20260617T142412Z
+DESCRIPTION:Womens Division 1\nBayside B vs James Bay AA\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532775
 DTEND:20251122T131500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251122T111500Z
-SUMMARY:Bayside vs James Bay AA
+SUMMARY:Bayside B vs James Bay AA
 UID:6532775@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532775
 END:VEVENT

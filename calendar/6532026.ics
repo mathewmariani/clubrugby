@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154951Z
-DESCRIPTION:Mens Premier \nCapilano vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532026
+DTSTAMP:20260617T142409Z
+DESCRIPTION:Mens Premier \nCapilano 2 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532026
 DTEND:20250913T153000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20250913T133000Z
-SUMMARY:Capilano vs Meraloma
+SUMMARY:Capilano 2 vs Meraloma
 UID:6532026@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532026
 END:VEVENT

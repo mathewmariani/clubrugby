@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nBayside vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6741563
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nBayside B vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6741563
 DTEND:20251116T141500Z
 GEO:49.219300;-122.596000
 LOCATION:Telosky Stadium 
 DTSTART:20251116T121500Z
-SUMMARY:Bayside vs Ridge Meadows
+SUMMARY:Bayside B vs Ridge Meadows
 UID:6741563@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6741563
 END:VEVENT

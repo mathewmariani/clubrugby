@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154937Z
-DESCRIPTION:Senior Exhibition\nBayside vs Western Washington\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6791854
+DTSTAMP:20260617T142417Z
+DESCRIPTION:Senior Exhibition\nBayside B vs Western Washington\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6791854
 DTEND:20260131T144500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20260131T124500Z
-SUMMARY:Bayside vs Western Washington
+SUMMARY:Bayside B vs Western Washington
 UID:6791854@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6791854
 END:VEVENT

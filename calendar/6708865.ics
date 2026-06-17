@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154921Z
-DESCRIPTION:Mainland U14 Girls\nAbbotsford RFC vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708865
+DTSTAMP:20260617T142423Z
+DESCRIPTION:Mainland U14 Girls\nAbbotsford RFC 2 vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708865
 DTEND:20251019T103000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251019T083000Z
-SUMMARY:Abbotsford RFC vs Langley RFC
+SUMMARY:Abbotsford RFC 2 vs Langley RFC 1
 UID:6708865@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708865
 END:VEVENT

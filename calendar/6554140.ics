@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nKelowna Crows vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554140
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nKelowna Crows vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554140
 DTEND:20260321T144500Z
 GEO:49.883500;-119.458000
 LOCATION:Parkinson Rec Park
 DTSTART:20260321T124500Z
-SUMMARY:Kelowna Crows vs Capilano
+SUMMARY:Kelowna Crows vs Capilano 2
 UID:6554140@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554140
 END:VEVENT

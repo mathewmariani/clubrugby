@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554112
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554112
 DTEND:20260207T131500Z
 GEO:49.301000;-123.132000
 LOCATION:Brockton Oval
 DTSTART:20260207T111500Z
-SUMMARY:Vancouver Rowing Club vs Langley RFC
+SUMMARY:Vancouver Rowing Club vs Langley RFC 1
 UID:6554112@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554112
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154951Z
-DESCRIPTION:Mens Premier \nUBC RFC (Men's) vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532188
+DTSTAMP:20260617T142409Z
+DESCRIPTION:Mens Premier \nUBC RFC (Men's) vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532188
 DTEND:20260321T163000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260321T143000Z
-SUMMARY:UBC RFC (Men's) vs Capilano
+SUMMARY:UBC RFC (Men's) vs Capilano 2
 UID:6532188@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532188
 END:VEVENT

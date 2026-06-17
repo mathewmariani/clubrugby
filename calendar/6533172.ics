@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nAbbotsford RFC vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533172
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nAbbotsford RFC 2 vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533172
 DTEND:20250927T134500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20250927T114500Z
-SUMMARY:Abbotsford RFC vs Bayside
+SUMMARY:Abbotsford RFC 2 vs Bayside B
 UID:6533172@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533172
 END:VEVENT

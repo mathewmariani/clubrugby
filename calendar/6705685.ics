@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154921Z
-DESCRIPTION:Mainland U14 Girls\nAbbotsford RFC vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705685
+DTSTAMP:20260617T142423Z
+DESCRIPTION:Mainland U14 Girls\nAbbotsford RFC 2 vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705685
 DTEND:20250928T113000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20250928T093000Z
-SUMMARY:Abbotsford RFC vs Bayside
+SUMMARY:Abbotsford RFC 2 vs Bayside B
 UID:6705685@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705685
 END:VEVENT

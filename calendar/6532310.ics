@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154950Z
-DESCRIPTION:Mens Division 1 \nLangley RFC vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532310
+DTSTAMP:20260617T142410Z
+DESCRIPTION:Mens Division 1 \nLangley RFC 1 vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532310
 DTEND:20260117T163000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20260117T143000Z
-SUMMARY:Langley RFC vs Capilano
+SUMMARY:Langley RFC 1 vs Capilano 2
 UID:6532310@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532310
 END:VEVENT

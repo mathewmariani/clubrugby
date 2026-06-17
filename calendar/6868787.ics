@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260617T142405Z
+DESCRIPTION:Kootenays Cup\nRocky Mountain Rogues vs Elk Valley\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6868787
+DTEND:20260620T140000Z
+GEO:49.509400;-115.768000
+LOCATION:Rocky Mountain Rogues- College of the Rockies
+DTSTART:20260620T120000Z
+SUMMARY:Rocky Mountain Rogues vs Elk Valley
+UID:6868787@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6868787
+END:VEVENT
+END:VCALENDAR

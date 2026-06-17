@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154949Z
-DESCRIPTION:Womens Premier \nWestshore vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532717
+DTSTAMP:20260617T142411Z
+DESCRIPTION:Womens Premier \nWestshore vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532717
 DTEND:20251101T144500Z
 GEO:48.443600;-123.463000
 LOCATION:Juan De Fuca
 DTSTART:20251101T124500Z
-SUMMARY:Westshore vs Abbotsford RFC
+SUMMARY:Westshore vs Abbotsford RFC 2
 UID:6532717@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532717
 END:VEVENT

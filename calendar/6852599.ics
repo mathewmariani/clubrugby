@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nAxemen Rugby Club vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852599
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nAxemen Rugby Club vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852599
 DTEND:20260426T120000Z
 GEO:49.699000;-123.153000
 LOCATION:Howe Sound Secondary
 DTSTART:20260426T100000Z
-SUMMARY:Axemen Rugby Club vs Langley RFC
+SUMMARY:Axemen Rugby Club vs Langley RFC 1
 UID:6852599@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6852599
 END:VEVENT

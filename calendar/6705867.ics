@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154931Z
-DESCRIPTION:Mainland U18 Boys Pool A\nCapilano vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705867
+DTSTAMP:20260617T142352Z
+DESCRIPTION:Mainland U18 Boys Pool A\nCapilano 2 vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705867
 DTEND:20251102T141500Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251102T121500Z
-SUMMARY:Capilano vs Kamloops
+SUMMARY:Capilano 2 vs Kamloops
 UID:6705867@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705867
 END:VEVENT

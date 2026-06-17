@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154951Z
-DESCRIPTION:Mens Premier \nCapilano vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532179
+DTSTAMP:20260617T142409Z
+DESCRIPTION:Mens Premier \nCapilano 2 vs University Of Victoria\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532179
 DTEND:20260314T163000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260314T143000Z
-SUMMARY:Capilano vs University Of Victoria
+SUMMARY:Capilano 2 vs University Of Victoria
 UID:6532179@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532179
 END:VEVENT

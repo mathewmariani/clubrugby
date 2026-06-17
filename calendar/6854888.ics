@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154947Z
-DESCRIPTION:Womens Division 1\nComox Valley Kickers vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854888
+DTSTAMP:20260617T142412Z
+DESCRIPTION:Womens Division 1\nComox Valley Kickers vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854888
 DTEND:20260502T134500Z
 GEO:49.242600;-124.054000
 LOCATION:May Bennett Pioneer
 DTSTART:20260502T114500Z
-SUMMARY:Comox Valley Kickers vs Capilano
+SUMMARY:Comox Valley Kickers vs Capilano 2
 UID:6854888@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854888
 END:VEVENT

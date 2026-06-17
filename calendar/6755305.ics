@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nCastaway Wanderers vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6755305
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nCastaway Wanderers vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6755305
 DTEND:20251123T144000Z
 GEO:48.443600;-123.463000
 LOCATION:Juan De Fuca
 DTSTART:20251123T124000Z
-SUMMARY:Castaway Wanderers vs Langley RFC
+SUMMARY:Castaway Wanderers vs Langley RFC 1
 UID:6755305@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6755305
 END:VEVENT

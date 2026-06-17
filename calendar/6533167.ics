@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nAxemen Rugby Club vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533167
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nAxemen Rugby Club vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533167
 DTEND:20250913T121500Z
 GEO:49.726000;-123.144000
 LOCATION:Brennan Park field
 DTSTART:20250913T101500Z
-SUMMARY:Axemen Rugby Club vs Abbotsford RFC
+SUMMARY:Axemen Rugby Club vs Abbotsford RFC 2
 UID:6533167@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533167
 END:VEVENT

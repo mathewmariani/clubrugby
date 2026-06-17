@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154943Z
-DESCRIPTION:Womens Division 2 Tier 1\nKelowna Crows vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554205
+DTSTAMP:20260617T142406Z
+DESCRIPTION:Womens Division 2 Tier 1\nKelowna Crows vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554205
 DTEND:20260411T121500Z
 GEO:49.898300;-119.380000
 LOCATION:Rutland Recreation Park
 DTSTART:20260411T101500Z
-SUMMARY:Kelowna Crows vs Langley RFC
+SUMMARY:Kelowna Crows vs Langley RFC 1
 UID:6554205@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554205
 END:VEVENT

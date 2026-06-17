@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154936Z
-DESCRIPTION:Mainland U16 Boys Pool A\nCapilano vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744466
+DTSTAMP:20260617T142356Z
+DESCRIPTION:Mainland U16 Boys Pool A\nCapilano 2 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744466
 DTEND:20251130T141500Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251130T121500Z
-SUMMARY:Capilano vs Abbotsford RFC
+SUMMARY:Capilano 2 vs Abbotsford RFC 2
 UID:6744466@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6744466
 END:VEVENT

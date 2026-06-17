@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154937Z
-DESCRIPTION:Senior Exhibition\nLangley RFC vs Trinity Western University\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6756293
+DTSTAMP:20260617T142417Z
+DESCRIPTION:Senior Exhibition\nLangley RFC 1 vs Trinity Western University\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6756293
 DTEND:20260124T153000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20260124T133000Z
-SUMMARY:Langley RFC vs Trinity Western University
+SUMMARY:Langley RFC 1 vs Trinity Western University
 UID:6756293@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6756293
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154937Z
-DESCRIPTION:Senior Exhibition\nVancouver Thunderbirds 2 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6791277
+DTSTAMP:20260617T142417Z
+DESCRIPTION:Senior Exhibition\nVancouver Thunderbirds 1 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6791277
 DTEND:20260131T120000Z
 GEO:49.260200;-123.243000
 LOCATION:UBC- Gerald McGavin Centre
 DTSTART:20260131T100000Z
-SUMMARY:Vancouver Thunderbirds 2 vs Meraloma
+SUMMARY:Vancouver Thunderbirds 1 vs Meraloma
 UID:6791277@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6791277
 END:VEVENT

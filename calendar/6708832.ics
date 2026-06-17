@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154933Z
-DESCRIPTION:Mainland U16 Girls\nUnited vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708832
+DTSTAMP:20260617T142350Z
+DESCRIPTION:Mainland U16 Girls\nUnited vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708832
 DTEND:20251026T141500Z
 GEO:49.290300;-122.786000
 LOCATION:Town Centre South
 DTSTART:20251026T121500Z
-SUMMARY:United vs Abbotsford RFC
+SUMMARY:United vs Abbotsford RFC 2
 UID:6708832@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708832
 END:VEVENT

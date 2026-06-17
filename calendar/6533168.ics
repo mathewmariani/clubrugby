@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533168
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nSimon Fraser RC vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533168
 DTEND:20251108T144500Z
 GEO:49.276700;-122.925000
 LOCATION:Simon Fraser Field 4
 DTSTART:20251108T124500Z
-SUMMARY:Simon Fraser RC vs Bayside
+SUMMARY:Simon Fraser RC vs Bayside B
 UID:6533168@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533168
 END:VEVENT

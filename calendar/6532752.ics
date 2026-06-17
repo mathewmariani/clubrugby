@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154949Z
-DESCRIPTION:Womens Premier \nCastaway Wanderers vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532752
+DTSTAMP:20260617T142411Z
+DESCRIPTION:Womens Premier \nCastaway Wanderers vs Vancouver Thunderbirds 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532752
 DTEND:20260328T144500Z
 GEO:48.421900;-123.307000
 LOCATION:Windsor Park
 DTSTART:20260328T124500Z
-SUMMARY:Castaway Wanderers vs Vancouver Thunderbirds 2
+SUMMARY:Castaway Wanderers vs Vancouver Thunderbirds 1
 UID:6532752@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532752
 END:VEVENT

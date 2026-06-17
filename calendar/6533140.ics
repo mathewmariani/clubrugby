@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154945Z
-DESCRIPTION:Womens Pre Season\nUnited vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533140
+DTSTAMP:20260617T142415Z
+DESCRIPTION:Womens Pre Season\nUnited vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533140
 DTEND:20251004T121500Z
 GEO:0.000000;0.000000
 LOCATION:Coquitlam Town Centre
 DTSTART:20251004T101500Z
-SUMMARY:United vs Bayside
+SUMMARY:United vs Bayside B
 UID:6533140@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533140
 END:VEVENT

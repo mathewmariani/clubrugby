@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154933Z
-DESCRIPTION:Mainland U16 Girls\nAbbotsford RFC vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744526
+DTSTAMP:20260617T142350Z
+DESCRIPTION:Mainland U16 Girls\nAbbotsford RFC 2 vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744526
 DTEND:20251123T141500Z
 GEO:49.068300;-122.323000
 LOCATION:Abbotsford Exhibition Park
 DTSTART:20251123T121500Z
-SUMMARY:Abbotsford RFC vs Capilano
+SUMMARY:Abbotsford RFC 2 vs Capilano 2
 UID:6744526@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6744526
 END:VEVENT

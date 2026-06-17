@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nLangley RFC vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851715
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nLangley RFC 1 vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851715
 DTEND:20260419T120000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20260419T100000Z
-SUMMARY:Langley RFC vs UBCOB Ravens
+SUMMARY:Langley RFC 1 vs UBCOB Ravens
 UID:6851715@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6851715
 END:VEVENT

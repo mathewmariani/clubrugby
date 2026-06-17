@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154947Z
-DESCRIPTION:Womens Division 1\nMeraloma vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532767
+DTSTAMP:20260617T142412Z
+DESCRIPTION:Womens Division 1\nMeraloma vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532767
 DTEND:20251101T140000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251101T120000Z
-SUMMARY:Meraloma vs Capilano
+SUMMARY:Meraloma vs Capilano 2
 UID:6532767@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532767
 END:VEVENT

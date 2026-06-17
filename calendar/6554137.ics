@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nAxemen Rugby Club vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554137
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nAxemen Rugby Club vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554137
 DTEND:20260321T144500Z
 GEO:49.726000;-123.144000
 LOCATION:Brennan Park field
 DTSTART:20260321T124500Z
-SUMMARY:Axemen Rugby Club vs Langley RFC
+SUMMARY:Axemen Rugby Club vs Langley RFC 1
 UID:6554137@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554137
 END:VEVENT

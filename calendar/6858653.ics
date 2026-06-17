@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nAbbotsford RFC vs Scribes\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858653
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nAbbotsford RFC 2 vs Scribes\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858653
 DTEND:20260531T120000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260531T100000Z
-SUMMARY:Abbotsford RFC vs Scribes
+SUMMARY:Abbotsford RFC 2 vs Scribes
 UID:6858653@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6858653
 END:VEVENT

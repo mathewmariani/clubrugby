@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nScribes vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533175
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nScribes vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533175
 DTEND:20250927T134500Z
 GEO:49.257000;-123.064000
 LOCATION:Trout Lake
 DTSTART:20250927T114500Z
-SUMMARY:Scribes vs Capilano
+SUMMARY:Scribes vs Capilano 2
 UID:6533175@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533175
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nBayside vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6698371
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nBayside B vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6698371
 DTEND:20250921T130000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20250921T110000Z
-SUMMARY:Bayside vs Meraloma
+SUMMARY:Bayside B vs Meraloma
 UID:6698371@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6698371
 END:VEVENT

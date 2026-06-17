@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154951Z
-DESCRIPTION:Mens Premier \nJames Bay AA vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532170
+DTSTAMP:20260617T142409Z
+DESCRIPTION:Mens Premier \nJames Bay AA vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532170
 DTEND:20260131T164500Z
 GEO:48.418600;-123.382000
 LOCATION:James Bay AA- MacDonald Park
 DTSTART:20260131T144500Z
-SUMMARY:James Bay AA vs Capilano
+SUMMARY:James Bay AA vs Capilano 2
 UID:6532170@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532170
 END:VEVENT

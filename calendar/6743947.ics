@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154926Z
-DESCRIPTION:Age Grade Exhibition \nLangley RFC vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6743947
+DTSTAMP:20260617T142357Z
+DESCRIPTION:Age Grade Exhibition \nLangley RFC 1 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6743947
 DTEND:20251102T130000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251102T110000Z
-SUMMARY:Langley RFC vs Abbotsford RFC
+SUMMARY:Langley RFC 1 vs Abbotsford RFC 2
 UID:6743947@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6743947
 END:VEVENT

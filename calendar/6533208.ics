@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533208
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533208
 DTEND:20251206T131500Z
 GEO:49.250900;-122.961000
 LOCATION:Burnaby Lake Rugby Club
 DTSTART:20251206T111500Z
-SUMMARY:Burnaby Lake vs Capilano
+SUMMARY:Burnaby Lake vs Capilano 2
 UID:6533208@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533208
 END:VEVENT

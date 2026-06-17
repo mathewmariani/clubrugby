@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154947Z
-DESCRIPTION:Womens Division 1\nNanaimo Hornets vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532786
+DTSTAMP:20260617T142412Z
+DESCRIPTION:Womens Division 1\nNanaimo Hornets vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532786
 DTEND:20260131T133000Z
 GEO:49.242600;-124.054000
 LOCATION:May Bennett Pioneer
 DTSTART:20260131T113000Z
-SUMMARY:Nanaimo Hornets vs Bayside
+SUMMARY:Nanaimo Hornets vs Bayside B
 UID:6532786@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532786
 END:VEVENT

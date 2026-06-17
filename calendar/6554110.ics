@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nCapilano vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554110
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nCapilano 2 vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554110
 DTEND:20260207T144500Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260207T124500Z
-SUMMARY:Capilano vs Axemen Rugby Club
+SUMMARY:Capilano 2 vs Axemen Rugby Club
 UID:6554110@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554110
 END:VEVENT

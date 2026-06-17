@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nLangley RFC vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533169
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nLangley RFC 1 vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533169
 DTEND:20250913T134500Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20250913T114500Z
-SUMMARY:Langley RFC vs Vancouver Rowing Club
+SUMMARY:Langley RFC 1 vs Vancouver Rowing Club
 UID:6533169@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533169
 END:VEVENT

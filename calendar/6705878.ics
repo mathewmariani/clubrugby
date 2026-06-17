@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154931Z
-DESCRIPTION:Mainland U18 Boys Pool A\nBayside vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705878
+DTSTAMP:20260617T142352Z
+DESCRIPTION:Mainland U18 Boys Pool A\nBayside B vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705878
 DTEND:20251116T164500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251116T144500Z
-SUMMARY:Bayside vs United
+SUMMARY:Bayside B vs United
 UID:6705878@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705878
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154941Z
-DESCRIPTION:2025 Junior 7s\nLangley RFC vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6598738
+DTSTAMP:20260617T142420Z
+DESCRIPTION:2025 Junior 7s\nLangley RFC 1 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6598738
 DTEND:20250914T110000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20250914T090000Z
-SUMMARY:Langley RFC vs Abbotsford RFC
+SUMMARY:Langley RFC 1 vs Abbotsford RFC 2
 UID:6598738@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6598738
 END:VEVENT

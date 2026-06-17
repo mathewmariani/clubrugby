@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154950Z
-DESCRIPTION:Mens Division 1 \nCapilano vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532215
+DTSTAMP:20260617T142410Z
+DESCRIPTION:Mens Division 1 \nCapilano 2 vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532215
 DTEND:20251018T134500Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251018T114500Z
-SUMMARY:Capilano vs Burnaby Lake
+SUMMARY:Capilano 2 vs Burnaby Lake
 UID:6532215@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532215
 END:VEVENT

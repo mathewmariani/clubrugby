@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154944Z
-DESCRIPTION:Mens Division 3 \nKelowna Crows vs Langley RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533178
+DTSTAMP:20260617T142416Z
+DESCRIPTION:Mens Division 3 \nKelowna Crows vs Langley RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533178
 DTEND:20251004T153000Z
 GEO:49.898300;-119.380000
 LOCATION:Rutland Recreation Park
 DTSTART:20251004T133000Z
-SUMMARY:Kelowna Crows vs Langley RFC
+SUMMARY:Kelowna Crows vs Langley RFC 1
 UID:6533178@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533178
 END:VEVENT

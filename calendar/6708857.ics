@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154928Z
-DESCRIPTION:Mainland U18 Girls\nLangley RFC vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708857
+DTSTAMP:20260617T142355Z
+DESCRIPTION:Mainland U18 Girls\nLangley RFC 1 vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708857
 DTEND:20251102T141500Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251102T121500Z
-SUMMARY:Langley RFC vs Kamloops
+SUMMARY:Langley RFC 1 vs Kamloops
 UID:6708857@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708857
 END:VEVENT

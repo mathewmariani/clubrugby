@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260616T154936Z
-DESCRIPTION:Mainland U16 Boys Pool A\nMeraloma vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708792
+DTSTAMP:20260617T142356Z
+DESCRIPTION:Mainland U16 Boys Pool A\nMeraloma vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708792
 DTEND:20251102T141500Z
 GEO:49.261700;-123.160000
 LOCATION:Connaught Park
 DTSTART:20251102T121500Z
-SUMMARY:Meraloma vs Abbotsford RFC
+SUMMARY:Meraloma vs Abbotsford RFC 2
 UID:6708792@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708792
 END:VEVENT
