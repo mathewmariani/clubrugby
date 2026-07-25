@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121554Z
-DESCRIPTION:2025 Junior 7s\nBayside B vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6598701
+DTSTAMP:20260725T115924Z
+DESCRIPTION:2025 Junior 7s\nBayside vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6598701
 DTEND:20250907T123000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20250907T103000Z
-SUMMARY:Bayside B vs United
+SUMMARY:Bayside vs United
 UID:6598701@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6598701
 END:VEVENT

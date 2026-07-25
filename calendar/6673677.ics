@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nUBCOB Ravens vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6673677
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nUBCOB Ravens vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6673677
 DTEND:20250921T130000Z
 GEO:49.274100;-123.202000
 LOCATION:Jericho Beach Park
 DTSTART:20250921T110000Z
-SUMMARY:UBCOB Ravens vs Bayside B
+SUMMARY:UBCOB Ravens vs Bayside
 UID:6673677@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6673677
 END:VEVENT

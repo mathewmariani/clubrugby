@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121525Z
-DESCRIPTION:Mainland U18 Boys Pool A\nKelowna Crows vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705857
+DTSTAMP:20260725T115859Z
+DESCRIPTION:Mainland U18 Boys Pool A\nKelowna Crows vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705857
 DTEND:20251019T120000Z
 GEO:49.898300;-119.380000
 LOCATION:Rutland Recreation Park
 DTSTART:20251019T100000Z
-SUMMARY:Kelowna Crows vs Bayside B
+SUMMARY:Kelowna Crows vs Bayside
 UID:6705857@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705857
 END:VEVENT

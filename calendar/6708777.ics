@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121521Z
-DESCRIPTION:Mainland U16 Boys Pool B\nCapilano 2 vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708777
+DTSTAMP:20260725T115905Z
+DESCRIPTION:Mainland U16 Boys Pool B\nCapilano vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708777
 DTEND:20251102T153000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251102T133000Z
-SUMMARY:Capilano 2 vs Axemen Rugby Club
+SUMMARY:Capilano vs Axemen Rugby Club
 UID:6708777@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708777
 END:VEVENT

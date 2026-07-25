@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nBayside B vs Team TBC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6707480
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nBayside vs Team TBC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6707480
 DTEND:20251018T110000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251018T090000Z
-SUMMARY:Bayside B vs Team TBC
+SUMMARY:Bayside vs Team TBC
 UID:6707480@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6707480
 END:VEVENT

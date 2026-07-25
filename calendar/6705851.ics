@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121525Z
-DESCRIPTION:Mainland U18 Boys Pool A\nBayside B vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705851
+DTSTAMP:20260725T115859Z
+DESCRIPTION:Mainland U18 Boys Pool A\nBayside vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705851
 DTEND:20251005T143000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251005T123000Z
-SUMMARY:Bayside B vs Abbotsford RFC 2
+SUMMARY:Bayside vs Abbotsford RFC 1
 UID:6705851@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705851
 END:VEVENT

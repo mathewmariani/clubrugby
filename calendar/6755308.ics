@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nWestshore vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6755308
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nWestshore vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6755308
 DTEND:20251123T154000Z
 GEO:48.443600;-123.463000
 LOCATION:Juan De Fuca
 DTSTART:20251123T134000Z
-SUMMARY:Westshore vs Abbotsford RFC 2
+SUMMARY:Westshore vs Abbotsford RFC 1
 UID:6755308@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6755308
 END:VEVENT

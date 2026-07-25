@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nUnited vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858649
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nUnited vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858649
 DTEND:20260524T120000Z
 GEO:49.283800;-122.793000
 LOCATION:Centennial Oval
 DTSTART:20260524T100000Z
-SUMMARY:United vs Capilano 2
+SUMMARY:United vs Capilano
 UID:6858649@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6858649
 END:VEVENT

@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260725T115911Z
+DESCRIPTION:BC Summer Games Pool B\nVancouver Island Central Coast vs North West\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6892463
+DTEND:20260724T114500Z
+GEO:0.000000;0.000000
+LOCATION:BC Rugby
+DTSTART:20260724T094500Z
+SUMMARY:Vancouver Island Central Coast vs North West
+UID:6892463@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6892463
+END:VEVENT
+END:VCALENDAR

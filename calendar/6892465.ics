@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260725T115911Z
+DESCRIPTION:BC Summer Games Pool B\nKootenays vs Vancouver Island Central Coast\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6892465
+DTEND:20260724T145500Z
+GEO:0.000000;0.000000
+LOCATION:BC Rugby
+DTSTART:20260724T125500Z
+SUMMARY:Kootenays vs Vancouver Island Central Coast
+UID:6892465@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6892465
+END:VEVENT
+END:VCALENDAR

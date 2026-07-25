@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121546Z
-DESCRIPTION:Womens Division 1\nUnited vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532804
+DTSTAMP:20260725T115917Z
+DESCRIPTION:Womens Division 1\nUnited vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532804
 DTEND:20260321T131500Z
 GEO:49.283800;-122.793000
 LOCATION:Centennial Oval
 DTSTART:20260321T111500Z
-SUMMARY:United vs Capilano 2
+SUMMARY:United vs Capilano
 UID:6532804@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532804
 END:VEVENT

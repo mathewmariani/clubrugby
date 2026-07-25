@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121542Z
-DESCRIPTION:Mens Premier \nCastaway Wanderers vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532082
+DTSTAMP:20260725T115914Z
+DESCRIPTION:Mens Premier \nCastaway Wanderers vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532082
 DTEND:20251025T153000Z
 GEO:48.421900;-123.307000
 LOCATION:Windsor Park
 DTSTART:20251025T133000Z
-SUMMARY:Castaway Wanderers vs Capilano 2
+SUMMARY:Castaway Wanderers vs Capilano
 UID:6532082@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532082
 END:VEVENT

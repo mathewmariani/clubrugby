@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260725T115911Z
+DESCRIPTION:BC Summer Games Pool B\nVancouver Island Central Coast vs Fraser River\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6892467
+DTEND:20260725T112000Z
+GEO:0.000000;0.000000
+LOCATION:BC Rugby
+DTSTART:20260725T092000Z
+SUMMARY:Vancouver Island Central Coast vs Fraser River
+UID:6892467@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6892467
+END:VEVENT
+END:VCALENDAR

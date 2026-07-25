@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121521Z
-DESCRIPTION:Mainland U16 Boys Pool B\nBrit Lions vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708561
+DTSTAMP:20260725T115905Z
+DESCRIPTION:Mainland U16 Boys Pool B\nBrit Lions vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708561
 DTEND:20251005T131500Z
 GEO:49.093900;-122.942000
 LOCATION:John Oliver Park
 DTSTART:20251005T111500Z
-SUMMARY:Brit Lions vs Bayside B
+SUMMARY:Brit Lions vs Bayside
 UID:6708561@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708561
 END:VEVENT

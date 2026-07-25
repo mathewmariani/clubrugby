@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121557Z
-DESCRIPTION:Mainland U14 Boys\nCapilano 2 vs Bayside B\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705668
+DTSTAMP:20260725T115926Z
+DESCRIPTION:Mainland U14 Boys\nCapilano vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705668
 DTEND:20251005T120000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251005T100000Z
-SUMMARY:Capilano 2 vs Bayside B
+SUMMARY:Capilano vs Bayside
 UID:6705668@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705668
 END:VEVENT

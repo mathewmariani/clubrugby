@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nCapilano 2 vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852604
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nCapilano vs Axemen Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852604
 DTEND:20260510T123000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260510T103000Z
-SUMMARY:Capilano 2 vs Axemen Rugby Club
+SUMMARY:Capilano vs Axemen Rugby Club
 UID:6852604@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6852604
 END:VEVENT

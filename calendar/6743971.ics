@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121525Z
-DESCRIPTION:Mainland U18 Boys Pool A\nUBCOB Ravens vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6743971
+DTSTAMP:20260725T115859Z
+DESCRIPTION:Mainland U18 Boys Pool A\nUBCOB Ravens vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6743971
 DTEND:20251123T153000Z
 GEO:49.274100;-123.202000
 LOCATION:Jericho Beach Park
 DTSTART:20251123T133000Z
-SUMMARY:UBCOB Ravens vs Capilano 2
+SUMMARY:UBCOB Ravens vs Capilano
 UID:6743971@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6743971
 END:VEVENT

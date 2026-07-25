@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121543Z
-DESCRIPTION:Mens Division 1 \nUBCOB Ravens vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532223
+DTSTAMP:20260725T115915Z
+DESCRIPTION:Mens Division 1 \nUBCOB Ravens vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532223
 DTEND:20251025T134500Z
 GEO:49.274100;-123.202000
 LOCATION:Jericho Beach Park
 DTSTART:20251025T114500Z
-SUMMARY:UBCOB Ravens vs Abbotsford RFC 2
+SUMMARY:UBCOB Ravens vs Abbotsford RFC 1
 UID:6532223@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532223
 END:VEVENT

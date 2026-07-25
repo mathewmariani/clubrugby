@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nRidge Meadows vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858652
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nRidge Meadows vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858652
 DTEND:20260531T120000Z
 GEO:49.211800;-122.582000
 LOCATION:Thomas Haney
 DTSTART:20260531T100000Z
-SUMMARY:Ridge Meadows vs Capilano 2
+SUMMARY:Ridge Meadows vs Capilano
 UID:6858652@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6858652
 END:VEVENT

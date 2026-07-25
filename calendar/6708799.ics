@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121530Z
-DESCRIPTION:Mainland U16 Boys Pool A\nBayside B vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708799
+DTSTAMP:20260725T115928Z
+DESCRIPTION:Mainland U16 Boys Pool A\nBayside vs Kamloops\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708799
 DTEND:20251116T141500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251116T121500Z
-SUMMARY:Bayside B vs Kamloops
+SUMMARY:Bayside vs Kamloops
 UID:6708799@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708799
 END:VEVENT

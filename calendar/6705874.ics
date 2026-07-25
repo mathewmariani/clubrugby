@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121525Z
-DESCRIPTION:Mainland U18 Boys Pool A\nLangley RFC 1 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705874
+DTSTAMP:20260725T115859Z
+DESCRIPTION:Mainland U18 Boys Pool A\nLangley RFC 1 vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705874
 DTEND:20251116T153000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251116T133000Z
-SUMMARY:Langley RFC 1 vs Abbotsford RFC 2
+SUMMARY:Langley RFC 1 vs Abbotsford RFC 1
 UID:6705874@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705874
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121526Z
-DESCRIPTION:Mainland U18 Boys Pool B\nLangley RFC 1 vs Abbotsford RFC 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6740821
+DTSTAMP:20260725T115900Z
+DESCRIPTION:Mainland U18 Boys Pool B\nLangley RFC 1 vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6740821
 DTEND:20251102T153000Z
 GEO:49.103700;-122.657000
 LOCATION:Walnut Grove Community Park
 DTSTART:20251102T133000Z
-SUMMARY:Langley RFC 1 vs Abbotsford RFC 2
+SUMMARY:Langley RFC 1 vs Abbotsford RFC 1
 UID:6740821@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6740821
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121532Z
-DESCRIPTION:Age Grade Exhibition \nCapilano 2 vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852598
+DTSTAMP:20260725T115903Z
+DESCRIPTION:Age Grade Exhibition \nCapilano vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6852598
 DTEND:20260426T113000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260426T093000Z
-SUMMARY:Capilano 2 vs UBCOB Ravens
+SUMMARY:Capilano vs UBCOB Ravens
 UID:6852598@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6852598
 END:VEVENT

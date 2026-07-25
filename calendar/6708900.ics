@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121557Z
-DESCRIPTION:Mainland U14 Boys\nCapilano 2 vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708900
+DTSTAMP:20260725T115926Z
+DESCRIPTION:Mainland U14 Boys\nCapilano vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708900
 DTEND:20251116T130000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20251116T110000Z
-SUMMARY:Capilano 2 vs UBCOB Ravens
+SUMMARY:Capilano vs UBCOB Ravens
 UID:6708900@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708900
 END:VEVENT

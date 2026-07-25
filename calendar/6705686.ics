@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260724T121557Z
-DESCRIPTION:Mainland U14 Girls\nKamloops vs Capilano 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705686
+DTSTAMP:20260725T115927Z
+DESCRIPTION:Mainland U14 Girls\nKamloops vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705686
 DTEND:20250928T120000Z
 GEO:50.675800;-120.311000
 LOCATION:Kamloops Exhibition Park
 DTSTART:20250928T100000Z
-SUMMARY:Kamloops vs Capilano 2
+SUMMARY:Kamloops vs Capilano
 UID:6705686@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705686
 END:VEVENT
