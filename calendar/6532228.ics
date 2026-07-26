@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115915Z
-DESCRIPTION:Mens Division 1 \nAbbotsford RFC 1 vs Port Alberni Black Sheep\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532228
+DTSTAMP:20260726T115831Z
+DESCRIPTION:Mens Division 1 \nAbbotsford RFC vs Port Alberni Black Sheep\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532228
 DTEND:20251115T144500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251115T124500Z
-SUMMARY:Abbotsford RFC 1 vs Port Alberni Black Sheep
+SUMMARY:Abbotsford RFC vs Port Alberni Black Sheep
 UID:6532228@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532228
 END:VEVENT

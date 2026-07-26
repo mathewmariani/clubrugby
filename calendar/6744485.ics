@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115905Z
-DESCRIPTION:Mainland U16 Boys Pool B\nSurrey Beavers AA vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744485
+DTSTAMP:20260726T115851Z
+DESCRIPTION:Mainland U16 Boys Pool B\nSurrey Beavers AA vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6744485
 DTEND:20251123T141500Z
 GEO:49.117700;-122.822000
 LOCATION:Sullivan Heights
 DTSTART:20251123T121500Z
-SUMMARY:Surrey Beavers AA vs Abbotsford RFC 1
+SUMMARY:Surrey Beavers AA vs Abbotsford RFC
 UID:6744485@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6744485
 END:VEVENT

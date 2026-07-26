@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115920Z
-DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851749
+DTSTAMP:20260726T115838Z
+DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6851749
 DTEND:20260425T134500Z
 GEO:49.301000;-123.132000
 LOCATION:Brockton Oval
 DTSTART:20260425T114500Z
-SUMMARY:Vancouver Rowing Club vs Abbotsford RFC 1
+SUMMARY:Vancouver Rowing Club vs Abbotsford RFC
 UID:6851749@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6851749
 END:VEVENT

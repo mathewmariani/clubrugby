@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115920Z
-DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554136
+DTSTAMP:20260726T115838Z
+DESCRIPTION:Mens Division 3 \nBurnaby Lake vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6554136
 DTEND:20260321T131500Z
 GEO:49.068300;-122.323000
 LOCATION:Abbotsford Exhibition Park
 DTSTART:20260321T111500Z
-SUMMARY:Burnaby Lake vs Abbotsford RFC 1
+SUMMARY:Burnaby Lake vs Abbotsford RFC
 UID:6554136@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6554136
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115855Z
-DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Rugby Union vs Vancouver Thunderbirds 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6730676
+DTSTAMP:20260726T115812Z
+DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Rugby Union vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6730676
 DTEND:20251206T150000Z
 GEO:49.260200;-123.243000
 LOCATION:UBC- Gerald McGavin Centre
 DTSTART:20251206T130000Z
-SUMMARY:Vancouver Rugby Union vs Vancouver Thunderbirds 1
+SUMMARY:Vancouver Rugby Union vs Vancouver Thunderbirds 2
 UID:6730676@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6730676
 END:VEVENT

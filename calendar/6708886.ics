@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115926Z
-DESCRIPTION:Mainland U14 Boys\nUnited vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708886
+DTSTAMP:20260726T115848Z
+DESCRIPTION:Mainland U14 Boys\nUnited vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708886
 DTEND:20251026T130000Z
 GEO:49.283800;-122.793000
 LOCATION:Centennial Oval
 DTSTART:20251026T110000Z
-SUMMARY:United vs Abbotsford RFC 1
+SUMMARY:United vs Abbotsford RFC
 UID:6708886@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708886
 END:VEVENT

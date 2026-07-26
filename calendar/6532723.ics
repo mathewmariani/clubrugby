@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115916Z
-DESCRIPTION:Womens Premier \nWestshore vs Vancouver Thunderbirds 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532723
+DTSTAMP:20260726T115833Z
+DESCRIPTION:Womens Premier \nWestshore vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532723
 DTEND:20251115T144500Z
 GEO:48.443600;-123.463000
 LOCATION:Juan De Fuca
 DTSTART:20251115T124500Z
-SUMMARY:Westshore vs Vancouver Thunderbirds 1
+SUMMARY:Westshore vs Vancouver Thunderbirds 2
 UID:6532723@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532723
 END:VEVENT

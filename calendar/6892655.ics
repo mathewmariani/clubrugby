@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260726T115823Z
+DESCRIPTION:BC Summer Games Medal Bracket\nFraser River vs Vancouver Island Central Coast\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6892655
+DTEND:20260726T121500Z
+GEO:49.898300;-119.380000
+LOCATION:Rutland Recreation Park
+DTSTART:20260726T101500Z
+SUMMARY:Fraser River vs Vancouver Island Central Coast
+UID:6892655@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6892655
+END:VEVENT
+END:VCALENDAR

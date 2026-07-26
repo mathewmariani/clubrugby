@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115859Z
-DESCRIPTION:Mainland U18 Boys Pool A\nAbbotsford RFC 1 vs Kelowna Crows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705865
+DTSTAMP:20260726T115804Z
+DESCRIPTION:Mainland U18 Boys Pool A\nAbbotsford RFC vs Kelowna Crows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705865
 DTEND:20251102T153000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251102T133000Z
-SUMMARY:Abbotsford RFC 1 vs Kelowna Crows
+SUMMARY:Abbotsford RFC vs Kelowna Crows
 UID:6705865@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705865
 END:VEVENT

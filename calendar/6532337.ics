@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115915Z
-DESCRIPTION:Mens Division 1 \nAbbotsford RFC 1 vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532337
+DTSTAMP:20260726T115831Z
+DESCRIPTION:Mens Division 1 \nAbbotsford RFC vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532337
 DTEND:20260411T153000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260411T133000Z
-SUMMARY:Abbotsford RFC 1 vs Vancouver Rowing Club
+SUMMARY:Abbotsford RFC vs Vancouver Rowing Club
 UID:6532337@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532337
 END:VEVENT

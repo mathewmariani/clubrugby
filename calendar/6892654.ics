@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260726T115823Z
+DESCRIPTION:BC Summer Games Medal Bracket\nFraser Valley vs Thompson-Okanagan\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6892654
+DTEND:20260726T115000Z
+GEO:49.898300;-119.380000
+LOCATION:Rutland Recreation Park
+DTSTART:20260726T095000Z
+SUMMARY:Fraser Valley vs Thompson-Okanagan
+UID:6892654@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6892654
+END:VEVENT
+END:VCALENDAR

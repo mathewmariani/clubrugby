@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260725T115903Z
-DESCRIPTION:Age Grade Exhibition \nAbbotsford RFC 1 vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858648
+DTSTAMP:20260726T115811Z
+DESCRIPTION:Age Grade Exhibition \nAbbotsford RFC vs UBCOB Ravens\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6858648
 DTEND:20260524T120000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260524T100000Z
-SUMMARY:Abbotsford RFC 1 vs UBCOB Ravens
+SUMMARY:Abbotsford RFC vs UBCOB Ravens
 UID:6858648@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6858648
 END:VEVENT
