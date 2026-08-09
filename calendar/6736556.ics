@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112230Z
-DESCRIPTION:Age Grade Exhibition \nComox Valley Rapids vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6736556
+DTSTAMP:20260809T112304Z
+DESCRIPTION:Age Grade Exhibition \nComox Valley Rapids vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6736556
 DTEND:20251102T161500Z
 GEO:0.000000;0.000000
 LOCATION:Vanier High School
 DTSTART:20251102T141500Z
-SUMMARY:Comox Valley Rapids vs Abbotsford RFC
+SUMMARY:Comox Valley Rapids vs Abbotsford RFC 1
 UID:6736556@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6736556
 END:VEVENT

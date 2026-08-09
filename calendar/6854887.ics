@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112251Z
-DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854887
+DTSTAMP:20260809T112325Z
+DESCRIPTION:Mens Division 3 \nVancouver Rowing Club vs Bayside A\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6854887
 DTEND:20260502T134500Z
 GEO:49.301000;-123.132000
 LOCATION:Brockton Oval
 DTSTART:20260502T114500Z
-SUMMARY:Vancouver Rowing Club vs Bayside
+SUMMARY:Vancouver Rowing Club vs Bayside A
 UID:6854887@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6854887
 END:VEVENT

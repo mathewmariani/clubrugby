@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nCastaway Wanderers vs Abbotsford RFC\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532741
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nCastaway Wanderers vs Abbotsford RFC 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532741
 DTEND:20260221T144500Z
 GEO:48.421900;-123.307000
 LOCATION:Windsor Park
 DTSTART:20260221T124500Z
-SUMMARY:Castaway Wanderers vs Abbotsford RFC
+SUMMARY:Castaway Wanderers vs Abbotsford RFC 1
 UID:6532741@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532741
 END:VEVENT

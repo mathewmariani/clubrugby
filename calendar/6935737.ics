@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260809T112315Z
+DESCRIPTION:Saratoga Cup Men\nRocky Mountain Rogues vs Terrace Northmen\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6935737
+DTEND:20260808T133000Z
+GEO:49.509400;-115.768000
+LOCATION:Rocky Mountain Rogues- College of the Rockies
+DTSTART:20260808T113000Z
+SUMMARY:Rocky Mountain Rogues vs Terrace Northmen
+UID:6935737@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6935737
+END:VEVENT
+END:VCALENDAR

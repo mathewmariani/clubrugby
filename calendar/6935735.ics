@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:
+TRIGGER:-PT3H
+END:VALARM
+DTSTAMP:20260809T112314Z
+DESCRIPTION:Saratoga Cup Women\nRocky Mountain Rogues vs Yeti Rugby Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6935735
+DTEND:20260808T161000Z
+GEO:49.445500;-114.752000
+LOCATION:Elk Valley- Fernie Secondary School
+DTSTART:20260808T141000Z
+SUMMARY:Rocky Mountain Rogues vs Yeti Rugby Club
+UID:6935735@clubrugby.ca
+URL:https://clubrugby.ca/bc#/fixture/6935735
+END:VEVENT
+END:VCALENDAR

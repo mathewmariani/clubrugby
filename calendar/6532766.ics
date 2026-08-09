@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112247Z
-DESCRIPTION:Womens Division 1\nKamloops vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532766
+DTSTAMP:20260809T112321Z
+DESCRIPTION:Womens Division 1\nKamloops vs Bayside A\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532766
 DTEND:20251101T140000Z
 GEO:50.675800;-120.311000
 LOCATION:Kamloops Exhibition Park
 DTSTART:20251101T120000Z
-SUMMARY:Kamloops vs Bayside
+SUMMARY:Kamloops vs Bayside A
 UID:6532766@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532766
 END:VEVENT

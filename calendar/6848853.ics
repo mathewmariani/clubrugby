@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nAbbotsford RFC vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6848853
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nAbbotsford RFC 1 vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6848853
 DTEND:20260328T143000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260328T123000Z
-SUMMARY:Abbotsford RFC vs Castaway Wanderers
+SUMMARY:Abbotsford RFC 1 vs Castaway Wanderers
 UID:6848853@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6848853
 END:VEVENT

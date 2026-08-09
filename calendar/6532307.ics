@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112245Z
-DESCRIPTION:Mens Division 1 \nBayside vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532307
+DTSTAMP:20260809T112319Z
+DESCRIPTION:Mens Division 1 \nBayside A vs Vancouver Rowing Club\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532307
 DTEND:20251122T163000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251122T143000Z
-SUMMARY:Bayside vs Vancouver Rowing Club
+SUMMARY:Bayside A vs Vancouver Rowing Club
 UID:6532307@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532307
 END:VEVENT

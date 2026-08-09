@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112251Z
-DESCRIPTION:Mens Division 3 \nAbbotsford RFC vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533196
+DTSTAMP:20260809T112325Z
+DESCRIPTION:Mens Division 3 \nAbbotsford RFC 1 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533196
 DTEND:20251115T144500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251115T124500Z
-SUMMARY:Abbotsford RFC vs Meraloma
+SUMMARY:Abbotsford RFC 1 vs Meraloma
 UID:6533196@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533196
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112226Z
-DESCRIPTION:Mainland U18 Boys Pool B\nAbbotsford RFC vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708557
+DTSTAMP:20260809T112300Z
+DESCRIPTION:Mainland U18 Boys Pool B\nAbbotsford RFC 1 vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708557
 DTEND:20251116T153000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251116T133000Z
-SUMMARY:Abbotsford RFC vs Capilano
+SUMMARY:Abbotsford RFC 1 vs Capilano
 UID:6708557@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708557
 END:VEVENT

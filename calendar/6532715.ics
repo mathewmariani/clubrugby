@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nVancouver Thunderbirds 2 vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532715
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nVancouver Thunderbirds 1 vs Burnaby Lake\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532715
 DTEND:20251025T134500Z
 GEO:49.260200;-123.243000
 LOCATION:UBC- Gerald McGavin Centre
 DTSTART:20251025T114500Z
-SUMMARY:Vancouver Thunderbirds 2 vs Burnaby Lake
+SUMMARY:Vancouver Thunderbirds 1 vs Burnaby Lake
 UID:6532715@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532715
 END:VEVENT

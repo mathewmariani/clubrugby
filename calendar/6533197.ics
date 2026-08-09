@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112251Z
-DESCRIPTION:Mens Division 3 \nBayside vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533197
+DTSTAMP:20260809T112325Z
+DESCRIPTION:Mens Division 3 \nBayside A vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6533197
 DTEND:20251115T144500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251115T124500Z
-SUMMARY:Bayside vs Capilano
+SUMMARY:Bayside A vs Capilano
 UID:6533197@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6533197
 END:VEVENT

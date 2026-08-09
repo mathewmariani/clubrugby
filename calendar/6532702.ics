@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112253Z
-DESCRIPTION:Senior Exhibition\nBayside vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532702
+DTSTAMP:20260809T112327Z
+DESCRIPTION:Senior Exhibition\nBayside A vs United\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532702
 DTEND:20250920T143000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20250920T123000Z
-SUMMARY:Bayside vs United
+SUMMARY:Bayside A vs United
 UID:6532702@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532702
 END:VEVENT

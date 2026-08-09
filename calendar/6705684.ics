@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112222Z
-DESCRIPTION:Mainland U16 Girls\nLangley RFC 1 vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705684
+DTSTAMP:20260809T112308Z
+DESCRIPTION:Mainland U16 Girls\nLangley RFC 1 vs Bayside A\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6705684
 DTEND:20251005T121500Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20251005T101500Z
-SUMMARY:Langley RFC 1 vs Bayside
+SUMMARY:Langley RFC 1 vs Bayside A
 UID:6705684@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6705684
 END:VEVENT

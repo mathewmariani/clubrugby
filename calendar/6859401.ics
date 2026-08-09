@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nWestshore vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6859401
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nWestshore vs Vancouver Thunderbirds 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6859401
 DTEND:20260509T151500Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20260509T131500Z
-SUMMARY:Westshore vs Vancouver Thunderbirds 2
+SUMMARY:Westshore vs Vancouver Thunderbirds 1
 UID:6859401@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6859401
 END:VEVENT

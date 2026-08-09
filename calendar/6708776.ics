@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112301Z
-DESCRIPTION:Mainland U16 Boys Pool B\nAbbotsford RFC vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708776
+DTSTAMP:20260809T112335Z
+DESCRIPTION:Mainland U16 Boys Pool B\nAbbotsford RFC 1 vs Ridge Meadows\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6708776
 DTEND:20251102T141500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251102T121500Z
-SUMMARY:Abbotsford RFC vs Ridge Meadows
+SUMMARY:Abbotsford RFC 1 vs Ridge Meadows
 UID:6708776@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6708776
 END:VEVENT

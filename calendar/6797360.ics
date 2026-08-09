@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112221Z
-DESCRIPTION:Womens Division 3 \nCapilano vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6797360
+DTSTAMP:20260809T112306Z
+DESCRIPTION:Womens Division 3 \nCapilano vs Bayside A\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6797360
 DTEND:20260411T110000Z
 GEO:49.327400;-123.126000
 LOCATION:Klahanie Park
 DTSTART:20260411T090000Z
-SUMMARY:Capilano vs Bayside
+SUMMARY:Capilano vs Bayside A
 UID:6797360@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6797360
 END:VEVENT

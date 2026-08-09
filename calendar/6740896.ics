@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112230Z
-DESCRIPTION:Age Grade Exhibition \nBayside vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6740896
+DTSTAMP:20260809T112304Z
+DESCRIPTION:Age Grade Exhibition \nBayside A vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6740896
 DTEND:20251026T130000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20251026T110000Z
-SUMMARY:Bayside vs Capilano
+SUMMARY:Bayside A vs Capilano
 UID:6740896@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6740896
 END:VEVENT

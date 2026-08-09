@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112221Z
-DESCRIPTION:Womens Division 3 \nAbbotsford RFC vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6797355
+DTSTAMP:20260809T112306Z
+DESCRIPTION:Womens Division 3 \nAbbotsford RFC 1 vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6797355
 DTEND:20260228T131500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260228T111500Z
-SUMMARY:Abbotsford RFC vs Capilano
+SUMMARY:Abbotsford RFC 1 vs Capilano
 UID:6797355@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6797355
 END:VEVENT

@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112253Z
-DESCRIPTION:Senior Exhibition\nBayside vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6726587
+DTSTAMP:20260809T112327Z
+DESCRIPTION:Senior Exhibition\nBayside A vs Castaway Wanderers\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6726587
 DTEND:20260214T150000Z
 GEO:49.039600;-122.815000
 LOCATION:South Surrey Ath Pk
 DTSTART:20260214T130000Z
-SUMMARY:Bayside vs Castaway Wanderers
+SUMMARY:Bayside A vs Castaway Wanderers
 UID:6726587@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6726587
 END:VEVENT

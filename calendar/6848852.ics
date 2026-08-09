@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nAbbotsford RFC vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6848852
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nAbbotsford RFC 1 vs Meraloma\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6848852
 DTEND:20260328T143000Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20260328T123000Z
-SUMMARY:Abbotsford RFC vs Meraloma
+SUMMARY:Abbotsford RFC 1 vs Meraloma
 UID:6848852@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6848852
 END:VEVENT

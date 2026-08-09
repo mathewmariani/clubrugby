@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112245Z
-DESCRIPTION:Mens Division 1 \nLangley RFC 1 vs Bayside\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532338
+DTSTAMP:20260809T112319Z
+DESCRIPTION:Mens Division 1 \nLangley RFC 1 vs Bayside A\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532338
 DTEND:20260411T153000Z
 GEO:49.132800;-122.631000
 LOCATION:Crush Crescent
 DTSTART:20260411T133000Z
-SUMMARY:Langley RFC 1 vs Bayside
+SUMMARY:Langley RFC 1 vs Bayside A
 UID:6532338@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532338
 END:VEVENT

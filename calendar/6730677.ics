@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112231Z
-DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Island Tide vs Vancouver Thunderbirds 2\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6730677
+DTSTAMP:20260809T112306Z
+DESCRIPTION:Ruth Hellerude Brown Cup\nVancouver Island Tide vs Vancouver Thunderbirds 1\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6730677
 DTEND:20260117T150000Z
 GEO:48.421900;-123.307000
 LOCATION:Windsor Park
 DTSTART:20260117T130000Z
-SUMMARY:Vancouver Island Tide vs Vancouver Thunderbirds 2
+SUMMARY:Vancouver Island Tide vs Vancouver Thunderbirds 1
 UID:6730677@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6730677
 END:VEVENT

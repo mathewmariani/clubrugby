@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112246Z
-DESCRIPTION:Womens Premier \nAbbotsford RFC vs Westshore\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532711
+DTSTAMP:20260809T112320Z
+DESCRIPTION:Womens Premier \nAbbotsford RFC 1 vs Westshore\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6532711
 DTEND:20251018T134500Z
 GEO:49.040100;-122.340000
 LOCATION:Exhibition Park
 DTSTART:20251018T114500Z
-SUMMARY:Abbotsford RFC vs Westshore
+SUMMARY:Abbotsford RFC 1 vs Westshore
 UID:6532711@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6532711
 END:VEVENT

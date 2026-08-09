@@ -7,13 +7,13 @@ ACTION:DISPLAY
 DESCRIPTION:
 TRIGGER:-PT3H
 END:VALARM
-DTSTAMP:20260808T112256Z
-DESCRIPTION:2025 Junior 7s\nAbbotsford RFC vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6683618
+DTSTAMP:20260809T112330Z
+DESCRIPTION:2025 Junior 7s\nAbbotsford RFC 1 vs Capilano\n\nMatch details:\nhttps://clubrugby.ca/bc#/fixture/6683618
 DTEND:20250914T110000Z
 GEO:49.068300;-122.323000
 LOCATION:Abbotsford Exhibition Park
 DTSTART:20250914T090000Z
-SUMMARY:Abbotsford RFC vs Capilano
+SUMMARY:Abbotsford RFC 1 vs Capilano
 UID:6683618@clubrugby.ca
 URL:https://clubrugby.ca/bc#/fixture/6683618
 END:VEVENT
